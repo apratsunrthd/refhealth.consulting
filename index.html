@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ref(health) Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero__content">
+      <div class="hero__badge">ref(health).consulting</div>
+      <h1>Building resilient health-tech strategies that scale with trust.</h1>
+      <p>
+        ref(health) guides digital health innovators, provider systems, and payers through
+        pragmatic strategy, compliant operations, and people-centered experiences.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact">Schedule a call</a>
+        <a class="btn btn--ghost" href="#services">Explore our services</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services" class="section">
+      <div class="container">
+        <h2>What we do</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Market &amp; product strategy</h3>
+            <p>
+              Clarity on where to play and how to win, built on market diligence, positioning, and
+              go-to-market roadmaps designed for regulated environments.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Operational readiness</h3>
+            <p>
+              HIPAA-aligned processes, data governance, and vendor ecosystems that create durable
+              confidence for your patients, partners, and regulators.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Fractional leadership</h3>
+            <p>
+              Hands-on product, growth, and program leadership to activate strategy, launch pilots,
+              and enable your team to deliver sustainably.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="split">
+          <div>
+            <h2>How we partner</h2>
+            <ul class="list">
+              <li><strong>Co-create:</strong> Collaborative workshops that align stakeholders around measurable objectives.</li>
+              <li><strong>Operationalize:</strong> Embed with your teams to implement frameworks, metrics, and rituals.</li>
+              <li><strong>Amplify:</strong> Train and mentor leaders so your capabilities grow long after our engagement.</li>
+            </ul>
+          </div>
+          <div class="callout">
+            <p class="callout__title">Why ref(health)?</p>
+            <p>
+              We combine product, clinical, and policy experience to bring nuance to complex
+              healthcare systems without losing sight of the humans they serve.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Signals of impact</h2>
+        <div class="grid grid--two">
+          <article class="stat">
+            <span class="stat__value">30% faster</span>
+            <p>Average time-to-launch for virtual care pilots after our operational assessments.</p>
+          </article>
+          <article class="stat">
+            <span class="stat__value">250k+ lives</span>
+            <p>Supported by patient-first programs we helped design, evaluate, and scale.</p>
+          </article>
+          <article class="stat">
+            <span class="stat__value">Best-in-class</span>
+            <p>Vendor partnerships aligned to clinical, security, and reimbursement requirements.</p>
+          </article>
+          <article class="stat">
+            <span class="stat__value">Trusted teams</span>
+            <p>Leaders equipped with playbooks and dashboards to sustain compliance and growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--accent">
+      <div class="container">
+        <div class="contact">
+          <div>
+            <h2>Let&rsquo;s build resilient healthcare together</h2>
+            <p>
+              Tell us about your challenge, and we&rsquo;ll share a tailored approach within two business
+              days.
+            </p>
+          </div>
+          <a class="btn btn--primary" href="mailto:hello@refhealth.consulting">hello@refhealth.consulting</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. All rights reserved.</span>
+      <span class="footer__tagline">Strategy &bull; Operations &bull; Outcomes that last</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
