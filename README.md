@@ -1,11 +1,12 @@
 # refhealth.consulting
 
-Static marketing site for ref(health) Consulting. The site is a single-page HTML document with
-lightweight styling.
+Static marketing site for ref(health) Consulting. The site includes a marketing homepage and a
+dedicated blog article page, each with lightweight styling.
 
 ## Development
 
-Open `index.html` in your browser to preview the site locally. No build tooling is required.
+Open `index.html` in your browser to preview the homepage locally. Visit `blog.html` to view the
+published dbt article. No build tooling is required.
 
 ## Deployment
 
