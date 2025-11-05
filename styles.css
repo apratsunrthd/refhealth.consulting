@@ -152,7 +152,7 @@ a {
   margin: 1.5rem 0 1rem;
 }
 
-.post__body a {
+.post__body a:not(.btn) {
   color: var(--accent);
   font-weight: 600;
 }
