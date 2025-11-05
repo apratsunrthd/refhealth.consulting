@@ -171,6 +171,10 @@ a {
   align-self: flex-start;
 }
 
+.post .cta .btn--primary {
+  color: #fff;
+}
+
 .post .cta .btn:hover,
 .post .cta .btn:focus {
   transform: translateY(-1px);
