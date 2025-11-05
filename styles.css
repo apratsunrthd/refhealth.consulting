@@ -287,6 +287,10 @@ a {
   box-shadow: 0 18px 30px rgba(13, 91, 215, 0.25);
 }
 
+.btn--primary:visited {
+  color: #fff;
+}
+
 .btn--primary:hover,
 .btn--primary:focus {
   background: var(--accent-strong);
