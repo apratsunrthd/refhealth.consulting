@@ -142,10 +142,50 @@ a {
   margin: 0;
 }
 
+.post__title a {
+  color: inherit;
+}
+
+.post__title a:hover,
+.post__title a:focus {
+  color: var(--accent);
+}
+
 .post__description {
   color: var(--muted);
   margin: 0;
   font-size: 1.05rem;
+}
+
+.post--summary {
+  gap: 1.25rem;
+}
+
+.post--summary .post__title {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.post--summary .btn {
+  width: fit-content;
+}
+
+.post__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.post__tags li {
+  background: rgba(13, 91, 215, 0.1);
+  color: var(--accent-strong);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .post__body {
@@ -203,6 +243,10 @@ a {
 
 .hero--post {
   padding: 3.5rem 0 2.5rem;
+}
+
+.hero--listing {
+  padding: 3rem 0 2rem;
 }
 
 .hero__content h1 {
