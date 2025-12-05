@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://refhealth.consulting/</loc>
-    <lastmod>2025-11-30T11:04:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://refhealth.consulting/blog.html</loc>
-    <lastmod>2025-11-30T11:04:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://refhealth.consulting/blog-100k-per-day-mistake.html</loc>
-    <lastmod>2025-11-30T11:04:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://refhealth.consulting/blog-why-we-build-with-dbt.html</loc>
-    <lastmod>2025-11-30T11:04:00+00:00</lastmod>
-  </url>
+<url>
+<loc>https://refhealth.consulting/</loc>
+<lastmod>2025-11-05T14:38:13-05:00</lastmod>
+</url>
+<url>
+<loc>https://refhealth.consulting/blog-100k-per-day-mistake.html</loc>
+<lastmod>2025-11-06T09:15:21-05:00</lastmod>
+</url>
+<url>
+<loc>https://refhealth.consulting/blog-why-we-build-with-dbt.html</loc>
+<lastmod>2025-11-06T09:15:21-05:00</lastmod>
+</url>
+<url>
+<loc>https://refhealth.consulting/blog.html</loc>
+<lastmod>2025-11-06T09:15:21-05:00</lastmod>
+</url>
 </urlset>
