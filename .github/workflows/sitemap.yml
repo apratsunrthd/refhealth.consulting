@@ -1,0 +1,49 @@
+name: Generate sitemap.xml
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate sitemap
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://refhealth.consulting/
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Inject Google Analytics
+        env:
+          GA_ID: G-20C3G81DBE   # GA ID for refhealth.consulting
+        run: node inject-ga.js
+
+      - name: Commit updated sitemap and GA changes
+        run: |
+          set -e
+          sitemap_path="${{ steps.sitemap.outputs.sitemap-path }}"
+          echo "Sitemap generated at: $sitemap_path"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "$sitemap_path" *.html
+          if git diff --cached --quiet; then
+            echo "No changes to sitemap or HTML"
+            exit 0
+          fi
+          git commit -m "Update sitemap and GA [skip ci]"
+          git push
