@@ -1,6 +1,6 @@
 ---
 name: ref(health) Consulting
-description: Independent healthcare data, analytics, and practical AI consulting.
+description: Healthcare data, analytics, and practical AI consulting.
 colors:
   signal-red: "#d1392d"
   signal-red-deep: "#a7271f"
@@ -15,7 +15,7 @@ colors:
 typography:
   display:
     fontFamily: "IBM Plex Sans, system-ui, sans-serif"
-    fontSize: "clamp(3.2rem, 8vw, 6rem)"
+    fontSize: "clamp(2.75rem, 5.7vw, 4.85rem)"
     fontWeight: 700
     lineHeight: 1.02
     letterSpacing: "normal"
@@ -64,12 +64,13 @@ components:
 
 ## Overview
 
-**Creative North Star: "Healthcare Signal Control"**
+**Creative North Star: "Company Data AI Operating System"**
 
-The site presents healthcare data and AI consulting as routed operational
-signals: questions, sources, governance controls, build paths, and business
-outcomes. The first viewport shows this mechanism directly through a dark
-signal board, not through generic consulting imagery.
+The site presents healthcare data and AI consulting as an operating system:
+business decisions, governed data products, model/provider strategy, workflow
+automation, measurement, documentation, and handoff working as one accountable
+layer. The first viewport should show this as a clean operating model, not a
+decorative diagram.
 
 The system should feel senior, specific, and commercial. It borrows discipline
 from traffic-control diagrams and data lineage maps, then keeps the reading
@@ -80,7 +81,8 @@ surface calm enough for healthcare executives.
 - Direct revenue-oriented copy.
 - Flat, diagrammatic surfaces with strong borders.
 - Red, amber, and green status language tied to risk, governance, and readiness.
-- Public proof links plus anonymized private capability language.
+- Evidence through diagnostics, working artifacts, controls, and operating
+  cadence.
 
 ## Colors
 
@@ -122,7 +124,7 @@ governance, readiness, or action. Do not use them as random decoration.
 
 **Character:** The pairing is operational and precise. Plex Sans carries the
 executive argument; Plex Mono is used only where the interface needs a label,
-status, repo marker, or route note.
+status marker, sequence number, or operating-system layer.
 
 ### Hierarchy
 
@@ -141,8 +143,8 @@ must carry its own weight.
 
 The site uses constrained full-width bands with a maximum content width near
 1160px. Desktop layouts use two-column pairings: argument beside artifact,
-question beside proof, or capability beside system rows. Mobile layouts collapse
-to one column with the artifact rendered as stacked signal states.
+question beside evidence, or capability beside system rows. Mobile layouts
+collapse to one column with the operating-system panel rendered as stacked rows.
 
 Offer packaging is a bordered row system, not a card grid. The method section is
 the only equal-panel sequence because the ordered steps are the content.
@@ -150,7 +152,7 @@ the only equal-panel sequence because the ordered steps are the content.
 ## Elevation & Depth
 
 The system is flat by default. Depth comes from tonal contrast, borders, section
-bands, and the dark signal surface. Shadows are limited to live states such as
+bands, and the dark operating-system surface. Shadows are limited to live states such as
 primary-button hover.
 
 ### Named Rules
@@ -161,7 +163,7 @@ shadows. Choose a rule or a state shadow, not both.
 ## Shapes
 
 Corners are small and utilitarian. The standard radius is 6px. Buttons, tags,
-proof rows, and panels use the same controlled corner language.
+evidence rows, and panels use the same controlled corner language.
 
 Borders are straight and structural. Avoid pill chips except where a compact
 label would otherwise crowd the layout.
@@ -180,16 +182,16 @@ label would otherwise crowd the layout.
 ### Tags
 
 - **Style:** Thin border, small radius, mono label text.
-- **State:** Tags classify timing, proof type, or engagement type. They are not
+- **State:** Tags classify timing, evidence type, or engagement type. They are not
   decorative pills.
 
 ### Cards / Containers
 
 - **Corner Style:** Small radius (6px).
-- **Background:** Strong paper for reading surfaces; black for the signal board
-  and AI capability layer.
+- **Background:** Strong paper for reading surfaces; black for the operating
+  model header and AI capability layer.
 - **Shadow Strategy:** Flat at rest.
-- **Border:** Ink borders for proof, offer, method, and article containers.
+- **Border:** Ink borders for evidence, offer, method, and article containers.
 - **Internal Padding:** At least 1rem for content-bearing containers.
 
 ### Navigation
@@ -197,11 +199,12 @@ label would otherwise crowd the layout.
 Navigation is compact and text-first. The primary CTA is a black rectangular
 button with a 44px minimum touch target. Mobile navigation stacks full-width.
 
-### Signal Board
+### Operating System Panel
 
-The signature component is the hero signal board: a dark operational map with
-orthogonal SVG routes, red/amber/green state lights, and transparent node text.
-On mobile it becomes a stacked sequence of signal nodes.
+The signature component is the hero operating-system panel: a black header and
+stacked rows for business decisions, data products, AI orchestration, workflow,
+and operating cadence. It must never use overlapping text, decorative route
+lines, or map-like clutter.
 
 ## Do's and Don'ts
 
@@ -211,15 +214,15 @@ On mobile it becomes a stacked sequence of signal nodes.
   explicit offers.
 - **Do** tie AI copy to data readiness, governance, workflow fit, and
   measurable business action.
-- **Do** distinguish public proof from anonymized private capability language.
+- **Do** lead with artifact evidence: decision memos, working builds, control
+  packages, measurement, and handoff.
 - **Do** keep section spacing generous and content blocks scan-friendly.
 
 ### Don't:
 
-- **Don't** invent client logos, testimonials, prices, certifications, revenue
-  outcomes, or employer endorsement.
-- **Don't** name private employer systems or private local repos as public case
-  studies.
+- **Don't** invent client logos, testimonials, prices, certifications, or
+  revenue outcomes.
+- **Don't** name private systems or private projects as public case studies.
 - **Don't** use generic AI agency language, purple gradients, glassmorphism, or
   decorative icon cards.
 - **Don't** turn mono labels into long body copy.

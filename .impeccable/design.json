@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-13T12:17:20Z",
+  "generatedAt": "2026-09-13T23:55:00Z",
   "title": "Design System: ref(health) Consulting",
   "extensions": {
     "colorMeta": {
@@ -41,8 +41,8 @@
         "purpose": "Large, direct page-level claims."
       },
       "label": {
-        "displayName": "Signal Label",
-        "purpose": "Short status, repo, and route labels only."
+        "displayName": "System Label",
+        "purpose": "Short status markers, sequence numbers, and operating-system layers."
       }
     },
     "shadows": [
@@ -58,11 +58,6 @@
       }
     ],
     "motion": [
-      {
-        "name": "signal-flow",
-        "value": "stroke-dashoffset over 7s-9s linear",
-        "purpose": "Hero route current animation, disabled for reduced motion."
-      },
       {
         "name": "state-transition",
         "value": "160ms ease",
@@ -98,38 +93,38 @@
       "css": ".ds-btn-secondary { min-height: 48px; padding: 0.86rem 1.12rem; border: 1px solid #11100e; border-radius: 6px; background: #fbfcf6; color: #11100e; font: 700 1rem/1.2 IBM Plex Sans, system-ui, sans-serif; transition: transform 160ms ease, background 160ms ease; } .ds-btn-secondary:hover { background: #d69a24; transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
     },
     {
-      "name": "Navigation CTA",
-      "kind": "nav",
-      "refersTo": "nav-cta",
-      "description": "Compact black revenue CTA in the header.",
-      "html": "<a class=\"ds-nav-cta\" href=\"#\">Start a paid conversation</a>",
-      "css": ".ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0.7rem 1rem; border: 1px solid #11100e; border-radius: 6px; background: #050505; color: #fffdf8; font: 600 0.94rem/1.2 IBM Plex Sans, system-ui, sans-serif; text-decoration: none; } .ds-nav-cta:hover { background: #a7271f; } .ds-nav-cta:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+      "name": "Operating System Panel",
+      "kind": "custom",
+      "refersTo": "os-panel",
+      "description": "Hero artifact showing the company Data AI Operating System as stacked operating layers.",
+      "html": "<aside class=\"ds-os-panel\"><header><span>Operating model</span><h2>What the system contains</h2></header><div class=\"ds-os-row\"><span>01</span><strong>Business decisions</strong></div></aside>",
+      "css": ".ds-os-panel { border: 1px solid #11100e; border-radius: 6px; overflow: hidden; background: #fbfcf6; color: #11100e; } .ds-os-panel header { padding: 1.5rem; border-bottom: 1px solid #11100e; background: #050505; color: #fffdf8; } .ds-os-row { display: grid; grid-template-columns: 56px 1fr; gap: 1rem; padding: 1.08rem 1.25rem; border-top: 1px solid #11100e; background: #fbfcf6; }"
     },
     {
       "name": "Offer Row",
       "kind": "custom",
       "refersTo": "offer-row",
       "description": "Commercial service packaging with a meaningful signal state.",
-      "html": "<article class=\"ds-offer\"><span class=\"ds-signal\"></span><div><h3>AI use-case diagnostic</h3><p>Rank opportunities by value, data fitness, workflow fit, and risk.</p></div><span class=\"ds-tag\">2-4 weeks</span></article>",
+      "html": "<article class=\"ds-offer\"><span class=\"ds-signal\"></span><div><h3>Company Data AI Operating System</h3><p>Connect data products, model strategy, governance, measurement, and workflow.</p></div><span class=\"ds-tag\">Flagship build</span></article>",
       "css": ".ds-offer { display: grid; grid-template-columns: 16px minmax(0,1fr) max-content; gap: 1.15rem; align-items: start; padding: 1.25rem 0; border-bottom: 1px solid #11100e; font-family: IBM Plex Sans, system-ui, sans-serif; } .ds-offer h3 { margin: 0 0 0.45rem; font-size: 1.25rem; line-height: 1.1; } .ds-offer p { margin: 0; color: #332f2a; line-height: 1.55; } .ds-signal { width: 12px; height: 12px; margin-top: 0.22rem; border-radius: 50%; background: #d1392d; } .ds-tag { padding: 0.28rem 0.5rem; border: 1px solid #9f927b; border-radius: 6px; color: #332f2a; font: 600 0.78rem/1.2 IBM Plex Mono, monospace; }"
     },
     {
-      "name": "Proof Link",
-      "kind": "card",
-      "refersTo": "proof-link",
-      "description": "Flat linked proof row for public builds and writing.",
-      "html": "<a class=\"ds-proof\" href=\"#\"><span>Public build</span>Never Behind: Supabase-backed strength training app</a>",
-      "css": ".ds-proof { display: grid; gap: 0.35rem; padding: 1.05rem; border: 1px solid #11100e; background: #fbfcf6; color: #11100e; text-decoration: none; font-family: IBM Plex Sans, system-ui, sans-serif; } .ds-proof:hover { background: #d69a24; color: #050505; } .ds-proof span { color: #a7271f; font: 600 0.78rem/1.25 IBM Plex Mono, monospace; letter-spacing: 0.04em; } .ds-proof:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+      "name": "Evidence List",
+      "kind": "custom",
+      "refersTo": "evidence-list",
+      "description": "Flat proof rows for deliverables buyers can inspect during an engagement.",
+      "html": "<ol class=\"ds-evidence\"><li><span>01</span><strong>Decision memo</strong><p>What to fund, stop, govern, build, or buy.</p></li></ol>",
+      "css": ".ds-evidence { display: grid; gap: 1px; padding: 0; margin: 0; border: 1px solid #11100e; background: #11100e; list-style: none; } .ds-evidence li { display: grid; grid-template-columns: 52px 1fr; gap: .25rem 1rem; padding: 1.08rem; background: #fbfcf6; } .ds-evidence span { grid-row: 1 / span 2; color: #a7271f; font: 600 .78rem/1.25 IBM Plex Mono, monospace; letter-spacing: .04em; }"
     }
   ],
   "narrative": {
-    "northStar": "Healthcare Signal Control",
-    "overview": "The site presents healthcare data and AI consulting as routed operational signals: questions, sources, governance controls, build paths, and business outcomes. The first viewport shows this mechanism directly through a dark signal board, not through generic consulting imagery. The system should feel senior, specific, and commercial. It borrows discipline from traffic-control diagrams and data lineage maps, then keeps the reading surface calm enough for healthcare executives.",
+    "northStar": "Company Data AI Operating System",
+    "overview": "The site presents healthcare data and AI consulting as an operating system: business decisions, governed data products, model/provider strategy, workflow automation, measurement, documentation, and handoff working as one accountable layer. The first viewport should show this as a clean operating model, not a decorative diagram.",
     "keyCharacteristics": [
       "Direct revenue-oriented copy.",
       "Flat, diagrammatic surfaces with strong borders.",
       "Red, amber, and green status language tied to risk, governance, and readiness.",
-      "Public proof links plus anonymized private capability language."
+      "Evidence through diagnostics, working artifacts, controls, and operating cadence."
     ],
     "rules": [
       {
@@ -148,22 +143,22 @@
         "section": "typography"
       },
       {
-        "name": "The Flat Control Surface Rule",
-        "body": "Do not pair hairline borders with wide ambient shadows. Choose a rule or a state shadow, not both.",
-        "section": "elevation"
+        "name": "The No Overlap Rule",
+        "body": "Hero artifacts must use stable rows or panels. Do not use overlapping text, decorative route lines, or map-like clutter.",
+        "section": "layout"
       }
     ],
     "dos": [
-      "Do sell paid diagnostics, build sprints, prototypes, and advisory work as explicit offers.",
-      "Do tie AI copy to data readiness, governance, workflow fit, and measurable business action.",
-      "Do distinguish public proof from anonymized private capability language.",
+      "Do sell the company Data AI Operating System as the flagship mechanism.",
+      "Do tie AI copy to data readiness, governance, workflow fit, model/provider strategy, and measurable business action.",
+      "Do lead with artifact evidence: decision memos, working builds, control packages, measurement, and handoff.",
       "Do keep section spacing generous and content blocks scan-friendly."
     ],
     "donts": [
-      "Don't invent client logos, testimonials, prices, certifications, revenue outcomes, or employer endorsement.",
-      "Don't name private employer systems or private local repos as public case studies.",
-      "Don't use generic AI agency language, purple gradients, glassmorphism, or decorative icon cards.",
-      "Don't turn mono labels into long body copy."
+      "Don't invent client logos, testimonials, prices, certifications, or revenue outcomes.",
+      "Don't name private systems or private projects as public case studies.",
+      "Don't use public code links as primary conversion proof.",
+      "Don't use generic AI agency language, purple gradients, glassmorphism, or decorative icon cards."
     ]
   }
 }

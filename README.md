@@ -1,12 +1,13 @@
 # refhealth.consulting
 
-Static marketing site for ref(health) Consulting, an independent healthcare
-data, analytics, and practical AI consulting firm.
+Static marketing site for ref(health) Consulting, a healthcare data, analytics,
+and practical AI consulting firm.
 
 The homepage positions the firm around paid healthcare data and AI work:
-AI-readiness diagnostics, data landscape assessments, dbt analytics engineering,
-agentic workflow prototypes, payer/provider modernization support, and
-fractional data leadership.
+AI-readiness diagnostics, company Data AI Operating Systems, data landscape
+assessments, dbt analytics engineering, model orchestration, agentic workflow
+prototypes, payer/provider modernization support, and fractional data
+leadership.
 
 ## Development
 

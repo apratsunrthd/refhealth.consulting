@@ -21,31 +21,39 @@ Work was done on `update-content-ai-consulting-site`, not `main`.
 
 ## Design Context
 
-The active visual direction is "healthcare signal-control grid." It uses a
+The active visual direction is "Company Data AI Operating System." It uses a
 paper/ink base with red, amber, green, and teal signal states. Avoid reverting to
-generic healthcare blue gradients, card grids, glass, or AI-agency purple.
+the rejected signal-map hero, generic healthcare blue gradients, card grids,
+glass, or AI-agency purple.
 
 Impeccable context reported no automatic design hook. Manual detector command:
 
 ```bash
-/Users/apratsunrthd/.claude/skills/impeccable/scripts/impeccable detect --json index.html styles.css blog.html blog-100k-per-day-mistake.html blog-why-we-build-with-dbt.html
+$HOME/.claude/skills/impeccable/scripts/impeccable detect --json index.html styles.css blog.html blog-100k-per-day-mistake.html blog-why-we-build-with-dbt.html
 ```
 
-Known detector state after the latest pass: only section-level cramped-padding
-warnings remain. The rendered screenshots showed adequate spacing.
-
-Final Impeccable reviewer verdict: `ship`. The final pass specifically checked
-mobile touch targets, blog/article navigation labels, and durable proof copy.
+Known detector state after the latest pass: section-level cramped-padding
+warnings and type-ramp advisories remain. The rendered screenshots showed
+adequate spacing, no overlap, no visible undersized touch targets on the
+homepage, and no horizontal mobile overflow.
 
 ## Content Boundaries
 
-- Brad's current title can be used, but do not imply employer sponsorship.
-- Do not name Pager internal tools, data, systems, clients, or proprietary
-  details.
-- Public GitHub links may be used for public repositories only.
-- Private local repos may inform generic capability language only.
+- Do not mention the founder's personal name in public site copy or public project
+  docs.
+- Do not use affiliation disclaimer copy.
+- Do not lead with public code links as buyer proof. If used later, they should
+  be secondary technical diligence only.
+- Private projects may inform generic capability language only.
 - Do not invent clients, logos, case-study metrics, pricing, certifications, or
   guarantees.
+
+## Required AI Positioning
+
+- Mention multi-model orchestration across labs/providers.
+- Mention the ability to go deep with a single provider when policy,
+  integration, commitment, or delivery speed makes that the right path.
+- Keep the company Data AI Operating System as the flagship mechanism.
 
 ## Verification
 
