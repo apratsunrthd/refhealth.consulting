@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ref(health) Consulting</title>
+  <title>ref(health) Consulting | Healthcare Data and AI Consulting</title>
+  <meta
+    name="description"
+    content="Healthcare data, analytics, dbt, and practical AI consulting for teams that need governed systems, credible insights, and measurable business action."
+  />
+  <meta property="og:title" content="ref(health) Consulting" />
+  <meta
+    property="og:description"
+    content="Senior healthcare data and AI consulting across payer, provider, wellness, and navigation."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://refhealth.consulting/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
 <!-- Google tag (gtag.js) -->
@@ -20,119 +31,288 @@
 
 </head>
 <body>
-  <header class="hero">
-    <div class="container hero__content">
-      <div class="hero__badge">ref(health).consulting</div>
-      <h1>Healthcare data platforms engineered for real-world outcomes.</h1>
-      <p>
-        ref(health) delivers data warehousing, data engineering, and analytics leadership for
-        providers and payers who need compliant, cloud-first solutions that move the needle. We
-        embed as consulting partners or contract teams to ship value fast without compromising trust.
-      </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#contact">Schedule a call</a>
-        <a class="btn btn--ghost" href="#services">Explore our services</a>
-        <a class="btn btn--ghost" href="blog.html">Read our blog</a>
-      </div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home">
+        <span class="site-logo__mark">ref</span><span>(health)</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#offers">Offers</a>
+        <a href="#ai">AI work</a>
+        <a href="#proof">Proof</a>
+        <a href="blog.html">Insights</a>
+        <a class="nav-cta" href="mailto:refhealth.consulting@gmail.com?subject=Paid%20ref(health)%20consulting%20engagement">Start a paid conversation</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <section id="services" class="section">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1 id="hero-title">Healthcare data and AI consulting for teams that need the work to hold up.</h1>
+          <p class="hero__lead">
+            ref(health) helps payer, provider, wellness, and navigation teams turn messy data, AI pressure, and executive questions into governed systems people can use.
+          </p>
+          <div class="hero__actions" aria-label="Primary actions">
+            <a class="btn btn--primary" href="mailto:refhealth.consulting@gmail.com?subject=Paid%20ref(health)%20consulting%20engagement">Start a paid engagement conversation</a>
+            <a class="btn btn--secondary" href="#offers">Review paid offers</a>
+          </div>
+          <dl class="signal-strip" aria-label="Experience signals">
+            <div>
+              <dt>21 years</dt>
+              <dd>Healthcare operating context</dd>
+            </div>
+            <div>
+              <dt>dbt fluent</dt>
+              <dd>Analytics engineering that can be trusted</dd>
+            </div>
+            <div>
+              <dt>AI builder</dt>
+              <dd>Recent agentic systems, not slideware</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="signal-board" aria-labelledby="signal-board-title">
+          <figcaption id="signal-board-title">A practical engagement starts with the signal path.</figcaption>
+          <svg class="signal-board__routes" viewBox="0 0 720 520" aria-hidden="true" focusable="false">
+            <path class="route route--ready" d="M102 86 H298 V206 H428 V328 H616" />
+            <path class="route route--risk" d="M102 206 H230 V328 H428" />
+            <path class="route route--money" d="M102 328 H298 V430 H616" />
+            <path class="route route--quiet" d="M298 86 H616 V206 H524" />
+          </svg>
+          <div class="node node--question">
+            <span class="node__label">Executive question</span>
+            <strong>Where will AI pay back?</strong>
+            <small>Revenue, cost, risk, adoption</small>
+          </div>
+          <div class="node node--data">
+            <span class="node__label">Data landscape</span>
+            <strong>Claims + clinical + member + ops</strong>
+            <small>Ownership, quality, lineage</small>
+          </div>
+          <div class="node node--govern">
+            <span class="node__label">Control point</span>
+            <strong>Govern, map, measure, manage</strong>
+            <small>AI risk and data readiness</small>
+          </div>
+          <div class="node node--build">
+            <span class="node__label">Build path</span>
+            <strong>dbt models, agents, dashboards</strong>
+            <small>Tested, documented, handed off</small>
+          </div>
+          <div class="node node--outcome">
+            <span class="node__label">Outcome</span>
+            <strong>Decision-ready work</strong>
+            <small>Used by business and data teams</small>
+          </div>
+          <ul class="signal-board__legend" aria-label="Signal legend">
+            <li><span class="light light--green"></span>Ready to build</li>
+            <li><span class="light light--amber"></span>Needs governance</li>
+            <li><span class="light light--red"></span>Revenue or risk at stake</li>
+          </ul>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="stakes-title">
+      <div class="container compact-grid">
+        <div>
+          <h2 id="stakes-title">The buyer problem is not "add AI."</h2>
+          <p>
+            The problem is knowing which healthcare workflows can absorb AI, which data can support it, which controls are missing, and where a senior data leader can make the work measurable.
+          </p>
+        </div>
+        <div class="fact-rail" aria-label="Credibility facts">
+          <p><strong>Payer, provider, wellness, navigation.</strong> The work is grounded in how healthcare organizations actually operate.</p>
+          <p><strong>Analytics plus translation.</strong> Brad Lumley connects data teams, business owners, and executive decisions.</p>
+          <p><strong>Independent consulting.</strong> ref(health) is a personal consulting venture and is not affiliated with Brad's employer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="offers" class="section section--paper" aria-labelledby="offers-title">
       <div class="container">
-        <h2>What we do</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Healthcare data warehousing</h3>
-            <p>
-              Modernize your analytics foundation with secure architectures, governed models, and
-              interoperability that respects payer and provider workflows.
-            </p>
+        <div class="section-heading">
+          <h2 id="offers-title">Consulting offers built to sell.</h2>
+          <p>
+            Start with a paid diagnostic, a focused build, or fractional leadership. The offer depends on where money, risk, and decision speed are stuck.
+          </p>
+        </div>
+
+        <div class="offer-list">
+          <article class="offer">
+            <div class="offer__signal offer__signal--red" aria-hidden="true"></div>
+            <div>
+              <h3>AI use-case and data-readiness diagnostic</h3>
+              <p>
+                Rank AI opportunities by business value, data fitness, workflow fit, privacy risk, and implementation cost. Leave with a build/no-build map, governance gaps, and the next paid project.
+              </p>
+            </div>
+            <span>2-4 weeks</span>
           </article>
-          <article class="card">
-            <h3>Data engineering &amp; pipelines</h3>
-            <p>
-              Ship resilient ingestion, transformation, and orchestration with tools like dbt,
-              cloud-native warehouses, and automation tuned to healthcare complexity.
-            </p>
+          <article class="offer">
+            <div class="offer__signal offer__signal--amber" aria-hidden="true"></div>
+            <div>
+              <h3>Healthcare data landscape assessment</h3>
+              <p>
+                Map sources, owners, metrics, quality failure points, redundant work, single points of failure, and modernization priorities across claims, clinical, member, product, provider, and operational data.
+              </p>
+            </div>
+            <span>Rapid audit</span>
           </article>
-          <article class="card">
-            <h3>Analytics engineering &amp; insights</h3>
-            <p>
-              Activate decision-ready metrics, dashboards, and visualizations that keep clinicians,
-              operators, and executives aligned on outcomes.
-            </p>
+          <article class="offer">
+            <div class="offer__signal offer__signal--green" aria-hidden="true"></div>
+            <div>
+              <h3>dbt analytics engineering accelerator</h3>
+              <p>
+                Convert brittle SQL, unclear metrics, and dashboard mistrust into tested models, lineage, docs, reviews, and a workflow business teams can understand.
+              </p>
+            </div>
+            <span>Build sprint</span>
+          </article>
+          <article class="offer">
+            <div class="offer__signal offer__signal--red" aria-hidden="true"></div>
+            <div>
+              <h3>Agentic workflow prototypes</h3>
+              <p>
+                Build practical AI agents for research, documentation, operating rhythm, contingency planning, analytics triage, and knowledge work. Small enough to validate, rigorous enough to govern.
+              </p>
+            </div>
+            <span>Prototype to pilot</span>
+          </article>
+          <article class="offer">
+            <div class="offer__signal offer__signal--amber" aria-hidden="true"></div>
+            <div>
+              <h3>Payer and provider modernization support</h3>
+              <p>
+                Support teams working through provider data, interoperability, prior authorization, quality, care navigation, member engagement, cost-of-care, and operational analytics pressure.
+              </p>
+            </div>
+            <span>Advisory + build</span>
+          </article>
+          <article class="offer">
+            <div class="offer__signal offer__signal--green" aria-hidden="true"></div>
+            <div>
+              <h3>Fractional data and AI leadership</h3>
+              <p>
+                Add senior judgment for roadmaps, operating models, executive narratives, vendor decisions, hiring plans, and the translation layer between data delivery and business value.
+              </p>
+            </div>
+            <span>Retainer</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="split">
-          <div>
-            <h2>How we partner</h2>
-            <ul class="list">
-              <li><strong>Assess &amp; architect:</strong> Rapidly evaluate legacy stacks and chart pragmatic modernization roadmaps.</li>
-              <li><strong>Build &amp; automate:</strong> Embed with your teams to stand up HIPAA-aware pipelines, models, and QA.</li>
-              <li><strong>Enable &amp; upskill:</strong> Mentor analysts and engineers so value keeps compounding after launch.</li>
-            </ul>
+    <section id="ai" class="section section--dark" aria-labelledby="ai-title">
+      <div class="container ai-grid">
+        <div class="section-heading section-heading--dark">
+          <h2 id="ai-title">AI capability, stated carefully.</h2>
+          <p>
+            The recent work is hands-on: agents, review panels, data analyzers, documentation systems, and product prototypes. Confidential examples stay anonymized; public examples stay linkable.
+          </p>
+        </div>
+        <div class="ai-system" aria-label="AI capability map">
+          <div class="ai-system__row">
+            <span>01</span>
+            <p><strong>Operating agents.</strong> Chief-of-staff patterns, task guidance, strategy personae, and executive review loops.</p>
           </div>
-          <div class="callout">
-            <p class="callout__title">Why ref(health)?</p>
-            <p>
-              We bring 20+ years across payer and provider organizations, deep HIPAA fluency, and
-              hands-on mastery of cloud data platforms to every engagement.
-            </p>
+          <div class="ai-system__row">
+            <span>02</span>
+            <p><strong>Organizational resilience.</strong> AI-assisted contingency planning for redundancy, role coverage, and single points of failure.</p>
+          </div>
+          <div class="ai-system__row">
+            <span>03</span>
+            <p><strong>Data landscape analyzers.</strong> Tools that inspect sources, models, ownership, risks, and documentation gaps before a team overbuilds.</p>
+          </div>
+          <div class="ai-system__row">
+            <span>04</span>
+            <p><strong>Documentation engines.</strong> Repo documentation rigor, handoff briefs, and sync patterns that keep Confluence aligned with the code.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <h2>Signals of impact</h2>
-        <div class="grid grid--two">
-          <article class="stat">
-            <span class="stat__value">20+ years</span>
-            <p>Healthcare data experience spanning commercial, Marketplace (ACA), Medicare, and Medicaid lines of business.</p>
-          </article>
-          <article class="stat">
-            <span class="stat__value">Millions of lives</span>
-            <p>Payer and provider analytics ecosystems scaled responsibly across the populations they serve.</p>
-          </article>
-          <article class="stat">
-            <span class="stat__value">Cloud native</span>
-            <p>Trusted implementations on platforms like Snowflake, BigQuery, Redshift, and Databricks.</p>
-          </article>
-          <article class="stat">
-            <span class="stat__value">Compliance first</span>
-            <p>Data governance, privacy, and security practices that keep HIPAA requirements non-negotiable.</p>
-          </article>
+    <section id="proof" class="section" aria-labelledby="proof-title">
+      <div class="container proof-layout">
+        <div>
+          <h2 id="proof-title">Built by someone who has actually shipped things.</h2>
+          <p>
+            Brad Lumley leads data, analytics, and insights work in healthcare and keeps building practical AI-assisted systems across personal projects. That matters because clients do not need another strategy deck. They need someone who can frame the work and get to a working artifact.
+          </p>
+          <p>
+            Current public material includes small apps, AI-assisted workflows, Supabase/Postgres projects, Cloudflare Worker patterns, browser-only tools, test-backed prototypes, and long-form writing on domain knowledge and dbt.
+          </p>
+        </div>
+        <div class="proof-links" aria-label="Public proof links">
+          <a href="https://github.com/apratsunrthd/2x5strong" target="_blank" rel="noopener">
+            <span>Public build</span>
+            Never Behind: Supabase-backed strength training app
+          </a>
+          <a href="https://github.com/apratsunrthd/cook-for-a-crowd" target="_blank" rel="noopener">
+            <span>Public build</span>
+            Cook for a Crowd: AI-assisted recipe and event planning
+          </a>
+          <a href="https://github.com/apratsunrthd/claude-git-in-here" target="_blank" rel="noopener">
+            <span>Public build</span>
+            Claude, git in here: repo dashboard and usage tooling
+          </a>
+          <a href="blog.html">
+            <span>Writing</span>
+            Domain knowledge, dbt, and healthcare analytics
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section section--accent">
+    <section class="section section--paper" aria-labelledby="method-title">
       <div class="container">
-        <div class="contact">
-          <div>
-            <h2>Let&rsquo;s unlock your next data milestone</h2>
-            <p>
-              Share your use case&mdash;from migration to analytics activation&mdash;and we&rsquo;ll respond with a
-              tailored plan within two business days.
-            </p>
-          </div>
-          <a class="btn btn--primary" href="mailto:refhealth.consulting@gmail.com">refhealth.consulting@gmail.com</a>
+        <div class="section-heading">
+          <h2 id="method-title">The working method.</h2>
+          <p>
+            Clear enough for executives, technical enough for delivery teams, and documented enough to survive handoff.
+          </p>
         </div>
+        <ol class="method-list">
+          <li>
+            <strong>Frame the money question.</strong>
+            <span>Define the decision, owner, cost of delay, and proof needed to fund the next move.</span>
+          </li>
+          <li>
+            <strong>Map the system.</strong>
+            <span>Trace data, workflow, risk, governance, and adoption constraints before tools enter the room.</span>
+          </li>
+          <li>
+            <strong>Build the smallest credible artifact.</strong>
+            <span>Ship a model, agent, dashboard, diagnostic, or prototype that can be tested against real work.</span>
+          </li>
+          <li>
+            <strong>Transfer ownership.</strong>
+            <span>Leave tests, documentation, lineage, decision logs, and a team that understands what changed.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <h2 id="contact-title">Bring the expensive, messy healthcare data problem.</h2>
+          <p>
+            Send the business problem, systems involved, deadline, and who owns the decision. If there is a fit, the next step is a paid diagnostic, build sprint, or advisory engagement.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="mailto:refhealth.consulting@gmail.com?subject=Paid%20ref(health)%20consulting%20engagement">refhealth.consulting@gmail.com</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__content">
-      <span>&copy; <span id="year"></span> ref(health) Consulting. All rights reserved.</span>
-      <span class="footer__tagline">Data warehousing &bull; Engineering &bull; Analytics</span>
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Independent healthcare data and AI consulting.</span>
+      <span><a href="https://github.com/apratsunrthd" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/in/bradlumley" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
   </footer>
 

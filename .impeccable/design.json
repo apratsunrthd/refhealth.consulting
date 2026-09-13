@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T12:17:20Z",
+  "title": "Design System: ref(health) Consulting",
+  "extensions": {
+    "colorMeta": {
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#d1392d",
+        "tonalRamp": ["#3c0f0b", "#6a1913", "#97241c", "#d1392d", "#dd6b60", "#ebb0aa", "#f6d8d5", "#fff5f4"]
+      },
+      "signal-amber": {
+        "role": "secondary",
+        "displayName": "Signal Amber",
+        "canonical": "#d69a24",
+        "tonalRamp": ["#332006", "#65400b", "#99620f", "#d69a24", "#e4b85d", "#efd391", "#f7e7c4", "#fff8eb"]
+      },
+      "signal-green": {
+        "role": "secondary",
+        "displayName": "Signal Green",
+        "canonical": "#19795b",
+        "tonalRamp": ["#08271e", "#0f4937", "#14674e", "#19795b", "#45a184", "#86c6b2", "#c4e4da", "#eef9f5"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#edf1ef",
+        "tonalRamp": ["#181d1a", "#343b37", "#59635d", "#87918b", "#b9c1bd", "#d7ddda", "#edf1ef", "#fbfcf6"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#11100e",
+        "tonalRamp": ["#050505", "#11100e", "#332f2a", "#625b50", "#9f927b", "#d7ccb7", "#edf1ef", "#fbfcf6"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large, direct page-level claims."
+      },
+      "label": {
+        "displayName": "Signal Label",
+        "purpose": "Short status, repo, and route labels only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "primary-button",
+        "value": "0 18px 34px rgba(209, 57, 45, 0.24)",
+        "purpose": "Primary CTA depth at rest."
+      },
+      {
+        "name": "primary-button-hover",
+        "value": "0 14px 28px rgba(167, 39, 31, 0.24)",
+        "purpose": "Primary CTA hover response."
+      }
+    ],
+    "motion": [
+      {
+        "name": "signal-flow",
+        "value": "stroke-dashoffset over 7s-9s linear",
+        "purpose": "Hero route current animation, disabled for reduced motion."
+      },
+      {
+        "name": "state-transition",
+        "value": "160ms ease",
+        "purpose": "Button hover and focus state changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop-collapse",
+        "value": "980px"
+      },
+      {
+        "name": "mobile-stack",
+        "value": "720px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Revenue-oriented call to action.",
+      "html": "<button class=\"ds-btn-primary\">Start a paid conversation</button>",
+      "css": ".ds-btn-primary { min-height: 48px; padding: 0.86rem 1.12rem; border: 1px solid transparent; border-radius: 6px; background: #d1392d; color: #fffdf8; font: 700 1rem/1.2 IBM Plex Sans, system-ui, sans-serif; box-shadow: 0 18px 34px rgba(209,57,45,0.24); transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease; } .ds-btn-primary:hover { background: #a7271f; transform: translateY(-2px); box-shadow: 0 14px 28px rgba(167,39,31,0.24); } .ds-btn-primary:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary path into the paid offers.",
+      "html": "<button class=\"ds-btn-secondary\">Review paid offers</button>",
+      "css": ".ds-btn-secondary { min-height: 48px; padding: 0.86rem 1.12rem; border: 1px solid #11100e; border-radius: 6px; background: #fbfcf6; color: #11100e; font: 700 1rem/1.2 IBM Plex Sans, system-ui, sans-serif; transition: transform 160ms ease, background 160ms ease; } .ds-btn-secondary:hover { background: #d69a24; transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    },
+    {
+      "name": "Navigation CTA",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "Compact black revenue CTA in the header.",
+      "html": "<a class=\"ds-nav-cta\" href=\"#\">Start a paid conversation</a>",
+      "css": ".ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0.7rem 1rem; border: 1px solid #11100e; border-radius: 6px; background: #050505; color: #fffdf8; font: 600 0.94rem/1.2 IBM Plex Sans, system-ui, sans-serif; text-decoration: none; } .ds-nav-cta:hover { background: #a7271f; } .ds-nav-cta:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    },
+    {
+      "name": "Offer Row",
+      "kind": "custom",
+      "refersTo": "offer-row",
+      "description": "Commercial service packaging with a meaningful signal state.",
+      "html": "<article class=\"ds-offer\"><span class=\"ds-signal\"></span><div><h3>AI use-case diagnostic</h3><p>Rank opportunities by value, data fitness, workflow fit, and risk.</p></div><span class=\"ds-tag\">2-4 weeks</span></article>",
+      "css": ".ds-offer { display: grid; grid-template-columns: 16px minmax(0,1fr) max-content; gap: 1.15rem; align-items: start; padding: 1.25rem 0; border-bottom: 1px solid #11100e; font-family: IBM Plex Sans, system-ui, sans-serif; } .ds-offer h3 { margin: 0 0 0.45rem; font-size: 1.25rem; line-height: 1.1; } .ds-offer p { margin: 0; color: #332f2a; line-height: 1.55; } .ds-signal { width: 12px; height: 12px; margin-top: 0.22rem; border-radius: 50%; background: #d1392d; } .ds-tag { padding: 0.28rem 0.5rem; border: 1px solid #9f927b; border-radius: 6px; color: #332f2a; font: 600 0.78rem/1.2 IBM Plex Mono, monospace; }"
+    },
+    {
+      "name": "Proof Link",
+      "kind": "card",
+      "refersTo": "proof-link",
+      "description": "Flat linked proof row for public builds and writing.",
+      "html": "<a class=\"ds-proof\" href=\"#\"><span>Public build</span>Never Behind: Supabase-backed strength training app</a>",
+      "css": ".ds-proof { display: grid; gap: 0.35rem; padding: 1.05rem; border: 1px solid #11100e; background: #fbfcf6; color: #11100e; text-decoration: none; font-family: IBM Plex Sans, system-ui, sans-serif; } .ds-proof:hover { background: #d69a24; color: #050505; } .ds-proof span { color: #a7271f; font: 600 0.78rem/1.25 IBM Plex Mono, monospace; letter-spacing: 0.04em; } .ds-proof:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Healthcare Signal Control",
+    "overview": "The site presents healthcare data and AI consulting as routed operational signals: questions, sources, governance controls, build paths, and business outcomes. The first viewport shows this mechanism directly through a dark signal board, not through generic consulting imagery. The system should feel senior, specific, and commercial. It borrows discipline from traffic-control diagrams and data lineage maps, then keeps the reading surface calm enough for healthcare executives.",
+    "keyCharacteristics": [
+      "Direct revenue-oriented copy.",
+      "Flat, diagrammatic surfaces with strong borders.",
+      "Red, amber, and green status language tied to risk, governance, and readiness.",
+      "Public proof links plus anonymized private capability language."
+    ],
+    "rules": [
+      {
+        "name": "The No Default Healthcare Blue Rule",
+        "body": "Blue gradients do not belong on this site unless a future brand decision explicitly changes the palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Has Meaning Rule",
+        "body": "Red, amber, and green must describe risk, governance, readiness, or action. Do not use them as random decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Section headings do not use kicker labels. The heading must carry its own weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Control Surface Rule",
+        "body": "Do not pair hairline borders with wide ambient shadows. Choose a rule or a state shadow, not both.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do sell paid diagnostics, build sprints, prototypes, and advisory work as explicit offers.",
+      "Do tie AI copy to data readiness, governance, workflow fit, and measurable business action.",
+      "Do distinguish public proof from anonymized private capability language.",
+      "Do keep section spacing generous and content blocks scan-friendly."
+    ],
+    "donts": [
+      "Don't invent client logos, testimonials, prices, certifications, revenue outcomes, or employer endorsement.",
+      "Don't name private employer systems or private local repos as public case studies.",
+      "Don't use generic AI agency language, purple gradients, glassmorphism, or decorative icon cards.",
+      "Don't turn mono labels into long body copy."
+    ]
+  }
+}
