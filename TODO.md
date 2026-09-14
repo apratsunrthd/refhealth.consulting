@@ -5,6 +5,8 @@
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
+- Added an optional desired-outcome question and best-fit guidance to improve
+  diagnostic scoping without adding a required field.
 
 ## For Codex or Claude
 

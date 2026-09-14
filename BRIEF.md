@@ -38,6 +38,8 @@ company Data AI Operating System buildouts.
 - The intake page now explains the three-step path from context to scope to
   decision, and records privacy-safe GA4 events for form starts and submitted
   diagnostic inquiries without sending field values.
+- The intake asks one optional outcome question and clarifies the best-fit
+  engagement signal: a specific decision, owner, and near-term date.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -118,6 +120,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The current branch adds privacy-safe intake measurement and a
-clearer diagnostic process; it still needs validation and owner review before
-shipping.
+See `TODO.md`. The current branch adds a low-friction outcome question and
+best-fit guidance to the diagnostic intake; it still needs validation and owner
+review before shipping.

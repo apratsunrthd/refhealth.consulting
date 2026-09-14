@@ -31,11 +31,11 @@ Important files:
 
 ## Current Branch
 
-The intake conversion pass is on branch `measure-diagnostic-intake`. It adds a
-clear three-step explanation of the email-based diagnostic path and privacy-safe
-GA4 events for form starts and submitted inquiries. The startup positioning and
-$2,500 diagnostic path are already on `main`. Google Search Console and Bing
-Webmaster Tools remain verified; Google shows the sitemap submission as
+The intake qualification pass is on branch `qualify-diagnostic-intake`. It adds
+one optional outcome question and clearer best-fit guidance to the email-based
+diagnostic path. The startup positioning, $2,500 diagnostic path, and
+privacy-safe intake measurement are already on `main`. Google Search Console
+and Bing Webmaster Tools remain verified; Google shows the sitemap submission as
 successful and Bing shows the sitemap as submitted and processing.
 
 ## Design Context
