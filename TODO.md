@@ -7,6 +7,8 @@
   to analytics.
 - Added an optional desired-outcome question and best-fit guidance to improve
   diagnostic scoping without adding a required field.
+- Added anonymized, owner-approved outcome evidence to the flagship AI offer
+  without naming a client, employer, or metric.
 
 ## For Codex or Claude
 
