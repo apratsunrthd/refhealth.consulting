@@ -26,7 +26,8 @@ Important files:
 
 ## Current Branch
 
-Current work is on `seo-ai-discoverability`, branched from the deployed `main`.
+The SEO and AI-search work is merged to `main` and deployed. The local checkout
+tracks the post-merge sitemap commit.
 
 ## Design Context
 
@@ -75,9 +76,10 @@ homepage, and no horizontal mobile overflow.
   after its sitemap/HTML update. This improves change notification, not rank
   guarantees.
 - The owner must verify `refhealth.consulting` in Google Search Console and
-  submit `sitemap.xml` after this branch is deployed. The owner should also
-  verify the site in Bing Webmaster Tools. Search engines may need time to
-  crawl and index the new URLs.
+  submit `sitemap.xml`. The owner should also verify the site in Bing Webmaster
+  Tools. These are account-owner actions; the sitemap workflow and IndexNow
+  notification are already live. Search engines may need time to crawl and
+  index the new URLs.
 
 ## Required AI Positioning
 
@@ -96,6 +98,10 @@ Manual browser checks used gstack browse against local files:
 
 All checked pages loaded with no console errors.
 
+Post-deploy canary: all 10 public HTML pages returned 200 with expected titles,
+canonical URLs, and H1s. The homepage loaded in 48 ms in the browser check with
+no console errors. `robots.txt`, the sitemap, and the IndexNow key returned 200.
+
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
 resolve; and `sitemap.xml` is valid XML. New pages still need a live browser
@@ -104,4 +110,6 @@ check after deployment.
 ## Deployment
 
 The repo has `CNAME` for `refhealth.consulting` and can be served by any static
-host or GitHub Pages.
+host or GitHub Pages. The site is currently served by GitHub Pages from `main`.
+The sitemap workflow updates the sitemap/GA injection and submits the current
+URL set to IndexNow after main-branch changes.
