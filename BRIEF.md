@@ -47,7 +47,8 @@ company Data AI Operating System buildouts.
 - Impeccable detector run after the screenshot-driven correction. Remaining
   findings are section-level padding warnings and type-ramp advisories; rendered
   screenshots show the corrected layout has adequate spacing and no overlap.
-- Browser smoke checks passed for homepage, blog listing, and both articles.
+- Browser smoke checks passed for the homepage, blog listing, and article pages,
+  including the new model-strategy article.
 
 ## Key Content Decisions
 
@@ -93,9 +94,9 @@ or inclusion.
   `#contact`.
 - Service pages are linked from the homepage and each has a direct paid CTA and
   FAQ-style answer blocks written for human readers and answer engines.
-- Live canary passed for all 10 public HTML pages, `robots.txt`, `sitemap.xml`,
-  and the IndexNow key. The homepage returned 200 with a 48 ms browser load,
-  correct canonical metadata, and no console errors.
+- Live canary previously passed for all 10 public HTML pages, `robots.txt`,
+  `sitemap.xml`, and the IndexNow key. The model-strategy article now also
+  returns 200 with the expected copy, metadata, and no console errors.
 - Desktop and mobile screenshots were captured locally under
   `.impeccable/review/` and are ignored by git.
 
