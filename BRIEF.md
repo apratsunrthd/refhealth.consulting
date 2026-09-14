@@ -23,7 +23,12 @@ company Data AI Operating System buildouts.
 - `PRODUCT.md` and `DESIGN.md` now record product and design truth.
 - SEO and AI-search discoverability now have a dedicated content architecture:
   intent-specific healthcare AI, data strategy, dbt, AI-readiness, and About
-  pages, plus one original Data AI Operating System article.
+  pages, plus original Data AI Operating System and healthcare AI model
+  strategy articles.
+- The model-strategy article explains when to orchestrate multiple models across
+  labs/providers and when to go deep with one provider based on policy,
+  integration, commitment, or delivery speed. It is listed in Insights and
+  linked from the healthcare AI offer page.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -34,7 +39,7 @@ company Data AI Operating System buildouts.
   account credential.
 - The Google Search Console and Bing Webmaster verification tags are present on
   the homepage and live in production.
-- PRs #16, #17, #18, and #19 are merged. Google Search Console ownership is
+- PRs #16, #17, #18, #19, and #20 are merged. Google Search Console ownership is
   verified and its sitemap submission succeeded. Bing Webmaster Tools ownership
   is verified and its sitemap is submitted for processing.
 - GitHub Pages is live from `main`; the sitemap workflow completed and accepted
