@@ -20,6 +20,7 @@ Important files:
 - `blog-why-we-build-with-dbt.html` - dbt article
 - `robots.txt` - public crawl policy, including explicit OAI-SearchBot access
 - `sitemap.xml` - public URL inventory; the GitHub Action regenerates it on main
+- `d774f0fd6934e4b0345056d9a28dbcf1.txt` - IndexNow ownership key file
 - `PRODUCT.md` - confirmed product facts and claim boundaries
 - `DESIGN.md` - Impeccable visual direction and design rules
 
@@ -67,9 +68,16 @@ homepage, and no horizontal mobile overflow.
 - OpenAI's official crawler guidance identifies `OAI-SearchBot` as the crawler
   used to surface websites in ChatGPT search. It is explicitly allowed in
   `robots.txt`.
+- Google, Bing/Copilot, Anthropic, and xAI all document search or retrieval
+  paths that use public web content. The site keeps the generic `Allow: /`
+  rule rather than guessing at undocumented model-specific crawler names.
+- The main-branch sitemap workflow submits the current URL set to IndexNow
+  after its sitemap/HTML update. This improves change notification, not rank
+  guarantees.
 - The owner must verify `refhealth.consulting` in Google Search Console and
-  submit `sitemap.xml` after this branch is deployed. Search engines may need
-  time to crawl and index the new URLs.
+  submit `sitemap.xml` after this branch is deployed. The owner should also
+  verify the site in Bing Webmaster Tools. Search engines may need time to
+  crawl and index the new URLs.
 
 ## Required AI Positioning
 

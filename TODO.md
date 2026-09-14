@@ -20,5 +20,7 @@
 - Provide a calendar URL if email should not be the primary conversion path.
 - Verify the domain in Google Search Console and submit
   `https://refhealth.consulting/sitemap.xml` after deployment.
+- Verify the domain in Bing Webmaster Tools and confirm the first IndexNow
+  workflow submission after deployment.
 - Review the new service-page wording for offer scope, timing, and claims before
   publishing it as the permanent commercial language.

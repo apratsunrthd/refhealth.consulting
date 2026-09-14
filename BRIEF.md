@@ -29,6 +29,9 @@ company Data AI Operating System buildouts.
   defines the ref(health) Organization and WebSite entities.
 - `robots.txt` explicitly allows `OAI-SearchBot` for ChatGPT search, and the
   sitemap lists every public URL.
+- The sitemap workflow now notifies IndexNow after main-branch updates. The
+  root key file verifies ownership for the public host without storing an
+  account credential.
 - Impeccable detector run after the screenshot-driven correction. Remaining
   findings are section-level padding warnings and type-ramp advisories; rendered
   screenshots show the corrected layout has adequate spacing and no overlap.
@@ -60,11 +63,14 @@ leadership research, and TrustRadius B2B buying research. HHS and LinkedIn
 blocked the headless browser.
 
 The search pass used current Google Search Central guidance for AI features,
-people-first content, organization structured data, and sitemaps, plus OpenAI's
-official crawler guidance. The key conclusion is that AI search uses the same
+people-first content, organization structured data, and sitemaps, plus official
+OpenAI crawler, Anthropic web-search, Microsoft Bing/Copilot, xAI web-search,
+and IndexNow guidance. The key conclusion is that AI search uses the same
 technical eligibility and helpful-content foundation as regular search; there
 is no magic AI-only markup. Explicit `OAI-SearchBot` access is useful for
-ChatGPT search visibility.
+ChatGPT search visibility. IndexNow is useful for notifying participating
+search engines when the site's URLs change, but it does not guarantee ranking
+or inclusion.
 
 ## What Works
 
