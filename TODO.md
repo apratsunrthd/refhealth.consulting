@@ -18,9 +18,7 @@
 - Provide any client-safe proof points, outcomes, or anonymized case stories
   that can be used without customer or confidentiality risk.
 - Provide a calendar URL if email should not be the primary conversion path.
-- Verify the domain in Google Search Console and submit
-  `https://refhealth.consulting/sitemap.xml`.
-- Verify the domain in Bing Webmaster Tools. The first IndexNow workflow
-  submission is already confirmed with HTTP 202.
+- Review Bing Webmaster Tools after sitemap processing completes and inspect
+  its AI Performance report once enough data accumulates.
 - Review the new service-page wording for offer scope, timing, and claims before
   publishing it as the permanent commercial language.

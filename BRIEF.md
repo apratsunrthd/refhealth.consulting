@@ -13,8 +13,8 @@ company Data AI Operating System buildouts.
 ## Current State
 
 - Static HTML/CSS site. No build step.
-- Homepage and the current search pass are maintained from feature branches;
-  current work is on `seo-ai-discoverability`.
+- Homepage and search-discoverability work are merged to `main` and deployed
+  through GitHub Pages.
 - The initial signal-control hero visual was rejected after screenshot QA
   because it created overlapping text and looked gimmicky.
 - Hero visual was replaced with a clean Data AI Operating System panel.
@@ -32,8 +32,13 @@ company Data AI Operating System buildouts.
 - The sitemap workflow now notifies IndexNow after main-branch updates. The
   root key file verifies ownership for the public host without storing an
   account credential.
-- PR #16 is merged. GitHub Pages is live from `main`; the post-merge sitemap
-  workflow completed and accepted the IndexNow submission.
+- The Google Search Console and Bing Webmaster verification tags are present on
+  the homepage and live in production.
+- PRs #16, #17, #18, and #19 are merged. Google Search Console ownership is
+  verified and its sitemap submission succeeded. Bing Webmaster Tools ownership
+  is verified and its sitemap is submitted for processing.
+- GitHub Pages is live from `main`; the sitemap workflow completed and accepted
+  the latest IndexNow submission.
 - Impeccable detector run after the screenshot-driven correction. Remaining
   findings are section-level padding warnings and type-ramp advisories; rendered
   screenshots show the corrected layout has adequate spacing and no overlap.
