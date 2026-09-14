@@ -13,6 +13,9 @@ Important files:
 - `dbt-consulting.html` - dbt and analytics engineering offer
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
 - `intake.html` - paid diagnostic intake page and email-based form
+- `og.png` - brand-safe 1200x630 social preview image
+- `og-card.svg` - editable source for the social preview image
+- `FORM_SETUP.md` - hosted-form field map and activation checklist
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
@@ -31,13 +34,16 @@ Important files:
 
 ## Current Branch
 
-The anonymized-outcome pass is on branch `add-observed-ai-outcome`. It adds
-owner-approved outcome evidence to the flagship AI offer without naming a
-client, employer, or metric. The startup positioning, $2,500 diagnostic path,
-privacy-safe intake measurement, and best-fit guidance are already on `main`.
-Google Search Console and Bing Webmaster Tools remain verified; Google shows
-the sitemap submission as successful and Bing shows the sitemap as submitted
-and processing.
+The current work is on branch `complete-codex-todos`. It adds a brand-safe
+1200x630 social preview image and applies its Open Graph/Twitter metadata to
+all public HTML pages. It also adds a neutral measurement note to the proof
+section and records the current Search Console baseline. The startup
+positioning, $2,500 diagnostic path, privacy-safe intake measurement,
+best-fit guidance, and anonymized outcome proof are already on `main`.
+
+The diagnostic form remains email-based. A hosted-form setup is prepared, but
+the live action must not point at a placeholder: the owner must provide the
+configured provider URL first.
 
 ## Design Context
 
@@ -93,6 +99,10 @@ homepage, and no horizontal mobile overflow.
   successfully. Bing Webmaster Tools ownership is verified and the full sitemap
   URL is submitted with status `Submitted - Processing`. Search engines may
   still need time to crawl and index the new URLs.
+- On 2026-09-14, Google Search Console showed 27 web impressions, 0 clicks, and
+  average position 6 for the last three months. Its generative-AI report showed
+  8 impressions for the homepage. The query/page signal is not yet qualified
+  buyer intent, so the site makes no performance claim from it.
 
 ## Required AI Positioning
 
@@ -125,6 +135,10 @@ Production also exposes both ownership tags. Google Search Console confirmed
 ownership through the HTML tag and reported the sitemap as successful with 100
 discovered pages. Bing Webmaster Tools confirmed ownership through its HTML
 meta tag and accepted the sitemap for processing.
+
+The social-preview asset is a deterministic, brand-safe PNG rather than a
+photographic or AI-generated image. All 12 public HTML pages reference it with
+Open Graph and Twitter image metadata.
 
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments

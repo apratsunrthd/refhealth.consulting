@@ -43,6 +43,15 @@ company Data AI Operating System buildouts.
 - The flagship AI offer now carries the owner-approved anonymized outcome
   evidence: reduced tedious work, more capacity for human judgment and
   creativity, and support for workforce and capacity planning.
+- The homepage now makes the measurement standard explicit: search visibility
+  is an early signal; qualified diagnostic conversations tied to a decision and
+  operating outcome are the commercial measure.
+- Every public HTML page now points social previews to the brand-safe `og.png`
+  card. `og-card.svg` is the editable source asset.
+- Search Console was checked on 2026-09-14. The three-month web report showed
+  27 impressions, 0 clicks, and average position 6. The generative-AI report
+  showed 8 impressions for the homepage. The visible query/page signal is too
+  early and too weak to support a qualified-intent performance claim.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -123,5 +132,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The current branch adds anonymized outcome proof to the flagship
-AI offer; it still needs validation and owner review before shipping.
+See `TODO.md`. The executable Codex/Claude work is complete or prepared. The
+remaining hosted-form switch requires a real provider URL, and the Search
+Console measurement should be revisited after qualified traffic accumulates.
