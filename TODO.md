@@ -18,6 +18,8 @@
   notifications to the consulting inbox, verified the published choices, ran a
   synthetic non-sensitive test submission, and embedded the live form with a
   plain-email fallback.
+- Persisted the GitHub Pages deployment configuration in `AGENTS.md`, including
+  the production URL, squash merge method, and post-merge smoke checks.
 
 ## For Codex or Claude
 
@@ -33,6 +35,8 @@ All currently executable Codex/Claude items are complete or safely prepared.
 
 ## For the site owner
 
+- Run the land-and-deploy workflow to squash-merge PR #27 and verify the
+  production canary.
 - Review the published $2,500 starting price after the first qualified inquiries.
 - Confirm the first real notification arrives in the consulting inbox, then
   review the first qualified inquiries for fit and response time.

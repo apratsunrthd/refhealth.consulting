@@ -139,5 +139,6 @@ or inclusion.
 ## Next
 
 See `TODO.md`. The executable Codex/Claude work is complete or prepared. The
-remaining hosted-form switch requires a real provider URL, and the Search
+hosted diagnostic form is live through Tally, and the GitHub Pages deployment
+settings are persisted in `AGENTS.md` for the land-and-deploy workflow. Search
 Console measurement should be revisited after qualified traffic accumulates.

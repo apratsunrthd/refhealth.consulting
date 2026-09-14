@@ -16,6 +16,7 @@ Important files:
 - `og.png` - brand-safe 1200x630 social preview image
 - `og-card.svg` - editable source for the social preview image
 - `FORM_SETUP.md` - hosted-form field map and activation checklist
+- `AGENTS.md` - persisted GitHub Pages deployment configuration
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
@@ -46,6 +47,8 @@ embedded in `intake.html`. Self email notifications are configured for the
 consulting inbox, and a synthetic non-sensitive test submission reached the
 custom confirmation page. `FORM_SETUP.md` contains the field map and setup
 record. Keep the plain-email fallback and no-sensitive-data guidance intact.
+`AGENTS.md` contains the deployment settings for GitHub Pages, including the
+production URL and post-merge smoke checks.
 
 ## Design Context
 
@@ -152,3 +155,6 @@ The repo has `CNAME` for `refhealth.consulting` and can be served by any static
 host or GitHub Pages. The site is currently served by GitHub Pages from `main`.
 The sitemap workflow updates the sitemap/GA injection and submits the current
 URL set to IndexNow after main-branch changes.
+The deployment configuration used by `/land-and-deploy` is recorded in
+`AGENTS.md`; it uses a squash merge, the root URL as the primary health check,
+and `/intake.html` plus `/sitemap.xml` as smoke checks.
