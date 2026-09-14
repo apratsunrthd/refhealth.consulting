@@ -12,7 +12,11 @@ Important files:
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
-- `intake.html` - paid diagnostic intake page and email-based form
+- `intake.html` - paid diagnostic intake page with hosted Tally form and email fallback
+- `og.png` - brand-safe 1200x630 social preview image
+- `og-card.svg` - editable source for the social preview image
+- `FORM_SETUP.md` - hosted-form field map and activation checklist
+- `AGENTS.md` - persisted GitHub Pages deployment configuration
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
@@ -31,13 +35,23 @@ Important files:
 
 ## Current Branch
 
-The anonymized-outcome pass is on branch `add-observed-ai-outcome`. It adds
-owner-approved outcome evidence to the flagship AI offer without naming a
-client, employer, or metric. The startup positioning, $2,500 diagnostic path,
-privacy-safe intake measurement, and best-fit guidance are already on `main`.
-Google Search Console and Bing Webmaster Tools remain verified; Google shows
-the sitemap submission as successful and Bing shows the sitemap as submitted
-and processing.
+The current work is on branch `complete-codex-todos`. It adds a brand-safe
+1200x630 social preview image and applies its Open Graph/Twitter metadata to
+all public HTML pages. It also adds a neutral measurement note to the proof
+section and records the current Search Console baseline. The startup
+positioning, $2,500 diagnostic path, privacy-safe intake measurement,
+best-fit guidance, and anonymized outcome proof are already on `main`.
+
+The diagnostic form is hosted by Tally at `https://tally.so/r/5BJOVN` and
+embedded in `intake.html`. Self email notifications are configured for the
+consulting inbox, and a synthetic non-sensitive test submission reached the
+custom confirmation page. `FORM_SETUP.md` contains the field map and setup
+record. Keep the plain-email fallback and no-sensitive-data guidance intact.
+`AGENTS.md` contains the deployment settings for GitHub Pages, including the
+production URL and post-merge smoke checks.
+The email fallback appears before the hosted iframe so it remains reachable if
+Tally fails to load. Keep the surrounding intake copy aligned with the hosted
+submission flow.
 
 ## Design Context
 
@@ -93,6 +107,10 @@ homepage, and no horizontal mobile overflow.
   successfully. Bing Webmaster Tools ownership is verified and the full sitemap
   URL is submitted with status `Submitted - Processing`. Search engines may
   still need time to crawl and index the new URLs.
+- On 2026-09-14, Google Search Console was reviewed. The site has only an early
+  web visibility signal, and its generative-AI report has limited homepage-only
+  visibility. The query/page signal is not yet qualified buyer intent, so the
+  site makes no performance claim from it.
 
 ## Required AI Positioning
 
@@ -126,6 +144,11 @@ ownership through the HTML tag and reported the sitemap as successful with 100
 discovered pages. Bing Webmaster Tools confirmed ownership through its HTML
 meta tag and accepted the sitemap for processing.
 
+The social-preview asset is a deterministic, brand-safe PNG rather than a
+photographic or AI-generated image. All 12 public HTML pages reference it with
+Open Graph and Twitter image metadata. `og-card.svg` is the editable source and
+uses the same `1200x630` aspect ratio as `og.png`.
+
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
 resolve; and `sitemap.xml` is valid XML.
@@ -136,3 +159,6 @@ The repo has `CNAME` for `refhealth.consulting` and can be served by any static
 host or GitHub Pages. The site is currently served by GitHub Pages from `main`.
 The sitemap workflow updates the sitemap/GA injection and submits the current
 URL set to IndexNow after main-branch changes.
+The deployment configuration used by `/land-and-deploy` is recorded in
+`AGENTS.md`; it uses a squash merge, the root URL as the primary health check,
+and `/intake.html` plus `/sitemap.xml` as smoke checks.

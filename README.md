@@ -30,6 +30,8 @@ homepage. Visit `blog.html` to view the insights index.
 - `blog.html` - insights listing
 - `blog-*.html` - static article pages
 - `styles.css` - shared visual system
+- `og.png` and `og-card.svg` - social preview asset and editable source
+- `FORM_SETUP.md` - hosted diagnostic form setup checklist
 - `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
 - `PRODUCT.md` - durable product facts for Impeccable and future agents
 - `DESIGN.md` - durable design system and visual direction

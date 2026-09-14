@@ -627,6 +627,18 @@ h4 {
   margin-top: 1rem;
 }
 
+.proof-note {
+  max-width: 56ch;
+  margin-top: 1.3rem;
+  padding: 0.95rem 1.1rem;
+  border-left: 3px solid var(--amber);
+  background: var(--paper-strong);
+}
+
+.proof-note strong {
+  color: var(--ink);
+}
+
 .evidence-list {
   display: grid;
   gap: 1px;
@@ -1006,6 +1018,18 @@ h4 {
   border: 1px solid var(--ink);
   border-radius: var(--radius);
   background: var(--paper-strong);
+}
+
+.intake-form--hosted {
+  gap: 0.85rem;
+  overflow: hidden;
+}
+
+.intake-form--hosted iframe {
+  display: block;
+  width: 100%;
+  min-height: 1146px;
+  border: 0;
 }
 
 .form-field {
