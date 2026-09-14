@@ -1,3 +1,11 @@
+# Public pages are intended to be discoverable by search engines and answer
+# engines. Private or unpublished material does not belong in this site.
 User-agent: *
 Allow: /
+
+# OpenAI uses OAI-SearchBot for ChatGPT search results. Search access is
+# separate from any decision about model-training access.
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://refhealth.consulting/sitemap.xml

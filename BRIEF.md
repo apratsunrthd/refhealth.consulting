@@ -13,13 +13,22 @@ company Data AI Operating System buildouts.
 ## Current State
 
 - Static HTML/CSS site. No build step.
-- Homepage rebuilt on branch `update-content-ai-consulting-site`.
+- Homepage and the current search pass are maintained from feature branches;
+  current work is on `seo-ai-discoverability`.
 - The initial signal-control hero visual was rejected after screenshot QA
   because it created overlapping text and looked gimmicky.
 - Hero visual was replaced with a clean Data AI Operating System panel.
 - Blog listing and article pages updated to share the new navigation, footer,
   typography, and CTA framing.
 - `PRODUCT.md` and `DESIGN.md` now record product and design truth.
+- SEO and AI-search discoverability now have a dedicated content architecture:
+  intent-specific healthcare AI, data strategy, dbt, AI-readiness, and About
+  pages, plus one original Data AI Operating System article.
+- Every public HTML page has a canonical URL, unique description, social
+  metadata, and valid JSON-LD appropriate to the page type. The homepage
+  defines the ref(health) Organization and WebSite entities.
+- `robots.txt` explicitly allows `OAI-SearchBot` for ChatGPT search, and the
+  sitemap lists every public URL.
 - Impeccable detector run after the screenshot-driven correction. Remaining
   findings are section-level padding warnings and type-ramp advisories; rendered
   screenshots show the corrected layout has adequate spacing and no overlap.
@@ -50,6 +59,13 @@ material, Gartner B2B buying journey material, Edelman/LinkedIn thought
 leadership research, and TrustRadius B2B buying research. HHS and LinkedIn
 blocked the headless browser.
 
+The search pass used current Google Search Central guidance for AI features,
+people-first content, organization structured data, and sitemaps, plus OpenAI's
+official crawler guidance. The key conclusion is that AI search uses the same
+technical eligibility and helpful-content foundation as regular search; there
+is no magic AI-only markup. Explicit `OAI-SearchBot` access is useful for
+ChatGPT search visibility.
+
 ## What Works
 
 - Homepage opens directly from `index.html`.
@@ -57,6 +73,8 @@ blocked the headless browser.
 - Google Analytics snippet remains present.
 - Navigation anchors resolve to `#offers`, `#ai`, `#proof`, `blog.html`, and
   `#contact`.
+- Service pages are linked from the homepage and each has a direct paid CTA and
+  FAQ-style answer blocks written for human readers and answer engines.
 - Desktop and mobile screenshots were captured locally under
   `.impeccable/review/` and are ignored by git.
 
