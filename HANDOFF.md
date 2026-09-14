@@ -12,7 +12,7 @@ Important files:
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
-- `intake.html` - paid diagnostic intake page and email-based form
+- `intake.html` - paid diagnostic intake page with hosted Tally form and email fallback
 - `og.png` - brand-safe 1200x630 social preview image
 - `og-card.svg` - editable source for the social preview image
 - `FORM_SETUP.md` - hosted-form field map and activation checklist
@@ -41,10 +41,11 @@ section and records the current Search Console baseline. The startup
 positioning, $2,500 diagnostic path, privacy-safe intake measurement,
 best-fit guidance, and anonymized outcome proof are already on `main`.
 
-The diagnostic form remains email-based. Tally is the selected provider, and
-`FORM_SETUP.md` contains the form copy, field map, and activation checklist. Do
-not change the live action until the Tally form exists, self-notifications are
-configured, and a non-sensitive test submission is verified.
+The diagnostic form is hosted by Tally at `https://tally.so/r/5BJOVN` and
+embedded in `intake.html`. Self email notifications are configured for the
+consulting inbox, and a synthetic non-sensitive test submission reached the
+custom confirmation page. `FORM_SETUP.md` contains the field map and setup
+record. Keep the plain-email fallback and no-sensitive-data guidance intact.
 
 ## Design Context
 

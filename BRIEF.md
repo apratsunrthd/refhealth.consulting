@@ -32,12 +32,13 @@ company Data AI Operating System buildouts.
 - The current commercial wedge is health-tech startups. The site now leads with
   a focused AI-readiness diagnostic starting at $2,500, with larger operating
   system builds and other work positioned as follow-on engagements.
-- A free, email-based intake page now asks for only the information needed to
-  scope the diagnostic. It is intentionally easy to replace with a hosted form
-  after a provider account is available.
+- A hosted Tally intake page now asks for only the information needed to scope
+  the diagnostic. It keeps a plain-email fallback and repeats the no-sensitive-
+  data boundary inside the form.
 - The intake page now explains the three-step path from context to scope to
-  decision, and records privacy-safe GA4 events for form starts and submitted
-  diagnostic inquiries without sending field values.
+  decision, and records a privacy-safe GA4 event when a visitor starts the
+  Tally intake without sending field values. Tally's hosted submission and
+  notification surfaces are the source of truth for completed inquiries.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
@@ -48,9 +49,11 @@ company Data AI Operating System buildouts.
   operating outcome are the commercial measure.
 - Every public HTML page now points social previews to the brand-safe `og.png`
   card. `og-card.svg` is the editable source asset.
-- Tally is the selected hosted-form provider after reviewing its current free
-  plan, embed, self-notification, and privacy documentation. The live intake
-  remains email-based until the form is created and tested.
+- Tally is the live hosted-form provider after reviewing its current free plan,
+  embed, self-notification, and privacy documentation. The published form is
+  `https://tally.so/r/5BJOVN`; self notifications are configured for the
+  consulting inbox, and a synthetic QA submission reached the custom
+  confirmation page.
 - Search Console was checked on 2026-09-14. The site has only an early web
   visibility signal, with no qualified query/page evidence yet. The
   generative-AI report has limited homepage-only visibility. No performance

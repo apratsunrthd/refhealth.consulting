@@ -1,7 +1,7 @@
 # Hosted diagnostic form setup
 
-The site currently uses a review-before-send email intake. Keep that path live
-until a hosted provider is configured and its public URL is available.
+The diagnostic intake is hosted by Tally and embedded on `intake.html`. The
+plain-email link remains as a fallback if the hosted form does not load.
 
 ## Provider decision
 
@@ -12,7 +12,7 @@ rest and stored in Europe. The free plan keeps Tally branding, which is an
 acceptable tradeoff for this diagnostic; custom branding and domains are paid
 features.
 
-Verify these claims again when the account is created:
+Reference documentation:
 
 - [Tally pricing](https://tally.so/pricing)
 - [Tally embeds](https://tally.so/help/embed-your-form)
@@ -48,15 +48,17 @@ records, credentials, or confidential material. Send notifications to
 
 ## Activation checklist
 
-Before changing `intake.html`:
+Completed on 2026-09-14:
 
-- Create the Tally account using the consulting inbox, if that is the intended account owner.
-- Enable self email notifications and confirm the notification destination.
-- Copy the public form URL and test one non-sensitive submission.
-- Confirm the submission appears in the destination inbox.
-- Copy the standard embed code from Tally’s Share tab; replace the current email form only after the endpoint is verified.
-- Keep the plain-email fallback and the privacy guidance.
-- Update the intake analytics `method` value from `mailto` to `tally`.
+- Created the Tally form in the consulting inbox workspace.
+- Enabled self email notifications to `refhealth.consulting@gmail.com`.
+- Published the form at `https://tally.so/r/5BJOVN`.
+- Verified the published role and timing choices.
+- Submitted a synthetic, non-sensitive QA inquiry and reached the custom
+  confirmation page.
+- Copied the standard embed from Tally’s Share tab into `intake.html`.
+- Kept the plain-email fallback and the privacy guidance.
+- Changed the local intake-start analytics method from `mailto` to `tally`.
 
-No provider account, public form URL, or test submission is stored in this
-repository.
+The repository stores the public form URL and embed configuration, but no
+provider credentials, tokens, or submission contents.

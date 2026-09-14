@@ -1020,6 +1020,18 @@ h4 {
   background: var(--paper-strong);
 }
 
+.intake-form--hosted {
+  gap: 0.85rem;
+  overflow: hidden;
+}
+
+.intake-form--hosted iframe {
+  display: block;
+  width: 100%;
+  min-height: 1146px;
+  border: 0;
+}
+
 .form-field {
   display: grid;
   gap: 0.38rem;
