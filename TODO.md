@@ -14,15 +14,16 @@
 - Added a neutral measurement note to the proof section and recorded the
   2026-09-14 Search Console baseline. The data is too early to support a
   qualified-intent performance claim.
-- Prepared the hosted-form handoff. The working email intake remains live until
-  the owner supplies a configured provider URL; no placeholder endpoint was
-  published.
+- Selected Tally as the hosted-form provider after reviewing its current free
+  plan, embed, notification, and privacy documentation. The working email
+  intake remains live until the Tally form is created, tested, and verified.
 
 ## For Codex or Claude
 
 All currently executable items are complete or safely prepared.
 
-- Hosted-form replacement is prepared but awaits a real provider URL.
+- Tally is selected; hosted-form replacement awaits account/form creation and a
+  real provider URL.
 - Brand-safe social preview is live in the source and referenced by every page.
 - The existing anonymized capability/outcome evidence is the safe proof format;
   no exact client case study or metric is available to publish.
@@ -32,10 +33,9 @@ All currently executable items are complete or safely prepared.
 ## For the site owner
 
 - Review the published $2,500 starting price after the first qualified inquiries.
-- Decide whether the diagnostic should stay email-based or move to a configured
-  free hosted form such as Tally. If moving, provide the public form URL and
-  confirm that notifications go to `refhealth.consulting@gmail.com` before the
-  `action` in `intake.html` is changed.
+- Confirm the Tally account should be created under the consulting inbox, then
+  allow the form to be created, tested with non-sensitive data, and connected
+  to the site. `FORM_SETUP.md` contains the exact copy and field map.
 - Provide any measurable, client-safe proof points or anonymized case stories
   that can be used without customer or confidentiality risk.
 - Provide a calendar URL if email should not be the primary conversion path.

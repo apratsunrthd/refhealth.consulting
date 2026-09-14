@@ -48,6 +48,9 @@ company Data AI Operating System buildouts.
   operating outcome are the commercial measure.
 - Every public HTML page now points social previews to the brand-safe `og.png`
   card. `og-card.svg` is the editable source asset.
+- Tally is the selected hosted-form provider after reviewing its current free
+  plan, embed, self-notification, and privacy documentation. The live intake
+  remains email-based until the form is created and tested.
 - Search Console was checked on 2026-09-14. The site has only an early web
   visibility signal, with no qualified query/page evidence yet. The
   generative-AI report has limited homepage-only visibility. No performance

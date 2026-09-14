@@ -41,9 +41,10 @@ section and records the current Search Console baseline. The startup
 positioning, $2,500 diagnostic path, privacy-safe intake measurement,
 best-fit guidance, and anonymized outcome proof are already on `main`.
 
-The diagnostic form remains email-based. A hosted-form setup is prepared, but
-the live action must not point at a placeholder: the owner must provide the
-configured provider URL first.
+The diagnostic form remains email-based. Tally is the selected provider, and
+`FORM_SETUP.md` contains the form copy, field map, and activation checklist. Do
+not change the live action until the Tally form exists, self-notifications are
+configured, and a non-sensitive test submission is verified.
 
 ## Design Context
 
