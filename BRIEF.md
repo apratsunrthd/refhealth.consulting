@@ -35,6 +35,9 @@ company Data AI Operating System buildouts.
 - A free, email-based intake page now asks for only the information needed to
   scope the diagnostic. It is intentionally easy to replace with a hosted form
   after a provider account is available.
+- The intake page now explains the three-step path from context to scope to
+  decision, and records privacy-safe GA4 events for form starts and submitted
+  diagnostic inquiries without sending field values.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -115,6 +118,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The current branch adds startup positioning, the paid diagnostic
-price, and the diagnostic intake page; it still needs owner review before the
-new commercial language is treated as final.
+See `TODO.md`. The current branch adds privacy-safe intake measurement and a
+clearer diagnostic process; it still needs validation and owner review before
+shipping.

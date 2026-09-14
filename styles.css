@@ -943,6 +943,62 @@ h4 {
   font-size: 0.98rem;
 }
 
+.intake-process {
+  max-width: 44ch;
+  margin-top: 0.35rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.intake-process h3 {
+  margin-bottom: 0.8rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.intake-process ol {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: intake-step;
+}
+
+.intake-process li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.5rem;
+  counter-increment: intake-step;
+}
+
+.intake-process li::before {
+  content: counter(intake-step, decimal-leading-zero);
+  color: var(--red-deep);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.intake-process strong,
+.intake-process span {
+  display: block;
+}
+
+.intake-process strong {
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+.intake-process span {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .intake-form {
   display: grid;
   gap: 1rem;

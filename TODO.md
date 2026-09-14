@@ -1,5 +1,11 @@
 # TODO
 
+## Recently completed
+
+- Added a three-step explanation to the diagnostic intake and privacy-safe GA4
+  events for form starts and submitted inquiries. No form field values are sent
+  to analytics.
+
 ## For Codex or Claude
 
 - Replace the email-based diagnostic intake with a hosted form once a free
