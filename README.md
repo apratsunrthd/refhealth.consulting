@@ -7,9 +7,11 @@ The homepage positions the firm around paid healthcare data and AI work:
 AI-readiness diagnostics, company Data AI Operating Systems, data landscape
 assessments, dbt analytics engineering, model orchestration, agentic workflow
 prototypes, payer/provider modernization support, and fractional data
-leadership. Dedicated service pages and an original AI operating-system article
-make those offers easier for search engines, answer engines, and buyers to find
-and understand.
+leadership. The primary buyer is a health-tech startup; provider and other
+healthcare teams remain secondary audiences. The focused AI-readiness diagnostic
+starts at $2,500. Dedicated service pages, a short diagnostic intake, and
+original articles make the offers easier for search engines, answer engines, and
+buyers to find and understand.
 
 ## Development
 
@@ -23,6 +25,7 @@ homepage. Visit `blog.html` to view the insights index.
 - `healthcare-data-strategy.html` - healthcare data strategy and landscape work
 - `dbt-consulting.html` - dbt consulting and analytics engineering
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic
+- `intake.html` - diagnostic intake and starting-price conversion path
 - `about.html` - healthcare experience and engagement model
 - `blog.html` - insights listing
 - `blog-*.html` - static article pages

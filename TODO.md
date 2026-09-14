@@ -2,18 +2,20 @@
 
 ## For Codex or Claude
 
-- Add a real calendar link or short intake form once the preferred
-  booking flow.
+- Replace the email-based diagnostic intake with a hosted form once a free
+  provider account and form URL are available.
 - Add an Open Graph image for link previews when a brand-safe asset is approved.
-- Add one or two client-safe case studies if exact wording is approved.
+- Add one or two client-safe case studies if exact wording and measurable
+  outcomes are approved. Until then, use anonymized capability examples.
 - Add a measurement note to the site once Search Console data shows which
   queries and pages attract qualified visitors.
 
 ## For the site owner
 
-- Decide whether to publish starting prices or keep the paid engagement CTA
-  conversation-based.
-- Provide any client-safe proof points, outcomes, or anonymized case stories
+- Review the published $2,500 starting price after the first qualified inquiries.
+- Decide whether the diagnostic should stay email-based or move to a free hosted
+  form such as Tally.
+- Provide any measurable, client-safe proof points or anonymized case stories
   that can be used without customer or confidentiality risk.
 - Provide a calendar URL if email should not be the primary conversion path.
 - Review Bing Webmaster Tools after sitemap processing completes and inspect
