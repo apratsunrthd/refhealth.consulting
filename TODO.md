@@ -6,8 +6,6 @@
   booking flow.
 - Add an Open Graph image for link previews when a brand-safe asset is approved.
 - Add one or two client-safe case studies if exact wording is approved.
-- Add a practical model-strategy article if there is a real point of view worth
-  publishing, not to fill a keyword calendar.
 - Add a measurement note to the site once Search Console data shows which
   queries and pages attract qualified visitors.
 

@@ -16,6 +16,8 @@ Important files:
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
 - `blog-data-ai-operating-system.html` - original AI operating-system explainer
+- `blog-healthcare-ai-model-strategy.html` - single-provider versus multi-model
+  healthcare AI strategy article
 - `blog-100k-per-day-mistake.html` - domain knowledge article
 - `blog-why-we-build-with-dbt.html` - dbt article
 - `robots.txt` - public crawl policy, including explicit OAI-SearchBot access
@@ -28,8 +30,10 @@ Important files:
 
 ## Current Branch
 
-The SEO and AI-search work is merged to `main` and deployed. Google Search
-Console and Bing Webmaster Tools both show the site as verified. Google shows
+The baseline SEO and AI-search work is merged to `main` and deployed. This
+content branch adds the healthcare AI model-strategy article and its internal
+links. Google Search Console and Bing Webmaster Tools both show the site as
+verified. Google shows
 the sitemap submission as successful; Bing shows the sitemap as submitted and
 processing.
 
