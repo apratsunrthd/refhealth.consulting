@@ -30,10 +30,9 @@ Important files:
 
 ## Current Branch
 
-The baseline SEO and AI-search work is merged to `main` and deployed. This
-content branch adds the healthcare AI model-strategy article and its internal
-links. Google Search Console and Bing Webmaster Tools both show the site as
-verified. Google shows
+The model-strategy content pass is merged to `main` and deployed. It adds the
+healthcare AI model-strategy article and its internal links. Google Search
+Console and Bing Webmaster Tools both show the site as verified. Google shows
 the sitemap submission as successful; Bing shows the sitemap as submitted and
 processing.
 
@@ -105,9 +104,13 @@ Manual browser checks used gstack browse against local files:
 
 All checked pages loaded with no console errors.
 
-Post-deploy canary: all 10 public HTML pages returned 200 with expected titles,
-canonical URLs, and H1s. The homepage loaded in 48 ms in the browser check with
-no console errors. `robots.txt`, the sitemap, and the IndexNow key returned 200.
+Post-deploy canary: the prior pass covered 10 public HTML pages with expected
+titles, canonical URLs, and H1s. This pass additionally verified the new
+model-strategy article, the Insights listing, and the healthcare AI offer page
+at 200, with the expected internal links. The article returned the intended
+metadata and JSON-LD, the published sitemap includes its URL, and its console
+was clean after stale browser logs were cleared. `robots.txt`, the sitemap,
+and the IndexNow key returned 200.
 
 Production also exposes both ownership tags. Google Search Console confirmed
 ownership through the HTML tag and reported the sitemap as successful with 100
@@ -116,8 +119,7 @@ meta tag and accepted the sitemap for processing.
 
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
-resolve; and `sitemap.xml` is valid XML. New pages still need a live browser
-check after deployment.
+resolve; and `sitemap.xml` is valid XML.
 
 ## Deployment
 
