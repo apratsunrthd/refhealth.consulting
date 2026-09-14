@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T23:55:00Z",
+  "title": "Design System: ref(health) Consulting",
+  "extensions": {
+    "colorMeta": {
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#d1392d",
+        "tonalRamp": ["#3c0f0b", "#6a1913", "#97241c", "#d1392d", "#dd6b60", "#ebb0aa", "#f6d8d5", "#fff5f4"]
+      },
+      "signal-amber": {
+        "role": "secondary",
+        "displayName": "Signal Amber",
+        "canonical": "#d69a24",
+        "tonalRamp": ["#332006", "#65400b", "#99620f", "#d69a24", "#e4b85d", "#efd391", "#f7e7c4", "#fff8eb"]
+      },
+      "signal-green": {
+        "role": "secondary",
+        "displayName": "Signal Green",
+        "canonical": "#19795b",
+        "tonalRamp": ["#08271e", "#0f4937", "#14674e", "#19795b", "#45a184", "#86c6b2", "#c4e4da", "#eef9f5"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#edf1ef",
+        "tonalRamp": ["#181d1a", "#343b37", "#59635d", "#87918b", "#b9c1bd", "#d7ddda", "#edf1ef", "#fbfcf6"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#11100e",
+        "tonalRamp": ["#050505", "#11100e", "#332f2a", "#625b50", "#9f927b", "#d7ccb7", "#edf1ef", "#fbfcf6"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Large, direct page-level claims."
+      },
+      "label": {
+        "displayName": "System Label",
+        "purpose": "Short status markers, sequence numbers, and operating-system layers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "primary-button",
+        "value": "0 18px 34px rgba(209, 57, 45, 0.24)",
+        "purpose": "Primary CTA depth at rest."
+      },
+      {
+        "name": "primary-button-hover",
+        "value": "0 14px 28px rgba(167, 39, 31, 0.24)",
+        "purpose": "Primary CTA hover response."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-transition",
+        "value": "160ms ease",
+        "purpose": "Button hover and focus state changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop-collapse",
+        "value": "980px"
+      },
+      {
+        "name": "mobile-stack",
+        "value": "720px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Revenue-oriented call to action.",
+      "html": "<button class=\"ds-btn-primary\">Start a paid conversation</button>",
+      "css": ".ds-btn-primary { min-height: 48px; padding: 0.86rem 1.12rem; border: 1px solid transparent; border-radius: 6px; background: #d1392d; color: #fffdf8; font: 700 1rem/1.2 IBM Plex Sans, system-ui, sans-serif; box-shadow: 0 18px 34px rgba(209,57,45,0.24); transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease; } .ds-btn-primary:hover { background: #a7271f; transform: translateY(-2px); box-shadow: 0 14px 28px rgba(167,39,31,0.24); } .ds-btn-primary:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary path into the paid offers.",
+      "html": "<button class=\"ds-btn-secondary\">Review paid offers</button>",
+      "css": ".ds-btn-secondary { min-height: 48px; padding: 0.86rem 1.12rem; border: 1px solid #11100e; border-radius: 6px; background: #fbfcf6; color: #11100e; font: 700 1rem/1.2 IBM Plex Sans, system-ui, sans-serif; transition: transform 160ms ease, background 160ms ease; } .ds-btn-secondary:hover { background: #d69a24; transform: translateY(-2px); } .ds-btn-secondary:focus-visible { outline: 3px solid #d69a24; outline-offset: 4px; }"
+    },
+    {
+      "name": "Operating System Panel",
+      "kind": "custom",
+      "refersTo": "os-panel",
+      "description": "Hero artifact showing the company Data AI Operating System as stacked operating layers.",
+      "html": "<aside class=\"ds-os-panel\"><header><span>Operating model</span><h2>What the system contains</h2></header><div class=\"ds-os-row\"><span>01</span><strong>Business decisions</strong></div></aside>",
+      "css": ".ds-os-panel { border: 1px solid #11100e; border-radius: 6px; overflow: hidden; background: #fbfcf6; color: #11100e; } .ds-os-panel header { padding: 1.5rem; border-bottom: 1px solid #11100e; background: #050505; color: #fffdf8; } .ds-os-row { display: grid; grid-template-columns: 56px 1fr; gap: 1rem; padding: 1.08rem 1.25rem; border-top: 1px solid #11100e; background: #fbfcf6; }"
+    },
+    {
+      "name": "Offer Row",
+      "kind": "custom",
+      "refersTo": "offer-row",
+      "description": "Commercial service packaging with a meaningful signal state.",
+      "html": "<article class=\"ds-offer\"><span class=\"ds-signal\"></span><div><h3>Company Data AI Operating System</h3><p>Connect data products, model strategy, governance, measurement, and workflow.</p></div><span class=\"ds-tag\">Flagship build</span></article>",
+      "css": ".ds-offer { display: grid; grid-template-columns: 16px minmax(0,1fr) max-content; gap: 1.15rem; align-items: start; padding: 1.25rem 0; border-bottom: 1px solid #11100e; font-family: IBM Plex Sans, system-ui, sans-serif; } .ds-offer h3 { margin: 0 0 0.45rem; font-size: 1.25rem; line-height: 1.1; } .ds-offer p { margin: 0; color: #332f2a; line-height: 1.55; } .ds-signal { width: 12px; height: 12px; margin-top: 0.22rem; border-radius: 50%; background: #d1392d; } .ds-tag { padding: 0.28rem 0.5rem; border: 1px solid #9f927b; border-radius: 6px; color: #332f2a; font: 600 0.78rem/1.2 IBM Plex Mono, monospace; }"
+    },
+    {
+      "name": "Evidence List",
+      "kind": "custom",
+      "refersTo": "evidence-list",
+      "description": "Flat proof rows for deliverables buyers can inspect during an engagement.",
+      "html": "<ol class=\"ds-evidence\"><li><span>01</span><strong>Decision memo</strong><p>What to fund, stop, govern, build, or buy.</p></li></ol>",
+      "css": ".ds-evidence { display: grid; gap: 1px; padding: 0; margin: 0; border: 1px solid #11100e; background: #11100e; list-style: none; } .ds-evidence li { display: grid; grid-template-columns: 52px 1fr; gap: .25rem 1rem; padding: 1.08rem; background: #fbfcf6; } .ds-evidence span { grid-row: 1 / span 2; color: #a7271f; font: 600 .78rem/1.25 IBM Plex Mono, monospace; letter-spacing: .04em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Company Data AI Operating System",
+    "overview": "The site presents healthcare data and AI consulting as an operating system: business decisions, governed data products, model/provider strategy, workflow automation, measurement, documentation, and handoff working as one accountable layer. The first viewport should show this as a clean operating model, not a decorative diagram.",
+    "keyCharacteristics": [
+      "Direct revenue-oriented copy.",
+      "Flat, diagrammatic surfaces with strong borders.",
+      "Red, amber, and green status language tied to risk, governance, and readiness.",
+      "Evidence through diagnostics, working artifacts, controls, and operating cadence."
+    ],
+    "rules": [
+      {
+        "name": "The No Default Healthcare Blue Rule",
+        "body": "Blue gradients do not belong on this site unless a future brand decision explicitly changes the palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Has Meaning Rule",
+        "body": "Red, amber, and green must describe risk, governance, readiness, or action. Do not use them as random decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Section headings do not use kicker labels. The heading must carry its own weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Overlap Rule",
+        "body": "Hero artifacts must use stable rows or panels. Do not use overlapping text, decorative route lines, or map-like clutter.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do sell the company Data AI Operating System as the flagship mechanism.",
+      "Do tie AI copy to data readiness, governance, workflow fit, model/provider strategy, and measurable business action.",
+      "Do lead with artifact evidence: decision memos, working builds, control packages, measurement, and handoff.",
+      "Do keep section spacing generous and content blocks scan-friendly."
+    ],
+    "donts": [
+      "Don't invent client logos, testimonials, prices, certifications, or revenue outcomes.",
+      "Don't name private systems or private projects as public case studies.",
+      "Don't use public code links as primary conversion proof.",
+      "Don't use generic AI agency language, purple gradients, glassmorphism, or decorative icon cards."
+    ]
+  }
+}
