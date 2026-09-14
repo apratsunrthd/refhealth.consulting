@@ -31,11 +31,13 @@ Important files:
 
 ## Current Branch
 
-The model-strategy content pass is merged to `main` and deployed. It adds the
-healthcare AI model-strategy article and its internal links. Google Search
-Console and Bing Webmaster Tools both show the site as verified. Google shows
-the sitemap submission as successful; Bing shows the sitemap as submitted and
-processing.
+The startup-positioning and diagnostic-intake pass is on branch
+`offer-diagnostic-and-startup-positioning` in PR #23. It adds the $2,500
+diagnostic path, the email-based intake page, startup-focused copy, and
+anonymized AI capability language. `main` remains the previously deployed
+version until the PR is merged. Google Search Console and Bing Webmaster Tools
+remain verified; Google shows the sitemap submission as successful and Bing
+shows the sitemap as submitted and processing.
 
 ## Design Context
 
