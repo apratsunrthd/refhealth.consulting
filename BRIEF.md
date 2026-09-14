@@ -35,6 +35,9 @@ company Data AI Operating System buildouts.
 - A hosted Tally intake page now asks for only the information needed to scope
   the diagnostic. It keeps a plain-email fallback and repeats the no-sensitive-
   data boundary inside the form.
+- The intake fallback stays above the hosted embed so email remains reachable if
+  Tally cannot load, and the surrounding copy describes the hosted submission
+  flow accurately.
 - The intake page now explains the three-step path from context to scope to
   decision, and records a privacy-safe GA4 event when a visitor starts the
   Tally intake without sending field values. Tally's hosted submission and
@@ -48,7 +51,7 @@ company Data AI Operating System buildouts.
   is an early signal; qualified diagnostic conversations tied to a decision and
   operating outcome are the commercial measure.
 - Every public HTML page now points social previews to the brand-safe `og.png`
-  card. `og-card.svg` is the editable source asset.
+  card. `og-card.svg` is the editable `1200x630` source asset.
 - Tally is the live hosted-form provider after reviewing its current free plan,
   embed, self-notification, and privacy documentation. The published form is
   `https://tally.so/r/5BJOVN`; self notifications are configured for the

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Data AI Operating Systems for healthcare teams</title>
   <desc id="desc">ref(health) Consulting helps healthcare teams connect data, analytics, and practical AI.</desc>
-  <rect width="1200" height="1200" fill="#111111"/>
+  <rect width="1200" height="630" fill="#111111"/>
   <path d="M78 132H1122M78 498H1122" stroke="#3b3b3b" stroke-width="2"/>
   <path d="M790 132V498M790 315H1122" stroke="#3b3b3b" stroke-width="2"/>
   <path d="M790 315H684V406H574" fill="none" stroke="#0b8a69" stroke-width="4" stroke-dasharray="18 14"/>

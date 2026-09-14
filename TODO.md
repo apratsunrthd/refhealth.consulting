@@ -20,6 +20,9 @@
   plain-email fallback.
 - Persisted the GitHub Pages deployment configuration in `AGENTS.md`, including
   the production URL, squash merge method, and post-merge smoke checks.
+- Corrected the hosted intake instructions and kept the plain-email fallback
+  visible above the Tally embed; aligned the editable social-card source with
+  the published `1200x630` asset.
 
 ## For Codex or Claude
 

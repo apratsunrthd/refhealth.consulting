@@ -49,6 +49,9 @@ custom confirmation page. `FORM_SETUP.md` contains the field map and setup
 record. Keep the plain-email fallback and no-sensitive-data guidance intact.
 `AGENTS.md` contains the deployment settings for GitHub Pages, including the
 production URL and post-merge smoke checks.
+The email fallback appears before the hosted iframe so it remains reachable if
+Tally fails to load. Keep the surrounding intake copy aligned with the hosted
+submission flow.
 
 ## Design Context
 
@@ -143,7 +146,8 @@ meta tag and accepted the sitemap for processing.
 
 The social-preview asset is a deterministic, brand-safe PNG rather than a
 photographic or AI-generated image. All 12 public HTML pages reference it with
-Open Graph and Twitter image metadata.
+Open Graph and Twitter image metadata. `og-card.svg` is the editable source and
+uses the same `1200x630` aspect ratio as `og.png`.
 
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
