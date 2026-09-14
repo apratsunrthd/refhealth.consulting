@@ -31,13 +31,12 @@ Important files:
 
 ## Current Branch
 
-The startup-positioning and diagnostic-intake pass is on branch
-`offer-diagnostic-and-startup-positioning` in PR #23. It adds the $2,500
-diagnostic path, the email-based intake page, startup-focused copy, and
-anonymized AI capability language. `main` remains the previously deployed
-version until the PR is merged. Google Search Console and Bing Webmaster Tools
-remain verified; Google shows the sitemap submission as successful and Bing
-shows the sitemap as submitted and processing.
+The intake conversion pass is on branch `measure-diagnostic-intake`. It adds a
+clear three-step explanation of the email-based diagnostic path and privacy-safe
+GA4 events for form starts and submitted inquiries. The startup positioning and
+$2,500 diagnostic path are already on `main`. Google Search Console and Bing
+Webmaster Tools remain verified; Google shows the sitemap submission as
+successful and Bing shows the sitemap as submitted and processing.
 
 ## Design Context
 

@@ -113,6 +113,14 @@
           <p>Answer the questions below. The response will be prepared in your email client so you can review it before sending.</p>
           <p class="intake-note"><strong>Keep it high level.</strong> Please do not include PHI, customer records, credentials, or confidential material.</p>
           <p class="intake-note">The diagnostic usually runs one to two weeks. Larger scopes are agreed before work begins.</p>
+          <div class="intake-process">
+            <h3>What happens next.</h3>
+            <ol>
+              <li><strong>Share the pressure</strong><span>Describe the decision in plain English. No deck or data upload is required.</span></li>
+              <li><strong>Scope the work</strong><span>The first reply clarifies whether the focused diagnostic fits the problem.</span></li>
+              <li><strong>Agree the next move</strong><span>If it fits, confirm scope and timing before any work begins.</span></li>
+            </ol>
+          </div>
         </div>
 
         <form class="intake-form" action="mailto:refhealth.consulting@gmail.com?subject=Healthcare%20AI%20diagnostic%20inquiry" method="post" enctype="text/plain">
@@ -187,5 +195,27 @@
     </div>
   </footer>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    const diagnosticForm = document.querySelector(".intake-form");
+    let diagnosticFormStarted = false;
+
+    diagnosticForm?.addEventListener("focusin", () => {
+      if (diagnosticFormStarted) return;
+      diagnosticFormStarted = true;
+      gtag("event", "diagnostic_form_start", {
+        form_name: "healthcare_ai_diagnostic",
+        page_type: "intake"
+      });
+    });
+
+    diagnosticForm?.addEventListener("submit", () => {
+      gtag("event", "generate_lead", {
+        currency: "USD",
+        value: 2500,
+        lead_type: "healthcare_ai_diagnostic",
+        method: "mailto"
+      });
+    });
+  </script>
 </body>
 </html>
