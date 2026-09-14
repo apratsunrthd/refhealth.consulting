@@ -21,13 +21,17 @@ Important files:
 - `robots.txt` - public crawl policy, including explicit OAI-SearchBot access
 - `sitemap.xml` - public URL inventory; the GitHub Action regenerates it on main
 - `d774f0fd6934e4b0345056d9a28dbcf1.txt` - IndexNow ownership key file
+- `index.html` - homepage with Google Search Console and Bing Webmaster
+  verification tags
 - `PRODUCT.md` - confirmed product facts and claim boundaries
 - `DESIGN.md` - Impeccable visual direction and design rules
 
 ## Current Branch
 
-The SEO and AI-search work is merged to `main` and deployed. The local checkout
-tracks the post-merge sitemap commit.
+The SEO and AI-search work is merged to `main` and deployed. Google Search
+Console and Bing Webmaster Tools both show the site as verified. Google shows
+the sitemap submission as successful; Bing shows the sitemap as submitted and
+processing.
 
 ## Design Context
 
@@ -75,11 +79,10 @@ homepage, and no horizontal mobile overflow.
 - The main-branch sitemap workflow submits the current URL set to IndexNow
   after its sitemap/HTML update. This improves change notification, not rank
   guarantees.
-- The owner must verify `refhealth.consulting` in Google Search Console and
-  submit `sitemap.xml`. The owner should also verify the site in Bing Webmaster
-  Tools. These are account-owner actions; the sitemap workflow and IndexNow
-  notification are already live. Search engines may need time to crawl and
-  index the new URLs.
+- Google Search Console ownership is verified and `/sitemap.xml` is submitted
+  successfully. Bing Webmaster Tools ownership is verified and the full sitemap
+  URL is submitted with status `Submitted - Processing`. Search engines may
+  still need time to crawl and index the new URLs.
 
 ## Required AI Positioning
 
@@ -101,6 +104,11 @@ All checked pages loaded with no console errors.
 Post-deploy canary: all 10 public HTML pages returned 200 with expected titles,
 canonical URLs, and H1s. The homepage loaded in 48 ms in the browser check with
 no console errors. `robots.txt`, the sitemap, and the IndexNow key returned 200.
+
+Production also exposes both ownership tags. Google Search Console confirmed
+ownership through the HTML tag and reported the sitemap as successful with 100
+discovered pages. Bing Webmaster Tools confirmed ownership through its HTML
+meta tag and accepted the sitemap for processing.
 
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
