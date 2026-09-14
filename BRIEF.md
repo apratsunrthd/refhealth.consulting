@@ -40,6 +40,9 @@ company Data AI Operating System buildouts.
   diagnostic inquiries without sending field values.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
+- The flagship AI offer now carries the owner-approved anonymized outcome
+  evidence: reduced tedious work, more capacity for human judgment and
+  creativity, and support for workforce and capacity planning.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -120,6 +123,5 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The current branch adds a low-friction outcome question and
-best-fit guidance to the diagnostic intake; it still needs validation and owner
-review before shipping.
+See `TODO.md`. The current branch adds anonymized outcome proof to the flagship
+AI offer; it still needs validation and owner review before shipping.

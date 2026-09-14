@@ -31,12 +31,13 @@ Important files:
 
 ## Current Branch
 
-The intake qualification pass is on branch `qualify-diagnostic-intake`. It adds
-one optional outcome question and clearer best-fit guidance to the email-based
-diagnostic path. The startup positioning, $2,500 diagnostic path, and
-privacy-safe intake measurement are already on `main`. Google Search Console
-and Bing Webmaster Tools remain verified; Google shows the sitemap submission as
-successful and Bing shows the sitemap as submitted and processing.
+The anonymized-outcome pass is on branch `add-observed-ai-outcome`. It adds
+owner-approved outcome evidence to the flagship AI offer without naming a
+client, employer, or metric. The startup positioning, $2,500 diagnostic path,
+privacy-safe intake measurement, and best-fit guidance are already on `main`.
+Google Search Console and Bing Webmaster Tools remain verified; Google shows
+the sitemap submission as successful and Bing shows the sitemap as submitted
+and processing.
 
 ## Design Context
 
