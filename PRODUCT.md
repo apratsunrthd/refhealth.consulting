@@ -8,12 +8,12 @@ web
 
 ## Users
 
-Primary users are healthcare executives and senior operators who own data,
-analytics, AI, product, operations, or transformation outcomes. The best-fit
-buyers are health plans, provider organizations, care-navigation firms, wellness
-companies, digital health teams, and healthcare-adjacent founders who need a
-senior translator between business goals, regulated healthcare workflows, and
-working data systems.
+Primary users are health-tech founders and senior operators who own data,
+analytics, AI, product, operations, or transformation outcomes. The first
+commercial wedge is health-tech startups. Provider organizations,
+care-navigation firms, wellness companies, and other healthcare teams remain
+secondary audiences that need a senior translator between business goals,
+regulated workflows, and working data systems.
 
 This is inferred from user-provided background: 21 years across payer,
 provider, wellness, and navigation; deep data, analytics, and insights work;
@@ -24,7 +24,8 @@ dbt fluency; and recent practical AI system-building experience.
 ref(health) Consulting sells senior healthcare data, analytics, and practical
 AI help. Success is paid discovery, assessment, implementation, advisory, or
 fractional leadership work that turns messy healthcare data and AI pressure into
-usable, governed systems.
+usable, governed systems. The focused AI-readiness diagnostic starts at $2,500;
+larger scopes are priced after the decision, data, and stakeholders are clear.
 
 The flagship offer is helping a company build its Data AI Operating System:
 the operating layer that connects business decisions, governed data products,
@@ -38,7 +39,9 @@ want to email for a paid engagement, diagnostic, or proposal discussion.
 
 ref(health) is not a generic AI implementation shop. It combines 21 years of
 healthcare operating context with hands-on analytics engineering, dbt fluency,
-business translation, and recent agentic AI product-building experience.
+business translation, and recent agentic AI product-building experience. The
+practice is independent and founder-led, with health-tech startups as the lead
+buyer.
 
 The distinctive mechanism is practical translation: start with the healthcare
 decision, map the data and risk, build the smallest auditable system that can
@@ -74,6 +77,9 @@ Confirmed capabilities:
 - Practical AI system design, including agentic workflows, AI-assisted
   documenters, data landscape analyzers, persona panels, and operational
   planning tools.
+- Model strategy that can orchestrate multiple models across labs and providers,
+  or go deep with one provider when security, policy, integration, delivery
+  speed, or an existing commitment makes that the right path.
 - Prototype work spanning static apps, TypeScript/Next.js, Supabase/Postgres,
   Python analytical engines, Cloudflare Workers, browser apps, automated
   reviews, tests, and handoff documentation.
@@ -89,8 +95,9 @@ Constraints:
   used in the future, they should be secondary technical diligence only.
 - Private project evidence may inform capability language but should not be
   named as a published case study.
-- Do not invent client logos, testimonials, benchmarks, certifications, or
-  revenue numbers.
+- Do not invent client logos, testimonials, benchmarks, certifications, revenue
+  numbers, or outcomes. Use owner-provided outcomes as anonymized capability
+  evidence only until public wording is approved.
 - No calendar URL has been provided. The current contact method is
   `refhealth.consulting@gmail.com`.
 
@@ -115,6 +122,9 @@ builder work, and connecting data teams to business teams.
 - User-described recent AI work supports generic capability language around
   contingency planning, AI chief-of-staff patterns, persona review panels, data
   landscape analysis, and documentation systems.
+- User-described live healthcare use supports an anonymized claim that AI
+  workflows have reduced tedious, low-value work, created more capacity for
+  human judgment and creativity, and supported workforce/capacity planning.
 
 ## Product Principles
 

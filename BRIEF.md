@@ -29,6 +29,12 @@ company Data AI Operating System buildouts.
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
   linked from the healthcare AI offer page.
+- The current commercial wedge is health-tech startups. The site now leads with
+  a focused AI-readiness diagnostic starting at $2,500, with larger operating
+  system builds and other work positioned as follow-on engagements.
+- A free, email-based intake page now asks for only the information needed to
+  scope the diagnostic. It is intentionally easy to replace with a hosted form
+  after a provider account is available.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.
@@ -54,15 +60,22 @@ company Data AI Operating System buildouts.
 
 - Primary conversion goal is revenue, expressed as a paid engagement
   conversation.
+- Primary target is health-tech startups; provider teams are a secondary
+  audience.
+- The public diagnostic starting price is $2,500. Do not infer or publish other
+  prices until they are validated.
 - Contact method remains `refhealth.consulting@gmail.com`.
 - Public copy must not mention the founder's personal name or add affiliation
   disclaimer language.
 - Recent AI work is described only as anonymized capability language.
+- Owner-provided live-use outcome language may describe reduced tedious work,
+  increased bandwidth for human judgment and creativity, and workforce/capacity
+  planning, but must not identify an employer or disclose a workforce reduction.
 - Public code links are not primary conversion proof and have been removed from
   the sales path.
 - Private project evidence may inform capability claims but is not named.
-- No customers, revenue impact, prices, testimonials, or certifications were
-  invented.
+- No customers, revenue impact, testimonials, certifications, or metrics were
+  invented. The $2,500 starting price is owner-provided.
 
 ## Research Used
 
@@ -102,4 +115,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`.
+See `TODO.md`. The current branch adds startup positioning, the paid diagnostic
+price, and the diagnostic intake page; it still needs owner review before the
+new commercial language is treated as final.

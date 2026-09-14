@@ -12,6 +12,7 @@ Important files:
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
+- `intake.html` - paid diagnostic intake page and email-based form
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
@@ -62,8 +63,12 @@ homepage, and no horizontal mobile overflow.
 - Do not lead with public code links as buyer proof. If used later, they should
   be secondary technical diligence only.
 - Private projects may inform generic capability language only.
-- Do not invent clients, logos, case-study metrics, pricing, certifications, or
+- Do not invent clients, logos, case-study metrics, certifications, or
   guarantees.
+- The owner-approved diagnostic starting price is $2,500. Do not publish other
+  prices until they are validated.
+- Use anonymized capability language for live healthcare AI work; do not name an
+  employer or disclose a workforce reduction.
 
 ## Search Context
 
@@ -93,6 +98,8 @@ homepage, and no horizontal mobile overflow.
 - Mention the ability to go deep with a single provider when policy,
   integration, commitment, or delivery speed makes that the right path.
 - Keep the company Data AI Operating System as the flagship mechanism.
+- Lead the commercial path with the focused health-tech startup diagnostic,
+  starting at $2,500.
 
 ## Verification
 
