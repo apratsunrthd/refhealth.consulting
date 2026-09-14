@@ -47,3 +47,18 @@ jobs:
           fi
           git commit -m "Update sitemap and GA [skip ci]"
           git push
+
+      - name: Notify IndexNow
+        env:
+          INDEXNOW_KEY: d774f0fd6934e4b0345056d9a28dbcf1
+        run: |
+          set -euo pipefail
+          payload="$(node -e 'const fs=require("fs"); const xml=fs.readFileSync("sitemap.xml","utf8"); const urlList=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([,url])=>url); process.stdout.write(JSON.stringify({host:"refhealth.consulting",key:process.env.INDEXNOW_KEY,urlList}));')"
+          status="$(curl -sS -o /tmp/indexnow-response -w '%{http_code}' -X POST \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data "$payload" \
+            https://api.indexnow.org/indexnow)"
+          case "$status" in
+            200|202) echo "IndexNow accepted sitemap URLs (HTTP $status)" ;;
+            *) cat /tmp/indexnow-response; echo "IndexNow rejected the submission (HTTP $status)"; exit 1 ;;
+          esac

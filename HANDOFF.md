@@ -8,16 +8,25 @@ framework. Open `index.html` directly to preview the homepage.
 Important files:
 
 - `index.html` - main marketing page and revenue CTA
-- `styles.css` - shared CSS for the homepage and blog pages
+- `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
+- `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
+- `dbt-consulting.html` - dbt and analytics engineering offer
+- `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
+- `about.html` - experience, translation layer, and engagement model
+- `styles.css` - shared CSS for all pages
 - `blog.html` - article index
+- `blog-data-ai-operating-system.html` - original AI operating-system explainer
 - `blog-100k-per-day-mistake.html` - domain knowledge article
 - `blog-why-we-build-with-dbt.html` - dbt article
+- `robots.txt` - public crawl policy, including explicit OAI-SearchBot access
+- `sitemap.xml` - public URL inventory; the GitHub Action regenerates it on main
+- `d774f0fd6934e4b0345056d9a28dbcf1.txt` - IndexNow ownership key file
 - `PRODUCT.md` - confirmed product facts and claim boundaries
 - `DESIGN.md` - Impeccable visual direction and design rules
 
 ## Current Branch
 
-Work was done on `update-content-ai-consulting-site`, not `main`.
+Current work is on `seo-ai-discoverability`, branched from the deployed `main`.
 
 ## Design Context
 
@@ -48,6 +57,28 @@ homepage, and no horizontal mobile overflow.
 - Do not invent clients, logos, case-study metrics, pricing, certifications, or
   guarantees.
 
+## Search Context
+
+- Search intent is handled through distinct, useful pages instead of repeated
+  keyword copy.
+- Google guidance says AI Overviews and AI Mode have no extra technical or
+  special schema requirement beyond normal Search eligibility. Keep improving
+  people-first content, internal links, structured data that matches visible
+  text, and page experience.
+- OpenAI's official crawler guidance identifies `OAI-SearchBot` as the crawler
+  used to surface websites in ChatGPT search. It is explicitly allowed in
+  `robots.txt`.
+- Google, Bing/Copilot, Anthropic, and xAI all document search or retrieval
+  paths that use public web content. The site keeps the generic `Allow: /`
+  rule rather than guessing at undocumented model-specific crawler names.
+- The main-branch sitemap workflow submits the current URL set to IndexNow
+  after its sitemap/HTML update. This improves change notification, not rank
+  guarantees.
+- The owner must verify `refhealth.consulting` in Google Search Console and
+  submit `sitemap.xml` after this branch is deployed. The owner should also
+  verify the site in Bing Webmaster Tools. Search engines may need time to
+  crawl and index the new URLs.
+
 ## Required AI Positioning
 
 - Mention multi-model orchestration across labs/providers.
@@ -64,6 +95,11 @@ Manual browser checks used gstack browse against local files:
 - `file://./blog-why-we-build-with-dbt.html`
 
 All checked pages loaded with no console errors.
+
+Static checks for this SEO pass validate that every HTML page has a title,
+description, canonical URL, and parseable JSON-LD; all local links and fragments
+resolve; and `sitemap.xml` is valid XML. New pages still need a live browser
+check after deployment.
 
 ## Deployment
 

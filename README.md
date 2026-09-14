@@ -7,7 +7,9 @@ The homepage positions the firm around paid healthcare data and AI work:
 AI-readiness diagnostics, company Data AI Operating Systems, data landscape
 assessments, dbt analytics engineering, model orchestration, agentic workflow
 prototypes, payer/provider modernization support, and fractional data
-leadership.
+leadership. Dedicated service pages and an original AI operating-system article
+make those offers easier for search engines, answer engines, and buyers to find
+and understand.
 
 ## Development
 
@@ -17,9 +19,15 @@ homepage. Visit `blog.html` to view the insights index.
 ## Structure
 
 - `index.html` - homepage and primary conversion path
+- `healthcare-ai-consulting.html` - healthcare AI and Data AI Operating System
+- `healthcare-data-strategy.html` - healthcare data strategy and landscape work
+- `dbt-consulting.html` - dbt consulting and analytics engineering
+- `ai-readiness-assessment.html` - paid AI-readiness diagnostic
+- `about.html` - healthcare experience and engagement model
 - `blog.html` - insights listing
 - `blog-*.html` - static article pages
 - `styles.css` - shared visual system
+- `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
 - `PRODUCT.md` - durable product facts for Impeccable and future agents
 - `DESIGN.md` - durable design system and visual direction
 - `BRIEF.md`, `HANDOFF.md`, `TODO.md` - project state and next work

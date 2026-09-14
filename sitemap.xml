@@ -1,19 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://refhealth.consulting/</loc>
-<lastmod>2026-09-13T20:13:08-04:00</lastmod>
-</url>
-<url>
-<loc>https://refhealth.consulting/blog-100k-per-day-mistake.html</loc>
-<lastmod>2026-09-13T20:13:08-04:00</lastmod>
-</url>
-<url>
-<loc>https://refhealth.consulting/blog-why-we-build-with-dbt.html</loc>
-<lastmod>2026-09-13T20:13:08-04:00</lastmod>
-</url>
-<url>
-<loc>https://refhealth.consulting/blog.html</loc>
-<lastmod>2026-09-13T20:13:08-04:00</lastmod>
-</url>
+  <url>
+    <loc>https://refhealth.consulting/</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/healthcare-ai-consulting.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/healthcare-data-strategy.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/dbt-consulting.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/ai-readiness-assessment.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/about.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/blog.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/blog-data-ai-operating-system.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/blog-100k-per-day-mistake.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://refhealth.consulting/blog-why-we-build-with-dbt.html</loc>
+    <lastmod>2026-09-13</lastmod>
+  </url>
 </urlset>
