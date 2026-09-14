@@ -48,10 +48,10 @@ company Data AI Operating System buildouts.
   operating outcome are the commercial measure.
 - Every public HTML page now points social previews to the brand-safe `og.png`
   card. `og-card.svg` is the editable source asset.
-- Search Console was checked on 2026-09-14. The three-month web report showed
-  27 impressions, 0 clicks, and average position 6. The generative-AI report
-  showed 8 impressions for the homepage. The visible query/page signal is too
-  early and too weak to support a qualified-intent performance claim.
+- Search Console was checked on 2026-09-14. The site has only an early web
+  visibility signal, with no qualified query/page evidence yet. The
+  generative-AI report has limited homepage-only visibility. No performance
+  claim is published from this data.
 - Every public HTML page has a canonical URL, unique description, social
   metadata, and valid JSON-LD appropriate to the page type. The homepage
   defines the ref(health) Organization and WebSite entities.

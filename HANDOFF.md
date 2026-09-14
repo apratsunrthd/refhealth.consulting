@@ -99,10 +99,10 @@ homepage, and no horizontal mobile overflow.
   successfully. Bing Webmaster Tools ownership is verified and the full sitemap
   URL is submitted with status `Submitted - Processing`. Search engines may
   still need time to crawl and index the new URLs.
-- On 2026-09-14, Google Search Console showed 27 web impressions, 0 clicks, and
-  average position 6 for the last three months. Its generative-AI report showed
-  8 impressions for the homepage. The query/page signal is not yet qualified
-  buyer intent, so the site makes no performance claim from it.
+- On 2026-09-14, Google Search Console was reviewed. The site has only an early
+  web visibility signal, and its generative-AI report has limited homepage-only
+  visibility. The query/page signal is not yet qualified buyer intent, so the
+  site makes no performance claim from it.
 
 ## Required AI Positioning
 
