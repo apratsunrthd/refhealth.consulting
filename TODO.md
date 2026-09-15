@@ -38,6 +38,8 @@
   dedicated GA4 property, Search Console domain property, and Tally response
   worksheet. The report includes search clicks/impressions, active users,
   response count, and a query table.
+- Landed the measurement system in PR #29 and verified the GitHub Pages
+  production canary on 2026-09-15.
 
 ## For Codex or Claude
 
@@ -62,8 +64,6 @@ implemented.
 
 ## For the site owner
 
-- Run the land-and-deploy workflow for the measurement branch and verify the
-  production canary.
 - Review the published $2,500 starting price after the first qualified inquiries.
 - Confirm the first real notification arrives in the consulting inbox, then
   review the first qualified inquiries for fit and response time.

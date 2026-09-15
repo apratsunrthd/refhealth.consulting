@@ -37,7 +37,7 @@ Important files:
 
 ## Current Branch
 
-The current work is on branch `setup/measurement-system`. It points every
+The measurement system is merged to `main` and deployed. It points every
 public page at the dedicated `refhealth.consulting` GA4 stream, adds shared
 attribution/conversion tracking, and records the operating system in
 `MEASUREMENT.md`. The free Data Studio report is available at
@@ -182,3 +182,8 @@ URL set to IndexNow after main-branch changes.
 The deployment configuration used by `/land-and-deploy` is recorded in
 `AGENTS.md`; it uses a squash merge, the root URL as the primary health check,
 and `/intake.html` plus `/sitemap.xml` as smoke checks.
+
+The latest measurement deployment landed in PR #29 on 2026-09-15. GitHub Pages
+and the sitemap workflow completed successfully, and the production canary
+confirmed the homepage, intake page, analytics asset, and sitemap returned 200
+with no browser console errors.
