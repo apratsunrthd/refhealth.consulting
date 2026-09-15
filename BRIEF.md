@@ -44,6 +44,19 @@ company Data AI Operating System buildouts.
   decision, and records a privacy-safe GA4 event when a visitor starts the
   Tally intake without sending field values. Tally's hosted submission and
   notification surfaces are the source of truth for completed inquiries.
+- Measurement now uses a dedicated `refhealth.consulting` GA4 web stream
+  (`G-05XLCL9N8S`) instead of the older mixed-site stream. A shared
+  `analytics.js` file captures allow-listed attribution, diagnostic CTA clicks,
+  diagnostic starts, and email fallback clicks without sending form answers.
+- Tally is connected to a Google Sheet named `refhealth lead attribution`.
+  The intake embed forwards the allow-listed UTM values, first landing path,
+  and referring host to hidden Tally fields so the submission log can be tied
+  back to acquisition automatically. All seven hidden fields are now published.
+- The free Data Studio report [ref(health) Measurement Dashboard](https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F)
+  is connected to the dedicated GA4 property, the verified Search Console
+  domain property, and the Tally response worksheet. It has scorecards for
+  search clicks, search impressions, active users, and response count, plus a
+  query table.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
@@ -131,6 +144,10 @@ or inclusion.
 - Homepage opens directly from `index.html`.
 - `blog.html` and article pages open directly.
 - Google Analytics snippet remains present.
+- `analytics.js` is loaded on all public HTML pages and the GA4 measurement ID
+  is `G-05XLCL9N8S`.
+- The Data Studio dashboard is available at
+  `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
 - Navigation anchors resolve to `#offers`, `#ai`, `#proof`, `blog.html`, and
   `#contact`.
 - Service pages are linked from the homepage and each has a direct paid CTA and
@@ -143,7 +160,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The executable Codex/Claude work is complete or prepared. The
-hosted diagnostic form is live through Tally, and the GitHub Pages deployment
-settings are persisted in `AGENTS.md` for the land-and-deploy workflow. Search
-Console measurement should be revisited after qualified traffic accumulates.
+See `TODO.md`. The site-side measurement wiring, Tally sheet connection, and
+dashboard are complete. The remaining operating step is to use the combined
+dashboard weekly and revisit Search Console after qualified traffic accumulates.
