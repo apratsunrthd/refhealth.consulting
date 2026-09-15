@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const GA_ID = process.env.GA_ID || 'G-20C3G81DBE'; // override in workflow if needed
+const GA_ID = process.env.GA_ID || 'G-05XLCL9N8S'; // override in workflow if needed
 
 const GA_SNIPPET = `
 <!-- Google tag (gtag.js) -->
@@ -15,27 +15,34 @@ const GA_SNIPPET = `
 </script>
 `;
 
+const ANALYTICS_SNIPPET = '<script src="analytics.js"></script>';
+
 function injectInFile(filePath) {
   let html = fs.readFileSync(filePath, 'utf8');
+  let changed = false;
 
-  // Don’t double-inject
-  if (
-    html.includes('gtag(') ||
-    html.includes('googletagmanager.com/gtag/js')
-  ) {
-    return;
+  if (!html.includes('gtag(') && !html.includes('googletagmanager.com/gtag/js')) {
+    if (html.includes('</head>')) {
+      html = html.replace('</head>', `${GA_SNIPPET}\n</head>`);
+    } else {
+      html = `${GA_SNIPPET}\n${html}`;
+    }
+    changed = true;
   }
 
-  if (html.includes('</head>')) {
-    // Insert before </head>
-    html = html.replace('</head>', `${GA_SNIPPET}\n</head>`);
-  } else {
-    // Fallback: put at the top if there’s no <head>
-    html = `${GA_SNIPPET}\n${html}`;
+  if (!html.includes('src="analytics.js"')) {
+    if (!html.includes('</head>')) {
+      html = `${ANALYTICS_SNIPPET}\n${html}`;
+    } else {
+      html = html.replace('</head>', `${ANALYTICS_SNIPPET}\n</head>`);
+    }
+    changed = true;
   }
 
-  fs.writeFileSync(filePath, html, 'utf8');
-  console.log(`Injected GA into ${filePath}`);
+  if (changed) {
+    fs.writeFileSync(filePath, html, 'utf8');
+    console.log(`Injected analytics into ${filePath}`);
+  }
 }
 
 function walk(dir) {

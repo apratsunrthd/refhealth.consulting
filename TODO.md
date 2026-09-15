@@ -25,10 +25,24 @@
   the published `1200x630` asset.
 - Fixed the intake process descriptions so they use the content column on mobile
   and desktop instead of collapsing into the step-number column.
+- Created a dedicated GA4 web stream for `refhealth.consulting` and switched all
+  public pages plus the sitemap workflow to measurement ID `G-05XLCL9N8S`.
+- Added shared attribution tracking for UTM source, medium, campaign, content,
+  term, landing path, and referring host. Diagnostic CTA clicks, form starts,
+  and email fallback clicks are now recorded without sending form answers.
+- Connected the Tally form to the `refhealth lead attribution` Google Sheet for
+  automatic submission logging.
+- Added `MEASUREMENT.md` with the system map, event dictionary, UTM convention,
+  privacy boundary, and weekly operating cadence.
+- Created the free Data Studio measurement dashboard and connected the
+  dedicated GA4 property, Search Console domain property, and Tally response
+  worksheet. The report includes search clicks/impressions, active users,
+  response count, and a query table.
 
 ## For Codex or Claude
 
-All currently executable Codex/Claude items are complete or safely prepared.
+The site-side measurement system and live-form attribution configuration are
+implemented.
 
 - The live Tally form is embedded on `intake.html`; its public URL and setup
   record are in `FORM_SETUP.md`.
@@ -37,10 +51,18 @@ All currently executable Codex/Claude items are complete or safely prepared.
   no exact client case study or metric is available to publish.
 - Search Console has been checked and documented. There is not yet enough
   qualified query/page signal to publish a performance claim.
+- The dedicated GA4 stream and shared attribution script are wired into every
+  public page.
+- Tally is connected to a Google Sheet and its hidden fields are published, so
+  new rows will carry the source context automatically.
+- The dashboard is available at
+  `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
+- `MEASUREMENT.md` explains how to operate the system without manual tagging or
+  spreadsheet maintenance.
 
 ## For the site owner
 
-- Run the land-and-deploy workflow to squash-merge PR #27 and verify the
+- Run the land-and-deploy workflow for the measurement branch and verify the
   production canary.
 - Review the published $2,500 starting price after the first qualified inquiries.
 - Confirm the first real notification arrives in the consulting inbox, then

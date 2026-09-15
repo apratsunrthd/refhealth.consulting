@@ -79,13 +79,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20C3G81DBE"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-20C3G81DBE');
+    gtag('config', 'G-05XLCL9N8S');
   </script>
+<script src="analytics.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -133,7 +134,29 @@
         <div class="intake-form intake-form--hosted" aria-label="Healthcare AI diagnostic intake">
           <p class="form-fallback">Prefer email, or is the hosted form not loading? Send the same high-level details to <a href="mailto:refhealth.consulting@gmail.com">refhealth.consulting@gmail.com</a>.</p>
           <iframe data-tally-src="https://tally.so/embed/5BJOVN?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="1146" frameborder="0" marginheight="0" marginwidth="0" title="Start a Healthcare AI Diagnostic"></iframe>
-          <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+          <script>
+            window.refHealthAnalytics?.decorateTallyEmbed();
+            var d = document;
+            var w = "https://tally.so/widgets/embed.js";
+            var v = function () {
+              if (typeof Tally !== "undefined") {
+                Tally.loadEmbeds();
+              } else {
+                d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+                  e.src = e.dataset.tallySrc;
+                });
+              }
+            };
+            if (typeof Tally !== "undefined") {
+              v();
+            } else if (d.querySelector('script[src="' + w + '"]') == null) {
+              var s = d.createElement("script");
+              s.src = w;
+              s.onload = v;
+              s.onerror = v;
+              d.body.appendChild(s);
+            }
+          </script>
         </div>
       </div>
     </section>
@@ -166,23 +189,5 @@
     </div>
   </footer>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-  <script>
-    const diagnosticForm = document.querySelector(".intake-form--hosted");
-    let diagnosticFormStarted = false;
-
-    const markDiagnosticFormStart = () => {
-      if (diagnosticFormStarted) return;
-      diagnosticFormStarted = true;
-      gtag("event", "diagnostic_form_start", {
-        form_name: "healthcare_ai_diagnostic",
-        page_type: "intake",
-        method: "tally"
-      });
-    };
-
-    diagnosticForm?.addEventListener("focusin", markDiagnosticFormStart);
-    diagnosticForm?.addEventListener("pointerdown", markDiagnosticFormStart);
-    diagnosticForm?.addEventListener("click", markDiagnosticFormStart);
-  </script>
 </body>
 </html>

@@ -13,6 +13,8 @@ Important files:
 - `dbt-consulting.html` - dbt and analytics engineering offer
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
 - `intake.html` - paid diagnostic intake page with hosted Tally form and email fallback
+- `analytics.js` - shared privacy-safe attribution and conversion events
+- `MEASUREMENT.md` - measurement architecture, event dictionary, and operating cadence
 - `og.png` - brand-safe 1200x630 social preview image
 - `og-card.svg` - editable source for the social preview image
 - `FORM_SETUP.md` - hosted-form field map and activation checklist
@@ -35,18 +37,25 @@ Important files:
 
 ## Current Branch
 
-The current work is on branch `complete-codex-todos`. It adds a brand-safe
-1200x630 social preview image and applies its Open Graph/Twitter metadata to
-all public HTML pages. It also adds a neutral measurement note to the proof
-section and records the current Search Console baseline. The startup
-positioning, $2,500 diagnostic path, privacy-safe intake measurement,
-best-fit guidance, and anonymized outcome proof are already on `main`.
+The current work is on branch `setup/measurement-system`. It points every
+public page at the dedicated `refhealth.consulting` GA4 stream, adds shared
+attribution/conversion tracking, and records the operating system in
+`MEASUREMENT.md`. The free Data Studio report is available at
+`https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
+The startup positioning, $2,500 diagnostic path, privacy-safe
+intake measurement, best-fit guidance, and anonymized outcome proof are already
+on `main`.
 
 The diagnostic form is hosted by Tally at `https://tally.so/r/5BJOVN` and
 embedded in `intake.html`. Self email notifications are configured for the
 consulting inbox, and a synthetic non-sensitive test submission reached the
 custom confirmation page. `FORM_SETUP.md` contains the field map and setup
 record. Keep the plain-email fallback and no-sensitive-data guidance intact.
+Tally is connected to the Google Sheet `refhealth lead attribution`. The site
+passes only allow-listed UTM values, the first landing path, and the referring
+host to the seven matching hidden Tally fields. Those fields are present and
+published in the form editor; new submissions can now carry source context into
+the sheet.
 `AGENTS.md` contains the deployment settings for GitHub Pages, including the
 production URL and post-merge smoke checks.
 The email fallback appears before the hosted iframe so it remains reachable if
@@ -114,6 +123,10 @@ homepage, and no horizontal mobile overflow.
   web visibility signal, and its generative-AI report has limited homepage-only
   visibility. The query/page signal is not yet qualified buyer intent, so the
   site makes no performance claim from it.
+- A new GA4 web stream was created on 2026-09-15 with measurement ID
+  `G-05XLCL9N8S` in the dedicated `refhealth.consulting` property. The
+  dashboard is connected to that property rather than the older mixed-site
+  property.
 
 ## Required AI Positioning
 
@@ -155,6 +168,10 @@ uses the same `1200x630` aspect ratio as `og.png`.
 Static checks for this SEO pass validate that every HTML page has a title,
 description, canonical URL, and parseable JSON-LD; all local links and fragments
 resolve; and `sitemap.xml` is valid XML.
+
+The measurement pass also validates that all public pages use the dedicated GA4
+ID and shared analytics script, that `analytics.js` parses successfully, and
+that the Data Studio report has the GA4, Search Console, and Tally sources.
 
 ## Deployment
 

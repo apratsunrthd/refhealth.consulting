@@ -59,6 +59,30 @@ Completed on 2026-09-14:
 - Copied the standard embed from Tally’s Share tab into `intake.html`.
 - Kept the plain-email fallback and the privacy guidance.
 - Changed the local intake-start analytics method from `mailto` to `tally`.
+- Connected Tally to the Google Sheet `refhealth lead attribution` so
+  submissions are logged automatically:
+  `https://docs.google.com/spreadsheets/d/1Bi3aH0ZCyLmLjpKWen-JzQw8q3f45uqDf9Mz1Xi81KQ`.
+- Shared the response sheet as Viewer with the Data Studio account so the
+  measurement dashboard can read new rows without editor access.
+- Added the site-side attribution decorator so allow-listed UTM parameters,
+  the first landing path, and the referring host can travel with a submission.
+- Added and published the seven hidden attribution fields in the Tally editor.
+
+## Attribution fields
+
+These are Tally hidden fields. Their names match the site embed keys:
+
+1. `utm_source`
+2. `utm_medium`
+3. `utm_campaign`
+4. `utm_content`
+5. `utm_term`
+6. `landing_page`
+7. `referrer_host`
+
+The fields are intentionally limited to campaign labels, a URL path, and a
+hostname. They must not be used for PHI, customer records, credentials, or
+other confidential material.
 
 The repository stores the public form URL and embed configuration, but no
 provider credentials, tokens, or submission contents.

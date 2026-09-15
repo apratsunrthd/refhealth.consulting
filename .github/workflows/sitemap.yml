@@ -30,7 +30,7 @@ jobs:
 
       - name: Inject Google Analytics
         env:
-          GA_ID: G-20C3G81DBE   # GA ID for refhealth.consulting
+          GA_ID: G-05XLCL9N8S   # GA ID for refhealth.consulting
         run: node inject-ga.js
 
       - name: Commit updated sitemap and GA changes
