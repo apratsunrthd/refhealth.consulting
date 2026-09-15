@@ -57,6 +57,8 @@ company Data AI Operating System buildouts.
   domain property, and the Tally response worksheet. It has scorecards for
   search clicks, search impressions, active users, and response count, plus a
   query table.
+- The measurement system landed in PR #29 on 2026-09-15. GitHub Pages and the
+  sitemap workflow completed successfully, and the production canary passed.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
