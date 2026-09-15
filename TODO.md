@@ -23,6 +23,8 @@
 - Corrected the hosted intake instructions and kept the plain-email fallback
   visible above the Tally embed; aligned the editable social-card source with
   the published `1200x630` asset.
+- Fixed the intake process descriptions so they use the content column on mobile
+  and desktop instead of collapsing into the step-number column.
 
 ## For Codex or Claude
 

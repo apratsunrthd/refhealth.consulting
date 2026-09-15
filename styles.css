@@ -1006,6 +1006,7 @@ h4 {
 }
 
 .intake-process span {
+  grid-column: 2;
   margin-top: 0.15rem;
   color: var(--muted);
   font-size: 0.95rem;
