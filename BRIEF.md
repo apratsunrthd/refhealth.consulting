@@ -38,6 +38,8 @@ company Data AI Operating System buildouts.
 - The intake fallback stays above the hosted embed so email remains reachable if
   Tally cannot load, and the surrounding copy describes the hosted submission
   flow accurately.
+- The intake process list keeps step descriptions in the content column at every
+  viewport, so mobile text no longer collapses into the numbered column.
 - The intake page now explains the three-step path from context to scope to
   decision, and records a privacy-safe GA4 event when a visitor starts the
   Tally intake without sending field values. Tally's hosted submission and

@@ -52,6 +52,9 @@ production URL and post-merge smoke checks.
 The email fallback appears before the hosted iframe so it remains reachable if
 Tally fails to load. Keep the surrounding intake copy aligned with the hosted
 submission flow.
+The three-step process list explicitly places each description in its content
+column; preserve that rule when changing the intake layout so mobile text stays
+readable.
 
 ## Design Context
 
