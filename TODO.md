@@ -40,6 +40,14 @@
   response count, and a query table.
 - Landed the measurement system in PR #29 and verified the GitHub Pages
   production canary on 2026-09-15.
+- Migrated domain registration and authoritative DNS for `refhealth.consulting`
+  from Namecheap to Cloudflare. Locked in wholesale at-cost renewal pricing,
+  transferred the zone to Cloudflare Anycast DNS, and proxied edge traffic to
+  GitHub Pages with strict SSL.
+- Replaced Namecheap legacy email forwarding with Cloudflare Email Routing.
+  Verified destination inbox `refhealth.consulting@gmail.com`, activated catch-all
+  rule (`*@refhealth.consulting`), and published Cloudflare MX, SPF, and DKIM
+  records via API.
 
 ## For Codex or Claude
 

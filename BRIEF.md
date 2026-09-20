@@ -59,6 +59,9 @@ company Data AI Operating System buildouts.
   query table.
 - The measurement system landed in PR #29 on 2026-09-15. GitHub Pages and the
   sitemap workflow completed successfully, and the production canary passed.
+- On 2026-09-20, domain registration and DNS were transferred to Cloudflare, and
+  Namecheap email forwarding was migrated to Cloudflare Email Routing with
+  active catch-all routing to the consulting inbox.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome

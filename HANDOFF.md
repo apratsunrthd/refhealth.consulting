@@ -187,3 +187,11 @@ The latest measurement deployment landed in PR #29 on 2026-09-15. GitHub Pages
 and the sitemap workflow completed successfully, and the production canary
 confirmed the homepage, intake page, analytics asset, and sitemap returned 200
 with no browser console errors.
+
+On 2026-09-20, domain registration and DNS for `refhealth.consulting` were
+migrated from Namecheap to Cloudflare Registrar and Cloudflare Anycast DNS.
+GitHub Pages remains the hosting origin, proxied through Cloudflare with strict
+SSL. Namecheap legacy email forwarders were replaced with Cloudflare Email
+Routing (`*@refhealth.consulting` forwarding to `refhealth.consulting@gmail.com`)
+with active SPF, DKIM, and MX records managed via Cloudflare API.
+
