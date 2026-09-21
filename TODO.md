@@ -62,24 +62,33 @@
 
 ## For Codex or Claude
 
-The site-side measurement system and live-form attribution configuration are
-implemented.
+The site infrastructure, measurement system, and branding are fully modernized:
 
+- The site runs natively on Cloudflare Pages (`refhealth-consulting` project)
+  with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
+- Automated deployments run on every push to `main` via `cloudflare/wrangler-action@v3`
+  in `.github/workflows/sitemap.yml`.
+- Authoritative DNS and Domain Registration are managed by Cloudflare Registrar at wholesale cost.
+- Cloudflare Email Routing is active with catch-all forwarding (`*@refhealth.consulting` to
+  `refhealth.consulting@gmail.com`), and all public contact paths use
+  `contact@refhealth.consulting`.
 - The live Tally form is embedded on `intake.html`; its public URL and setup
   record are in `FORM_SETUP.md`.
-- Brand-safe social preview is live in the source and referenced by every page.
+- Brand-safe SVG favicon (`favicon.svg`), PWA manifest (`site.webmanifest`), and
+  `summary_large_image` social cards are live across all 12 pages.
 - The existing anonymized capability/outcome evidence is the safe proof format;
   no exact client case study or metric is available to publish.
-- Search Console has been checked and documented. There is not yet enough
-  qualified query/page signal to publish a performance claim.
-- The dedicated GA4 stream and shared attribution script are wired into every
-  public page.
-- Tally is connected to a Google Sheet and its hidden fields are published, so
-  new rows will carry the source context automatically.
+- Search Console and Bing Webmaster verification are live and documented.
+- The dedicated GA4 stream (`G-05XLCL9N8S`) and shared attribution script are
+  deferred and wired into every public page.
+- Tally is connected to the Google Sheet `refhealth lead attribution` and its
+  hidden fields are published.
 - The dashboard is available at
   `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
 - `MEASUREMENT.md` explains how to operate the system without manual tagging or
   spreadsheet maintenance.
+- Deploy verification smoke checks: `https://refhealth.consulting/`,
+  `https://refhealth.consulting/intake`, and `https://refhealth.consulting/sitemap.xml`.
 
 ## For the site owner
 
