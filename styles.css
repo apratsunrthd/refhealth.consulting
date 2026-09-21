@@ -197,12 +197,18 @@ h4 {
   border-radius: var(--radius);
   background: var(--black);
   color: var(--white) !important;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
 }
 
 .nav-cta:hover,
 .nav-cta:focus {
   background: var(--red-deep);
   color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.nav-cta:active {
+  transform: translateY(0);
 }
 
 .hero {
@@ -282,6 +288,10 @@ h4 {
 .btn:hover,
 .btn:focus {
   transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn--primary {

@@ -1,0 +1,16 @@
+{
+  "name": "ref(health) Consulting",
+  "short_name": "ref(health)",
+  "description": "Healthcare data strategy, analytics engineering, dbt, AI readiness, and Data AI Operating System consulting.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#edf1ef",
+  "theme_color": "#fbfcf6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
