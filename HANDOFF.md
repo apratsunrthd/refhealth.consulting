@@ -190,8 +190,13 @@ with no browser console errors.
 
 On 2026-09-20, domain registration and DNS for `refhealth.consulting` were
 migrated from Namecheap to Cloudflare Registrar and Cloudflare Anycast DNS.
-GitHub Pages remains the hosting origin, proxied through Cloudflare with strict
-SSL. Namecheap legacy email forwarders were replaced with Cloudflare Email
+Namecheap legacy email forwarders were replaced with Cloudflare Email
 Routing (`*@refhealth.consulting` forwarding to `refhealth.consulting@gmail.com`)
 with active SPF, DKIM, and MX records managed via Cloudflare API.
+
+On 2026-09-21, static web hosting was migrated to Cloudflare Pages (`refhealth-consulting` project)
+with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
+The entire stack (registrar, anycast DNS, edge CDN, origin static hosting, and email routing)
+is now natively hosted and managed on Cloudflare with automated deployments on push to `main`.
+
 

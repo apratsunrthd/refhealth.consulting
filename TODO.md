@@ -54,6 +54,11 @@
   - Branded all public contact touchpoints and JSON-LD schemas to `contact@refhealth.consulting`.
   - Optimized critical rendering path by deferring `analytics.js`.
   - Added tactile button and navigation `:active` micro-interaction states in `styles.css`.
+- Migrated web hosting from GitHub Pages to Cloudflare Pages (`refhealth-consulting` project).
+  - Attached custom domains `refhealth.consulting` and `www.refhealth.consulting` with active SSL edge certificates.
+  - Replaced legacy GitHub Pages A/AAAA records with Cloudflare Pages CNAMEs.
+  - Configured repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub.
+  - Updated automated deployment workflow in `.github/workflows/sitemap.yml` to deploy directly to Cloudflare Pages on push to `main`.
 
 ## For Codex or Claude
 
