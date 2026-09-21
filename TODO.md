@@ -48,6 +48,12 @@
   Verified destination inbox `refhealth.consulting@gmail.com`, activated catch-all
   rule (`*@refhealth.consulting`), and published Cloudflare MX, SPF, and DKIM
   records via API.
+- Elevated site presentation, performance, and branding across all 12 public pages:
+  - Designed and deployed custom SVG brand favicon (`favicon.svg`) and webmanifest (`site.webmanifest`).
+  - Upgraded Twitter/X cards from `summary` to `summary_large_image` across all pages for rich 1200x630 social cards.
+  - Branded all public contact touchpoints and JSON-LD schemas to `contact@refhealth.consulting`.
+  - Optimized critical rendering path by deferring `analytics.js`.
+  - Added tactile button and navigation `:active` micro-interaction states in `styles.css`.
 
 ## For Codex or Claude
 
