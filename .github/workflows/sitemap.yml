@@ -62,3 +62,11 @@ jobs:
             200|202) echo "IndexNow accepted sitemap URLs (HTTP $status)" ;;
             *) cat /tmp/indexnow-response; echo "IndexNow rejected the submission (HTTP $status)"; exit 1 ;;
           esac
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=refhealth-consulting --branch=main --commit-dirty=true
+
