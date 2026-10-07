@@ -23,4 +23,5 @@
 - Hosting: Cloudflare Pages (`refhealth-consulting.pages.dev`, custom domains `refhealth.consulting` and `www.refhealth.consulting`)
 - Edge CDN: Cloudflare Proxy (Full edge caching, DDoS mitigation, HTTP/2 & HTTP/3, TLS 1.3)
 - Inbound Email: Cloudflare Email Routing (active catch-all `*@refhealth.consulting` forwarded to `refhealth.consulting@gmail.com`)
+- Edge Analytics & Bots: Cloudflare Edge Analytics captures all raw TCP/HTTP requests (including automated scraper sweeps with blank referrers). Real user engagement is tracked client-side via GA4 (`G-05XLCL9N8S`). Bot Fight Mode can be toggled in Cloudflare Dashboard (`Security -> Bots`) if crawler noise needs challenging.
 

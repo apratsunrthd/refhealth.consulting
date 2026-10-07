@@ -39,5 +39,6 @@ homepage. Visit `blog.html` to view the insights index.
 
 ## Deployment
 
-The repo is ready for static hosting, including GitHub Pages. `CNAME` points the
-site to `refhealth.consulting`.
+The site is hosted natively on Cloudflare Pages (`refhealth.consulting` and `www.refhealth.consulting`)
+with automated deployments on push to `main` via `.github/workflows/sitemap.yml`.
+DNS and domain registration are managed via Cloudflare Registrar and Anycast DNS.

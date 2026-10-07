@@ -87,11 +87,18 @@ The site infrastructure, measurement system, and branding are fully modernized:
   `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
 - `MEASUREMENT.md` explains how to operate the system without manual tagging or
   spreadsheet maintenance.
+- Cloudflare Edge Analytics tracks all raw network requests (including scrapers and bots),
+  while GA4 tracks JavaScript-executed browser sessions. High-volume traffic spikes without
+  referrers from cloud datacenter regions (e.g. Brazil/AWS) represent automated scanner sweeps.
 - Deploy verification smoke checks: `https://refhealth.consulting/`,
   `https://refhealth.consulting/intake`, and `https://refhealth.consulting/sitemap.xml`.
 
 ## For the site owner
 
+- Optional: Enable **Bot Fight Mode** in Cloudflare Dashboard (`Security -> Bots -> Bot Fight Mode`)
+  to challenge automated scrapers and cloud IP probes at the edge before they hit the origin.
+- Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions,
+  distinguishing them from raw Cloudflare edge request volume.
 - Review the published $2,500 starting price after the first qualified inquiries.
 - Confirm the first real notification arrives in the consulting inbox, then
   review the first qualified inquiries for fit and response time.

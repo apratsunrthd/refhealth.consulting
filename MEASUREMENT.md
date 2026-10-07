@@ -114,6 +114,26 @@ signals, referral hosts when available, tagged links, and the question “How di
 you hear about us?” in a real sales conversation. The site therefore keeps its
 technical eligibility broad and treats AI citations as an awareness signal.
 
+## Cloudflare Edge Analytics vs. Google Analytics 4
+
+Site traffic is observed at two distinct architectural layers:
+
+1. **Cloudflare Edge Analytics (`dash.cloudflare.com/.../analytics/requests`)**:
+   - **Scope**: Measures every raw HTTP/TCP network request arriving at Cloudflare's Anycast edge.
+   - **Includes**: Automated scrapers, web spiders, vulnerability scanners probing non-existent paths (e.g., `wp-login.php`, `/.env`, 404 endpoints), asset requests (CSS, SVG, manifest), bot sweeps, and human visits.
+   - **Referrer behavior**: Automated scrapers and bots request URLs directly without clicking external hyperlinks, sending an empty HTTP `Referer` header. Cloudflare reports these as **Direct / None**.
+   - **Known patterns**: Large traffic volume spikes originating from cloud hosting hubs or proxy networks (e.g., São Paulo / Brazil datacenters like AWS `sa-east-1` or Oracle Vinhedo) accompanied by high 404 ratios indicate automated scanner sweeps, not qualified buyers.
+   - **Edge defense**: Cloudflare Bot Fight Mode (`Security -> Bots -> Bot Fight Mode`) can be toggled on to issue lightweight JavaScript challenges to automated scrapers at the edge.
+
+2. **Google Analytics 4 (`G-05XLCL9N8S`) & Looker Studio**:
+   - **Scope**: Measures client-side sessions where a browser loads HTML and successfully executes `gtag.js` and `analytics.js`.
+   - **Excludes**: Command-line scrapers, headless curl/python scripts, and vulnerability scanners that do not execute JavaScript.
+   - **Dark social traffic**: In-app mobile browsers (e.g., WhatsApp, Telegram, Instagram) strip `Referer` headers when opening links, appearing in GA4 as `(direct) / (none)`.
+   - **Distinguishing scrapers from dark-social visitors in GA4**:
+     - *Engagement Time*: Automated bots report 0s engagement time and 0% engagement rate; real humans average 15s–90s+.
+     - *Tech Profile*: Scrapers typically report Linux or generic desktop user agents with `(not set)` screen dimensions; real mobile messaging traffic reports Android/iOS with mobile viewport resolutions.
+     - *Hostnames*: Hits with `Hostname: (not set)` indicate Measurement Protocol spam; verified traffic reports `refhealth.consulting`.
+
 ## Privacy boundary
 
 Do not put PHI, patient/member records, customer data, credentials, or

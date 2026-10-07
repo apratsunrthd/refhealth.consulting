@@ -175,18 +175,13 @@ that the Data Studio report has the GA4, Search Console, and Tally sources.
 
 ## Deployment
 
-The repo has `CNAME` for `refhealth.consulting` and can be served by any static
-host or GitHub Pages. The site is currently served by GitHub Pages from `main`.
-The sitemap workflow updates the sitemap/GA injection and submits the current
-URL set to IndexNow after main-branch changes.
+The site is natively hosted on Cloudflare Pages (`refhealth-consulting` project)
+with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
+Automated deployments run on every push to `main` via `cloudflare/wrangler-action@v3`
+in `.github/workflows/sitemap.yml`.
 The deployment configuration used by `/land-and-deploy` is recorded in
 `AGENTS.md`; it uses a squash merge, the root URL as the primary health check,
 and `/intake.html` plus `/sitemap.xml` as smoke checks.
-
-The latest measurement deployment landed in PR #29 on 2026-09-15. GitHub Pages
-and the sitemap workflow completed successfully, and the production canary
-confirmed the homepage, intake page, analytics asset, and sitemap returned 200
-with no browser console errors.
 
 On 2026-09-20, domain registration and DNS for `refhealth.consulting` were
 migrated from Namecheap to Cloudflare Registrar and Cloudflare Anycast DNS.
@@ -194,9 +189,20 @@ Namecheap legacy email forwarders were replaced with Cloudflare Email
 Routing (`*@refhealth.consulting` forwarding to `refhealth.consulting@gmail.com`)
 with active SPF, DKIM, and MX records managed via Cloudflare API.
 
-On 2026-09-21, static web hosting was migrated to Cloudflare Pages (`refhealth-consulting` project)
-with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
+On 2026-09-21, static web hosting was migrated to Cloudflare Pages.
 The entire stack (registrar, anycast DNS, edge CDN, origin static hosting, and email routing)
-is now natively hosted and managed on Cloudflare with automated deployments on push to `main`.
+is now natively hosted and managed on Cloudflare with automated CI/CD deployments on push to `main`.
+
+## Traffic and Analytics Operational Notes
+
+- **Cloudflare Edge Analytics vs. GA4**: Cloudflare Edge Analytics (`refhealth.consulting/analytics/requests`)
+  measures all raw network requests arriving at the edge, including automated crawlers,
+  vulnerability scanners probing non-existent paths, and asset downloads.
+  GA4 (`G-05XLCL9N8S`) measures only real browser sessions executing JavaScript.
+- **Traffic Spikes Without Referrer**: High-volume traffic surges (e.g., from Brazil cloud/proxy
+  networks like AWS `sa-east-1` or Oracle Vinhedo) with missing referrers are typically
+  automated scanner fleets probing endpoints (producing 404s). They do not trigger GA4 active users.
+- **Bot Defense**: Cloudflare Bot Fight Mode (`Security -> Bots -> Bot Fight Mode`) can be
+  enabled in the dashboard to challenge automated headless scrapers before they hit the origin.
 
 
