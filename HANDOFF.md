@@ -13,6 +13,8 @@ Important files:
 - `index.html` - main marketing page and revenue CTA
 - `readiness-checker.html` - free interactive dbt metadata review and MCP download
 - `readiness-ui.mjs` / `readiness-core.mjs` - browser UI and shared deterministic checks
+- The checker counts only model-specific findings; invariant privacy, workflow,
+  and business-value questions appear in `followUp` and a separate report section.
 - `mcp/` / `readiness-mcp.zip` - local stdio MCP server, sample manifest, and public package
 - `test/readiness.test.mjs` / `mcp/test/server.test.mjs` - checker rules and MCP client integration tests
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer

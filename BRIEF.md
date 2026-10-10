@@ -14,8 +14,10 @@ company Data AI Operating System buildouts.
 
 - A free Healthcare AI Data Readiness Checker is implemented on the site. It
   reviews a synthetic sample or a visitor-selected dbt manifest entirely in
-  the browser, reporting observable metadata, gaps, and unknowns without an
-  overall readiness score. A downloadable local stdio MCP server exposes the
+  the browser, reporting observable metadata, gaps, and model-specific unknowns
+  without an overall readiness score. Privacy, workflow, and business-value
+  questions are separate follow-up prompts because every manifest leaves them
+  unanswered. A downloadable local stdio MCP server exposes the
   same checks through `list_dbt_models` and `review_dbt_model`. The code and
   archive are on the `feat/ai-readiness-checker` branch pending PR review.
 - Tested the checker and actual MCP tools against public dbt artifacts: the

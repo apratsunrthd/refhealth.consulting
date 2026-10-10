@@ -17,7 +17,8 @@ test("MCP client can discover and call both local tools", async () => {
     const listed = await client.callTool({ name: "list_dbt_models", arguments: { manifestPath: samplePath } });
     assert.equal(listed.structuredContent.models[0].name, "member_outreach");
     const reviewed = await client.callTool({ name: "review_dbt_model", arguments: { manifestPath: samplePath, useCase: "Member outreach" } });
-    assert.equal(reviewed.structuredContent.summary.unknowns, 3);
+    assert.equal(reviewed.structuredContent.summary.unknowns, 0);
+    assert.equal(reviewed.structuredContent.followUp.length, 3);
     const missing = await client.callTool({ name: "review_dbt_model", arguments: { manifestPath: "/missing/manifest.json" } });
     assert.equal(missing.isError, true);
   } finally {

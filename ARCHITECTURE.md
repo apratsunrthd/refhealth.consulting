@@ -57,8 +57,10 @@ and setup instructions for public download. It is checked against source files
 in `.github/workflows/checks.yml`.
 
 The rules inspect declared documentation, owner, tests, upstream sources and seeds, and
-freshness configuration. Privacy, access, human review, and business value are
-explicit unknowns. The output is a conversation starter, not a certification.
+freshness configuration. The finding counts include only model-specific results.
+Privacy, access, human review, and business value are returned separately in
+`followUp`, since no manifest can establish them. The output is a conversation
+starter, not a certification.
 GA4 receives only `checker_report_view` with a sample/local-file flag and
 `mcp_download_click`; neither event includes model names, file names, paths,
 descriptions, or use-case text.

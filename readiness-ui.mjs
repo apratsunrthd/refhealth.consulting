@@ -34,11 +34,12 @@ function element(tag, className, text) {
 function render(result) {
   document.querySelector("#report-intro").textContent = `Model: ${result.model}. ${result.useCase ? `Proposed use: ${result.useCase}` : "Add a use case to frame the discussion."}`;
   const summary = document.querySelector("#report-summary");
-  summary.replaceChildren(
+  const counts = [
     element("span", "checker-count checker-count--observed", `${result.summary.observed} observed`),
-    element("span", "checker-count checker-count--gap", `${result.summary.gaps} gaps`),
-    element("span", "checker-count checker-count--unknown", `${result.summary.unknowns} unknowns`)
-  );
+    element("span", "checker-count checker-count--gap", `${result.summary.gaps} gaps`)
+  ];
+  if (result.summary.unknowns) counts.push(element("span", "checker-count checker-count--unknown", `${result.summary.unknowns} unknowns`));
+  summary.replaceChildren(...counts);
   const findings = document.querySelector("#report-findings");
   findings.replaceChildren();
   for (const finding of result.findings) {
@@ -50,6 +51,17 @@ function render(result) {
       element("p", "checker-finding__next", `Next: ${finding.nextStep}`)
     );
     findings.append(card);
+  }
+  const followUp = document.querySelector("#report-follow-up");
+  followUp.replaceChildren();
+  for (const item of result.followUp) {
+    const card = element("article", "checker-finding", "");
+    card.append(
+      element("h3", "", item.title),
+      element("p", "", item.evidence),
+      element("p", "checker-finding__next", `Next: ${item.nextStep}`)
+    );
+    followUp.append(card);
   }
   document.querySelector("#report-limitation").textContent = result.limitation;
   report.hidden = false;

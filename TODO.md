@@ -5,6 +5,8 @@
 - Built a free AI Data Readiness Checker with a synthetic example and browser-local
   dbt manifest review. It reports evidence, gaps, and unknowns without assigning
   a readiness score or uploading a visitor's manifest.
+- Moved the three invariant manifest limitations out of finding counts and into
+  a separate follow-up section in the browser and MCP result.
 - Built a matching local stdio MCP server with two read-only tools and a public
   download archive. Added shared-rule and MCP protocol tests plus a PR CI check.
 - Exercised public dbt manifests with seed-only and source-based lineage; fixed

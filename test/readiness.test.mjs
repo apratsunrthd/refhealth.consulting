@@ -5,9 +5,9 @@ import { evaluateManifest, listModels, sampleManifest } from "../readiness-core.
 test("sample review separates observable metadata from unanswered controls", () => {
   const report = evaluateManifest(sampleManifest, { useCase: "Member outreach" });
   assert.equal(report.model, "member_outreach");
-  assert.deepEqual(report.summary, { observed: 5, gaps: 1, unknowns: 3 });
+  assert.deepEqual(report.summary, { observed: 5, gaps: 1, unknowns: 0 });
   assert.equal(report.findings.find(item => item.title === "Column definitions").status, "gap");
-  assert.equal(report.findings.find(item => item.title === "Privacy and access").status, "unknown");
+  assert.deepEqual(report.followUp.map(item => item.title), ["Privacy and access", "Workflow and human review", "Business value"]);
 });
 
 test("missing declarations remain gaps or unknowns, never proof of readiness", () => {

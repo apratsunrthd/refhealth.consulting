@@ -14,7 +14,7 @@ For a first check, ask your client to list the models in `/absolute/path/to/read
 The server exposes two tools:
 
 - `list_dbt_models(manifestPath)` lists model names and unique IDs.
-- `review_dbt_model(manifestPath, modelId?, useCase?)` returns observations, gaps, unknowns, and next questions.
+- `review_dbt_model(manifestPath, modelId?, useCase?)` returns model-specific observations, gaps, and unknowns in `findings`, plus questions outside manifest scope in `followUp`.
 
 Paths must point to local files. The server reads up to 10 MB. There are no network calls in the server. Package installation fetches its declared npm dependencies.
 

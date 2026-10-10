@@ -98,18 +98,18 @@ export function evaluateManifest(manifest, { modelId, useCase = "" } = {}) {
     sources.length ? `${freshness.length} of ${sources.length} upstream sources declare a loaded-at field and freshness threshold.` : "No dbt source is upstream of this model; the manifest cannot show freshness for seed-only or other lineage.",
     sources.length && freshness.length === sources.length ? "Check recent freshness results and whether thresholds fit the workflow." : "Establish how current the upstream data must be and how that is verified.");
 
-  add("unknown", "Privacy and access", "A dbt manifest cannot establish data classification, access policy, consent, or permitted AI use.",
-    "Review these controls with the data owner and security/privacy team.");
-  add("unknown", "Workflow and human review", "A dbt manifest cannot show decision ownership, clinical impact, escalation, or human review.",
-    "Map the actual workflow and define review and escalation points.");
-  add("unknown", "Business value", useCase ? `The manifest cannot show whether “${String(useCase).trim().slice(0, 500)}” improves a meaningful outcome.` : "No proposed use case was supplied, and a manifest cannot establish business value.",
-    "Define the decision, baseline, success measure, and cost of failure with the accountable team.");
+  const followUp = [
+    { title: "Privacy and access", evidence: "A dbt manifest cannot establish data classification, access policy, consent, or permitted AI use.", nextStep: "Review these controls with the data owner and security/privacy team." },
+    { title: "Workflow and human review", evidence: "A dbt manifest cannot show decision ownership, clinical impact, escalation, or human review.", nextStep: "Map the actual workflow and define review and escalation points." },
+    { title: "Business value", evidence: useCase ? `The manifest cannot show whether “${String(useCase).trim().slice(0, 500)}” improves a meaningful outcome.` : "No proposed use case was supplied, and a manifest cannot establish business value.", nextStep: "Define the decision, baseline, success measure, and cost of failure with the accountable team." }
+  ];
 
   return {
     model: model.name || selectedId,
     modelId: selectedId,
     useCase: String(useCase).trim().slice(0, 500),
     findings,
+    followUp,
     summary: {
       observed: findings.filter(item => item.status === "observed").length,
       gaps: findings.filter(item => item.status === "gap").length,
