@@ -18,6 +18,12 @@ company Data AI Operating System buildouts.
   overall readiness score. A downloadable local stdio MCP server exposes the
   same checks through `list_dbt_models` and `review_dbt_model`. The code and
   archive are on the `feat/ai-readiness-checker` branch pending PR review.
+- Tested the checker and actual MCP tools against public dbt artifacts: the
+  [Jaffle Shop fixture in dbt-metabase](https://github.com/gouline/dbt-metabase/blob/main/tests/fixtures/manifest-v2.json)
+  (dbt 0.20, five models, seed-only lineage) and the
+  [dbt timeline analysis fixture](https://github.com/mahdiqb/dbt_timeline_analysis/blob/main/fixtures/dbt/manifest.json)
+  (dbt 1.8.7, 25 models, eight sources). The seed-only test exposed and
+  corrected a false freshness gap. Neither external artifact is committed here.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.

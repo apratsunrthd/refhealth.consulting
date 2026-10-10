@@ -56,7 +56,7 @@ calls. `readiness-mcp.zip` contains the server, shared core, lockfile, sample,
 and setup instructions for public download. It is checked against source files
 in `.github/workflows/checks.yml`.
 
-The rules inspect declared documentation, owner, tests, upstream sources, and
+The rules inspect declared documentation, owner, tests, upstream sources and seeds, and
 freshness configuration. Privacy, access, human review, and business value are
 explicit unknowns. The output is a conversation starter, not a certification.
 GA4 receives only `checker_report_view` with a sample/local-file flag and

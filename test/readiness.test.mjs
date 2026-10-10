@@ -17,8 +17,28 @@ test("missing declarations remain gaps or unknowns, never proof of readiness", (
   };
   const report = evaluateManifest(manifest);
   assert.equal(report.summary.observed, 0);
-  assert.equal(report.findings.find(item => item.title === "Source lineage").status, "unknown");
-  assert.equal(report.findings.find(item => item.title === "Freshness checks").status, "gap");
+  assert.equal(report.findings.find(item => item.title === "Upstream inputs").status, "unknown");
+  assert.equal(report.findings.find(item => item.title === "Freshness checks").status, "unknown");
+  assert.equal(report.findings.find(item => item.title === "Column definitions").evidence, "No columns are declared for this model in the manifest.");
+});
+
+test("seed-only lineage from a dbt project is visible without a false freshness gap", () => {
+  // Shape observed in the public Jaffle Shop manifest fixture from gouline/dbt-metabase.
+  const manifest = {
+    nodes: {
+      "model.jaffle_shop.customers": { resource_type: "model", name: "customers", depends_on: { nodes: ["model.jaffle_shop.stg_customers"] } },
+      "model.jaffle_shop.stg_customers": { resource_type: "model", name: "stg_customers", depends_on: { nodes: ["seed.jaffle_shop.raw_customers"] } },
+      "seed.jaffle_shop.raw_customers": { resource_type: "seed", name: "raw_customers" }
+    },
+    sources: {}
+  };
+  const report = evaluateManifest(manifest, { modelId: "model.jaffle_shop.customers" });
+  const inputs = report.findings.find(item => item.title === "Upstream inputs");
+  assert.equal(inputs.status, "observed");
+  assert.match(inputs.evidence, /seed: raw_customers/);
+  const freshness = report.findings.find(item => item.title === "Freshness checks");
+  assert.equal(freshness.status, "unknown");
+  assert.doesNotMatch(freshness.evidence, /0 of 0/);
 });
 
 test("model selection rejects unknown IDs and malformed manifests", () => {

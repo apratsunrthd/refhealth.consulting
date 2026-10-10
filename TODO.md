@@ -7,6 +7,9 @@
   a readiness score or uploading a visitor's manifest.
 - Built a matching local stdio MCP server with two read-only tools and a public
   download archive. Added shared-rule and MCP protocol tests plus a PR CI check.
+- Exercised public dbt manifests with seed-only and source-based lineage; fixed
+  the seed-only report so it shows upstream seeds and treats absent source
+  freshness as unknown.
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
