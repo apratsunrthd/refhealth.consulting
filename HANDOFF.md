@@ -2,12 +2,19 @@
 
 ## Fast Orientation
 
-This is a static marketing site. There is no package manager, build command, or
-framework. Open `index.html` directly to preview the homepage.
+This is a static marketing site. Open `index.html` directly to preview the
+homepage. Serve the directory over HTTP to preview `/feed-triage.html` and
+download its `.mcpb` extension: `python3 -m http.server 8000`. The local MCP
+server lives in `mcp/`; run `npm ci --prefix mcp`, `npm test --prefix mcp`, and
+`./scripts/build-feed-bundle.sh` after changing it.
 
 Important files:
 
 - `index.html` - main marketing page and revenue CTA
+- `feed-triage.html` - free extension page and install instructions
+- `mcp/feed-core.mjs` / `mcp/server.mjs` - deterministic feed checks and MCP tool
+- `mcp/` / `refhealth-feed-triage.mcpb` - samples, manifest, and downloadable Claude Desktop package
+- `mcp/test/` - feed rules and MCP client integration tests
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer

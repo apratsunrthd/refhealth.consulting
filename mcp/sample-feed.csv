@@ -1,0 +1,7 @@
+event_id,patient_id,event_type,event_time,received_at
+evt-001,synthetic-001,discharge,2026-10-01T08:00:00Z,2026-10-01T08:15:00Z
+evt-002,synthetic-002,discharge,2026-10-01T10:00:00Z,2026-10-02T17:00:00Z
+evt-003,synthetic-003,admission,2026-10-01T12:00:00Z,2026-10-01T12:45:00Z
+evt-004,synthetic-004,discharge,2026-10-02T08:00:00Z,2026-10-02T09:30:00Z
+evt-002,synthetic-002,discharge,2026-10-01T10:00:00Z,2026-10-02T17:00:00Z
+evt-005,synthetic-005,admission,2026-10-02T14:00:00Z,2026-10-02T13:55:00Z

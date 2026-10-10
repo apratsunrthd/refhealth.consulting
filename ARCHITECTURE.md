@@ -42,6 +42,27 @@ flowchart TD
 
 ## Component Architecture
 
+### Healthcare Feed Triage local extension
+
+`feed-triage.html` is the public landing page and `.mcpb` download. The package
+contains `mcp/server.mjs`, `mcp/feed-core.mjs`, synthetic CSV and FHIR Bundle
+samples, a manifest, and bundled Node dependencies. Claude Desktop runs the
+server locally over stdio. The single `inspect_healthcare_feed` tool reads an
+explicit local CSV or JSON path, or defaults to the synthetic CSV. Files are
+limited to 10 MB and 20,000 rows or Bundle entries. The server makes no
+network calls.
+
+For CSV, the core validates required fields and timezone-aware timestamps,
+excludes invalid or repeated IDs, and calculates event-to-receipt latency
+against a configurable target. For a FHIR Bundle, it checks Encounter IDs,
+patient references within the supplied file, and period end times. It does
+not infer receipt time from FHIR `meta.lastUpdated`. Tool results contain
+aggregate counts and up to 30 row-numbered findings, without raw records or
+identifiers. Claude receives those findings, so the intended input is
+synthetic or approved de-identified data. A bundle build script creates the
+archive and CI compares its files against source. GA4 records only the
+download click, without file paths or data.
+
 ### 1. Edge & Hosting Layer (Cloudflare)
 * **Domain Registrar**: Cloudflare Registrar (migrated from Namecheap on 2026-09-20). Operates at wholesale at-cost renewal with registry transfer lock enabled (`clientTransferProhibited`).
 * **Authoritative DNS**: Cloudflare Anycast nameservers (`barbara.ns.cloudflare.com`, `damien.ns.cloudflare.com`) with CNAME flattening at apex.

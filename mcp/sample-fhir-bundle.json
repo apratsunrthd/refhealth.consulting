@@ -1,0 +1,9 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    { "resource": { "resourceType": "Patient", "id": "synthetic-001" } },
+    { "resource": { "resourceType": "Encounter", "id": "enc-001", "status": "finished", "subject": { "reference": "Patient/synthetic-001" }, "period": { "start": "2026-10-01T06:00:00Z", "end": "2026-10-01T08:00:00Z" } } },
+    { "resource": { "resourceType": "Encounter", "id": "enc-002", "status": "finished", "subject": { "reference": "Patient/synthetic-002" }, "period": { "start": "2026-10-02T06:00:00Z" } } }
+  ]
+}
