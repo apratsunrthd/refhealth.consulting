@@ -63,6 +63,7 @@
 - Configured Cloudflare Pages `_headers` with edge security (HSTS preload, X-Frame-Options SAMEORIGIN, X-Content-Type-Options nosniff, Referrer-Policy, Permissions-Policy) and granular Cache-Control rules.
 - Enabled Cloudflare Bot Fight Mode (`fight_mode: true, enable_js: true`) to actively challenge automated scraper fleets and cloud crawler sweeps at the edge.
 - Enabled Cloudflare Always Use HTTPS (`always_use_https: on`) for immediate HTTP -> HTTPS edge redirects.
+- Created comprehensive B2B Paid Acquisition & Advertising Plan in `ADVERTISING_PLAN.md`: $1,500 30-day pilot budget, brand-led LinkedIn sponsored content, Google search high-intent keyword targets, conversion economics, and automated UTM tracking through Tally and Google Sheets.
 
 ## For Codex or Claude
 
@@ -91,6 +92,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
   `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
 - `MEASUREMENT.md` explains how to operate the system without manual tagging or
   spreadsheet maintenance.
+- `ADVERTISING_PLAN.md` defines the paid acquisition roadmap, unit economics,
+  target firmographics, creative hooks, and $1,500 pilot sprint.
 - Cloudflare Edge Analytics tracks all raw network requests (including scrapers and bots),
   while GA4 tracks JavaScript-executed browser sessions. High-volume traffic spikes without
   referrers from cloud datacenter regions (e.g. Brazil/AWS) represent automated scanner sweeps.
@@ -99,6 +102,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
+- Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
+  Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
 - Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),
   challenging automated scrapers and cloud IP probes at the edge before they reach the site.
 - Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions,

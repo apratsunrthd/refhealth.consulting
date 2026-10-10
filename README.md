@@ -35,7 +35,7 @@ homepage. Visit `blog.html` to view the insights index.
 - `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
 - `PRODUCT.md` - durable product facts for Impeccable and future agents
 - `DESIGN.md` - durable design system and visual direction
-- `BRIEF.md`, `HANDOFF.md`, `TODO.md` - project state and next work
+- `BRIEF.md`, `HANDOFF.md`, `TODO.md`, `ADVERTISING_PLAN.md` - project state, documentation, and growth plans
 
 ## Deployment
 

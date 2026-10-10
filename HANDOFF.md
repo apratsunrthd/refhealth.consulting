@@ -15,6 +15,7 @@ Important files:
 - `intake.html` - paid diagnostic intake page with hosted Tally form and email fallback
 - `analytics.js` - shared privacy-safe attribution and conversion events
 - `MEASUREMENT.md` - measurement architecture, event dictionary, and operating cadence
+- `ADVERTISING_PLAN.md` - paid acquisition strategy, unit economics, audience targeting, and $1,500 pilot sprint
 - `og.png` - brand-safe 1200x630 social preview image
 - `og-card.svg` - editable source for the social preview image
 - `FORM_SETUP.md` - hosted-form field map and activation checklist
