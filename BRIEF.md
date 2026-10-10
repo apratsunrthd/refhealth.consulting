@@ -57,11 +57,21 @@ company Data AI Operating System buildouts.
   domain property, and the Tally response worksheet. It has scorecards for
   search clicks, search impressions, active users, and response count, plus a
   query table.
-- The measurement system landed in PR #29 on 2026-09-15. GitHub Pages and the
-  sitemap workflow completed successfully, and the production canary passed.
-- On 2026-09-20, domain registration and DNS were transferred to Cloudflare, and
+- The measurement system landed in PR #29 on 2026-09-15.
+- On 2026-09-20, domain registration and DNS were transferred to Cloudflare Registrar and Anycast DNS, and
   Namecheap email forwarding was migrated to Cloudflare Email Routing with
-  active catch-all routing to the consulting inbox.
+  active catch-all routing (`*@refhealth.consulting` to `refhealth.consulting@gmail.com`).
+- On 2026-09-21, static hosting was fully migrated from GitHub Pages to Cloudflare Pages (`refhealth-consulting` project).
+  Automated deployments run on every push to `main` via `cloudflare/wrangler-action@v3` in `.github/workflows/sitemap.yml`.
+- Edge security and performance hardening:
+  - Enabled Cloudflare Bot Fight Mode (`fight_mode: true, enable_js: true`) to automatically challenge automated scraper networks and cloud IP probes at the edge.
+  - Enabled Cloudflare Always Use HTTPS (`always_use_https: on`) for immediate HTTP -> HTTPS edge 301 redirection.
+  - Configured Cloudflare Pages `_headers` with HSTS preload, X-Frame-Options SAMEORIGIN, nosniff, and granular caching rules.
+  - Built and deployed branded `404.html` matching `DESIGN.md`, eliminating soft 404s and preventing bot probes from triggering the homepage SPA fallback.
+- Paid acquisition & growth:
+  - Formulated comprehensive B2B Paid Acquisition & Advertising Plan in `ADVERTISING_PLAN.md` with a $1,500 pilot sprint budget, brand-led LinkedIn sponsored content, Google high-intent keyword targeting, and automated UTM attribution tracking into Tally and Google Sheets.
+- System design and operating documentation:
+  - Codified the complete system architecture, data flows, and technical decisions in `ARCHITECTURE.md`.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
@@ -146,25 +156,21 @@ or inclusion.
 
 ## What Works
 
-- Homepage opens directly from `index.html`.
-- `blog.html` and article pages open directly.
-- Google Analytics snippet remains present.
-- `analytics.js` is loaded on all public HTML pages and the GA4 measurement ID
-  is `G-05XLCL9N8S`.
-- The Data Studio dashboard is available at
-  `https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
-- Navigation anchors resolve to `#offers`, `#ai`, `#proof`, `blog.html`, and
-  `#contact`.
-- Service pages are linked from the homepage and each has a direct paid CTA and
-  FAQ-style answer blocks written for human readers and answer engines.
-- Live canary previously passed for all 10 public HTML pages, `robots.txt`,
-  `sitemap.xml`, and the IndexNow key. The model-strategy article now also
-  returns 200 with the expected copy, metadata, and no console errors.
-- Desktop and mobile screenshots were captured locally under
-  `.impeccable/review/` and are ignored by git.
+- Entire site is hosted natively on Cloudflare Pages with apex and `www` custom domains.
+- Automated deployments run cleanly on push to `main` via GitHub Actions and Wrangler.
+- Cloudflare Bot Fight Mode and Always Use HTTPS are active at the edge.
+- Cloudflare Pages `_headers` serves HSTS Preload, X-Frame-Options SAMEORIGIN, nosniff, and granular caching.
+- Branded `404.html` returns true `HTTP/2 404` for invalid or scanned paths.
+- Google Analytics snippet and `analytics.js` attribution script track diagnostic CTAs across both `/intake` and `/intake.html`.
+- Tally intake form forwards hidden campaign and landing parameters to the connected Google Sheet.
+- The Looker Studio dashboard combines GA4 active users, Search Console queries, and Tally submissions.
+- Domain registrar, Anycast DNS, edge proxy, and catch-all email routing are centrally managed in Cloudflare.
+- Paid acquisition roadmap and launch checklist are codified in `ADVERTISING_PLAN.md`.
+- System architecture is fully documented in `ARCHITECTURE.md`.
 
 ## Next
 
-See `TODO.md`. The site-side measurement wiring, Tally sheet connection, and
-dashboard are complete. The remaining operating step is to use the combined
-dashboard weekly and revisit Search Console after qualified traffic accumulates.
+See `TODO.md`. The technical infrastructure, edge hardening, measurement engine, and advertising plan are complete. Next commercial steps:
+1. Initiate the $1,500 pilot sprint in LinkedIn Campaign Manager (under the ref(health) brand page) and Google Ads.
+2. Monitor inbound inquiries in the consulting inbox and `refhealth lead attribution` sheet.
+3. Review weekly Looker Studio metrics as campaign impressions and search queries accumulate.
