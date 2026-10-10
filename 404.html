@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found | ref(health) Consulting</title>
+  <meta
+    name="description"
+    content="The requested page could not be found on ref(health) Consulting."
+  />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05XLCL9N8S');
+    gtag('event', 'page_not_found', {
+      page_path: window.location.pathname
+    });
+  </script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a>
+        <a href="index.html#ai">AI work</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a class="nav-cta" href="intake.html">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--post service-hero" aria-labelledby="page-title">
+      <div class="container hero__content hero__content--post">
+        <p class="page-kicker">Status 404</p>
+        <h1 id="page-title">Page not found.</h1>
+        <p class="hero__lead">
+          The link you followed does not exist, or the resource has moved.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="index.html">Return to home</a>
+          <a class="btn btn--secondary" href="intake.html">Request a diagnostic</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="recovery-title">
+      <div class="container compact-grid">
+        <div>
+          <h2 id="recovery-title">Explore core practice areas.</h2>
+          <p>Find the right healthcare data, analytics engineering, or AI capability for your team.</p>
+        </div>
+        <div class="link-rail link-rail--light">
+          <a href="ai-readiness-assessment.html"><strong>Paid diagnostic · from $2,500</strong><span>Rank the work before the organization funds the wrong thing.</span></a>
+          <a href="healthcare-ai-consulting.html"><strong>Company Data AI Operating System</strong><span>Create an operating system, workflow, agent, or control package around a real decision.</span></a>
+          <a href="healthcare-data-strategy.html"><strong>Healthcare data strategy</strong><span>Map the data landscape, metrics, owners, and operating plan.</span></a>
+          <a href="dbt-consulting.html"><strong>dbt analytics engineering</strong><span>Clean data models, tested business logic, and governed pipelines.</span></a>
+          <a href="blog.html"><strong>Insights &amp; articles</strong><span>Read perspectives on healthcare data architecture, multi-model AI, and engineering.</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="healthcare-ai-consulting.html">Healthcare AI</a>
+        <a href="healthcare-data-strategy.html">Data strategy</a>
+        <a href="dbt-consulting.html">dbt consulting</a>
+        <a href="ai-readiness-assessment.html">AI readiness</a>
+        <a href="mailto:contact@refhealth.consulting">Contact</a>
+      </nav>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
