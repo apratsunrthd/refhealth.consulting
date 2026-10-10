@@ -133,7 +133,8 @@
 
   function isDiagnosticLink(link) {
     try {
-      return new URL(link.href, window.location.href).pathname.endsWith("/intake.html");
+      const path = new URL(link.href, window.location.href).pathname;
+      return path.endsWith("/intake.html") || path.endsWith("/intake");
     } catch (_error) {
       return false;
     }
