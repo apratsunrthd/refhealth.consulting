@@ -2,12 +2,18 @@
 
 ## Fast Orientation
 
-This is a static marketing site. There is no package manager, build command, or
-framework. Open `index.html` directly to preview the homepage.
+This is a static marketing site. Open `index.html` directly to preview the
+homepage. Serve the directory over HTTP to preview the ES-module checker:
+`python3 -m http.server 8000`, then open `/readiness-checker.html`. The optional
+local MCP server has a separate npm package in `mcp/`; run `npm ci --prefix mcp`
+and `npm test --prefix mcp`.
 
 Important files:
 
 - `index.html` - main marketing page and revenue CTA
+- `readiness-checker.html` - free interactive dbt metadata review and MCP download
+- `readiness-ui.mjs` / `readiness-core.mjs` - browser UI and shared deterministic checks
+- `mcp/` / `readiness-mcp.zip` - local stdio MCP server, sample manifest, and public package
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer

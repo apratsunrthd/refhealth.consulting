@@ -12,6 +12,12 @@ company Data AI Operating System buildouts.
 
 ## Current State
 
+- A free Healthcare AI Data Readiness Checker is implemented on the site. It
+  reviews a synthetic sample or a visitor-selected dbt manifest entirely in
+  the browser, reporting observable metadata, gaps, and unknowns without an
+  overall readiness score. A downloadable local stdio MCP server exposes the
+  same checks through `list_dbt_models` and `review_dbt_model`. The code and
+  archive are on the `feat/ai-readiness-checker` branch pending PR review.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.
@@ -171,6 +177,7 @@ or inclusion.
 ## Next
 
 See `TODO.md`. The technical infrastructure, edge hardening, measurement engine, and advertising plan are complete. Next commercial steps:
+Review and merge the checker PR, then verify the production page and ZIP download.
 1. Initiate the $1,500 pilot sprint in LinkedIn Campaign Manager (under the ref(health) brand page) and Google Ads.
 2. Monitor inbound inquiries in the consulting inbox and `refhealth lead attribution` sheet.
 3. Review weekly Looker Studio metrics as campaign impressions and search queries accumulate.

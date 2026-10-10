@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare AI Data Readiness Checker | ref(health) Consulting</title>
+  <meta name="description" content="Try a free, local dbt manifest review for a healthcare AI use case. See documented evidence, gaps, and questions a real readiness assessment must answer." />
+  <link rel="canonical" href="https://refhealth.consulting/readiness-checker.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Healthcare AI Data Readiness Checker" />
+  <meta property="og:description" content="Explore what a dbt manifest can tell you about an AI use case—and what it cannot." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://refhealth.consulting/readiness-checker.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Data AI Operating Systems for healthcare teams" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:title" content="Healthcare AI Data Readiness Checker | ref(health)" />
+  <meta name="twitter:description" content="A practical dbt metadata review for healthcare AI use cases." />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Healthcare AI Data Readiness Checker","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","url":"https://refhealth.consulting/readiness-checker.html","description":"A local, browser-based review of dbt manifest metadata for a proposed healthcare AI use case.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://refhealth.consulting/#organization"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-05XLCL9N8S');</script>
+  <script defer src="analytics.js"></script>
+  <script type="module" src="readiness-ui.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a><a href="index.html#ai">AI work</a><a href="about.html">About</a><a href="blog.html">Insights</a>
+        <a class="nav-cta" href="intake.html">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero hero--post service-hero" aria-labelledby="page-title">
+      <div class="container hero__content hero__content--post">
+        <p class="page-kicker">Free interactive tool · dbt metadata</p>
+        <h1 id="page-title">What does your data model prove about AI readiness?</h1>
+        <p class="hero__lead">Select a proposed AI use case and inspect one dbt model. Get specific evidence, gaps, and questions to take into a working session.</p>
+        <div class="hero__actions"><a class="btn btn--primary" href="#checker">Try the checker</a><a class="btn btn--secondary" href="ai-readiness-assessment.html">See the full diagnostic</a></div>
+      </div>
+    </section>
+
+    <section id="checker" class="section section--paper" aria-labelledby="checker-title">
+      <div class="container checker-layout">
+        <div class="checker-intro">
+          <p class="page-kicker">01 / Inspect a model</p>
+          <h2 id="checker-title">Start with the sample.</h2>
+          <p>The sample shows a member outreach model with some useful metadata and clear unanswered questions. You can also choose your own <code>manifest.json</code> for a local review.</p>
+          <p><strong>Privacy:</strong> Your file is read in this browser tab. The checker does not upload its contents or send them to analytics. Use a synthetic or approved manifest; metadata can still contain sensitive names or descriptions.</p>
+        </div>
+        <form id="checker-form" class="checker-form">
+          <label for="manifest-file">dbt manifest.json <span>(optional)</span></label>
+          <input id="manifest-file" type="file" accept=".json,application/json" />
+          <p class="checker-help" id="file-status">Using the synthetic sample manifest.</p>
+          <label for="model-select">Model to inspect</label>
+          <select id="model-select" required></select>
+          <label for="use-case">Proposed AI use case <span>(optional)</span></label>
+          <textarea id="use-case" rows="3" maxlength="500" placeholder="For example: prioritize member outreach for a care team"></textarea>
+          <div class="checker-actions">
+            <button class="btn btn--primary" type="submit">Review this model</button>
+            <button class="btn btn--secondary" type="button" id="reset-sample">Use sample</button>
+          </div>
+          <p id="checker-error" class="checker-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="report" class="section" aria-labelledby="report-title" hidden>
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="page-kicker">02 / Read the evidence</p><h2 id="report-title">Review findings</h2></div>
+          <p id="report-intro"></p>
+        </div>
+        <div id="report-summary" class="checker-summary" aria-label="Finding counts"></div>
+        <div id="report-findings" class="checker-findings"></div>
+        <p id="report-limitation" class="checker-limitation"></p>
+      </div>
+    </section>
+
+    <section class="section section--paper" aria-labelledby="mcp-title">
+      <div class="container compact-grid">
+        <div><p class="page-kicker">For data teams</p><h2 id="mcp-title">Run the same review in your AI client.</h2></div>
+        <div class="service-copy"><p>The local MCP server reads a dbt manifest from your machine and returns the same evidence and unanswered questions. It has two read-only tools and makes no network calls with your manifest.</p><p><a id="mcp-download" class="btn btn--secondary" href="readiness-mcp.zip" download>Download the MCP server</a></p><details class="checker-install"><summary>Setup instructions</summary><ol><li>Unzip the download and install Node.js 20 or newer.</li><li>Run <code>npm ci</code> inside the unzipped <code>mcp</code> folder.</li><li>Configure your MCP client to launch <code>node /absolute/path/to/readiness-mcp/mcp/server.mjs</code> over stdio.</li><li>Try the included <code>mcp/sample-manifest.json</code>, then point the server at an approved dbt <code>target/manifest.json</code>.</li></ol></details></div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="boundary-title">
+      <div class="container compact-grid">
+        <div><p class="page-kicker">What this tool cannot see</p><h2 id="boundary-title">Metadata is only the first layer.</h2></div>
+        <div class="service-copy"><p>A manifest can show declared lineage, documentation, and tests. It cannot establish whether tests passed, data may be used for this purpose, the workflow has a safe human review point, or the opportunity is worth funding.</p><p>The paid <a href="ai-readiness-assessment.html">AI-readiness diagnostic</a> adds stakeholder context, governance, workflow design, value, and a decision-ready next move.</p></div>
+      </div>
+    </section>
+
+    <section class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel"><div><h2 id="contact-title">Need a decision beyond the metadata?</h2><p>Bring the use case, data constraints, and decision owner to a focused diagnostic starting at $2,500.</p></div><a class="btn btn--primary" href="intake.html">Request a diagnostic</a></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation"><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="dbt-consulting.html">dbt consulting</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -42,6 +42,27 @@ flowchart TD
 
 ## Component Architecture
 
+### Free readiness checker and local MCP
+
+`readiness-checker.html` is a static, browser-only interface. `readiness-ui.mjs`
+reads an optional local dbt `manifest.json` with the File API (10 MB limit) and
+renders findings with DOM text nodes. It never posts manifest contents. The
+bundled sample and `evaluateManifest` rules live in `readiness-core.mjs`.
+
+`mcp/server.mjs` imports the same core and exposes `list_dbt_models` and
+`review_dbt_model` over local stdio using the official MCP TypeScript SDK. It
+reads a named local manifest, returns structured findings, and makes no network
+calls. `readiness-mcp.zip` contains the server, shared core, lockfile, sample,
+and setup instructions for public download. It is checked against source files
+in `.github/workflows/checks.yml`.
+
+The rules inspect declared documentation, owner, tests, upstream sources, and
+freshness configuration. Privacy, access, human review, and business value are
+explicit unknowns. The output is a conversation starter, not a certification.
+GA4 receives only `checker_report_view` with a sample/local-file flag and
+`mcp_download_click`; neither event includes model names, file names, paths,
+descriptions, or use-case text.
+
 ### 1. Edge & Hosting Layer (Cloudflare)
 * **Domain Registrar**: Cloudflare Registrar (migrated from Namecheap on 2026-09-20). Operates at wholesale at-cost renewal with registry transfer lock enabled (`clientTransferProhibited`).
 * **Authoritative DNS**: Cloudflare Anycast nameservers (`barbara.ns.cloudflare.com`, `damien.ns.cloudflare.com`) with CNAME flattening at apex.

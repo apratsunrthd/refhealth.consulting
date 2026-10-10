@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Built a free AI Data Readiness Checker with a synthetic example and browser-local
+  dbt manifest review. It reports evidence, gaps, and unknowns without assigning
+  a readiness score or uploading a visitor's manifest.
+- Built a matching local stdio MCP server with two read-only tools and a public
+  download archive. Added shared-rule and MCP protocol tests plus a PR CI check.
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
@@ -67,6 +72,12 @@
 
 ## For Codex or Claude
 
+After the checker PR merges, verify `/readiness-checker.html`, its sample report,
+and the `readiness-mcp.zip` download in production. Track the privacy-safe
+`checker_report_view` and `mcp_download_click` events alongside qualified intake
+submissions. If the demo attracts the wrong audience, revise distribution or the
+use case before expanding the checker.
+
 The site infrastructure, measurement system, and branding are fully modernized:
 
 - The site runs natively on Cloudflare Pages (`refhealth-consulting` project)
@@ -102,6 +113,9 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
+- Share the sample report with a few health-tech data leaders and ask whether
+  they would run the local MCP server on a real dbt project. Record objections
+  and whether any conversation reaches the paid diagnostic.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
   Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
 - Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),
