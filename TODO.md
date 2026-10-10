@@ -59,6 +59,10 @@
   - Replaced legacy GitHub Pages A/AAAA records with Cloudflare Pages CNAMEs.
   - Configured repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` in GitHub.
   - Updated automated deployment workflow in `.github/workflows/sitemap.yml` to deploy directly to Cloudflare Pages on push to `main`.
+- Implemented branded `404.html` matching `DESIGN.md` for native Cloudflare Pages 404 handling, eliminating soft 404 errors and preventing automated scanners from triggering the homepage SPA fallback.
+- Configured Cloudflare Pages `_headers` with edge security (HSTS preload, X-Frame-Options SAMEORIGIN, X-Content-Type-Options nosniff, Referrer-Policy, Permissions-Policy) and granular Cache-Control rules.
+- Enabled Cloudflare Bot Fight Mode (`fight_mode: true, enable_js: true`) to actively challenge automated scraper fleets and cloud crawler sweeps at the edge.
+- Enabled Cloudflare Always Use HTTPS (`always_use_https: on`) for immediate HTTP -> HTTPS edge redirects.
 
 ## For Codex or Claude
 
@@ -95,8 +99,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
-- Optional: Enable **Bot Fight Mode** in Cloudflare Dashboard (`Security -> Bots -> Bot Fight Mode`)
-  to challenge automated scrapers and cloud IP probes at the edge before they hit the origin.
+- Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),
+  challenging automated scrapers and cloud IP probes at the edge before they reach the site.
 - Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions,
   distinguishing them from raw Cloudflare edge request volume.
 - Review the published $2,500 starting price after the first qualified inquiries.

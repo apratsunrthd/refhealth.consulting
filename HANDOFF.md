@@ -201,8 +201,16 @@ is now natively hosted and managed on Cloudflare with automated CI/CD deployment
   GA4 (`G-05XLCL9N8S`) measures only real browser sessions executing JavaScript.
 - **Traffic Spikes Without Referrer**: High-volume traffic surges (e.g., from Brazil cloud/proxy
   networks like AWS `sa-east-1` or Oracle Vinhedo) with missing referrers are typically
-  automated scanner fleets probing endpoints (producing 404s). They do not trigger GA4 active users.
-- **Bot Defense**: Cloudflare Bot Fight Mode (`Security -> Bots -> Bot Fight Mode`) can be
-  enabled in the dashboard to challenge automated headless scrapers before they hit the origin.
+  automated scanner fleets probing endpoints. They do not trigger GA4 active users.
+- **404 Handling & Soft 404 Resolution**: `404.html` is implemented to ensure invalid/scanned
+  endpoints receive a genuine HTTP 404 instead of falling back to the `index.html` SPA behavior.
+- **Security & Caching Headers**: `_headers` configures HSTS preload, X-Frame-Options SAMEORIGIN,
+  nosniff, and granular cache controls (instant revalidation for HTML, immutable long-term caching
+  for assets).
+- **Bot Defense**: Cloudflare Bot Fight Mode (`Security -> Bots -> Bot Fight Mode`) is active
+  on the zone (`fight_mode: true, enable_js: true`), automatically challenging automated scrapers
+  before they reach the site.
+- **HTTPS Enforcement**: `always_use_https: on` is active on Cloudflare, enforcing 301 redirects
+  from HTTP to HTTPS at the edge.
 
 
