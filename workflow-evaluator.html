@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Outreach Workflow Evaluator | ref(health) Consulting</title>
+  <meta name="description" content="Test a synthetic 48-hour outreach workflow. See event timing, missed attempts, data defects, and the records behind each result." />
+  <link rel="canonical" href="https://refhealth.consulting/workflow-evaluator.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Healthcare Outreach Workflow Evaluator" />
+  <meta property="og:description" content="Test a synthetic outreach trigger and inspect the event-level evidence behind each result." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://refhealth.consulting/workflow-evaluator.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Data AI Operating Systems for healthcare teams" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:title" content="Healthcare Outreach Workflow Evaluator | ref(health)" />
+  <meta name="twitter:description" content="An interactive healthcare outreach timing evaluation with synthetic data." />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Healthcare Outreach Workflow Evaluator","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","url":"https://refhealth.consulting/workflow-evaluator.html","description":"An interactive evaluation of synthetic healthcare event delivery and outreach timing.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://refhealth.consulting/#organization"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-05XLCL9N8S');</script>
+  <script defer src="analytics.js"></script>
+  <script type="module" src="workflow-ui.mjs"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a><a href="index.html#ai">AI work</a><a href="about.html">About</a><a href="blog.html">Insights</a>
+        <a class="nav-cta" href="intake.html">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero hero--post service-hero" aria-labelledby="page-title">
+      <div class="container hero__content hero__content--post">
+        <p class="page-kicker">Free interactive tool · synthetic healthcare events</p>
+        <h1 id="page-title">Would your outreach workflow act in time?</h1>
+        <p class="hero__lead">Test a 48-hour outreach trigger against synthetic emergency and inpatient encounter events. See exactly which records arrive too late, miss outreach, or contain defects.</p>
+        <div class="hero__actions"><a class="btn btn--primary" href="#evaluator">Run the scenario</a><a class="btn btn--secondary" href="ai-readiness-assessment.html">See the full diagnostic</a></div>
+      </div>
+    </section>
+
+    <section id="evaluator" class="section section--paper" aria-labelledby="evaluator-title">
+      <div class="container checker-layout">
+        <div class="checker-intro">
+          <p class="page-kicker">01 / Test the trigger</p>
+          <h2 id="evaluator-title">Start with the synthetic scenario.</h2>
+          <p>The encounter IDs, classes, and end times come from <a href="https://github.com/synthetichealth/synthea-sample-data">Synthea sample data</a>. Receipt times, outreach attempts, and defects are simulated for this demo. Change the window or cohort and rerun it to see the outcome change.</p>
+          <p><strong>Privacy:</strong> An optional workflow JSON file is read in this browser tab. Its contents are not uploaded or sent to analytics. Use only synthetic or approved data.</p>
+        </div>
+        <form id="workflow-form" class="checker-form">
+          <label for="workflow-file">Workflow JSON <span>(optional)</span></label>
+          <input id="workflow-file" type="file" accept=".json,application/json" />
+          <p class="checker-help" id="file-status">Loading the synthetic scenario…</p>
+          <label for="window-hours">Outreach deadline</label>
+          <select id="window-hours"><option value="24">24 hours</option><option value="48" selected>48 hours</option><option value="72">72 hours</option></select>
+          <label for="cohort">Encounter cohort</label>
+          <select id="cohort"><option value="all">Emergency + inpatient</option><option value="emergency">Emergency only</option></select>
+          <div class="checker-actions"><button class="btn btn--primary" type="submit">Evaluate workflow</button><button class="btn btn--secondary" type="button" id="reset-sample">Use sample</button></div>
+          <p id="workflow-error" class="checker-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="report" class="section" aria-labelledby="report-title" hidden>
+      <div class="container">
+        <div class="section-heading"><div><p class="page-kicker">02 / Inspect the evidence</p><h2 id="report-title">Workflow results</h2></div><p id="report-intro"></p></div>
+        <div id="report-summary" class="checker-summary" aria-label="Workflow counts"></div>
+        <p id="report-context" class="checker-help"></p>
+        <h3>Event-level outcomes</h3>
+        <div id="report-outcomes" class="checker-findings"></div>
+        <details class="checker-install"><summary id="issues-summary">Data quality issues</summary><div id="report-issues" class="checker-findings"></div></details>
+        <p id="report-boundary" class="checker-limitation"></p>
+      </div>
+    </section>
+
+    <section class="section section--paper" aria-labelledby="mcp-title">
+      <div class="container compact-grid">
+        <div><p class="page-kicker">For data teams</p><h2 id="mcp-title">Investigate from your AI client.</h2></div>
+        <div class="service-copy"><p>The local MCP server evaluates a JSON scenario on your machine and can explain an individual event with timestamps and source IDs. Its tools are read-only and make no network calls with the data.</p><p><a id="mcp-download" class="btn btn--secondary" href="workflow-mcp.zip" download>Download the MCP server</a></p><details class="checker-install"><summary>Setup instructions</summary><ol><li>Unzip the download and install Node.js 20 or newer.</li><li>Run <code>npm ci</code> inside the unzipped <code>mcp</code> folder.</li><li>Configure your MCP client to launch <code>node /absolute/path/to/workflow-mcp/mcp/server.mjs</code> over stdio.</li><li>Ask it to evaluate the included <code>mcp/sample-workflow.json</code>, then explain a late event.</li></ol></details></div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="boundary-title">
+      <div class="container compact-grid"><div><p class="page-kicker">Operational boundary</p><h2 id="boundary-title">Timing is one part of readiness.</h2></div><div class="service-copy"><p>This demo tests event delivery, deduplication, and recorded outreach timing. A real launch also needs consent, contact policy, clinical review, ownership, and outcome measurement.</p><p>A focused <a href="ai-readiness-assessment.html">AI-readiness diagnostic</a> connects those decisions to the data and workflow you actually have.</p></div></div>
+    </section>
+
+    <section class="section section--contact" aria-labelledby="contact-title"><div class="container contact-panel"><div><h2 id="contact-title">Have a workflow worth testing?</h2><p>Bring the trigger, data constraints, and decision owner to a focused diagnostic starting at $2,500.</p></div><a class="btn btn--primary" href="intake.html">Request a diagnostic</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation"><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="dbt-consulting.html">dbt consulting</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -2,16 +2,11 @@
 
 ## Recently completed
 
-- Built a free AI Data Readiness Checker with a synthetic example and browser-local
-  dbt manifest review. It reports evidence, gaps, and unknowns without assigning
-  a readiness score or uploading a visitor's manifest.
-- Moved the three invariant manifest limitations out of finding counts and into
-  a separate follow-up section in the browser and MCP result.
-- Built a matching local stdio MCP server with two read-only tools and a public
-  download archive. Added shared-rule and MCP protocol tests plus a PR CI check.
-- Exercised public dbt manifests with seed-only and source-based lineage; fixed
-  the seed-only report so it shows upstream seeds and treats absent source
-  freshness as unknown.
+- Built an outreach workflow evaluator with a Synthea-derived synthetic scenario.
+  It computes event-level timing, missed attempts, deduplication, and input defects.
+  The browser and local MCP server share the same evaluation rules and sample.
+- Replaced the dbt manifest checker before PR #42 merged; it was too narrow and
+  repeated limitations that a manifest could never resolve.
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
@@ -77,11 +72,11 @@
 
 ## For Codex or Claude
 
-After the checker PR merges, verify `/readiness-checker.html`, its sample report,
-and the `readiness-mcp.zip` download in production. Track the privacy-safe
-`checker_report_view` and `mcp_download_click` events alongside qualified intake
+After the workflow PR merges, verify `/workflow-evaluator.html`, its sample report,
+and the `workflow-mcp.zip` download in production. Track the privacy-safe
+`workflow_report_view` and `mcp_download_click` events alongside qualified intake
 submissions. If the demo attracts the wrong audience, revise distribution or the
-use case before expanding the checker.
+use case before expanding the evaluator.
 
 The site infrastructure, measurement system, and branding are fully modernized:
 
@@ -118,8 +113,9 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
-- Share the sample report with a few health-tech data leaders and ask whether
-  they would run the local MCP server on a real dbt project. Record objections
+- Share the sample workflow report with a few health-tech data leaders and ask
+  whether they would use this timing investigation on an approved event feed.
+  Record objections
   and whether any conversation reaches the paid diagnostic.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
   Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.

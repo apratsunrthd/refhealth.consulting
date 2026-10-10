@@ -1,4 +1,4 @@
-name: Check readiness tool
+name: Check workflow evaluator
 
 on:
   pull_request:
@@ -18,7 +18,7 @@ jobs:
       - name: Check MCP download contents
         shell: bash
         run: |
-          unzip -t readiness-mcp.zip
-          for file in readiness-core.mjs mcp/server.mjs mcp/package.json mcp/package-lock.json mcp/sample-manifest.json mcp/README.md test/readiness.test.mjs mcp/test/server.test.mjs; do
-            diff -q "$file" <(unzip -p readiness-mcp.zip "$file")
+          unzip -t workflow-mcp.zip
+          for file in workflow-core.mjs mcp/server.mjs mcp/package.json mcp/package-lock.json mcp/sample-workflow.json mcp/README.md test/workflow.test.mjs mcp/test/server.test.mjs; do
+            diff -q "$file" <(unzip -p workflow-mcp.zip "$file")
           done

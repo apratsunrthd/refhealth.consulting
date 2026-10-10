@@ -42,28 +42,29 @@ flowchart TD
 
 ## Component Architecture
 
-### Free readiness checker and local MCP
+### Outreach workflow evaluator and local MCP
 
-`readiness-checker.html` is a static, browser-only interface. `readiness-ui.mjs`
-reads an optional local dbt `manifest.json` with the File API (10 MB limit) and
-renders findings with DOM text nodes. It never posts manifest contents. The
-bundled sample and `evaluateManifest` rules live in `readiness-core.mjs`.
+`workflow-evaluator.html` is a static, browser-only interface. `workflow-ui.mjs`
+loads a synthetic sample or reads an optional local workflow JSON file with the
+File API (10 MB limit) and renders event outcomes with DOM text nodes. It never
+posts file contents. The bundled sample lives in `mcp/sample-workflow.json`;
+`evaluateWorkflow` and `explainEvent` live in `workflow-core.mjs`.
 
-`mcp/server.mjs` imports the same core and exposes `list_dbt_models` and
-`review_dbt_model` over local stdio using the official MCP TypeScript SDK. It
-reads a named local manifest, returns structured findings, and makes no network
-calls. `readiness-mcp.zip` contains the server, shared core, lockfile, sample,
+`mcp/server.mjs` imports the same core and exposes `evaluate_outreach_workflow`
+and `explain_outreach_event` over local stdio using the MCP TypeScript SDK. It
+reads a named local JSON file, returns structured evidence, and makes no network
+calls. `workflow-mcp.zip` contains the server, shared core, lockfile, sample,
 and setup instructions for public download. It is checked against source files
 in `.github/workflows/checks.yml`.
 
-The rules inspect declared documentation, owner, tests, upstream sources and seeds, and
-freshness configuration. The finding counts include only model-specific results.
-Privacy, access, human review, and business value are returned separately in
-`followUp`, since no manifest can establish them. The output is a conversation
-starter, not a certification.
-GA4 receives only `checker_report_view` with a sample/local-file flag and
-`mcp_download_click`; neither event includes model names, file names, paths,
-descriptions, or use-case text.
+The rules deduplicate event IDs, exclude conflicting IDs and invalid rows,
+measure receipt delay, and compare the first outreach attempt with a configurable
+24/48/72-hour deadline. They classify eligible encounters as on time, late data,
+late outreach, missed, or pending. The sample's encounter identifiers, classes,
+and end times come from Synthea; operational timings and defects are simulated.
+GA4 receives only `workflow_report_view` with a sample/local-file flag and
+`mcp_download_click`; neither event includes file names, paths, identifiers, or
+event contents.
 
 ### 1. Edge & Hosting Layer (Cloudflare)
 * **Domain Registrar**: Cloudflare Registrar (migrated from Namecheap on 2026-09-20). Operates at wholesale at-cost renewal with registry transfer lock enabled (`clientTransferProhibited`).

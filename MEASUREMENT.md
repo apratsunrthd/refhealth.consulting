@@ -56,12 +56,12 @@ The shared `analytics.js` file records these privacy-safe GA4 events:
 | `diagnostic_cta_click` | A link to `intake.html` is clicked | Which page or navigation path creates demand? |
 | `diagnostic_form_start` | A visitor interacts with the hosted Tally area | Are visitors who reach the form beginning it? |
 | `contact_email_click` | A `mailto:` link is clicked | Is the email fallback being used? |
-| `checker_report_view` | A checker report is generated | Do visitors try the free tool? Includes only `manifest_source`: `sample` or `local_file`. |
+| `workflow_report_view` | A workflow evaluation is generated | Do visitors try the free tool? Includes only `dataset_source`: `sample` or `local_file`. |
 | `mcp_download_click` | The local MCP archive link is clicked | Is there interest in running the technical version? |
 
 Events include page path, broad first/last source, medium, and campaign values.
 They never include form answers, email addresses, query strings, or other free-
-form personal data. The checker events do not include file contents, paths,
+form personal data. The evaluator events do not include file contents, paths,
 model names, or use-case text. Tally answers remain in Tally and its connected sheet.
 
 ## Attribution fields

@@ -12,20 +12,17 @@ company Data AI Operating System buildouts.
 
 ## Current State
 
-- A free Healthcare AI Data Readiness Checker is implemented on the site. It
-  reviews a synthetic sample or a visitor-selected dbt manifest entirely in
-  the browser, reporting observable metadata, gaps, and model-specific unknowns
-  without an overall readiness score. Privacy, workflow, and business-value
-  questions are separate follow-up prompts because every manifest leaves them
-  unanswered. A downloadable local stdio MCP server exposes the
-  same checks through `list_dbt_models` and `review_dbt_model`. The code and
-  archive are on the `feat/ai-readiness-checker` branch pending PR review.
-- Tested the checker and actual MCP tools against public dbt artifacts: the
-  [Jaffle Shop fixture in dbt-metabase](https://github.com/gouline/dbt-metabase/blob/main/tests/fixtures/manifest-v2.json)
-  (dbt 0.20, five models, seed-only lineage) and the
-  [dbt timeline analysis fixture](https://github.com/mahdiqb/dbt_timeline_analysis/blob/main/fixtures/dbt/manifest.json)
-  (dbt 1.8.7, 25 models, eight sources). The seed-only test exposed and
-  corrected a false freshness gap. Neither external artifact is committed here.
+- A free Outreach Workflow Evaluator is implemented on the site. It evaluates
+  a synthetic emergency/inpatient encounter scenario or a visitor-selected
+  workflow JSON file entirely in the browser. It reports on-time outreach,
+  late data, late outreach, missed attempts, and data defects with event-level
+  evidence. Deadline and cohort controls change the result.
+- The sample uses encounter IDs, classes, and end times from
+  [Synthea synthetic FHIR R4 sample data](https://github.com/synthetichealth/synthea-sample-data).
+  Receipt times, outreach attempts, and defects are simulated by ref(health).
+  A downloadable local stdio MCP server exposes `evaluate_outreach_workflow`
+  and `explain_outreach_event`. This replaces the dbt manifest checker on the
+  `feat/ai-readiness-checker` branch pending PR review.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.
@@ -185,7 +182,7 @@ or inclusion.
 ## Next
 
 See `TODO.md`. The technical infrastructure, edge hardening, measurement engine, and advertising plan are complete. Next commercial steps:
-Review and merge the checker PR, then verify the production page and ZIP download.
+Review and merge the workflow evaluator PR, then verify the production page and ZIP download.
 1. Initiate the $1,500 pilot sprint in LinkedIn Campaign Manager (under the ref(health) brand page) and Google Ads.
 2. Monitor inbound inquiries in the consulting inbox and `refhealth lead attribution` sheet.
 3. Review weekly Looker Studio metrics as campaign impressions and search queries accumulate.

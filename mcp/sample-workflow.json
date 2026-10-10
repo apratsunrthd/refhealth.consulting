@@ -1,0 +1,147 @@
+{
+  "provenance": "Encounter IDs, patient IDs, classes, and end times are extracted from Synthea synthetic FHIR R4 sample bundles (August 2026). Receipt times, outreach attempts, duplicate delivery, missing member ID, and unmatched attempt are simulated by ref(health).",
+  "sourceUrl": "https://synthetichealth.github.io/synthea-sample-data/downloads/latest/synthea_sample_data_fhir_latest.zip",
+  "asOf": "2026-10-10T00:00:00Z",
+  "events": [
+    {
+      "eventId": "5693c080-f485-91e7-3fd3-a7cb9c4518f6",
+      "memberId": "5693c080-f485-91e7-54b9-ad9a8c12af62",
+      "eventType": "EMER",
+      "occurredAt": "2026-08-17T00:50:14+00:00",
+      "receivedAt": "2026-08-17T01:50:14+00:00",
+      "sourceRef": "Encounter/5693c080-f485-91e7-3fd3-a7cb9c4518f6"
+    },
+    {
+      "eventId": "bca1691f-8839-1d66-3a0d-25f9e3ffe29f",
+      "memberId": "bca1691f-8839-1d66-ed01-471134d55738",
+      "eventType": "EMER",
+      "occurredAt": "2026-08-12T12:39:55+00:00",
+      "receivedAt": "2026-08-12T18:39:55+00:00",
+      "sourceRef": "Encounter/bca1691f-8839-1d66-3a0d-25f9e3ffe29f"
+    },
+    {
+      "eventId": "e142981b-3577-4115-63ee-3f4fdc0f618b",
+      "memberId": "e142981b-3577-4115-584d-d9676df7fcff",
+      "eventType": "IMP",
+      "occurredAt": "2026-07-23T12:02:18+00:00",
+      "receivedAt": "2026-07-25T17:02:18+00:00",
+      "sourceRef": "Encounter/e142981b-3577-4115-63ee-3f4fdc0f618b"
+    },
+    {
+      "eventId": "6d04a400-ad21-5951-f692-ac3894a064dd",
+      "memberId": "6d04a400-ad21-5951-b092-c14b6358d4c5",
+      "eventType": "EMER",
+      "occurredAt": "2026-07-19T14:36:36+00:00",
+      "receivedAt": "2026-07-19T22:36:36+00:00",
+      "sourceRef": "Encounter/6d04a400-ad21-5951-f692-ac3894a064dd"
+    },
+    {
+      "eventId": "ad48e669-959c-b6f8-6379-aa0f69d89591",
+      "memberId": "ad48e669-959c-b6f8-8ddb-dda7a6d37473",
+      "eventType": "EMER",
+      "occurredAt": "2026-06-20T14:52:51+00:00",
+      "receivedAt": "2026-06-21T20:52:51+00:00",
+      "sourceRef": "Encounter/ad48e669-959c-b6f8-6379-aa0f69d89591"
+    },
+    {
+      "eventId": "dc77ef0d-1846-94fd-3552-4360fc140325",
+      "memberId": "dc77ef0d-1846-94fd-cce5-a7a555009d17",
+      "eventType": "EMER",
+      "occurredAt": "2026-06-19T07:40:30+00:00",
+      "receivedAt": "2026-06-19T09:40:30+00:00",
+      "sourceRef": "Encounter/dc77ef0d-1846-94fd-3552-4360fc140325"
+    },
+    {
+      "eventId": "a406f356-c8b4-54ad-486b-382043d0b8bb",
+      "memberId": "a406f356-c8b4-54ad-e79c-54a5e15ffc19",
+      "eventType": "EMER",
+      "occurredAt": "2026-05-22T14:04:01+00:00",
+      "receivedAt": "2026-05-25T02:04:01+00:00",
+      "sourceRef": "Encounter/a406f356-c8b4-54ad-486b-382043d0b8bb"
+    },
+    {
+      "eventId": "d537941e-1fb7-9868-527b-353b7e18f586",
+      "memberId": "d537941e-1fb7-9868-939a-a26252da8be1",
+      "eventType": "IMP",
+      "occurredAt": "2026-05-15T18:27:12+00:00",
+      "receivedAt": "2026-05-16T06:27:12+00:00",
+      "sourceRef": "Encounter/d537941e-1fb7-9868-527b-353b7e18f586"
+    },
+    {
+      "eventId": "355a4d50-2628-aa65-697b-6d2d7f9070e5",
+      "memberId": "355a4d50-2628-aa65-c336-deacf4d606fb",
+      "eventType": "EMER",
+      "occurredAt": "2026-05-07T21:04:51+00:00",
+      "receivedAt": "2026-05-07T22:04:51+00:00",
+      "sourceRef": "Encounter/355a4d50-2628-aa65-697b-6d2d7f9070e5"
+    },
+    {
+      "eventId": "765bd034-e8d7-f102-0090-2e0f69227d8b",
+      "memberId": "765bd034-e8d7-f102-eb1c-4b7792fc5684",
+      "eventType": "EMER",
+      "occurredAt": "2026-05-04T22:08:14+00:00",
+      "receivedAt": "2026-05-05T23:08:14+00:00",
+      "sourceRef": "Encounter/765bd034-e8d7-f102-0090-2e0f69227d8b"
+    },
+    {
+      "eventId": "bca1691f-8839-1d66-3a0d-25f9e3ffe29f",
+      "memberId": "bca1691f-8839-1d66-ed01-471134d55738",
+      "eventType": "EMER",
+      "occurredAt": "2026-08-12T12:39:55+00:00",
+      "receivedAt": "2026-08-12T19:39:55+00:00",
+      "sourceRef": "Encounter/bca1691f-8839-1d66-3a0d-25f9e3ffe29f",
+      "simulatedDefect": "duplicate delivery"
+    },
+    {
+      "eventId": "239b0c86-371a-3080-1dd0-0c519384ef64",
+      "memberId": "",
+      "eventType": "EMER",
+      "occurredAt": "2026-05-02T02:38:24+00:00",
+      "receivedAt": "2026-05-02T05:38:24+00:00",
+      "sourceRef": "Encounter/239b0c86-371a-3080-1dd0-0c519384ef64",
+      "simulatedDefect": "missing member ID"
+    }
+  ],
+  "attempts": [
+    {
+      "attemptId": "ATT-001",
+      "eventId": "5693c080-f485-91e7-3fd3-a7cb9c4518f6",
+      "attemptedAt": "2026-08-17T20:50:14+00:00"
+    },
+    {
+      "attemptId": "ATT-002",
+      "eventId": "bca1691f-8839-1d66-3a0d-25f9e3ffe29f",
+      "attemptedAt": "2026-08-14T19:39:55+00:00"
+    },
+    {
+      "attemptId": "ATT-004",
+      "eventId": "6d04a400-ad21-5951-f692-ac3894a064dd",
+      "attemptedAt": "2026-07-21T00:36:36+00:00"
+    },
+    {
+      "attemptId": "ATT-005",
+      "eventId": "ad48e669-959c-b6f8-6379-aa0f69d89591",
+      "attemptedAt": "2026-06-23T22:52:51+00:00"
+    },
+    {
+      "attemptId": "ATT-006",
+      "eventId": "dc77ef0d-1846-94fd-3552-4360fc140325",
+      "attemptedAt": "2026-06-19T17:40:30+00:00"
+    },
+    {
+      "attemptId": "ATT-008",
+      "eventId": "d537941e-1fb7-9868-527b-353b7e18f586",
+      "attemptedAt": "2026-05-16T19:27:12+00:00"
+    },
+    {
+      "attemptId": "ATT-010",
+      "eventId": "765bd034-e8d7-f102-0090-2e0f69227d8b",
+      "attemptedAt": "2026-05-07T00:08:14+00:00"
+    },
+    {
+      "attemptId": "ATT-999",
+      "eventId": "missing-event",
+      "attemptedAt": "2026-08-19T10:00:00+00:00"
+    }
+  ]
+}

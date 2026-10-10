@@ -3,20 +3,18 @@
 ## Fast Orientation
 
 This is a static marketing site. Open `index.html` directly to preview the
-homepage. Serve the directory over HTTP to preview the ES-module checker:
-`python3 -m http.server 8000`, then open `/readiness-checker.html`. The optional
+homepage. Serve the directory over HTTP to preview the ES-module evaluator:
+`python3 -m http.server 8000`, then open `/workflow-evaluator.html`. The optional
 local MCP server has a separate npm package in `mcp/`; run `npm ci --prefix mcp`
 and `npm test --prefix mcp`.
 
 Important files:
 
 - `index.html` - main marketing page and revenue CTA
-- `readiness-checker.html` - free interactive dbt metadata review and MCP download
-- `readiness-ui.mjs` / `readiness-core.mjs` - browser UI and shared deterministic checks
-- The checker counts only model-specific findings; invariant privacy, workflow,
-  and business-value questions appear in `followUp` and a separate report section.
-- `mcp/` / `readiness-mcp.zip` - local stdio MCP server, sample manifest, and public package
-- `test/readiness.test.mjs` / `mcp/test/server.test.mjs` - checker rules and MCP client integration tests
+- `workflow-evaluator.html` - synthetic outreach timing demo and MCP download
+- `workflow-ui.mjs` / `workflow-core.mjs` - browser UI and shared deterministic evaluation
+- `mcp/` / `workflow-mcp.zip` - local stdio MCP server, Synthea-derived scenario, and public package
+- `test/workflow.test.mjs` / `mcp/test/server.test.mjs` - timing rules and MCP client integration tests
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer

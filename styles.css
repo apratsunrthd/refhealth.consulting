@@ -1337,6 +1337,12 @@ h4 {
 .checker-count--observed { border-color: var(--green); color: var(--green); }
 .checker-count--gap { border-color: var(--red); color: var(--red-deep); }
 .checker-count--unknown { border-color: var(--line-strong); color: var(--muted); }
+.checker-count--on_time { border-color: var(--green); color: var(--green); }
+.checker-count--late_outreach,
+.checker-count--late_data,
+.checker-count--missed,
+.checker-count--dataIssues { border-color: var(--red); color: var(--red-deep); }
+.checker-count--pending { border-color: var(--amber); color: var(--ink); }
 
 .checker-findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .checker-finding {
@@ -1351,6 +1357,14 @@ h4 {
 .checker-finding__status { display: block; margin-bottom: 0.5rem; font: 600 0.75rem "IBM Plex Mono", monospace; text-transform: uppercase; }
 .checker-finding h3 { margin-bottom: 0.7rem; }
 .checker-finding__next { margin-top: 0.7rem; font-weight: 600; }
+.workflow-finding--on_time { border-left-color: var(--green); }
+.workflow-finding--late_outreach,
+.workflow-finding--late_data,
+.workflow-finding--missed,
+.workflow-finding--issue { border-left-color: var(--red); }
+.workflow-finding--pending { border-left-color: var(--amber); }
+.workflow-finding { overflow-wrap: anywhere; }
+.workflow-finding p + p { margin-top: 0.35rem; }
 .checker-limitation { margin-top: 1.5rem; padding: 1rem; border: 1px solid var(--line-strong); }
 .checker-install { margin-top: 1.25rem; }
 .checker-install summary { cursor: pointer; font-weight: 700; }

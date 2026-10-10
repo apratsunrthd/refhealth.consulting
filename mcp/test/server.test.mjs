@@ -5,21 +5,21 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
 const serverPath = fileURLToPath(new URL("../server.mjs", import.meta.url));
-const samplePath = fileURLToPath(new URL("../sample-manifest.json", import.meta.url));
 
-test("MCP client can discover and call both local tools", async () => {
-  const client = new Client({ name: "readiness-test", version: "1.0.0" });
+test("MCP client evaluates the sample and explains a late event", async () => {
+  const client = new Client({ name: "workflow-test", version: "1.0.0" });
   const transport = new StdioClientTransport({ command: process.execPath, args: [serverPath] });
   try {
     await client.connect(transport);
     const tools = await client.listTools();
-    assert.deepEqual(tools.tools.map(tool => tool.name).sort(), ["list_dbt_models", "review_dbt_model"]);
-    const listed = await client.callTool({ name: "list_dbt_models", arguments: { manifestPath: samplePath } });
-    assert.equal(listed.structuredContent.models[0].name, "member_outreach");
-    const reviewed = await client.callTool({ name: "review_dbt_model", arguments: { manifestPath: samplePath, useCase: "Member outreach" } });
-    assert.equal(reviewed.structuredContent.summary.unknowns, 0);
-    assert.equal(reviewed.structuredContent.followUp.length, 3);
-    const missing = await client.callTool({ name: "review_dbt_model", arguments: { manifestPath: "/missing/manifest.json" } });
+    assert.deepEqual(tools.tools.map(tool => tool.name).sort(), ["evaluate_outreach_workflow", "explain_outreach_event"]);
+    const evaluated = await client.callTool({ name: "evaluate_outreach_workflow", arguments: {} });
+    assert.equal(evaluated.structuredContent.summary.eligibleEvents, 10);
+    const late = evaluated.structuredContent.outcomes.find(item => item.status === "late_data");
+    const explained = await client.callTool({ name: "explain_outreach_event", arguments: { eventId: late.eventId } });
+    assert.equal(explained.structuredContent.status, "late_data");
+    assert.equal(explained.structuredContent.eventId, late.eventId);
+    const missing = await client.callTool({ name: "evaluate_outreach_workflow", arguments: { dataPath: "/missing/workflow.json" } });
     assert.equal(missing.isError, true);
   } finally {
     await client.close();

@@ -1,27 +1,30 @@
-# ref(health) Data Readiness MCP
+# ref(health) Outreach Workflow MCP
 
-A local, read-only MCP server for reviewing dbt manifest metadata against a proposed healthcare AI use case. It uses the same deterministic checks as the [web demo](https://refhealth.consulting/readiness-checker.html). It does not send your manifest to ref(health) or inspect data rows.
+A local, read-only MCP server for evaluating whether emergency and inpatient encounter events reach an outreach workflow in time, and whether outreach attempts meet a selected deadline. It shares its deterministic evaluator with the [web demo](https://refhealth.consulting/workflow-evaluator.html).
 
 ## Run
 
-1. Download and unzip `readiness-mcp.zip` from the web demo, or use this repository checkout.
+1. Download and unzip `workflow-mcp.zip` from the web demo, or use this repository checkout.
 2. Install Node.js 20 or newer.
 3. In the unzipped `mcp` directory, run `npm ci`.
-4. Configure your MCP client to launch `node /absolute/path/to/readiness-mcp/mcp/server.mjs` over stdio.
+4. Configure your MCP client to launch `node /absolute/path/to/workflow-mcp/mcp/server.mjs` over stdio.
 
-For a first check, ask your client to list the models in `/absolute/path/to/readiness-mcp/mcp/sample-manifest.json`, then review `model.demo.member_outreach` for a member outreach use case. Point it to your own `target/manifest.json` when ready.
+Ask your client to evaluate the bundled sample at 48 hours, compare it with 24 hours, then explain one `late_data` event ID. The sample's encounter IDs, classes, and end times come from [Synthea synthetic FHIR R4 data](https://github.com/synthetichealth/synthea-sample-data). Receipt times, outreach attempts, duplicate delivery, and missing fields are simulated by ref(health). The original Synthea project is [Apache 2.0 licensed](https://github.com/synthetichealth/synthea/blob/master/LICENSE).
+The source archive was downloaded on 2026-10-10; its SHA-256 is `56cb9e49f7ba6ad4e61c40aa80999f8c10a710823fed1becdf2502053777a521`.
 
 The server exposes two tools:
 
-- `list_dbt_models(manifestPath)` lists model names and unique IDs.
-- `review_dbt_model(manifestPath, modelId?, useCase?)` returns model-specific observations, gaps, and unknowns in `findings`, plus questions outside manifest scope in `followUp`.
+- `evaluate_outreach_workflow(dataPath?, windowHours?, includeInpatient?)` returns cohort counts, event-level outcomes, and input defects. Omit `dataPath` to use the bundled sample.
+- `explain_outreach_event(eventId, dataPath?, windowHours?, includeInpatient?)` gives the timestamps and reason for one eligible event's classification.
 
-Paths must point to local files. The server reads up to 10 MB. There are no network calls in the server. Package installation fetches its declared npm dependencies.
+A custom JSON file must contain `asOf`, `events`, and `attempts`. Each event needs `eventId`, `memberId`, `eventType` (`EMER` or `IMP`), `occurredAt` (encounter end), and `receivedAt`. Each attempt needs `attemptId`, `eventId`, and `attemptedAt`. Timestamps must include a timezone. See `sample-workflow.json` for the exact format. Files are limited to 10 MB, 5,000 events, and 5,000 attempts.
 
-## Limits
+The server makes no network calls with the data. Your AI client may send tool output to its model provider, so use synthetic or approved data. Package installation fetches the declared npm dependencies.
 
-The checker reads declared dbt metadata only. A declared test is not proof that it passed. Source freshness configuration is not proof that data is current. The manifest cannot establish access controls, privacy permission, clinical safety, workflow fit, or business value. Review those with accountable people before using a model in an AI workflow.
+## Interpretation
+
+A record is `late_data` if it arrived after the deadline; `on_time` if it arrived and had an attempt by the deadline; `late_outreach` if it arrived in time but the first attempt was late; `missed` if no attempt was recorded by `asOf`; and `pending` if the deadline has not passed. Duplicate event IDs count once. Conflicting IDs are excluded. The evaluation does not determine clinical appropriateness, consent, permitted contact, or improved outcomes.
 
 ## Development
 
-Run `npm test` in this directory. The test suite exercises both the shared checks and an MCP client session against the server.
+Run `npm test` in this directory. The tests exercise the shared evaluator and a real MCP client session.
