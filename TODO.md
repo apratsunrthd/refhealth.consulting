@@ -2,11 +2,11 @@
 
 ## Recently completed
 
-- Built an outreach workflow evaluator with a Synthea-derived synthetic scenario.
-  It computes event-level timing, missed attempts, deduplication, and input defects.
-  The browser and local MCP server share the same evaluation rules and sample.
-- Replaced the dbt manifest checker before PR #42 merged; it was too narrow and
-  repeated limitations that a manifest could never resolve.
+- Replaced the outreach demo with Healthcare Feed Triage, a local Claude Desktop
+  extension that inspects CSV event feeds and FHIR Bundles. Added synthetic
+  samples, an install page, and a downloadable `.mcpb` package.
+- Retired the earlier outreach and dbt manifest prototypes before PR #42
+  merged; neither was a strong Claude-native lead magnet.
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
@@ -72,11 +72,12 @@
 
 ## For Codex or Claude
 
-After the workflow PR merges, verify `/workflow-evaluator.html`, its sample report,
-and the `workflow-mcp.zip` download in production. Track the privacy-safe
-`workflow_report_view` and `mcp_download_click` events alongside qualified intake
-submissions. If the demo attracts the wrong audience, revise distribution or the
-use case before expanding the evaluator.
+After the extension PR merges, verify `/feed-triage.html` and the
+`refhealth-feed-triage.mcpb` download in production. Track the privacy-safe
+`feed_extension_download_click` event alongside qualified intake submissions.
+Collect actual user feedback on whether the CSV and FHIR findings helped resolve
+a feed question before expanding scope. Prepare the desktop extension directory
+submission with a privacy policy, support channel, and three tested prompts.
 
 The site infrastructure, measurement system, and branding are fully modernized:
 
@@ -113,10 +114,9 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
-- Share the sample workflow report with a few health-tech data leaders and ask
-  whether they would use this timing investigation on an approved event feed.
-  Record objections
-  and whether any conversation reaches the paid diagnostic.
+- Install the `.mcpb` in Claude Desktop and try both bundled samples. Share it
+  with a few health-tech data leaders, ask whether it helped answer a live feed
+  question, and record objections and qualified diagnostic conversations.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
   Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
 - Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),

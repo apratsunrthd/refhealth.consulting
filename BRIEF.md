@@ -12,17 +12,15 @@ company Data AI Operating System buildouts.
 
 ## Current State
 
-- A free Outreach Workflow Evaluator is implemented on the site. It evaluates
-  a synthetic emergency/inpatient encounter scenario or a visitor-selected
-  workflow JSON file entirely in the browser. It reports on-time outreach,
-  late data, late outreach, missed attempts, and data defects with event-level
-  evidence. Deadline and cohort controls change the result.
-- The sample uses encounter IDs, classes, and end times from
-  [Synthea synthetic FHIR R4 sample data](https://github.com/synthetichealth/synthea-sample-data).
-  Receipt times, outreach attempts, and defects are simulated by ref(health).
-  A downloadable local stdio MCP server exposes `evaluate_outreach_workflow`
-  and `explain_outreach_event`. This replaces the dbt manifest checker on the
-  `feat/ai-readiness-checker` branch pending PR review.
+- Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
+  extension with a public landing page. Its local MCP tool inspects synthetic or
+  approved de-identified CSV event feeds and FHIR Bundles. CSV checks include
+  delivery latency, duplicate IDs, required fields, and timestamp defects;
+  FHIR checks include Encounter IDs, patient references within the Bundle, and
+  encounter end times. The tool returns counts and row-numbered findings to
+  Claude, without raw records or identifiers. It does not send the file to
+  ref(health). This replaces the earlier outreach demo and dbt manifest checker
+  on the unmerged PR branch.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.

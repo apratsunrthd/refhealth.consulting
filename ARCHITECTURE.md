@@ -42,29 +42,26 @@ flowchart TD
 
 ## Component Architecture
 
-### Outreach workflow evaluator and local MCP
+### Healthcare Feed Triage local extension
 
-`workflow-evaluator.html` is a static, browser-only interface. `workflow-ui.mjs`
-loads a synthetic sample or reads an optional local workflow JSON file with the
-File API (10 MB limit) and renders event outcomes with DOM text nodes. It never
-posts file contents. The bundled sample lives in `mcp/sample-workflow.json`;
-`evaluateWorkflow` and `explainEvent` live in `workflow-core.mjs`.
+`feed-triage.html` is the public landing page and `.mcpb` download. The package
+contains `mcp/server.mjs`, `mcp/feed-core.mjs`, synthetic CSV and FHIR Bundle
+samples, a manifest, and bundled Node dependencies. Claude Desktop runs the
+server locally over stdio. The single `inspect_healthcare_feed` tool reads an
+explicit local CSV or JSON path, or defaults to the synthetic CSV. Files are
+limited to 10 MB and 20,000 rows or Bundle entries. The server makes no
+network calls.
 
-`mcp/server.mjs` imports the same core and exposes `evaluate_outreach_workflow`
-and `explain_outreach_event` over local stdio using the MCP TypeScript SDK. It
-reads a named local JSON file, returns structured evidence, and makes no network
-calls. `workflow-mcp.zip` contains the server, shared core, lockfile, sample,
-and setup instructions for public download. It is checked against source files
-in `.github/workflows/checks.yml`.
-
-The rules deduplicate event IDs, exclude conflicting IDs and invalid rows,
-measure receipt delay, and compare the first outreach attempt with a configurable
-24/48/72-hour deadline. They classify eligible encounters as on time, late data,
-late outreach, missed, or pending. The sample's encounter identifiers, classes,
-and end times come from Synthea; operational timings and defects are simulated.
-GA4 receives only `workflow_report_view` with a sample/local-file flag and
-`mcp_download_click`; neither event includes file names, paths, identifiers, or
-event contents.
+For CSV, the core validates required fields and timezone-aware timestamps,
+excludes invalid or repeated IDs, and calculates event-to-receipt latency
+against a configurable target. For a FHIR Bundle, it checks Encounter IDs,
+patient references within the supplied file, and period end times. It does
+not infer receipt time from FHIR `meta.lastUpdated`. Tool results contain
+aggregate counts and up to 30 row-numbered findings, without raw records or
+identifiers. Claude receives those findings, so the intended input is
+synthetic or approved de-identified data. A bundle build script creates the
+archive and CI compares its files against source. GA4 records only the
+download click, without file paths or data.
 
 ### 1. Edge & Hosting Layer (Cloudflare)
 * **Domain Registrar**: Cloudflare Registrar (migrated from Namecheap on 2026-09-20). Operates at wholesale at-cost renewal with registry transfer lock enabled (`clientTransferProhibited`).

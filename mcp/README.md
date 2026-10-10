@@ -1,30 +1,25 @@
-# ref(health) Outreach Workflow MCP
+# Healthcare Feed Triage
 
-A local, read-only MCP server for evaluating whether emergency and inpatient encounter events reach an outreach workflow in time, and whether outreach attempts meet a selected deadline. It shares its deterministic evaluator with the [web demo](https://refhealth.consulting/workflow-evaluator.html).
+A free, local Claude Desktop extension for inspecting a healthcare event feed before using it in an operational workflow. It is a read-only MCP server. Claude calls `inspect_healthcare_feed` on a local CSV or FHIR Bundle and receives aggregate counts and row-numbered findings.
 
-## Run
+## Install
 
-1. Download and unzip `workflow-mcp.zip` from the web demo, or use this repository checkout.
-2. Install Node.js 20 or newer.
-3. In the unzipped `mcp` directory, run `npm ci`.
-4. Configure your MCP client to launch `node /absolute/path/to/workflow-mcp/mcp/server.mjs` over stdio.
+Download `refhealth-feed-triage.mcpb` from [the product page](https://refhealth.consulting/feed-triage.html). In Claude Desktop, use Settings → Extensions → Advanced settings → Install Extension… and select the file. Restart Claude Desktop if the tool does not appear. No separate Node.js installation or API key is required for the packaged extension.
 
-Ask your client to evaluate the bundled sample at 48 hours, compare it with 24 hours, then explain one `late_data` event ID. The sample's encounter IDs, classes, and end times come from [Synthea synthetic FHIR R4 data](https://github.com/synthetichealth/synthea-sample-data). Receipt times, outreach attempts, duplicate delivery, and missing fields are simulated by ref(health). The original Synthea project is [Apache 2.0 licensed](https://github.com/synthetichealth/synthea/blob/master/LICENSE).
-The source archive was downloaded on 2026-10-10; its SHA-256 is `56cb9e49f7ba6ad4e61c40aa80999f8c10a710823fed1becdf2502053777a521`.
+Try these prompts:
 
-The server exposes two tools:
+1. “Use Healthcare Feed Triage on its included sample. Could this feed support a 24-hour follow-up trigger? Show the evidence and what I should ask the data owner.”
+2. “Inspect `/absolute/path/to/events.csv` against a 48-hour delivery target. Which rows need investigation?”
+3. “Inspect `/absolute/path/to/bundle.json` and explain what the FHIR checks can and cannot tell me.”
 
-- `evaluate_outreach_workflow(dataPath?, windowHours?, includeInpatient?)` returns cohort counts, event-level outcomes, and input defects. Omit `dataPath` to use the bundled sample.
-- `explain_outreach_event(eventId, dataPath?, windowHours?, includeInpatient?)` gives the timestamps and reason for one eligible event's classification.
+## Inputs and interpretation
 
-A custom JSON file must contain `asOf`, `events`, and `attempts`. Each event needs `eventId`, `memberId`, `eventType` (`EMER` or `IMP`), `occurredAt` (encounter end), and `receivedAt`. Each attempt needs `attemptId`, `eventId`, and `attemptedAt`. Timestamps must include a timezone. See `sample-workflow.json` for the exact format. Files are limited to 10 MB, 5,000 events, and 5,000 attempts.
+CSV requires `event_id`, `patient_id`, `event_type`, `event_time`, and `received_at`. Timestamps must include a timezone. The tool counts unique valid events, delivery within a selected 1–168 hour target, median and p95 latency, event types, duplicate IDs, invalid rows, and late deliveries. Identical retries count once; conflicting rows with the same ID are all excluded. The sample CSV is wholly synthetic and includes a late delivery, duplicate, and invalid clock ordering.
 
-The server makes no network calls with the data. Your AI client may send tool output to its model provider, so use synthetic or approved data. Package installation fetches the declared npm dependencies.
+FHIR JSON must be a Bundle with an `entry` array. The tool checks Encounter IDs, `subject.reference`, `period.end`, period ordering, and whether a `Patient/<id>` reference resolves when Patient resources are present in the supplied Bundle. A missing Patient from this file may simply be stored elsewhere. `meta.lastUpdated` is not treated as delivery time. The sample Bundle is wholly synthetic.
 
-## Interpretation
-
-A record is `late_data` if it arrived after the deadline; `on_time` if it arrived and had an attempt by the deadline; `late_outreach` if it arrived in time but the first attempt was late; `missed` if no attempt was recorded by `asOf`; and `pending` if the deadline has not passed. Duplicate event IDs count once. Conflicting IDs are excluded. The evaluation does not determine clinical appropriateness, consent, permitted contact, or improved outcomes.
+Files are limited to 10 MB and 20,000 CSV rows or Bundle entries. Outputs contain aggregate counts and row-numbered issue descriptions; the tool does not return patient IDs, event IDs, names, or raw records. The server does not call ref(health) or any other network service. Claude receives the tool output, so use only synthetic or approved de-identified data. The checks do not establish complete cohort coverage, consent, clinical suitability, or successful outreach.
 
 ## Development
 
-Run `npm test` in this directory. The tests exercise the shared evaluator and a real MCP client session.
+From this repo, run `npm ci --prefix mcp`, then `npm test --prefix mcp`. Run `./scripts/build-feed-bundle.sh` to recreate the `.mcpb` archive with bundled dependencies. Claude Desktop includes the Node.js runtime for Node extensions.

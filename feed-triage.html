@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Feed Triage for Claude Desktop | ref(health) Consulting</title>
+  <meta name="description" content="A free Claude Desktop extension that checks healthcare event feeds for late delivery, duplicate events, missing fields, and FHIR Encounter reference issues." />
+  <link rel="canonical" href="https://refhealth.consulting/feed-triage.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Healthcare Feed Triage for Claude Desktop" />
+  <meta property="og:description" content="Check a healthcare event feed with Claude. Get concrete timing and data-quality findings from a local file." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://refhealth.consulting/feed-triage.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Data AI Operating Systems for healthcare teams" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Healthcare Feed Triage for Claude Desktop" />
+  <meta name="twitter:description" content="A free, local healthcare event feed inspector for Claude Desktop." />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Healthcare Feed Triage","applicationCategory":"BusinessApplication","operatingSystem":"Claude Desktop","url":"https://refhealth.consulting/feed-triage.html","description":"A local Claude Desktop extension for healthcare event feed timing and data quality checks.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://refhealth.consulting/#organization"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-05XLCL9N8S');</script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner"><a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html#offers">Offers</a><a href="index.html#ai">AI work</a><a href="about.html">About</a><a href="blog.html">Insights</a><a class="nav-cta" href="intake.html">Request a diagnostic</a></nav></div></header>
+  <main>
+    <section class="hero hero--post service-hero" aria-labelledby="page-title"><div class="container hero__content hero__content--post"><p class="page-kicker">Free Claude Desktop extension · local file analysis</p><h1 id="page-title">Is this feed ready for a real workflow?</h1><p class="hero__lead">Ask Claude to inspect a healthcare event feed. Get measured delivery delays, duplicate IDs, missing fields, and FHIR Encounter issues with row numbers and suggested next checks.</p><div class="hero__actions"><a class="btn btn--primary" href="refhealth-feed-triage.mcpb" download onclick="if(window.gtag)gtag('event','feed_extension_download_click')">Download the extension</a><a class="btn btn--secondary" href="#how-to-use">See how it works</a></div></div></section>
+
+    <section class="section section--paper" aria-labelledby="example-title"><div class="container compact-grid"><div><p class="page-kicker">A concrete result</p><h2 id="example-title">What the included sample finds</h2><p>A six-row synthetic discharge and admission CSV gives Claude a specific investigation to work through.</p></div><div class="service-copy"><div class="checker-summary"><span class="checker-count checker-count--on_time">3 on time</span><span class="checker-count checker-count--late_data">1 late</span><span class="checker-count checker-count--dataIssues">2 excluded rows</span></div><p>At a 24-hour target, one event arrived after 31 hours. One ID is duplicated. Another row has a receipt time earlier than its event time. Change the target to 48 hours and the late count becomes zero.</p><p>Claude can explain the tradeoff and turn these findings into questions for the source and ingestion owners. The extension reports the evidence; it does not infer missing patients or clinical outcomes.</p></div></div></section>
+
+    <section id="how-to-use" class="section" aria-labelledby="how-title"><div class="container compact-grid"><div><p class="page-kicker">Install and try</p><h2 id="how-title">From download to a useful question</h2></div><div class="service-copy"><ol><li>Download the <code>.mcpb</code> file. In Claude Desktop, open <strong>Settings → Extensions → Advanced settings → Install Extension…</strong> and select it. Restart Claude Desktop if the tool does not appear.</li><li>Ask: <em>“Use Healthcare Feed Triage on its included sample. Could this feed support a 24-hour follow-up trigger? Show the evidence and what I should ask the data owner.”</em></li><li>To inspect your own file, give Claude its absolute local path and a delivery target. Example: <em>“Inspect /path/to/events.csv against 48 hours. Which rows need investigation?”</em></li></ol><p>The extension includes a synthetic CSV and a small synthetic FHIR Bundle. It requires no account or API key. Claude Desktop includes the Node.js runtime needed to run the extension.</p></div></div></section>
+
+    <section class="section section--paper" aria-labelledby="input-title"><div class="container compact-grid"><div><p class="page-kicker">Supported inputs</p><h2 id="input-title">Start with one feed</h2></div><div class="service-copy"><p><strong>CSV event feed:</strong> columns <code>event_id</code>, <code>patient_id</code>, <code>event_type</code>, <code>event_time</code>, and <code>received_at</code>. Timestamps need an explicit timezone. The tool measures event-to-receipt delay, counts events by type, and flags duplicate IDs, invalid rows, and late delivery.</p><p><strong>FHIR Bundle JSON:</strong> checks Encounter IDs, patient references within the supplied Bundle, and encounter period end times. A FHIR Bundle normally has no feed receipt timestamp, so the tool does not claim to measure delivery latency from <code>meta.lastUpdated</code>.</p><p>Files are limited to 10 MB and 20,000 rows or entries. The extension returns aggregate counts and row-numbered findings to Claude, not raw records or patient IDs.</p></div></div></section>
+
+    <section class="section section--dark" aria-labelledby="privacy-title"><div class="container compact-grid"><div><p class="page-kicker">Data boundary</p><h2 id="privacy-title">Use synthetic or approved de-identified data.</h2></div><div class="service-copy"><p>The extension reads a file on your machine and makes no network call to ref(health). Its findings are sent to Claude for interpretation. Do not use it with PHI unless your organization has approved that use of Claude and this extension. <a href="feed-triage-privacy.html">Read the data-handling details.</a></p><p>These checks describe the supplied file. They cannot establish complete cohort coverage, consent, clinical appropriateness, or whether an outreach action happened.</p></div></div></section>
+
+    <section class="section section--contact" aria-labelledby="contact-title"><div class="container contact-panel"><div><h2 id="contact-title">Found a feed issue that blocks a launch?</h2><p>A focused diagnostic connects the evidence to an owner, a decision, and a practical fix. Engagements start at $2,500.</p></div><a class="btn btn--primary" href="intake.html">Request a diagnostic</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation"><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="dbt-consulting.html">dbt consulting</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,18 +1,16 @@
 {
-  "name": "refhealth-workflow-mcp",
-  "version": "0.2.0",
+  "name": "refhealth-feed-triage",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Local evaluation of synthetic or approved healthcare outreach event timing",
+  "description": "Local healthcare event feed inspection for Claude Desktop",
   "scripts": {
     "start": "node server.mjs",
-    "test": "node --test ../test/workflow.test.mjs test/server.test.mjs"
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.20.0",
     "zod": "^3.25.0"
   },
-  "engines": {
-    "node": ">=20"
-  }
+  "engines": { "node": ">=20" }
 }
