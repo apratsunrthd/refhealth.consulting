@@ -12,6 +12,15 @@ company Data AI Operating System buildouts.
 
 ## Current State
 
+- Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
+  extension with a public landing page. Its local MCP tool inspects synthetic or
+  approved de-identified CSV event feeds and FHIR Bundles. CSV checks include
+  delivery latency, duplicate IDs, required fields, and timestamp defects;
+  FHIR checks include Encounter IDs, patient references within the Bundle, and
+  encounter end times. The tool returns counts and row-numbered findings to
+  Claude, without raw records or identifiers. It does not send the file to
+  ref(health). This replaces the earlier outreach demo and dbt manifest checker
+  on the unmerged PR branch.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.
@@ -171,6 +180,7 @@ or inclusion.
 ## Next
 
 See `TODO.md`. The technical infrastructure, edge hardening, measurement engine, and advertising plan are complete. Next commercial steps:
+Review and merge the workflow evaluator PR, then verify the production page and ZIP download.
 1. Initiate the $1,500 pilot sprint in LinkedIn Campaign Manager (under the ref(health) brand page) and Google Ads.
 2. Monitor inbound inquiries in the consulting inbox and `refhealth lead attribution` sheet.
 3. Review weekly Looker Studio metrics as campaign impressions and search queries accumulate.

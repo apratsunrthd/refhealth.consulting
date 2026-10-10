@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Feed Triage Privacy | ref(health) Consulting</title>
+  <meta name="description" content="How the Healthcare Feed Triage Claude Desktop extension handles local files and tool results." />
+  <link rel="canonical" href="https://refhealth.consulting/feed-triage-privacy.html" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Healthcare Feed Triage Privacy","url":"https://refhealth.consulting/feed-triage-privacy.html","publisher":{"@id":"https://refhealth.consulting/#organization"}}</script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-05XLCL9N8S');</script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header"><div class="container site-header__inner"><a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="index.html#offers">Offers</a><a href="index.html#ai">AI work</a><a href="about.html">About</a><a href="blog.html">Insights</a><a class="nav-cta" href="intake.html">Request a diagnostic</a></nav></div></header>
+  <main>
+    <section class="hero hero--post service-hero"><div class="container hero__content hero__content--post"><p class="page-kicker">Healthcare Feed Triage</p><h1>Privacy and data handling</h1><p class="hero__lead">The extension reads the file you name on your computer. It does not upload that file to ref(health).</p></div></section>
+    <section class="section section--paper"><div class="container compact-grid"><div><h2>What the extension accesses</h2></div><div class="service-copy"><p>When you ask Claude to inspect a file, the local extension reads that CSV or FHIR Bundle. It does not scan other files, write to the file, or make network requests. It keeps no database or log of file contents.</p><p>The tool returns aggregate counts, event-type or Encounter-status categories, delivery-window results where receipt times exist, and up to 30 row-numbered findings. It omits patient IDs, event IDs, file paths, and raw records from its result. Claude receives the result as part of your conversation, under the privacy terms of your Claude account or organization.</p><p>Use synthetic or approved de-identified data. Do not use PHI unless your organization has approved both Claude and this extension for that use.</p></div></div></section>
+    <section class="section"><div class="container compact-grid"><div><h2>Website measurement and support</h2></div><div class="service-copy"><p>The product page uses Google Analytics 4 to measure page visits and download clicks. The download event contains no file path or feed content. Website analytics are separate from the extension; the extension sends no telemetry to ref(health).</p><p>For questions, security concerns, or deletion requests related to information you voluntarily send us, email <a href="mailto:contact@refhealth.consulting">contact@refhealth.consulting</a>. The extension itself stores no user data for us to delete.</p><p>Last updated October 10, 2026. <a href="feed-triage.html">Return to Healthcare Feed Triage</a>.</p></div></div></section>
+  </main>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting.</span><nav class="footer__links" aria-label="Footer navigation"><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

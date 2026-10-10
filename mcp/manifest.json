@@ -1,0 +1,16 @@
+{
+  "manifest_version": "0.3",
+  "name": "refhealth-feed-triage",
+  "version": "0.1.0",
+  "description": "Inspect a healthcare event feed for timing and data quality issues inside Claude Desktop.",
+  "author": { "name": "ref(health) Consulting", "url": "https://refhealth.consulting" },
+  "homepage": "https://refhealth.consulting/feed-triage.html",
+  "documentation": "https://refhealth.consulting/feed-triage.html",
+  "server": {
+    "type": "node",
+    "entry_point": "server.mjs",
+    "mcp_config": { "command": "node", "args": ["${__dirname}/server.mjs"] }
+  },
+  "tools": [{ "name": "inspect_healthcare_feed", "description": "Inspect a local CSV event feed or FHIR Bundle for timing and data quality issues." }],
+  "compatibility": { "runtimes": { "node": ">=20.0.0" }, "platforms": ["darwin", "win32", "linux"] }
+}

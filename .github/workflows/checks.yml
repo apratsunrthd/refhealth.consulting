@@ -1,0 +1,28 @@
+name: Check healthcare feed extension
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --prefix mcp
+      - run: npm test --prefix mcp
+      - name: Check downloadable extension
+        shell: bash
+        run: |
+          unzip -tq refhealth-feed-triage.mcpb
+          for file in manifest.json server.mjs feed-core.mjs sample-feed.csv sample-fhir-bundle.json package.json README.md; do
+            diff -q "mcp/$file" <(unzip -p refhealth-feed-triage.mcpb "$file")
+          done
+          unzip -p refhealth-feed-triage.mcpb node_modules/@modelcontextprotocol/sdk/package.json > /dev/null
+          bundle_dir="$(mktemp -d)"
+          unzip -q refhealth-feed-triage.mcpb -d "$bundle_dir"
+          FEED_SERVER_PATH="$bundle_dir/server.mjs" node --test mcp/test/server.test.mjs

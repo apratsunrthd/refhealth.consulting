@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Replaced the outreach demo with Healthcare Feed Triage, a local Claude Desktop
+  extension that inspects CSV event feeds and FHIR Bundles. Added synthetic
+  samples, an install page, and a downloadable `.mcpb` package.
+- Retired the earlier outreach and dbt manifest prototypes before PR #42
+  merged; neither was a strong Claude-native lead magnet.
 - Added a three-step explanation to the diagnostic intake and privacy-safe GA4
   events for form starts and submitted inquiries. No form field values are sent
   to analytics.
@@ -67,6 +72,13 @@
 
 ## For Codex or Claude
 
+After the extension PR merges, verify `/feed-triage.html` and the
+`refhealth-feed-triage.mcpb` download in production. Track the privacy-safe
+`feed_extension_download_click` event alongside qualified intake submissions.
+Collect actual user feedback on whether the CSV and FHIR findings helped resolve
+a feed question before expanding scope. Prepare the desktop extension directory
+submission with a privacy policy, support channel, and three tested prompts.
+
 The site infrastructure, measurement system, and branding are fully modernized:
 
 - The site runs natively on Cloudflare Pages (`refhealth-consulting` project)
@@ -102,6 +114,9 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
+- Install the `.mcpb` in Claude Desktop and try both bundled samples. Share it
+  with a few health-tech data leaders, ask whether it helped answer a live feed
+  question, and record objections and qualified diagnostic conversations.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
   Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
 - Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),
