@@ -22,8 +22,10 @@ company Data AI Operating System buildouts.
   ref(health). It is live on Cloudflare Pages, and an installed copy was tested
   in Claude Desktop against the bundled synthetic CSV. MIT-licensed source and
   a release package are published separately at
-  `apratsunrthd/refhealth-feed-triage` for directory review. The earlier
-  outreach and dbt manifest prototypes were retired.
+  `apratsunrthd/refhealth-feed-triage`. Version 0.1.1 was submitted to
+  Anthropic's desktop extension directory on 2026-10-11; inclusion is pending
+  Anthropic's review. The earlier outreach and dbt manifest prototypes were
+  retired.
 - Static HTML/CSS site. No build step.
 - Homepage and search-discoverability work are merged to `main` and deployed
   through GitHub Pages.

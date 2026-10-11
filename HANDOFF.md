@@ -16,6 +16,7 @@ Important files:
 - `mcp/` / `refhealth-feed-triage.mcpb` - samples, manifest, and downloadable Claude Desktop package
 - `mcp/test/` - feed rules and MCP client integration tests
 - Public extension source: `https://github.com/apratsunrthd/refhealth-feed-triage`; keep its source and this site's package aligned for releases.
+- Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer
