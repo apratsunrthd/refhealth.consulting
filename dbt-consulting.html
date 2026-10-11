@@ -86,6 +86,14 @@
                 "@type": "Answer",
                 "text": "No. A small team can benefit from clear conventions, tests, documentation, and handoff. The scope should match the critical data products and the people who maintain them."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "What healthcare-specific dbt tests do you enforce?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We enforce surrogate key grain uniqueness, bitemporal enrollment consistency (detecting effective, enrollment, and updated date desync), CMS NPI provider registry lookups, ICD-10 and HCPCS/CPT code validity, default midnight (00:00:00) timestamp audits, and referential integrity between claims and member spans."
+              }
             }
           ]
         }
@@ -204,6 +212,10 @@
           <details>
             <summary>Is this only for a large analytics team?</summary>
             <p>No. A small team can benefit from clear conventions, tests, documentation, and handoff. The scope should match the critical data products and the people who maintain them.</p>
+          </details>
+          <details>
+            <summary>What healthcare-specific dbt tests do you enforce?</summary>
+            <p>We enforce surrogate key grain uniqueness, bitemporal enrollment consistency (detecting effective, enrollment, and updated date desync), CMS NPI provider registry lookups, ICD-10 and HCPCS/CPT code validity, default midnight (00:00:00) timestamp audits, and referential integrity between claims and member spans.</p>
           </details>
         </div>
       </div>

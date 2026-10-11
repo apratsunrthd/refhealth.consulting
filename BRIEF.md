@@ -94,6 +94,8 @@ company Data AI Operating System buildouts.
   - Configured `robots.txt` with explicit crawl rules for AI search crawlers (`OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Meta-ExternalAgent`).
   - Added Cloudflare Pages edge headers in `_headers` serving `/llms.txt` and `/llms-full.txt` as `text/plain; charset=utf-8` with 1-hour revalidation caching.
   - Upgraded Schema.org JSON-LD graph across `index.html` and service pages with canonical Wikidata URIs, `@type: FAQPage` structured Q&A, and explicit $2,500 diagnostic pricing.
+  - Codified founder's 21-year technical heuristics into new flagship article `blog-bitemporal-healthcare-data-ai.html`: batch claims latency vs. naive LLM real-time assumptions, SCD Type 2 bitemporal modeling, operational timestamp semantics, non-negotiable dbt tests (NPI, ICD/CPT, midnight default audits, referential integrity), and Schmitt-Thompson clinical triage boundaries.
+  - Upgraded $2,500 diagnostic deliverables in `ai-readiness-assessment.html` to include ready-to-run execution scripts and dbt tests that engineering teams can merge immediately.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
