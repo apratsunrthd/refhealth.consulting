@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap | ref(health)</title>
+  <meta
+    name="description"
+    content="Why claims latency breaks naive healthcare AI, the operational truth behind every timestamp, non-negotiable dbt tests, and the Schmitt-Thompson triage boundary."
+  />
+  <link rel="canonical" href="https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap" />
+  <meta property="og:description" content="Why claims latency breaks naive healthcare AI, the operational truth behind every timestamp, non-negotiable dbt tests, and clinical triage boundaries." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:image:alt" content="Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap" />
+  <meta name="twitter:title" content="Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap | ref(health)" />
+  <meta name="twitter:description" content="Claims lag, bitemporal dbt testing, and clinical AI boundaries in healthcare data." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html#article",
+          "headline": "Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap",
+          "description": "Why claims latency breaks naive healthcare AI, the operational truth behind every timestamp, non-negotiable dbt tests, and the Schmitt-Thompson triage boundary.",
+          "datePublished": "2026-10-11",
+          "dateModified": "2026-10-11",
+          "author": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "publisher": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html#page"
+          },
+          "about": [
+            "healthcare AI",
+            "bitemporal data",
+            "dbt",
+            "claims data",
+            "Schmitt-Thompson protocols"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html#page",
+          "url": "https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html",
+          "name": "Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap",
+          "isPartOf": {
+            "@id": "https://refhealth.consulting/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://refhealth.consulting/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Insights",
+              "item": "https://refhealth.consulting/blog.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Bitemporal Healthcare Data & dbt",
+              "item": "https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-05XLCL9N8S');
+</script>
+
+<script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a>
+        <a href="index.html#ai">AI work</a>
+        <a href="about.html">About</a>
+        <a href="intake.html" class="nav-cta">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--post">
+      <div class="container hero__content hero__content--post">
+        <a class="back-link" href="blog.html">&larr; Back to insights</a>
+        <h1>Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap</h1>
+        <p class="hero__meta">October 11, 2026 &middot; healthcare data engineering, bitemporal modeling, dbt, AI boundaries</p>
+        <p class="hero__lead">
+          Claims are not real-time event streams. Why naive AI pipelines hallucinate retrospective facts, what every timestamp actually encodes, and the strict engineering guardrails required for healthcare data.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog">
+        <article class="post">
+          <div class="post__body">
+            <p>
+              When engineering teams from outside healthcare begin building AI agents on medical data, one of the most common early missteps is treating medical claims like an e-commerce webhook or a Stripe payment event. They assume that if a patient visited an urgent care center yesterday, an analytical agent can query the claims table today to personalize an automated outreach message or evaluate care quality.
+            </p>
+            <p>
+              In healthcare, that assumption collapses immediately.
+            </p>
+            <p>
+              Claims are almost never real-time. Even when an attentive provider submits an 837 claim within 24 hours of an encounter, clearinghouses batch transactions on scheduled processing windows. Payers almost always batch. By the time a claim clears the clearinghouse, undergoes adjudication, handles denials, and generates an 835 payment remittance, 48 hours is lightning fast—and weeks or months is normal operating reality.
+            </p>
+            <p>
+              Wiring an LLM context window directly to claims data without rigorous bitemporal modeling guarantees that the model will reason with anachronisms, misattribute spend, or hallucinate patient state.
+            </p>
+
+            <hr />
+
+            <h2>The Operational Meaning Behind Every Timestamp</h2>
+            <p>
+              Because storage is inexpensive in modern cloud warehouses, implementing <strong>Slowly Changing Dimensions (SCD Type 2)</strong> snapshots is a baseline requirement. There is no legitimate architectural justification for discarding historical state changes when SQL-accessible audit trails can be maintained at minimal cost.
+            </p>
+            <p>
+              Crucially, in healthcare data, <em>every single timestamp in the lifecycle encodes a different stakeholder's reality</em>:
+            </p>
+            <ul>
+              <li><strong>Date of Service:</strong> Reflects the patient&rsquo;s clinical experience during the encounter—what was evaluated, tested, or treated in the room.</li>
+              <li><strong>Submitted Date:</strong> Measures the efficiency and turnaround time of the provider&rsquo;s billing and revenue cycle team.</li>
+              <li><strong>Received Date:</strong> Reveals throughput, queue latency, and ingestion lag at the clearinghouse and payer gateway.</li>
+              <li><strong>Paid Date:</strong> Tracks financial reconciliation, adjudication accuracy, and settlement terms.</li>
+              <li><strong>Patient Responsibility / Due Amount Date:</strong> Represents a critical inflection point for the member. When a member unexpectedly owes money—whether from high deductibles, co-insurance, or a claim payment error between payer and provider—it triggers immediate financial stress and friction.</li>
+            </ul>
+            <p>
+              An automated workflow or AI agent that conflates Date of Service with Paid Date cannot tell whether an encounter occurred yesterday or three months ago, leading to catastrophic errors in automated member communication and care coordination.
+            </p>
+
+            <hr />
+
+            <h2>The Non-Negotiable dbt Testing Standard</h2>
+            <p>
+              Before any healthcare warehouse model is exposed to an executive dashboard, metric contract, or LLM agent, it must pass a strict suite of automated dbt data tests. General web analytics can tolerate minor nulls or deduplication lag; healthcare pipelines cannot.
+            </p>
+            <ol>
+              <li>
+                <strong>Surrogate Key &amp; Grain Uniqueness:</strong> 
+                Every transformation model must explicitly declare and test its primary grain. If a claim line item grain produces duplicate keys, downstream risk-scoring and spend totals are immediately compromised.
+              </li>
+              <li>
+                <strong>Bitemporal &amp; Multitemporal Enrollment Consistency:</strong>
+                Eligibility is notoriously volatile. When effective dates, enrollment dates, and updated dates desynchronize, it reveals retro-enrollment, coverage churn, or backdated terminations. dbt tests must flag coverage date overlaps and chronological contradictions.
+              </li>
+              <li>
+                <strong>National Provider Identifier (NPI) Registry Validation:</strong>
+                Billing and rendering provider NPIs must be verified against current CMS NPPES registry lookup tables. Unregistered or inactive NPIs point to data entry defects or fraudulent submissions.
+              </li>
+              <li>
+                <strong>Clinical Code Validity (ICD-10 &amp; HCPCS/CPT):</strong>
+                Diagnosis and procedure codes must conform to official ICD-10-CM, ICD-10-PCS, and HCPCS/CPT formatting rules and active date ranges.
+              </li>
+              <li>
+                <strong>Default Midnight Timestamp Auditing:</strong>
+                A frequent silent data defect occurs when source systems drop time precision and pad timestamps with midnight (<code>00:00:00</code>). Automated dbt tests must detect default timestamps to prevent models from generating invalid duration, queueing, or latency calculations.
+              </li>
+              <li>
+                <strong>Referential Integrity Relationship Tests:</strong>
+                Claims models must enforce foreign key integrity against verified member dimension spans. Orphaned claims indicating unmapped member IDs must break the build before hitting production metrics.
+              </li>
+            </ol>
+
+            <hr />
+
+            <h2>Model Pragmatism: Cloud Commitments over Vendor Churn</h2>
+            <p>
+              In the early days of enterprise GenAI, engineering teams spent months debating negligible benchmark margins between model labs. In 2026, the performance differences across frontier models from Anthropic, OpenAI, and Google have largely converged.
+            </p>
+            <p>
+              The pragmatic architectural priority is not multi-vendor arbitrage. It is <strong>maximizing the client&rsquo;s existing enterprise cloud commitment, signed Business Associate Agreement (BAA), and token allocation</strong>—whether that lives inside AWS Bedrock, Microsoft Azure, or Google Cloud Vertex AI. Building resilient data products and governing prompt context within the client&rsquo;s contracted environment delivers immediate production leverage without procurement or compliance delays.
+            </p>
+
+            <hr />
+
+            <h2>The Clinical Boundary: Schmitt-Thompson Protocols</h2>
+            <p>
+              Perhaps the most vital architectural decision in healthcare AI is knowing where the model must stop.
+            </p>
+            <p>
+              Industry-standard clinical guidelines—most notably <strong>Schmitt-Thompson clinical triage protocols</strong>—make this boundary unequivocal. Unless an organization operates a certified, clinical-grade platform subject to rigorous clinical validation, <em>an AI model should not be making clinical diagnoses or triage recommendations. Period.</em>
+            </p>
+            <p>
+              The high-value operating role for AI in healthcare is in eliminating administrative toil, summarizing complex operating contexts for human clinicians, accelerating analytics engineering, and structuring messy unstructured feeds—preserving human judgment and clinical licensure where patient safety is at stake.
+            </p>
+
+            <hr />
+
+            <h2>Turning Standards into Immediate Action</h2>
+            <p>
+              Establishing this level of discipline is the core objective of our 2-week, $2,500 <a href="ai-readiness-assessment.html">Healthcare AI Readiness Diagnostic</a>. Rather than handing over an academic strategy document that gathers dust, we deliver an executive decision memo, a prioritized use-case matrix, a pipeline blocker audit, and <strong>ready-to-run execution scripts and dbt tests</strong> that engineering teams can merge immediately to demonstrate measurable improvement inside their own ecosystem.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <h2 id="contact-title">Ready to build tested healthcare data foundations?</h2>
+          <p>
+            Start with our focused 2-week diagnostic from $2,500. We audit pipeline blockers, evaluate bitemporal readiness, and provide immediate execution scripts.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="intake.html">Start with the diagnostic</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="healthcare-ai-consulting.html">Healthcare AI</a>
+        <a href="healthcare-data-strategy.html">Data strategy</a>
+        <a href="dbt-consulting.html">dbt consulting</a>
+        <a href="about.html">About</a>
+        <a href="mailto:contact@refhealth.consulting">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

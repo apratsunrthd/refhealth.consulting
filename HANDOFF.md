@@ -34,6 +34,7 @@ Important files:
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
+- `blog-bitemporal-healthcare-data-ai.html` - bitemporal claims modeling, healthcare dbt tests, and clinical triage boundaries
 - `blog-data-ai-operating-system.html` - original AI operating-system explainer
 - `blog-healthcare-ai-model-strategy.html` - single-provider versus multi-model
   healthcare AI strategy article

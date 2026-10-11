@@ -2,6 +2,12 @@
 
 ## Recently completed
 
+- Built and deployed Phase 2 Substantive Authority Moat:
+  - Published flagship technical teardown `blog-bitemporal-healthcare-data-ai.html` ("Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap"), addressing clearinghouse/payer batch cycles, SCD Type 2 bitemporality, timestamp semantics, and clinical triage boundaries.
+  - Codified non-negotiable healthcare dbt testing standards in `dbt-consulting.html` and `FAQPage` schema: surrogate key uniqueness, CMS NPI registry checks, ICD-10 and HCPCS/CPT validity, midnight (`00:00:00`) default timestamp audits, bitemporal enrollment desync detection, and referential integrity.
+  - Articulated the Schmitt-Thompson clinical triage protocol boundary in `healthcare-ai-consulting.html`: uncertified LLMs must never attempt clinical diagnosis or triage, focusing autonomous agents on administrative toil, operational coordination, and structured data pipelines.
+  - Expanded the $2,500 diagnostic deliverable in `ai-readiness-assessment.html`: added ready-to-run execution scripts and dbt tests that client engineers can merge immediately during the 2-week engagement.
+  - Updated `/llms.txt` and `/llms-full.txt` with these domain heuristics for direct citation by AI answer engines.
 - Built and deployed LLM Agent & Answer Engine Discovery Architecture:
   - Standardized `/llms.txt` and `/llms-full.txt` manifests per `llmstxt.org` specifications for token-dense ingestion by LLM agents, ChatGPT Search, Claude, and Perplexity.
   - Configured `robots.txt` with explicit crawl permissions for AI answer engines (`OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Meta-ExternalAgent`).
