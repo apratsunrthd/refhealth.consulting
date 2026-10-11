@@ -43,12 +43,17 @@ extension files, rebuild the download with:
 - `refhealth-feed-triage.mcpb`, `mcp/` - Claude Desktop extension and local feed inspector
 - `intake.html` - diagnostic intake and starting-price conversion path
 - `about.html` - healthcare experience and engagement model
-- `blog.html` - insights listing
-- `blog-*.html` - static article pages
+- `hdaios.html` / `hdaios.md` - Healthcare Data AI Operating System (HDAIOS) v1.0 canonical architectural specification and interactive reference
+- `blog.html` - insights and specifications listing
+- `blog-*.html` - static article pages (including `blog-bitemporal-healthcare-data-ai.html`)
+- `llms.txt` and `llms-full.txt` - machine-readable manifests and token-dense knowledge corpus for AI answer engines and autonomous agents
 - `styles.css` - shared visual system
 - `og.png` and `og-card.svg` - social preview asset and editable source
 - `FORM_SETUP.md` - hosted diagnostic form setup checklist
 - `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
+- Open-Source Repositories:
+  - [`apratsunrthd/refhealth-dbt-healthcare-checks`](https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks) - 7 generic dbt test macros for healthcare data integrity
+  - [`apratsunrthd/refhealth-feed-triage`](https://github.com/apratsunrthd/refhealth-feed-triage) - local Claude Desktop MCP extension for feed quality
 - `PRODUCT.md` - durable product facts for Impeccable and future agents
 - `DESIGN.md` - durable design system and visual direction
 - `BRIEF.md`, `HANDOFF.md`, `TODO.md`, `ADVERTISING_PLAN.md` - project state, documentation, and growth plans
