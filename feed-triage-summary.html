@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Feed Triage, at a Glance | ref(health) Consulting</title>
+  <meta name="description" content="A visual one-page guide to the Healthcare Feed Triage Claude Desktop extension: how it works, what the synthetic sample finds, and what stays local." />
+  <link rel="canonical" href="https://refhealth.consulting/feed-triage-summary.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Healthcare Feed Triage, at a Glance" />
+  <meta property="og:description" content="One local file. Measured feed findings. Better questions for the data owner." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://refhealth.consulting/feed-triage-summary.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Data AI Operating Systems for healthcare teams" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Healthcare Feed Triage, at a Glance" />
+  <meta name="twitter:description" content="A visual guide to the local Claude Desktop extension." />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Healthcare Feed Triage, at a Glance","url":"https://refhealth.consulting/feed-triage-summary.html","about":{"@type":"SoftwareApplication","name":"Healthcare Feed Triage","url":"https://refhealth.consulting/feed-triage.html"},"publisher":{"@id":"https://refhealth.consulting/#organization"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .summary-main { overflow: hidden; }
+    .summary-header .site-header__inner { flex-direction: row; align-items: center; justify-content: space-between; min-height: 72px; padding: 0; }
+    .summary-header__details { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-decoration: none; }
+    .summary-intro { padding: clamp(3.4rem, 7vw, 6rem) 0 clamp(2.6rem, 5vw, 4.2rem); }
+    .summary-intro__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; }
+    .summary-intro h1 { max-width: 12ch; font-size: clamp(3rem, 6vw, 5.15rem); }
+    .summary-intro__lead { margin-top: 1.25rem; max-width: 39ch; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.35; }
+    .summary-intro__actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.7rem; }
+    .summary-intro__note { margin-top: .8rem; color: var(--muted); font-size: .86rem; }
+    .summary-stamp { display: grid; grid-template-columns: 1fr auto; gap: 1.25rem; padding: 1.5rem; border: 1px solid var(--ink); border-top: 6px solid var(--red); background: var(--paper-strong); }
+    .summary-stamp__label, .summary-stamp__meta, .summary-section__eyebrow, .flow-step__number, .metric__label, .issue__row, .boundary__label { font-family: "IBM Plex Mono", monospace; font-size: .76rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .summary-stamp__label { color: var(--red-deep); }
+    .summary-stamp strong { display: block; margin-top: .45rem; max-width: 15ch; font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.1; }
+    .summary-stamp__meta { align-self: end; color: var(--muted); white-space: nowrap; }
+    .summary-flow { padding: 2.35rem 0 2.6rem; background: var(--black); color: var(--white); }
+    .summary-flow h2 { max-width: none; color: var(--white); font-size: clamp(1.65rem, 3vw, 2.3rem); }
+    .summary-flow__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.6rem; border: 1px solid #6e6b62; }
+    .flow-step { position: relative; min-height: 170px; padding: 1.35rem 1.15rem 1.2rem; border-right: 1px solid #6e6b62; }
+    .flow-step:last-child { border-right: 0; }
+    .flow-step:not(:last-child)::after { content: "→"; position: absolute; top: 1.1rem; right: -.85rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border: 1px solid #6e6b62; border-radius: 50%; background: var(--black); color: var(--amber); font-size: 1rem; }
+    .flow-step__number { color: var(--amber); }
+    .flow-step h3 { margin-top: 1rem; color: var(--white); font-size: clamp(1.15rem, 1.7vw, 1.35rem); }
+    .flow-step p { margin-top: .45rem; color: #d8d4ca; font-size: .9rem; line-height: 1.35; }
+    .summary-flow__note { margin-top: 1rem; color: #d8d4ca; font-size: .86rem; }
+    .summary-flow__note strong { color: #fff; }
+    .summary-evidence { padding: clamp(3.2rem, 6vw, 5rem) 0; }
+    .summary-evidence__head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.7rem; }
+    .summary-evidence h2 { max-width: none; font-size: clamp(2rem, 4vw, 3.1rem); }
+    .summary-evidence__head p { max-width: 24ch; color: var(--muted); text-align: right; }
+    .summary-evidence__grid { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(310px, .78fr); border: 1px solid var(--ink); background: var(--paper-strong); }
+    .summary-chart { padding: clamp(1.35rem, 3vw, 2.3rem); border-right: 1px solid var(--ink); }
+    .summary-chart__head { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
+    .summary-chart h3, .summary-findings h3 { font-size: 1.32rem; }
+    .summary-chart__sample { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .72rem; text-transform: uppercase; }
+    .metric { display: flex; align-items: baseline; gap: .8rem; padding: 1.4rem 0 1.6rem; border-bottom: 1px solid var(--line); }
+    .metric strong { color: var(--green); font-size: clamp(3.3rem, 8vw, 5.7rem); line-height: .9; }
+    .metric__label { color: var(--ink-soft); line-height: 1.4; }
+    .bar-chart { display: grid; gap: 1rem; margin-top: 1.7rem; }
+    .bar-chart__row { display: grid; grid-template-columns: 3.9rem minmax(0, 1fr) 3.1rem; gap: .8rem; align-items: center; }
+    .bar-chart__time, .bar-chart__value { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; }
+    .bar-chart__value { text-align: right; }
+    .bar-chart__track { height: 1.05rem; background: #e5e1d6; }
+    .bar-chart__fill { display: block; width: var(--fill); height: 100%; background: var(--green); }
+    .bar-chart__row--target .bar-chart__track { outline: 2px solid var(--ink); outline-offset: 3px; }
+    .bar-chart__row--target .bar-chart__time { color: var(--red-deep); }
+    .summary-chart figcaption { margin-top: 1.35rem; color: var(--muted); font-size: .81rem; }
+    .summary-findings { padding: clamp(1.35rem, 3vw, 2.3rem); }
+    .summary-findings h3 { margin-bottom: 1rem; }
+    .issue-list { list-style: none; padding: 0; margin: 0; }
+    .issue { display: grid; grid-template-columns: .6rem minmax(0, 1fr) auto; gap: .85rem; align-items: center; padding: .95rem 0; border-top: 1px solid var(--line); }
+    .issue::before { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--issue-color); }
+    .issue strong { display: block; line-height: 1.15; }
+    .issue small { display: block; margin-top: .2rem; color: var(--muted); font-size: .78rem; }
+    .issue__row { color: var(--muted); white-space: nowrap; }
+    .summary-fhir { display: flex; flex-wrap: wrap; gap: .55rem 1rem; align-items: center; margin-top: 1.3rem; padding-top: 1.15rem; border-top: 2px solid var(--ink); font-size: .86rem; }
+    .summary-fhir strong { color: var(--teal); }
+    .summary-fhir span { color: var(--muted); }
+    .summary-boundary { padding: 1.9rem 0; border-top: 1px solid var(--line); background: rgba(255, 250, 240, .65); }
+    .summary-boundary__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .boundary { padding-left: 1.1rem; border-left: 4px solid var(--boundary-color); }
+    .boundary__label { color: var(--muted); }
+    .boundary p { margin-top: .35rem; font-size: .96rem; line-height: 1.35; }
+    .summary-next { padding: clamp(2.5rem, 5vw, 4rem) 0; background: var(--red); }
+    .summary-next__grid { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .summary-next h2 { max-width: none; color: var(--white); font-size: clamp(1.75rem, 3vw, 2.45rem); }
+    .summary-next p { margin-top: .5rem; color: #fff5ee; }
+    .summary-next .btn { flex: none; border-color: var(--ink); background: var(--paper-strong); color: var(--ink); }
+    .summary-next .btn:hover, .summary-next .btn:focus { background: var(--amber); }
+    .summary-links { display: flex; flex-wrap: wrap; gap: .7rem 1.4rem; margin-top: 1.2rem; font-size: .88rem; }
+    .summary-links a { color: var(--white); }
+    @media (max-width: 900px) {
+      .summary-intro__grid, .summary-evidence__grid { grid-template-columns: 1fr; }
+      .summary-chart { border-right: 0; border-bottom: 1px solid var(--ink); }
+      .summary-flow__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow-step:nth-child(2) { border-right: 0; }
+      .flow-step:nth-child(-n+2) { border-bottom: 1px solid #6e6b62; }
+      .flow-step:nth-child(2)::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      .summary-intro { padding-top: 2.5rem; }
+      .summary-intro__grid { gap: 1.7rem; }
+      .summary-intro__actions .btn { width: 100%; }
+      .summary-stamp { grid-template-columns: 1fr; }
+      .summary-stamp__meta { justify-self: start; }
+      .summary-flow__grid { grid-template-columns: 1fr; }
+      .flow-step { min-height: 0; border-right: 0; border-bottom: 1px solid #6e6b62; }
+      .flow-step:last-child { border-bottom: 0; }
+      .flow-step::after { display: none !important; }
+      .summary-evidence__head, .summary-next__grid { flex-direction: column; align-items: flex-start; }
+      .summary-evidence__head p { text-align: left; }
+      .summary-boundary__grid { grid-template-columns: 1fr; }
+      .summary-next .btn { width: 100%; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-05XLCL9N8S');</script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header summary-header"><div class="container site-header__inner"><a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a><nav aria-label="Overview navigation"><a class="summary-header__details" href="feed-triage.html">Extension details →</a></nav></div></header>
+  <main class="summary-main">
+    <section class="summary-intro"><div class="container summary-intro__grid"><div><h1>See what your feed can tell you.</h1><p class="summary-intro__lead">Healthcare Feed Triage turns one local file into measured findings Claude can explain.</p><div class="summary-intro__actions"><a class="btn btn--primary" href="refhealth-feed-triage.mcpb" download onclick="if(window.gtag)gtag('event','feed_extension_download_click')">Download the extension</a><a class="btn btn--secondary" href="#sample">See the sample result</a></div><p class="summary-intro__note">Free Claude Desktop extension · CSV or FHIR Bundle · No separate account</p></div><div class="summary-stamp" aria-label="Extension summary"><div><span class="summary-stamp__label">The job</span><strong>Find the evidence before you build the trigger.</strong></div><span class="summary-stamp__meta">.mcpb · v0.1.1</span></div></div></section>
+
+    <section class="summary-flow" aria-labelledby="flow-title"><div class="container"><h2 id="flow-title">One file → one clear investigation</h2><div class="summary-flow__grid"><div class="flow-step"><span class="flow-step__number">01 / INPUT</span><h3>Local feed</h3><p>CSV events or a FHIR Bundle</p></div><div class="flow-step"><span class="flow-step__number">02 / CHECK</span><h3>Local MCP tool</h3><p>Timing, IDs, fields, references</p></div><div class="flow-step"><span class="flow-step__number">03 / RETURN</span><h3>Measured findings</h3><p>Counts + row numbers; no raw records</p></div><div class="flow-step"><span class="flow-step__number">04 / USE</span><h3>Ask Claude</h3><p>What failed? What should the owner check?</p></div></div><p class="summary-flow__note"><strong>Your file stays on your computer.</strong> The findings go to Claude. The extension sends nothing to ref(health).</p></div></section>
+
+    <section class="summary-evidence" id="sample" aria-labelledby="sample-title"><div class="container"><div class="summary-evidence__head"><h2 id="sample-title">What the included sample finds</h2><p>Synthetic data, shown to demonstrate the checks.</p></div><div class="summary-evidence__grid"><figure class="summary-chart" role="img" aria-label="Synthetic CSV sample: two of four valid events arrived within one hour, three of four within 24 hours, and four of four within 48 hours. Two of six input rows were excluded."><div class="summary-chart__head"><h3>Delivery by window</h3><span class="summary-chart__sample">CSV · 4 valid events</span></div><div class="metric"><strong>75%</strong><span class="metric__label">3 of 4 arrived<br />within 24 hours</span></div><div class="bar-chart"><div class="bar-chart__row"><span class="bar-chart__time">≤1h</span><div class="bar-chart__track"><span class="bar-chart__fill" style="--fill:50%"></span></div><span class="bar-chart__value">2 / 4</span></div><div class="bar-chart__row bar-chart__row--target"><span class="bar-chart__time">≤24h</span><div class="bar-chart__track"><span class="bar-chart__fill" style="--fill:75%"></span></div><span class="bar-chart__value">3 / 4</span></div><div class="bar-chart__row"><span class="bar-chart__time">≤48h</span><div class="bar-chart__track"><span class="bar-chart__fill" style="--fill:100%"></span></div><span class="bar-chart__value">4 / 4</span></div></div><figcaption>Six input rows · four valid events · two excluded rows. The late event took 31 hours.</figcaption></figure><div class="summary-findings"><h3>Investigation flags</h3><ul class="issue-list"><li class="issue" style="--issue-color:var(--red)"><div><strong>Late delivery</strong><small>31 hours after event</small></div><span class="issue__row">ROW 3</span></li><li class="issue" style="--issue-color:var(--amber)"><div><strong>Duplicate ID</strong><small>Matching retry</small></div><span class="issue__row">ROW 6</span></li><li class="issue" style="--issue-color:var(--amber)"><div><strong>Clock ordering</strong><small>Received before event</small></div><span class="issue__row">ROW 7</span></li></ul><div class="summary-fhir"><strong>FHIR sample</strong><span>1 of 2 Encounters flagged</span><span>Missing end time + unresolved in-bundle Patient reference</span></div></div></div></div></section>
+
+    <section class="summary-boundary" aria-label="What the findings mean"><div class="container summary-boundary__grid"><div class="boundary" style="--boundary-color:var(--green)"><span class="boundary__label">Useful for</span><p>Tracing late delivery, duplicate events, invalid timestamps, and FHIR structure.</p></div><div class="boundary" style="--boundary-color:var(--amber)"><span class="boundary__label">Still unknown</span><p>Complete cohort coverage, consent, clinical suitability, and whether outreach happened.</p></div></div></section>
+
+    <section class="summary-next" aria-labelledby="next-title"><div class="container summary-next__grid"><div><h2 id="next-title">Try it on the bundled sample.</h2><p>Install the .mcpb in Claude Desktop, then ask: “Could this feed support a 24-hour follow-up trigger?”</p><div class="summary-links"><a href="feed-triage.html">Install steps and input details</a><a href="feed-triage-privacy.html">Privacy and data handling</a></div></div><a class="btn" href="refhealth-feed-triage.mcpb" download onclick="if(window.gtag)gtag('event','feed_extension_download_click')">Download .mcpb</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation"><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

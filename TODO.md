@@ -2,6 +2,8 @@
 
 ## Recently completed
 
+- Added a visual one-page Healthcare Feed Triage summary with a local-to-Claude
+  flow diagram and charts derived from the bundled synthetic CSV and FHIR samples.
 - Replaced the outreach demo with Healthcare Feed Triage, a local Claude Desktop
   extension that inspects CSV event feeds and FHIR Bundles. Added synthetic
   samples, an install page, and a downloadable `.mcpb` package.
