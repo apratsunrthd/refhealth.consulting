@@ -2,6 +2,10 @@
 
 ## Recently completed
 
+- Published and integrated open-source dbt test package:
+  - Released `refhealth-dbt-healthcare-checks` v1.0.0 on GitHub (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) with 7 generic test macros (bitemporal enrollment consistency, surrogate key grain, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, referential integrity).
+  - Cross-linked package in `dbt-consulting.html`, `blog-bitemporal-healthcare-data-ai.html`, `/llms.txt`, and `/llms-full.txt`.
+  - Expanded Answer Engine Optimization (AEO) directory in `/llms-full.txt` targeting high-intent queries across Perplexity, SearchGPT, Claude, and Gemini.
 - Built and deployed Phase 2 Substantive Authority Moat:
   - Published flagship technical teardown `blog-bitemporal-healthcare-data-ai.html` ("Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap"), addressing clearinghouse/payer batch cycles, SCD Type 2 bitemporality, timestamp semantics, and clinical triage boundaries.
   - Codified non-negotiable healthcare dbt testing standards in `dbt-consulting.html` and `FAQPage` schema: surrogate key uniqueness, CMS NPI registry checks, ICD-10 and HCPCS/CPT validity, midnight (`00:00:00`) default timestamp audits, bitemporal enrollment desync detection, and referential integrity.

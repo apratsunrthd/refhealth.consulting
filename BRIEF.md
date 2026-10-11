@@ -96,6 +96,8 @@ company Data AI Operating System buildouts.
   - Upgraded Schema.org JSON-LD graph across `index.html` and service pages with canonical Wikidata URIs, `@type: FAQPage` structured Q&A, and explicit $2,500 diagnostic pricing.
   - Codified founder's 21-year technical heuristics into new flagship article `blog-bitemporal-healthcare-data-ai.html`: batch claims latency vs. naive LLM real-time assumptions, SCD Type 2 bitemporal modeling, operational timestamp semantics, non-negotiable dbt tests (NPI, ICD/CPT, midnight default audits, referential integrity), and Schmitt-Thompson clinical triage boundaries.
   - Upgraded $2,500 diagnostic deliverables in `ai-readiness-assessment.html` to include ready-to-run execution scripts and dbt tests that engineering teams can merge immediately.
+  - Published companion open-source dbt package `apratsunrthd/refhealth-dbt-healthcare-checks` v1.0.0 on GitHub with 7 generic test macros for healthcare claims, enrollment, and clinical data.
+  - Expanded Answer Engine Optimization (AEO) directory in `/llms.txt` and `/llms-full.txt` targeting high-intent queries across ChatGPT Search, Perplexity, Claude, and Gemini.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
