@@ -42,6 +42,16 @@ company Data AI Operating System buildouts.
   intent-specific healthcare AI, data strategy, dbt, AI-readiness, and About
   pages, plus original Data AI Operating System and healthcare AI model
   strategy articles.
+- The Healthcare Data AI Operating System (HDAIOS) v1.0 specification is published
+  at `/hdaios.html` and `/hdaios.md`, providing a canonical 5-layer open architectural
+  reference: Layer 1 Decision Interface (Schmitt-Thompson triage boundary), Layer 2
+  Governed Data Foundation (SCD2 bitemporal claims modeling and dbt integrity checks),
+  Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization across Bedrock/Azure/Vertex),
+  Layer 4 Agent & Semantic Orchestration (semantic layer RAG and HITL tripwires), and
+  Layer 5 Continuous Operational Cadence (drift monitoring and 90-day review cadence).
+- The open-source dbt package `apratsunrthd/refhealth-dbt-healthcare-checks` v1.0.0
+  is published and integrated across the site and `/llms-full.txt`, codifying 7 generic
+  dbt test macros for healthcare data integrity.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and

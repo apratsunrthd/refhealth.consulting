@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare Data AI Operating System (HDAIOS) Specification v1.0 | ref(health)</title>
+  <meta
+    name="description"
+    content="The architectural specification for the Healthcare Data AI Operating System (HDAIOS): 5 layers connecting business decisions, bitemporal data, enterprise BAAs, agent workflows, and operational cadence."
+  />
+  <link rel="canonical" href="https://refhealth.consulting/hdaios.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="Healthcare Data AI Operating System (HDAIOS) Specification v1.0" />
+  <meta property="og:description" content="A 5-layer architectural specification connecting healthcare decisions, bitemporal data foundations, cloud commitments, agent workflows, and governance." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://refhealth.consulting/hdaios.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Healthcare Data AI Operating System (HDAIOS) Specification v1.0" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:image:alt" content="Healthcare Data AI Operating System (HDAIOS) Specification v1.0" />
+  <meta name="twitter:title" content="Healthcare Data AI Operating System (HDAIOS) Specification v1.0 | ref(health)" />
+  <meta name="twitter:description" content="The 5-layer architectural specification for enterprise healthcare AI delivery." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://refhealth.consulting/hdaios.html#article",
+          "headline": "Healthcare Data AI Operating System (HDAIOS) Specification v1.0",
+          "description": "An architectural specification defining the 5 layers necessary to connect business decisions, governed data products, cloud-native model commitments, human-in-the-loop workflows, and operational cadence.",
+          "datePublished": "2026-10-11",
+          "dateModified": "2026-10-11",
+          "version": "1.0.0",
+          "author": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "publisher": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://refhealth.consulting/hdaios.html#page"
+          },
+          "about": [
+            "Healthcare AI Architecture",
+            "Data AI Operating System",
+            "bitemporal data",
+            "dbt",
+            "Schmitt-Thompson protocols"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://refhealth.consulting/hdaios.html#page",
+          "url": "https://refhealth.consulting/hdaios.html",
+          "name": "Healthcare Data AI Operating System (HDAIOS) Specification v1.0",
+          "isPartOf": {
+            "@id": "https://refhealth.consulting/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://refhealth.consulting/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Specifications",
+              "item": "https://refhealth.consulting/hdaios.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "HDAIOS v1.0",
+              "item": "https://refhealth.consulting/hdaios.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-05XLCL9N8S');
+</script>
+
+<script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a>
+        <a href="index.html#ai">AI work</a>
+        <a href="blog.html">Insights</a>
+        <a href="about.html">About</a>
+        <a href="intake.html" class="nav-cta">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--post">
+      <div class="container hero__content hero__content--post">
+        <div style="display:flex; gap:0.5rem; align-items:center; margin-bottom:1rem;">
+          <span style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; background:var(--color-ink); color:var(--color-paper); padding:0.2rem 0.5rem; border-radius:3px;">SPECIFICATION v1.0.0</span>
+          <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--color-muted);">STATUS: STABLE</span>
+        </div>
+        <h1>Healthcare Data AI Operating System (HDAIOS)</h1>
+        <p class="hero__lead">
+          The 5-layer architectural specification connecting healthcare decisions, bitemporal data foundations, cloud commitments, agent workflows, and operational cadence.
+        </p>
+        <div style="margin-top:1rem;">
+          <a href="hdaios.md" class="btn btn--secondary" style="font-family:var(--font-mono); font-size:0.875rem;">Download Raw Markdown (.md)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog">
+        <article class="post">
+          <div class="post__body">
+            <h2>1. Abstract &amp; Purpose</h2>
+            <p>
+              Healthcare organizations often struggle to move beyond disconnected generative AI pilots—one-off prompt wrappers, generic search copilot trials, and brittle chatbots.
+            </p>
+            <p>
+              The <strong>Healthcare Data AI Operating System (HDAIOS)</strong> is an architectural framework defining the 5 interdependent layers necessary to operate artificial intelligence as an institutional, compliant capability.
+            </p>
+
+            <hr />
+
+            <h2>2. The 5-Layer Architectural Stack</h2>
+
+            <h3>Layer 1: The Decision Interface (DI)</h3>
+            <p>
+              Every AI workflow must originate with an explicit business decision, an identified executive owner, and rigorous clinical boundaries.
+            </p>
+            <ul>
+              <li><strong>Decision Ownership:</strong> Every model output must trace directly to a measurable operational metric and owner.</li>
+              <li><strong>The Clinical Boundary (Schmitt-Thompson Protocol Standard):</strong> Clinical telephone triage and decision support standards (Schmitt-Thompson protocols) are unequivocal. Unless an organization operates a certified, clinical-grade platform, uncertified language models must <em>never</em> perform clinical diagnoses or triage recommendations. AI agents are bounded to administrative, operational, care navigation, and data transformation workflows, preserving licensed clinician judgment.</li>
+            </ul>
+
+            <h3>Layer 2: The Governed Data Foundation (GDF)</h3>
+            <p>
+              Models cannot reason accurately over fragmented or unverified schemas. Layer 2 enforces:
+            </p>
+            <ul>
+              <li><strong>Bitemporal Claims Modeling (SCD Type 2):</strong> Claims are not real-time event streams; clearinghouses and payers batch with 48h to multi-week latency. Layer 2 mandates slowly changing dimensions separating Event Time (Date of Service), Transaction Time (Paid/Adjudicated Date), and Knowledge Time (Pipeline Arrival) to prevent retrospective hallucinations.</li>
+              <li><strong>The 7 Non-Negotiable dbt Tests:</strong> Enforcing the open-source <a href="https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks" target="_blank" rel="noopener">refhealth-dbt-healthcare-checks</a> suite: surrogate key grain, bitemporal enrollment consistency, CMS NPI formatting, ICD-10 validity, HCPCS/CPT code validity, midnight (<code>00:00:00</code>) timestamp audits, and claims-to-member referential integrity.</li>
+              <li><strong>Zero-PHI Pre-Flight Feed Triage:</strong> Pre-validating CSV event feeds and FHIR Bundles locally using <a href="https://github.com/apratsunrthd/refhealth-feed-triage" target="_blank" rel="noopener">refhealth-feed-triage</a> before warehouse ingestion.</li>
+            </ul>
+
+            <h3>Layer 3: Enterprise BAA &amp; Model Gateway (EBMG)</h3>
+            <p>
+              Layer 3 optimizes model selection within contractual and enterprise security boundaries:
+            </p>
+            <ul>
+              <li><strong>The Model Parity Principle:</strong> Performance across frontier models (Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro) has largely converged. The priority is maximizing the client's existing enterprise cloud commitment, signed Business Associate Agreement (BAA), and token allocation (AWS Bedrock, Azure OpenAI, or Google Cloud Vertex AI) rather than vendor churn.</li>
+              <li><strong>Task-to-Capability Routing:</strong> Selective multi-model routing where lightweight compact models (Flash, Haiku, Mini) handle high-volume extraction, while frontier reasoning models handle complex synthesis.</li>
+            </ul>
+
+            <h3>Layer 4: Agent &amp; Workflow Orchestration (AWO)</h3>
+            <p>
+              Layer 4 operationalizes models into dependable, human-supervised workflows:
+            </p>
+            <ul>
+              <li><strong>Governed Context Retrieval:</strong> Agents query verified dbt semantic layers and structured schemas, never unconstrained raw tables.</li>
+              <li><strong>Human-in-the-Loop (HITL) Tripwires:</strong> Hard programmatic tripwires that automatically abort execution and route to human operators upon confidence score dips, bitemporal date conflicts, high dollar values, or clinical symptom boundaries.</li>
+            </ul>
+
+            <h3>Layer 5: Continuous Operational Cadence (COC)</h3>
+            <p>
+              An operating system requires continuous governance and commercial measurement:
+            </p>
+            <ul>
+              <li><strong>Lineage &amp; Metric Drift Audits:</strong> Continuous CI/CD test execution and alerting when dropped timestamp precision or unmapped member rates increase.</li>
+              <li><strong>90-Day Review Cadence:</strong> Measuring hard operational hours saved, rework eliminated, and decision velocity improvements before funding follow-on workstreams.</li>
+            </ul>
+
+            <hr />
+
+            <h2>3. Implementing HDAIOS</h2>
+            <p>
+              Organizations can implement HDAIOS through our 2-week, $2,500 <a href="ai-readiness-assessment.html">Healthcare AI Readiness Diagnostic</a>. We evaluate current pipeline blockers, audit bitemporal data fitness, and provide ready-to-run execution scripts and dbt tests that engineering teams can merge immediately.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <h2 id="contact-title">Adopt the HDAIOS framework.</h2>
+          <p>
+            Start with our 2-week diagnostic from $2,500. We audit pipeline blockers, evaluate bitemporal readiness, and provide immediate execution scripts.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="intake.html">Request the diagnostic</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="healthcare-ai-consulting.html">Healthcare AI</a>
+        <a href="healthcare-data-strategy.html">Data strategy</a>
+        <a href="dbt-consulting.html">dbt consulting</a>
+        <a href="about.html">About</a>
+        <a href="mailto:contact@refhealth.consulting">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
