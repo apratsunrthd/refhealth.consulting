@@ -15,6 +15,7 @@ Important files:
 - `mcp/feed-core.mjs` / `mcp/server.mjs` - deterministic feed checks and MCP tool
 - `mcp/` / `refhealth-feed-triage.mcpb` - samples, manifest, and downloadable Claude Desktop package
 - `mcp/test/` - feed rules and MCP client integration tests
+- Public extension source: `https://github.com/apratsunrthd/refhealth-feed-triage`; keep its source and this site's package aligned for releases.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer

@@ -62,6 +62,10 @@ identifiers. Claude receives those findings, so the intended input is
 synthetic or approved de-identified data. A bundle build script creates the
 archive and CI compares its files against source. GA4 records only the
 download click, without file paths or data.
+An extension-only public repository at
+`https://github.com/apratsunrthd/refhealth-feed-triage` carries the MIT-licensed
+source and tests. This site's `.mcpb` is the public download; release metadata
+points to that repository and the extension privacy page.
 
 ### 1. Edge & Hosting Layer (Cloudflare)
 * **Domain Registrar**: Cloudflare Registrar (migrated from Namecheap on 2026-09-20). Operates at wholesale at-cost renewal with registry transfer lock enabled (`clientTransferProhibited`).

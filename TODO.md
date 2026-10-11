@@ -72,12 +72,12 @@
 
 ## For Codex or Claude
 
-After the extension PR merges, verify `/feed-triage.html` and the
+After the directory metadata update deploys, verify the new
 `refhealth-feed-triage.mcpb` download in production. Track the privacy-safe
 `feed_extension_download_click` event alongside qualified intake submissions.
 Collect actual user feedback on whether the CSV and FHIR findings helped resolve
-a feed question before expanding scope. Prepare the desktop extension directory
-submission with a privacy policy, support channel, and three tested prompts.
+a feed question before expanding scope. Finish the desktop extension directory
+submission after owner review of its contact details and legal terms.
 
 The site infrastructure, measurement system, and branding are fully modernized:
 
@@ -114,7 +114,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## For the site owner
 
-- Install the `.mcpb` in Claude Desktop and try both bundled samples. Share it
+- The `.mcpb` is installed in Claude Desktop and worked on its bundled synthetic
+  CSV. Try it on the bundled FHIR sample too. Share it
   with a few health-tech data leaders, ask whether it helped answer a live feed
   question, and record objections and qualified diagnostic conversations.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
