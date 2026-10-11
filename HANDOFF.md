@@ -13,7 +13,7 @@ Important files:
 - `index.html` - main marketing page and revenue CTA
 - `feed-triage.html` - free extension page and install instructions
 - `feed-triage.html#investigate` - public investigation guide linked from version 0.1.2 tool results when findings exist
-- `feed-triage-summary.html` - visual one-page overview with the synthetic sample's measured result and data boundary
+- `feed-triage-summary.html` - visual one-page overview with the synthetic sample's measured result, data boundary, and current download version
 - `mcp/feed-core.mjs` / `mcp/server.mjs` - deterministic feed checks and MCP tool
 - `mcp/` / `refhealth-feed-triage.mcpb` - samples, manifest, and downloadable Claude Desktop package
 - `mcp/test/` - feed rules and MCP client integration tests

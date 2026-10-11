@@ -2,6 +2,7 @@
 
 ## Recently completed
 
+- Corrected the visual overview's version stamp to match the live 0.1.2 extension download.
 - Added a fixed investigation-guide link to version 0.1.2 MCP results with findings. The guide gives source-owner checks and sits on the product page; the tool makes no website request.
 - Added a visual one-page Healthcare Feed Triage summary with a local-to-Claude
   flow diagram and charts derived from the bundled synthetic CSV and FHIR samples.

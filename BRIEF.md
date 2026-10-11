@@ -13,7 +13,8 @@ company Data AI Operating System buildouts.
 ## Current State
 
 - Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
-  extension with a public landing page and a visual one-page overview. Its local
+  extension with a public landing page and a visual one-page overview labeled
+  with the current 0.1.2 download version. Its local
   MCP tool inspects synthetic or approved de-identified CSV event feeds and FHIR
   Bundles. CSV checks include
   delivery latency, duplicate IDs, required fields, and timestamp defects;
