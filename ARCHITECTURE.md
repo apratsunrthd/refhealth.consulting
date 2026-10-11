@@ -62,6 +62,10 @@ identifiers. Claude receives those findings, so the intended input is
 synthetic or approved de-identified data. A bundle build script creates the
 archive and CI compares its files against source. GA4 records only the
 download click, without file paths or data.
+When a result has findings, the server adds a fixed investigation-guide URL to
+the tool result. The link contains attribution tags but no feed content or file
+path. The server does not open it; Claude may present it to the user, who can
+choose whether to visit the page.
 An extension-only public repository at
 `https://github.com/apratsunrthd/refhealth-feed-triage` carries the MIT-licensed
 source and tests. This site's `.mcpb` is the public download; release metadata

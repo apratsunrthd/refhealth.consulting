@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "refhealth-feed-triage",
   "display_name": "Healthcare Feed Triage",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Inspect a healthcare event feed for timing and data quality issues inside Claude Desktop.",
   "author": { "name": "ref(health) Consulting", "url": "https://github.com/apratsunrthd" },
   "repository": { "type": "git", "url": "https://github.com/apratsunrthd/refhealth-feed-triage.git" },

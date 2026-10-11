@@ -20,6 +20,8 @@ FHIR JSON must be a Bundle with an `entry` array. The tool checks Encounter IDs,
 
 Files are limited to 10 MB and 20,000 CSV rows or Bundle entries. Outputs contain aggregate counts and row-numbered issue descriptions; the tool does not return patient IDs, event IDs, names, or raw records. The server does not call ref(health) or any other network service. Claude receives the tool output, so use only synthetic or approved de-identified data. The checks do not establish complete cohort coverage, consent, clinical suitability, or successful outreach.
 
+When findings exist, the result includes a link to a public investigation guide on the product page. Opening it is optional and happens only if the user follows the link; the URL contains campaign tags but no feed data or file path. Claude decides whether to show the link in its response.
+
 ## Development
 
 From this repo, run `npm ci --prefix mcp`, then `npm test --prefix mcp`. Run `./scripts/build-feed-bundle.sh` to recreate the `.mcpb` archive with bundled dependencies. Claude Desktop includes the Node.js runtime for Node extensions.
