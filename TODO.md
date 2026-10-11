@@ -72,12 +72,12 @@
 
 ## For Codex or Claude
 
-After the directory metadata update deploys, verify the new
-`refhealth-feed-triage.mcpb` download in production. Track the privacy-safe
-`feed_extension_download_click` event alongside qualified intake submissions.
-Collect actual user feedback on whether the CSV and FHIR findings helped resolve
-a feed question before expanding scope. Finish the desktop extension directory
-submission after owner review of its contact details and legal terms.
+Version 0.1.1 was submitted to Anthropic's desktop extension directory on
+2026-10-11. The production `.mcpb` matched the public GitHub release byte for
+byte. Monitor `contact@refhealth.consulting` for Anthropic's decision. Track
+the privacy-safe `feed_extension_download_click` event alongside qualified
+intake submissions. Collect feedback on whether the CSV and FHIR findings
+helped resolve a feed question before expanding scope.
 
 The site infrastructure, measurement system, and branding are fully modernized:
 
