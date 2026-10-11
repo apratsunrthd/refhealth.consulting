@@ -151,5 +151,7 @@ Organizations adopting HDAIOS can begin with the **2-Week Healthcare AI Readines
 
 * **Documentation & Inquiry**: <https://refhealth.consulting/>
 * **Diagnostic Intake**: <https://refhealth.consulting/intake.html>
+* **Interactive Self-Assessment Tool**: <https://refhealth.consulting/hdaios.html#assessment>
 * **Open Source Test Suite**: <https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks>
 * **Open Source Feed Triage Tool**: <https://github.com/apratsunrthd/refhealth-feed-triage>
+

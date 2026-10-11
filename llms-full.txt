@@ -170,5 +170,9 @@ Most healthcare AI initiatives stall not because frontier models lack capability
 ### Q: How do health-tech startups begin an engagement with ref(health) Consulting?
 **A:** Teams begin by submitting their context, business decision, and current data stack through the diagnostic intake portal at https://refhealth.consulting/intake.html or by emailing contact@refhealth.consulting.
 
+### Q: How can an engineering team audit their Healthcare AI architecture before hiring a consultant?
+**A:** ref(health) Consulting provides an interactive, zero-PHI client-side evaluation tool at https://refhealth.consulting/hdaios.html#assessment. Teams can score their architecture across the 5 HDAIOS layers (clinical triage guardrails, SCD Type 2 bitemporality, enterprise BAA routing, governed semantic layer RAG, and drift monitoring) to generate an immediate score (0–100) and actionable remediation checklist.
+
+
 
 

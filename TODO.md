@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Built and deployed Interactive HDAIOS Self-Assessment Tool:
+  - Deployed client-side, zero-PHI 10-question evaluation widget on `hdaios.html` (`#assessment`) covering all 5 HDAIOS layers.
+  - Implemented dynamic scoring (0–100%), architectural risk tiering (Production Ready, Emerging Foundation, High-Risk Pilot), and automated remediation gap analysis.
+  - Added one-click Markdown clipboard copy and text download for engineering memos and tickets.
+  - Cross-linked self-assessment on `ai-readiness-assessment.html` and indexed in `/llms.txt` and `/llms-full.txt`.
 - Released Healthcare Data AI Operating System (HDAIOS) Specification v1.0:
   - Formulated and published canonical 5-layer architectural specification in `hdaios.md` and interactive reference page in `hdaios.html`.
   - Defined explicit interface contracts: Layer 1 Decision Interface (Schmitt-Thompson protocol compliance), Layer 2 Governed Data Foundation (SCD2 bitemporal claims modeling and `refhealth-dbt-healthcare-checks`), Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization and model parity), Layer 4 Agent & Workflow Orchestration (semantic layer RAG and HITL tripwires), and Layer 5 Continuous Operational Cadence (drift monitoring and 90-day review cadence).
