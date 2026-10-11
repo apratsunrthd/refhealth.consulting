@@ -202,7 +202,288 @@
 
             <hr />
 
-            <h2>3. Implementing HDAIOS</h2>
+            <hr />
+
+            <h2 id="assessment">3. Interactive HDAIOS Self-Assessment Tool</h2>
+            <p>
+              Evaluate your organization's readiness across the 5 HDAIOS layers. This assessment runs <strong>100% client-side</strong> in your browser—zero data, responses, or company information are transmitted to ref(health) or any remote server.
+            </p>
+
+            <div class="assessment-widget" id="hdaios-audit-tool">
+              <div class="assessment-intro">
+                <span class="assessment-pill">Tool v1.0.0</span>
+                <span class="assessment-pill assessment-pill--privacy">Zero-PHI · 100% Client-Side Evaluation</span>
+                <p style="margin:0.5rem 0 0; color:var(--muted); font-size:0.9rem;">
+                  Select the option that best reflects your current data models, pipelines, and AI deployments. Your architecture score, risk tier, and gap analysis update in real time.
+                </p>
+              </div>
+
+              <!-- Layer 1 -->
+              <div class="assessment-layer-card">
+                <div class="assessment-layer-header">
+                  <span class="assessment-layer-badge">Layer 1</span>
+                  <h4 class="assessment-layer-title">Decision Interface &amp; Clinical Boundaries</h4>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">1. Clinical Triage &amp; Diagnostic Guardrails</div>
+                  <div class="assessment-question-hint">Does your system structurally prohibit autonomous clinical diagnosis, triage, or prescription recommendations through hard code-level tripwires (e.g. Schmitt-Thompson protocols)?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q1" value="2" data-layer="1" checked />
+                      <span><strong>Fully Enforced:</strong> Hard programmatic boundary in place. Non-clinical models are strictly restricted to administrative/operational tasks; clinical triage strictly requires certified clinical-grade systems.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q1" value="1" data-layer="1" />
+                      <span><strong>Partial / Prompt-Level:</strong> System prompt advises the model not to provide medical advice, but no automated programmatic blocking or protocol verification exists.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q1" value="0" data-layer="1" />
+                      <span><strong>Unenforced:</strong> LLMs or autonomous agents directly generate clinical recommendations, symptom triage, or diagnostic summaries without certified boundaries.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">2. Decision Ownership &amp; Pre-AI Baselines</div>
+                  <div class="assessment-question-hint">Is every deployed healthcare AI workflow tied to a named business decision owner and a pre-AI baseline error/cost metric?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q2" value="2" data-layer="1" checked />
+                      <span><strong>Fully Enforced:</strong> Named decision owner, established historical baseline metric, and target threshold required before deployment.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q2" value="1" data-layer="1" />
+                      <span><strong>Partial:</strong> General department ownership, but no formal baseline measurement or individual accountability.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q2" value="0" data-layer="1" />
+                      <span><strong>Unenforced:</strong> AI tools deployed as exploratory pilots or assistants without business baseline metrics.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Layer 2 -->
+              <div class="assessment-layer-card">
+                <div class="assessment-layer-header">
+                  <span class="assessment-layer-badge">Layer 2</span>
+                  <h4 class="assessment-layer-title">Governed Data Foundation (Bitemporality &amp; dbt)</h4>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">3. Bitemporal Claims &amp; Enrollment Architecture</div>
+                  <div class="assessment-question-hint">Do your data models use Slowly Changing Dimensions (SCD Type 2) to decouple Event Time (date_of_service) from Knowledge Time (adjudicated/paid date) across 48h to multi-week batch lags?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q3" value="2" data-layer="2" checked />
+                      <span><strong>Fully Enforced:</strong> Full SCD Type 2 bitemporal snapshots in dbt/warehouse. Models reconstruct exact point-in-time state without retrospective anachronisms.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q3" value="1" data-layer="2" />
+                      <span><strong>Partial:</strong> Single timestamp or overwrite models. Date of service is tracked, but historical states cannot be faithfully reconstructed.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q3" value="0" data-layer="2" />
+                      <span><strong>Unenforced:</strong> Claims treated as real-time event feeds without bitemporal separation, risking retrospective hallucinations.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">4. Deterministic Healthcare Data Testing Suite</div>
+                  <div class="assessment-question-hint">Does your automated pipeline (e.g. dbt) enforce healthcare tests: CMS NPI registry formatting, ICD-10/CPT validity, midnight (00:00:00) timestamp drop audits, and claim-to-member referential integrity?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q4" value="2" data-layer="2" checked />
+                      <span><strong>Fully Enforced:</strong> Automated CI/CD dbt test suite runs all 7 healthcare integrity checks prior to data reaching semantic or production models.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q4" value="1" data-layer="2" />
+                      <span><strong>Partial:</strong> Basic generic tests only (null and uniqueness); no healthcare-specific NPI format, ICD-10 validity, or midnight timestamp auditing.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q4" value="0" data-layer="2" />
+                      <span><strong>Unenforced:</strong> No automated data tests in production pipelines.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Layer 3 -->
+              <div class="assessment-layer-card">
+                <div class="assessment-layer-header">
+                  <span class="assessment-layer-badge">Layer 3</span>
+                  <h4 class="assessment-layer-title">Enterprise BAA &amp; Model Gateway</h4>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">5. Zero-Retention BAA Enforcement</div>
+                  <div class="assessment-question-hint">Are all LLM inference calls routed exclusively through cloud endpoints under executed Business Associate Agreements (BAAs) with guaranteed zero-day data retention for training?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q5" value="2" data-layer="3" checked />
+                      <span><strong>Fully Enforced:</strong> Strictly routed via AWS Bedrock, Azure OpenAI, or GCP Vertex AI under executed enterprise BAAs with zero model training on customer data.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q5" value="1" data-layer="3" />
+                      <span><strong>Partial:</strong> Mixed: Some workflows use enterprise cloud APIs, but internal teams also use public consumer accounts or API keys without signed BAAs.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q5" value="0" data-layer="3" />
+                      <span><strong>Unenforced:</strong> Non-BAA commercial endpoints or public consumer accounts are used with sensitive or identifiable workflow data.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">6. Model Parity &amp; Gateway Abstraction</div>
+                  <div class="assessment-question-hint">Can your application route between frontier model families (Claude, GPT, Gemini) via an abstraction layer without rewriting business logic?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q6" value="2" data-layer="3" checked />
+                      <span><strong>Fully Enforced:</strong> Unified gateway abstracts model calls, allowing instant routing based on latency, token costs, and signed cloud commitments.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q6" value="1" data-layer="3" />
+                      <span><strong>Partial:</strong> Hardcoded to a single provider SDK; swapping models requires significant application refactoring.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q6" value="0" data-layer="3" />
+                      <span><strong>Unenforced:</strong> Direct vendor lock-in with zero routing abstraction.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Layer 4 -->
+              <div class="assessment-layer-card">
+                <div class="assessment-layer-header">
+                  <span class="assessment-layer-badge">Layer 4</span>
+                  <h4 class="assessment-layer-title">Agent &amp; Semantic Orchestration</h4>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">7. Semantic Layer Context Grounding</div>
+                  <div class="assessment-question-hint">Do autonomous agents retrieve data through tested, governed semantic layer metrics rather than generating unconstrained raw SQL over warehouse tables?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q7" value="2" data-layer="4" checked />
+                      <span><strong>Fully Enforced:</strong> Agents query governed semantic metrics and curated dimensional marts. Raw SQL generation over base tables is prohibited.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q7" value="1" data-layer="4" />
+                      <span><strong>Partial:</strong> Curated views exist, but agent generates raw SQL directly, causing occasional join errors or metric drift.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q7" value="0" data-layer="4" />
+                      <span><strong>Unenforced:</strong> Agents write unconstrained SQL across raw schemas, frequently hallucinating metrics and grain.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">8. Human-in-the-Loop (HITL) Tripwires</div>
+                  <div class="assessment-question-hint">Are there automated code-level tripwires that intercept high-risk actions (claims appeals, payment modifications, low confidence scores) and mandate human sign-off?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q8" value="2" data-layer="4" checked />
+                      <span><strong>Fully Enforced:</strong> Automated tripwires pause execution and mandate human sign-off on high-risk actions, confidence dips, or bitemporal conflicts.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q8" value="1" data-layer="4" />
+                      <span><strong>Partial:</strong> Humans review some actions after execution, but no programmatic blocking tripwires exist.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q8" value="0" data-layer="4" />
+                      <span><strong>Unenforced:</strong> Autonomous agents execute transactions or external communications without human gates.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Layer 5 -->
+              <div class="assessment-layer-card">
+                <div class="assessment-layer-header">
+                  <span class="assessment-layer-badge">Layer 5</span>
+                  <h4 class="assessment-layer-title">Continuous Operational Cadence</h4>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">9. Claims Lag &amp; Feed Drift Monitoring</div>
+                  <div class="assessment-question-hint">Does your engineering team continuously monitor and alert on upstream clearinghouse batch lag, feed latency, and EHR schema variations?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q9" value="2" data-layer="5" checked />
+                      <span><strong>Fully Enforced:</strong> Automated monitors alert engineering when receipt lag exceeds thresholds or feed schema anomalies appear.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q9" value="1" data-layer="5" />
+                      <span><strong>Partial:</strong> Feed delays are noticed only when downstream reports break or business users complain.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q9" value="0" data-layer="5" />
+                      <span><strong>Unenforced:</strong> No monitoring of upstream feed latency or claims submission batch delays.</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="assessment-question">
+                  <div class="assessment-question-text">10. Structured 90-Day Executive Governance</div>
+                  <div class="assessment-question-hint">Does leadership conduct a formal quarterly review auditing data test pass rates, token spend ROI, workflow error rates, and compliance boundaries?</div>
+                  <div class="assessment-options">
+                    <label class="assessment-opt-label is-selected">
+                      <input type="radio" name="q10" value="2" data-layer="5" checked />
+                      <span><strong>Fully Enforced:</strong> Formal 90-day review evaluating data quality, token cost vs. labor hours saved, and safety boundaries before expanding scope.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q10" value="1" data-layer="5" />
+                      <span><strong>Partial:</strong> Ad-hoc reviews: Monthly costs are reviewed, but no formal architecture, safety, or ROI governance.</span>
+                    </label>
+                    <label class="assessment-opt-label">
+                      <input type="radio" name="q10" value="0" data-layer="5" />
+                      <span><strong>Unenforced:</strong> No regular cadence or accountability for AI system performance and compliance.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Live Results Panel -->
+              <div class="assessment-results-panel" id="assessment-results">
+                <div class="assessment-score-header">
+                  <div>
+                    <div style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; text-transform:uppercase; color:var(--muted); margin-bottom:0.25rem;">HDAIOS Readiness Score</div>
+                    <div class="assessment-score-num"><span id="score-display">100</span><span class="assessment-score-total">/100</span></div>
+                  </div>
+                  <div>
+                    <span id="tier-badge" class="assessment-tier-badge tier-ready">Production Ready</span>
+                  </div>
+                </div>
+
+                <div class="assessment-progress-bar">
+                  <div id="progress-fill" class="assessment-progress-fill" style="width:100%; background:var(--green);"></div>
+                </div>
+
+                <h4 id="diagnosis-title" class="assessment-diagnosis-title">Architecture Aligned with HDAIOS v1.0</h4>
+                <p id="diagnosis-text" class="assessment-diagnosis-text">
+                  Your architecture enforces clinical guardrails, bitemporal data hygiene, and enterprise BAA boundaries. Proceed with scaling autonomous agents across operational workflows.
+                </p>
+
+                <div id="gaps-container" style="display:none;">
+                  <h5 style="margin:1.25rem 0 0.5rem; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.04em; font-family:'IBM Plex Mono', monospace; color:var(--ink);">Identified Architectural Gaps:</h5>
+                  <ul id="gaps-list" class="assessment-gaps-list"></ul>
+                </div>
+
+                <div class="assessment-actions">
+                  <button type="button" id="copy-report-btn" class="btn btn--secondary" style="font-family:'IBM Plex Mono', monospace; font-size:0.85rem;">Copy Report (Markdown)</button>
+                  <button type="button" id="download-report-btn" class="btn btn--secondary" style="font-family:'IBM Plex Mono', monospace; font-size:0.85rem;">Download (.txt)</button>
+                  <a href="intake.html" class="btn btn--primary" style="font-size:0.85rem;">Resolve Gaps in a Diagnostic &rarr;</a>
+                  <span id="copy-toast" class="assessment-toast">Copied to clipboard!</span>
+                </div>
+              </div>
+            </div>
+
+            <h2>4. Implementing HDAIOS</h2>
             <p>
               Organizations can implement HDAIOS through our 2-week, $2,500 <a href="ai-readiness-assessment.html">Healthcare AI Readiness Diagnostic</a>. We evaluate current pipeline blockers, audit bitemporal data fitness, and provide ready-to-run execution scripts and dbt tests that engineering teams can merge immediately.
             </p>
@@ -210,6 +491,157 @@
         </article>
       </div>
     </section>
+
+    <script>
+      (function() {
+        const remediations = {
+          q1: { layer: "Layer 1: Decision Interface", remedy: "Enforce hard code-level Schmitt-Thompson protocol tripwires to prohibit uncertified clinical triage or diagnostic hallucinations." },
+          q2: { layer: "Layer 1: Decision Interface", remedy: "Assign a named business decision owner and measure a pre-AI error/cost baseline before deploying models." },
+          q3: { layer: "Layer 2: Governed Data Foundation", remedy: "Implement SCD Type 2 bitemporal modeling to separate Event Time (date of service) from Knowledge Time (paid date) across claims batch lag." },
+          q4: { layer: "Layer 2: Governed Data Foundation", remedy: "Install refhealth-dbt-healthcare-checks (https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks) to enforce CMS NPI, ICD-10/CPT, and midnight timestamp tests." },
+          q5: { layer: "Layer 3: Enterprise BAA & Gateway", remedy: "Route all LLM inference calls through enterprise cloud endpoints (Bedrock, Azure OpenAI, Vertex AI) under executed BAAs with zero model training retention." },
+          q6: { layer: "Layer 3: Enterprise BAA & Gateway", remedy: "Implement a model gateway abstraction to avoid vendor lock-in and optimize for cloud commit credits across Claude, GPT, and Gemini." },
+          q7: { layer: "Layer 4: Agent & Semantic Orchestration", remedy: "Ground agent retrieval in governed semantic metrics (e.g. dbt Semantic Layer) rather than allowing unconstrained raw SQL generation over base tables." },
+          q8: { layer: "Layer 4: Agent & Semantic Orchestration", remedy: "Implement programmatic Human-in-the-Loop (HITL) review gates for high-risk actions, confidence dips, or bitemporal anomalies." },
+          q9: { layer: "Layer 5: Continuous Operational Cadence", remedy: "Deploy automated alerts for clearinghouse submission lag, feed delays, and upstream EHR schema changes." },
+          q10: { layer: "Layer 5: Continuous Operational Cadence", remedy: "Establish a formal 90-day executive review cadence auditing data test pass rates, token spend, and labor hours saved." }
+        };
+
+        const form = document.getElementById("hdaios-audit-tool");
+        if (!form) return;
+
+        const scoreDisplay = document.getElementById("score-display");
+        const tierBadge = document.getElementById("tier-badge");
+        const progressFill = document.getElementById("progress-fill");
+        const diagTitle = document.getElementById("diagnosis-title");
+        const diagText = document.getElementById("diagnosis-text");
+        const gapsContainer = document.getElementById("gaps-container");
+        const gapsList = document.getElementById("gaps-list");
+        const copyBtn = document.getElementById("copy-report-btn");
+        const downloadBtn = document.getElementById("download-report-btn");
+        const copyToast = document.getElementById("copy-toast");
+
+        function calculateAudit() {
+          let totalPoints = 0;
+          const gaps = [];
+          const answers = {};
+
+          for (let i = 1; i <= 10; i++) {
+            const qKey = "q" + i;
+            const checked = form.querySelector('input[name="' + qKey + '"]:checked');
+            const val = checked ? parseInt(checked.value, 10) : 0;
+            totalPoints += val;
+            answers[qKey] = val;
+
+            if (val < 2) {
+              const item = remediations[qKey];
+              gaps.push({ qKey: qKey, layer: item.layer, text: item.remedy, status: val === 1 ? "Partial" : "Deficit" });
+            }
+          }
+
+          const score = Math.round((totalPoints / 20) * 100);
+          scoreDisplay.textContent = score;
+          progressFill.style.width = score + "%";
+
+          let tierName = "";
+          let tierClass = "";
+          let title = "";
+          let desc = "";
+
+          if (score >= 80) {
+            tierName = "Production Ready";
+            tierClass = "tier-ready";
+            progressFill.style.background = "var(--green)";
+            title = "Architecture Aligned with HDAIOS v1.0";
+            desc = "Your architecture enforces clinical boundaries, bitemporal claims modeling, and enterprise BAA controls. Autonomous agents can be safely deployed across governed operational workflows.";
+          } else if (score >= 50) {
+            tierName = "Emerging Foundation";
+            tierClass = "tier-moderate";
+            progressFill.style.background = "var(--amber)";
+            title = "Moderate Hallucination & Compliance Exposure";
+            desc = "Foundations are partially established, but key deficits in bitemporal data hygiene, semantic layer RAG, or clinical guardrails leave models vulnerable to claims lag anachronisms or compliance breaches.";
+          } else {
+            tierName = "High-Risk Pilot";
+            tierClass = "tier-high";
+            progressFill.style.background = "var(--red)";
+            title = "Critical Governance & Pipeline Deficits";
+            desc = "Unconstrained raw queries, lack of SCD2 snapshots, or unverified endpoints expose your system to severe retrospective hallucinations, clinical liability, and data leak risks. Production deployment should pause until groundwork is laid.";
+          }
+
+          tierBadge.textContent = tierName;
+          tierBadge.className = "assessment-tier-badge " + tierClass;
+          diagTitle.textContent = title;
+          diagText.textContent = desc;
+
+          if (gaps.length > 0) {
+            gapsContainer.style.display = "block";
+            gapsList.innerHTML = gaps.map(g => "<li><strong>[" + g.layer + "] (" + g.status + "):</strong> " + g.text + "</li>").join("");
+          } else {
+            gapsContainer.style.display = "none";
+            gapsList.innerHTML = "";
+          }
+
+          return { score: score, tier: tierName, title: title, desc: desc, gaps: gaps };
+        }
+
+        form.addEventListener("change", function(e) {
+          if (e.target.matches('input[type="radio"]')) {
+            const group = e.target.name;
+            form.querySelectorAll('input[name="' + group + '"]').forEach(inp => {
+              const label = inp.closest(".assessment-opt-label");
+              if (label) label.classList.toggle("is-selected", inp.checked);
+            });
+            calculateAudit();
+          }
+        });
+
+        function generateMarkdown(audit) {
+          const now = new Date().toISOString().split("T")[0];
+          let md = "# Healthcare Data AI Operating System (HDAIOS) Audit Report\n\n";
+          md += "**Date:** " + now + "\n";
+          md += "**Overall Score:** " + audit.score + "/100\n";
+          md += "**Architectural Tier:** " + audit.tier + "\n\n";
+          md += "## Executive Diagnosis\n" + audit.desc + "\n\n";
+          md += "## Recommended Remediation Priorities\n";
+          if (audit.gaps.length === 0) {
+            md += "No critical architectural gaps identified. System meets HDAIOS v1.0 reference standards.\n";
+          } else {
+            audit.gaps.forEach((g, idx) => {
+              md += (idx + 1) + ". **" + g.layer + "** (" + g.status + ")\n   " + g.text + "\n";
+            });
+          }
+          md += "\n---\n*Report generated by ref(health) Consulting HDAIOS Self-Assessment Tool (https://refhealth.consulting/hdaios.html#assessment). Client-side zero-PHI evaluation.*\n";
+          return md;
+        }
+
+        if (copyBtn) {
+          copyBtn.addEventListener("click", function() {
+            const audit = calculateAudit();
+            const md = generateMarkdown(audit);
+            navigator.clipboard.writeText(md).then(function() {
+              copyToast.classList.add("is-visible");
+              setTimeout(function() { copyToast.classList.remove("is-visible"); }, 2200);
+            });
+          });
+        }
+
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", function() {
+            const audit = calculateAudit();
+            const md = generateMarkdown(audit);
+            const blob = new Blob([md], { type: "text/plain;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "hdaios-architecture-audit.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          });
+        }
+      })();
+    </script>
 
     <section class="section section--contact" aria-labelledby="contact-title">
       <div class="container contact-panel">
@@ -242,3 +674,4 @@
   </script>
 </body>
 </html>
+

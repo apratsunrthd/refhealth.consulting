@@ -1503,3 +1503,277 @@ h4 {
     align-items: flex-start;
   }
 }
+
+/* ==========================================================================
+   HDAIOS Self-Assessment Widget
+   ========================================================================== */
+.assessment-widget {
+  background: var(--paper-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2.5rem 0;
+  box-shadow: 0 12px 36px rgba(17, 16, 14, 0.05);
+}
+
+.assessment-intro {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.assessment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--ink);
+  color: var(--paper-strong);
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+}
+
+.assessment-pill--privacy {
+  background: rgba(25, 121, 91, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(25, 121, 91, 0.3);
+}
+
+.assessment-layer-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.assessment-layer-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.assessment-layer-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.assessment-layer-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.assessment-question {
+  margin-bottom: 1.5rem;
+}
+
+.assessment-question:last-child {
+  margin-bottom: 0;
+}
+
+.assessment-question-text {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.assessment-question-hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+}
+
+.assessment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.assessment-opt-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.assessment-opt-label:hover {
+  border-color: var(--line-strong);
+  background: #fff;
+}
+
+.assessment-opt-label input[type="radio"] {
+  margin-top: 0.2rem;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
+.assessment-opt-label.is-selected {
+  border-color: var(--ink);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.assessment-results-panel {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(17, 16, 14, 0.08);
+}
+
+.assessment-score-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.assessment-score-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.assessment-score-total {
+  font-size: 1.25rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.assessment-tier-badge {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+.assessment-tier-badge.tier-high {
+  background: rgba(209, 57, 45, 0.12);
+  color: var(--red-deep);
+  border: 1px solid var(--red);
+}
+
+.assessment-tier-badge.tier-moderate {
+  background: rgba(214, 154, 36, 0.15);
+  color: #8f6208;
+  border: 1px solid var(--amber);
+}
+
+.assessment-tier-badge.tier-ready {
+  background: rgba(25, 121, 91, 0.12);
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.assessment-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--paper);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.assessment-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ink);
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.assessment-diagnosis-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--ink);
+}
+
+.assessment-diagnosis-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.assessment-gaps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.assessment-gaps-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.assessment-gaps-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.assessment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.assessment-toast {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--green);
+  margin-left: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.assessment-toast.is-visible {
+  opacity: 1;
+}
+
