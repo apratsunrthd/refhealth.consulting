@@ -12,12 +12,13 @@ Important files:
 
 - `index.html` - main marketing page and revenue CTA
 - `feed-triage.html` - free extension page and install instructions
+- `feed-triage.html#investigate` - public investigation guide linked from version 0.1.2 tool results when findings exist
 - `feed-triage-summary.html` - visual one-page overview with the synthetic sample's measured result and data boundary
 - `mcp/feed-core.mjs` / `mcp/server.mjs` - deterministic feed checks and MCP tool
 - `mcp/` / `refhealth-feed-triage.mcpb` - samples, manifest, and downloadable Claude Desktop package
 - `mcp/test/` - feed rules and MCP client integration tests
 - Public extension source: `https://github.com/apratsunrthd/refhealth-feed-triage`; keep its source and this site's package aligned for releases.
-- Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
+- Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Version 0.1.2 adds an optional guide link, but the submitted 0.1.1 package does not contain it. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer

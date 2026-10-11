@@ -2,6 +2,7 @@
 
 ## Recently completed
 
+- Added a fixed investigation-guide link to version 0.1.2 MCP results with findings. The guide gives source-owner checks and sits on the product page; the tool makes no website request.
 - Added a visual one-page Healthcare Feed Triage summary with a local-to-Claude
   flow diagram and charts derived from the bundled synthetic CSV and FHIR samples.
 - Replaced the outreach demo with Healthcare Feed Triage, a local Claude Desktop
@@ -75,8 +76,9 @@
 ## For Codex or Claude
 
 Version 0.1.1 was submitted to Anthropic's desktop extension directory on
-2026-10-11. The production `.mcpb` matched the public GitHub release byte for
-byte. Monitor `contact@refhealth.consulting` for Anthropic's decision. Track
+2026-10-11. Version 0.1.2 now adds an optional guide link to the site download;
+the directory submission still has 0.1.1. Monitor `contact@refhealth.consulting`
+for Anthropic's decision and update the directory package if accepted. Track
 the privacy-safe `feed_extension_download_click` event alongside qualified
 intake submissions. Collect feedback on whether the CSV and FHIR findings
 helped resolve a feed question before expanding scope.
@@ -117,7 +119,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 ## For the site owner
 
 - The `.mcpb` is installed in Claude Desktop and worked on its bundled synthetic
-  CSV. Try it on the bundled FHIR sample too. Share it
+  CSV at version 0.1.1. Install version 0.1.2 to see the guide link on results
+  with findings, and try it on the bundled FHIR sample too. Share it
   with a few health-tech data leaders, ask whether it helped answer a live feed
   question, and record objections and qualified diagnostic conversations.
 - Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn

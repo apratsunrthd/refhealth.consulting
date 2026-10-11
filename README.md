@@ -38,7 +38,7 @@ extension files, rebuild the download with:
 - `healthcare-data-strategy.html` - healthcare data strategy and landscape work
 - `dbt-consulting.html` - dbt consulting and analytics engineering
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic
-- `feed-triage.html` - extension landing page, example results, and install steps
+- `feed-triage.html` - extension landing page, example results, investigation guide, and install steps
 - `feed-triage-summary.html` - visual one-page extension overview
 - `refhealth-feed-triage.mcpb`, `mcp/` - Claude Desktop extension and local feed inspector
 - `intake.html` - diagnostic intake and starting-price conversion path

@@ -20,7 +20,8 @@ company Data AI Operating System buildouts.
   FHIR checks include Encounter IDs, patient references within the Bundle, and
   encounter end times. The tool returns counts and row-numbered findings to
   Claude, without raw records or identifiers. It does not send the file to
-  ref(health). It is live on Cloudflare Pages, and an installed copy was tested
+  ref(health). Version 0.1.2 adds an optional investigation-guide link when
+  findings exist; opening it is the user's choice. It is live on Cloudflare Pages, and an installed copy was tested
   in Claude Desktop against the bundled synthetic CSV. MIT-licensed source and
   a release package are published separately at
   `apratsunrthd/refhealth-feed-triage`. Version 0.1.1 was submitted to

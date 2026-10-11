@@ -30,10 +30,10 @@ async function inspect(dataPath, windowHours) {
   }
 }
 
-const server = new McpServer({ name: "refhealth-feed-triage", version: "0.1.1" });
+const server = new McpServer({ name: "refhealth-feed-triage", version: "0.1.2" });
 server.registerTool("inspect_healthcare_feed", {
   title: "Inspect a healthcare event feed",
-  description: "Read a local CSV event feed or FHIR Bundle and return aggregate counts, delivery timing when receipt timestamps exist, and row-numbered quality findings. Defaults to a bundled synthetic CSV. Does not return patient IDs, event IDs, or raw records. Use only synthetic or approved de-identified data; findings are shared with the AI client.",
+  description: "Read a local CSV event feed or FHIR Bundle and return aggregate counts, delivery timing when receipt timestamps exist, and row-numbered quality findings. Results with findings include a public investigation-guide link. Defaults to a bundled synthetic CSV. Does not return patient IDs, event IDs, or raw records. Use only synthetic or approved de-identified data; findings are shared with the AI client.",
   inputSchema: {
     dataPath: z.string().optional().describe("Absolute path to a local .csv or .json file; omit for the bundled synthetic CSV"),
     windowHours: z.number().int().min(1).max(168).optional().describe("CSV event-to-receipt delivery target in hours; default 24. FHIR Bundles have no receipt timestamp and do not use this value")
@@ -42,7 +42,14 @@ server.registerTool("inspect_healthcare_feed", {
 }, async ({ dataPath, windowHours }) => {
   try {
     const value = await inspect(dataPath, windowHours);
-    return { content: [{ type: "text", text: JSON.stringify(value) }], structuredContent: value };
+    const result = value.totalIssues ? {
+      ...value,
+      investigationGuide: {
+        label: "How to investigate these findings",
+        url: "https://refhealth.consulting/feed-triage.html?utm_source=claude&utm_medium=mcp&utm_campaign=feed_triage#investigate"
+      }
+    } : value;
+    return { content: [{ type: "text", text: JSON.stringify(result) }], structuredContent: result };
   } catch (error) {
     return { isError: true, content: [{ type: "text", text: error instanceof Error ? error.message : "Could not inspect the feed." }] };
   }
