@@ -37,24 +37,46 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": ["Organization", "ProfessionalService"],
           "@id": "https://refhealth.consulting/#organization",
           "name": "ref(health) Consulting",
           "url": "https://refhealth.consulting/",
-          "description": "Healthcare data, analytics, and practical AI consulting for health-tech startups and healthcare teams.",
+          "description": "Healthcare data strategy, dbt analytics engineering, and practical AI consulting for health-tech startups and healthcare teams.",
           "email": "contact@refhealth.consulting",
+          "priceRange": "$$$",
           "knowsAbout": [
+            {
+              "@type": "DefinedTerm",
+              "name": "dbt (data build tool)",
+              "sameAs": "https://en.wikipedia.org/wiki/DBT_(software)"
+            },
+            {
+              "@type": "DefinedTerm",
+              "name": "Health care analytics",
+              "sameAs": "https://www.wikidata.org/wiki/Q115788198"
+            },
+            {
+              "@type": "DefinedTerm",
+              "name": "Health Insurance Portability and Accountability Act (HIPAA)",
+              "sameAs": "https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act"
+            },
+            {
+              "@type": "DefinedTerm",
+              "name": "Fast Healthcare Interoperability Resources (FHIR)",
+              "sameAs": "https://en.wikipedia.org/wiki/Fast_Healthcare_Interoperability_Resources"
+            },
+            {
+              "@type": "DefinedTerm",
+              "name": "Artificial intelligence in healthcare",
+              "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence_in_healthcare"
+            },
             "healthcare data strategy",
-            "healthcare analytics",
             "analytics engineering",
-            "dbt",
-            "data governance",
-            "AI readiness",
             "Data AI Operating Systems",
             "multi-model AI orchestration",
             "payer operations",
             "provider operations",
-            "wellness and care navigation",
+            "care navigation",
             "health-tech startup data and AI strategy"
           ],
           "hasOfferCatalog": {
@@ -65,28 +87,38 @@
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Company Data AI Operating System"
+                  "name": "Healthcare AI readiness assessment",
+                  "description": "A 2-week, fixed-scope diagnostic evaluating data foundation, pipeline fitness, and model readiness before funding major AI builds.",
+                  "url": "https://refhealth.consulting/ai-readiness-assessment.html"
+                },
+                "price": "2500",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Company Data AI Operating System",
+                  "description": "Architectural framework connecting business decisions, governed data products, multi-model strategy, and human-in-the-loop workflows.",
+                  "url": "https://refhealth.consulting/healthcare-ai-consulting.html"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Healthcare data strategy and analytics consulting"
+                  "name": "Healthcare data strategy and analytics consulting",
+                  "description": "Mapping data landscapes, systems of record, governance boundaries, and roadmap execution.",
+                  "url": "https://refhealth.consulting/healthcare-data-strategy.html"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Healthcare AI readiness assessment"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "dbt analytics engineering"
+                  "name": "dbt analytics engineering",
+                  "description": "Building tested, modular, and documented healthcare data models that power reliable metrics and AI models.",
+                  "url": "https://refhealth.consulting/dbt-consulting.html"
                 }
               }
             ]
@@ -100,6 +132,44 @@
           "publisher": {
             "@id": "https://refhealth.consulting/#organization"
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://refhealth.consulting/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a Data AI Operating System?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is the operating layer that connects business decisions, data products, model choices, workflow automation, governance, measurement, and adoption. It gives a healthcare team a way to run AI work as a capability instead of a collection of experiments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should a healthcare company use multiple AI providers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use multiple providers when the work benefits from different model strengths, independent checks, resilience, or a deliberate risk and cost posture. When policy, integration, delivery speed, or an existing commitment matters more, going deep with one provider can be the better path."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does a healthcare data landscape assessment cover?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It maps sources, owners, critical metrics, quality failures, lineage, redundant work, single points of failure, and modernization priorities across claims, clinical, member, provider, product, and operational data."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why use dbt for healthcare analytics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "dbt gives analytics teams a shared workflow for versioned SQL models, tests, documentation, lineage, review, and ownership. That makes metrics easier to inspect and easier for business teams to trust."
+              }
+            }
+          ]
         }
       ]
     }

@@ -1,11 +1,36 @@
-# Public pages are intended to be discoverable by search engines and answer
-# engines. Private or unpublished material does not belong in this site.
+# Public pages are discoverable by search engines, AI answer engines, and LLM agents.
 User-agent: *
 Allow: /
 
-# OpenAI uses OAI-SearchBot for ChatGPT search results. Search access is
-# separate from any decision about model-training access.
+# Explicit AI Search & Answer Engine Agents
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Discoverability & Agent Manifests
 Sitemap: https://refhealth.consulting/sitemap.xml
+# LLM Manifest: https://refhealth.consulting/llms.txt
+# LLM Full Corpus: https://refhealth.consulting/llms-full.txt

@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Built and deployed LLM Agent & Answer Engine Discovery Architecture:
+  - Standardized `/llms.txt` and `/llms-full.txt` manifests per `llmstxt.org` specifications for token-dense ingestion by LLM agents, ChatGPT Search, Claude, and Perplexity.
+  - Configured `robots.txt` with explicit crawl permissions for AI answer engines (`OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Meta-ExternalAgent`).
+  - Added edge headers in Cloudflare Pages `_headers` serving `/llms.txt` and `/llms-full.txt` as `text/plain; charset=utf-8`.
+  - Upgraded Schema.org JSON-LD across `index.html` and all service pages (`ai-readiness-assessment.html`, `healthcare-ai-consulting.html`, `dbt-consulting.html`, `healthcare-data-strategy.html`): grounded `knowsAbout` with canonical Wikidata URIs, added `@type: FAQPage` question/answer entities for rich answer engine extraction, and declared `$2,500` diagnostic pricing in service offers.
 - Corrected the visual overview's version stamp to match the live 0.1.2 extension download.
 - Added a fixed investigation-guide link to version 0.1.2 MCP results with findings. The guide gives source-owner checks and sits on the product page; the tool makes no website request.
 - Added a visual one-page Healthcare Feed Triage summary with a local-to-Claude

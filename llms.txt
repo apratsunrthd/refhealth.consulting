@@ -1,0 +1,25 @@
+# ref(health) Consulting
+
+> Senior healthcare data strategy, dbt analytics engineering, and practical AI delivery for health-tech startups.
+
+ref(health) Consulting connects 21 years of healthcare operating experience across payer, provider, wellness, and care navigation with modern analytics engineering (dbt) and multi-model AI orchestration. The practice helps health-tech teams transition from experimental AI pilots to governed Company Data AI Operating Systems.
+
+## Core Capabilities & Services
+
+- [Company Data AI Operating System](https://refhealth.consulting/healthcare-ai-consulting.html): Architectural framework connecting business decisions, governed data products, model strategy, and human-in-the-loop workflows.
+- [AI Readiness Assessment](https://refhealth.consulting/ai-readiness-assessment.html): 2-week paid diagnostic starting at $2,500 evaluating data foundation, pipeline fitness, and model readiness before funding major builds.
+- [dbt Analytics Engineering](https://refhealth.consulting/dbt-consulting.html): Tested dimensional data models, governed metric layers, and production pipelines for healthcare teams.
+- [Healthcare Data Strategy](https://refhealth.consulting/healthcare-data-strategy.html): Data landscape analysis, source system mapping, ownership, and governance across clinical and claims data.
+- [Diagnostic Intake](https://refhealth.consulting/intake.html): Scoping portal for the 2-week $2,500 diagnostic evaluation.
+- [About the Practice](https://refhealth.consulting/about.html): Senior background across healthcare operations, analytics, dbt, and AI delivery.
+
+## Key Frameworks & Technical Insights
+
+- [What Is a Data AI Operating System for Healthcare?](https://refhealth.consulting/blog-data-ai-operating-system.html): The five-layer architecture: business decisions, data products, model strategy, workflow layer, operating cadence.
+- [Single-Provider vs Multi-Model Healthcare AI Strategy](https://refhealth.consulting/blog-healthcare-ai-model-strategy.html): Architectural criteria for orchestrating models across labs vs going deep inside one provider.
+- [Why We Build Healthcare Data Stacks with dbt](https://refhealth.consulting/blog-why-we-build-with-dbt.html): Test coverage, data lineage, documentation, and metric contracts for healthcare compliance.
+- [The $100k-per-Day Healthcare Data Mistake](https://refhealth.consulting/blog-100k-per-day-mistake.html): Why domain knowledge and operational context matter more than raw compute in healthcare analytics.
+
+## Full Documentation for AI Agents
+
+- [Full Site Corpus](https://refhealth.consulting/llms-full.txt): Complete, unabridged markdown text of all service pages, methodologies, and technical insights in a single token-dense file.
