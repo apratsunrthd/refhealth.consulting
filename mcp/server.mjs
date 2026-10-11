@@ -30,7 +30,7 @@ async function inspect(dataPath, windowHours) {
   }
 }
 
-const server = new McpServer({ name: "refhealth-feed-triage", version: "0.1.0" });
+const server = new McpServer({ name: "refhealth-feed-triage", version: "0.1.1" });
 server.registerTool("inspect_healthcare_feed", {
   title: "Inspect a healthcare event feed",
   description: "Read a local CSV event feed or FHIR Bundle and return aggregate counts, delivery timing when receipt timestamps exist, and row-numbered quality findings. Defaults to a bundled synthetic CSV. Does not return patient IDs, event IDs, or raw records. Use only synthetic or approved de-identified data; findings are shared with the AI client.",
