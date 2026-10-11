@@ -16,10 +16,16 @@ flowchart TD
         EMAIL["Cloudflare Email Routing"]
     end
 
-    subgraph Client Experience
+    subgraph Client & Agent Experience
         HTML["Static HTML5 + CSS (IBM Plex)"]
         ATTR["analytics.js (Attribution Engine)"]
         TALLY["Tally Hosted Intake Embed"]
+        LLMS["/llms.txt & /llms-full.txt"]
+    end
+
+    subgraph AI Answer Engines & Agents
+        CRAWL["AI Crawlers (OAI-SearchBot, ClaudeBot, PerplexityBot)"]
+        AGENTS["Autonomous Coding & Research Agents"]
     end
 
     subgraph Measurement & Storage
@@ -30,6 +36,9 @@ flowchart TD
     end
 
     DNS --> PROXY --> WAF --> PAGES --> HTML
+    PAGES --> LLMS
+    CRAWL --> LLMS
+    AGENTS --> LLMS
     HTML --> ATTR --> GA4
     ATTR -->|Injects UTMs| TALLY --> SHEETS
     GA4 --> DASH
@@ -172,3 +181,26 @@ sequenceDiagram
 | **Tally Iframe with Hidden Fields** | Custom backend API, Formspree | Zero backend code or database to maintain; native webhook to Google Sheets; complies with strict healthcare zero-PHI collection policy. |
 | **Edge Bot Fight Mode Challenge** | WAF rate-limiting, CAPTCHAs | Automatically filters automated cloud scraper sweeps (e.g. proxy scans) using lightweight JS challenges without degrading real human UX. |
 | **Privacy-Bounded Attribution** | Full session replays (Hotjar, FullStory) | Healthcare consulting requires absolute data hygiene. No keystrokes, personal data, or form inputs are ever captured in analytics. |
+| **LLM Agent Manifests (`/llms.txt`)** | HTML-only crawling | Provides token-dense, clean markdown with exact service definitions, pricing, and technical articles, avoiding DOM bloat for AI agents. |
+| **Wikidata Entity Grounding** | Plain text keywords in JSON-LD | Directly links ref(health) capabilities to canonical semantic entities (dbt Q111974751, HIPAA Q1785501, FHIR Q16974868) in Google/Perplexity knowledge graphs. |
+
+---
+
+### 6. AI Agent & Answer Engine Discovery Architecture
+
+To establish `refhealth.consulting` as the definitive authority when evaluated by autonomous LLM agents (ChatGPT Search, Perplexity, Claude, Gemini, coding agents), the site implements an end-to-end agent discoverability stack:
+
+1. **Standardized Agent Manifest (`/llms.txt`)**:
+   - Conforms to the `llmstxt.org` specification.
+   - Provides a concise, markdown-formatted catalog indexing core services, the $2,500 diagnostic, technical articles, and direct citations.
+2. **Comprehensive Token-Dense Corpus (`/llms-full.txt`)**:
+   - Unabridged markdown containing the full text of all service scopes, the 5-layer Data AI Operating System framework, all 4 technical articles, and a targeted Q&A directory for instant context injection.
+3. **Explicit Agent Crawler Permissions (`robots.txt`)**:
+   - Dedicated User-Agent directives authorizing `OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, and `Meta-ExternalAgent`.
+4. **Edge Content Negotiation (`_headers`)**:
+   - Explicit `Content-Type: text/plain; charset=utf-8` and 1-hour cache revalidation headers for both agent files.
+5. **Entity-Grounded Schema.org Knowledge Graph**:
+   - High-fidelity JSON-LD on `index.html` and service pages with `@type: ["Organization", "ProfessionalService"]`.
+   - `knowsAbout` explicitly resolves to canonical Wikidata and Wikipedia entities (e.g. `dbt`, `Health care analytics`, `HIPAA`, `HL7 FHIR`, `Artificial intelligence in healthcare`).
+   - Every service page embeds `@type: FAQPage` question/answer blocks and explicit `$2,500 USD` offer pricing.
+

@@ -39,7 +39,9 @@ Important files:
   healthcare AI strategy article
 - `blog-100k-per-day-mistake.html` - domain knowledge article
 - `blog-why-we-build-with-dbt.html` - dbt article
-- `robots.txt` - public crawl policy, including explicit OAI-SearchBot access
+- `robots.txt` - public crawl policy, including explicit AI crawler permissions (OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended)
+- `llms.txt` - concise markdown site manifest optimized for LLM agent ingestion and citations
+- `llms-full.txt` - token-dense unabridged site corpus and Q&A directory for direct LLM context windows
 - `sitemap.xml` - public URL inventory; the GitHub Action regenerates it on main
 - `d774f0fd6934e4b0345056d9a28dbcf1.txt` - IndexNow ownership key file
 - `index.html` - homepage with Google Search Console and Bing Webmaster

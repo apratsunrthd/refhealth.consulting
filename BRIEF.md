@@ -89,6 +89,11 @@ company Data AI Operating System buildouts.
   - Formulated comprehensive B2B Paid Acquisition & Advertising Plan in `ADVERTISING_PLAN.md` with a $1,500 pilot sprint budget, brand-led LinkedIn sponsored content, Google high-intent keyword targeting, and automated UTM attribution tracking into Tally and Google Sheets.
 - System design and operating documentation:
   - Codified the complete system architecture, data flows, and technical decisions in `ARCHITECTURE.md`.
+- LLM Agent & Answer Engine Authority Overhaul:
+  - Created standardized `/llms.txt` and comprehensive `/llms-full.txt` per `llmstxt.org` specifications for token-dense ingestion by LLM agents (ChatGPT Search, Claude, Perplexity, Gemini).
+  - Configured `robots.txt` with explicit crawl rules for AI search crawlers (`OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Meta-ExternalAgent`).
+  - Added Cloudflare Pages edge headers in `_headers` serving `/llms.txt` and `/llms-full.txt` as `text/plain; charset=utf-8` with 1-hour revalidation caching.
+  - Upgraded Schema.org JSON-LD graph across `index.html` and service pages with canonical Wikidata URIs, `@type: FAQPage` structured Q&A, and explicit $2,500 diagnostic pricing.
 - The intake asks one optional outcome question and clarifies the best-fit
   engagement signal: a specific decision, owner, and near-term date.
 - The flagship AI offer now carries the owner-approved anonymized outcome
