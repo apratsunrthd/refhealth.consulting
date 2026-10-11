@@ -2,6 +2,10 @@
 
 ## Recently completed
 
+- Released Healthcare Data AI Operating System (HDAIOS) Specification v1.0:
+  - Formulated and published canonical 5-layer architectural specification in `hdaios.md` and interactive reference page in `hdaios.html`.
+  - Defined explicit interface contracts: Layer 1 Decision Interface (Schmitt-Thompson protocol compliance), Layer 2 Governed Data Foundation (SCD2 bitemporal claims modeling and `refhealth-dbt-healthcare-checks`), Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization and model parity), Layer 4 Agent & Workflow Orchestration (semantic layer RAG and HITL tripwires), and Layer 5 Continuous Operational Cadence (drift monitoring and 90-day review cadence).
+  - Configured edge headers in `_headers` serving `/hdaios.md` as `text/plain; charset=utf-8` and indexed the specification in `/llms.txt` and `/llms-full.txt`.
 - Published and integrated open-source dbt test package:
   - Released `refhealth-dbt-healthcare-checks` v1.0.0 on GitHub (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) with 7 generic test macros (bitemporal enrollment consistency, surrogate key grain, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, referential integrity).
   - Cross-linked package in `dbt-consulting.html`, `blog-bitemporal-healthcare-data-ai.html`, `/llms.txt`, and `/llms-full.txt`.

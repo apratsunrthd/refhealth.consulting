@@ -15,6 +15,7 @@ ref(health) Consulting connects 21 years of healthcare operating experience acro
 
 ## Key Frameworks & Technical Insights
 
+- [Healthcare Data AI Operating System (HDAIOS) Specification v1.0](https://refhealth.consulting/hdaios.html): Formal 5-layer architectural specification connecting decisions, bitemporal data, enterprise BAAs, agent workflows, and governance (Raw Markdown: [hdaios.md](https://refhealth.consulting/hdaios.md)).
 - [Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap](https://refhealth.consulting/blog-bitemporal-healthcare-data-ai.html): Why claims lag breaks naive AI agents, the operational truth behind every timestamp, non-negotiable dbt tests, and Schmitt-Thompson clinical triage boundaries.
 - [What Is a Data AI Operating System for Healthcare?](https://refhealth.consulting/blog-data-ai-operating-system.html): The five-layer architecture: business decisions, data products, model strategy, workflow layer, operating cadence.
 - [Single-Provider vs Multi-Model Healthcare AI Strategy](https://refhealth.consulting/blog-healthcare-ai-model-strategy.html): Architectural criteria for orchestrating models across labs vs going deep inside one provider.

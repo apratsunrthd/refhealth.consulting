@@ -204,3 +204,66 @@ To establish `refhealth.consulting` as the definitive authority when evaluated b
    - `knowsAbout` explicitly resolves to canonical Wikidata and Wikipedia entities (e.g. `dbt`, `Health care analytics`, `HIPAA`, `HL7 FHIR`, `Artificial intelligence in healthcare`).
    - Every service page embeds `@type: FAQPage` question/answer blocks and explicit `$2,500 USD` offer pricing.
 
+---
+
+### 7. Healthcare Data AI Operating System (HDAIOS) v1.0 Architecture
+
+The site publishes and serves the canonical open specification for HDAIOS v1.0 at `/hdaios.html` and `/hdaios.md` (with edge `text/plain; charset=utf-8` delivery). HDAIOS structures healthcare data and generative AI systems into 5 decoupled, verifiable layers:
+
+```mermaid
+flowchart TD
+    subgraph Layer 1: Decision Interface
+        ST["Schmitt-Thompson Protocol Engine"]
+        CLIN["Certified Clinical Systems"]
+        OPS["Operational/Administrative Workflows"]
+    end
+
+    subgraph Layer 2: Governed Data Foundation
+        RAW["Raw Ingestion (EHR, Claims, EDI 837/835)"]
+        SCD2["SCD Type 2 Bitemporal Warehouse Models"]
+        DBT["refhealth-dbt-healthcare-checks (7 Integrity Tests)"]
+    end
+
+    subgraph Layer 3: Enterprise BAA & Model Gateway
+        GATEWAY["Model Gateway (Bedrock, Azure OpenAI, Vertex AI)"]
+        BAA["Signed Enterprise BAAs & Cloud Commitments"]
+        ROUTER["Intent & Latency Router (Claude, GPT, Gemini)"]
+    end
+
+    subgraph Layer 4: Agent & Semantic Orchestration
+        SEM["Governed Metric Layer (Semantic Layer RAG)"]
+        HITL["Human-in-the-Loop Tripwires"]
+        AGENT["Specialized Operational Agents"]
+    end
+
+    subgraph Layer 5: Continuous Operational Cadence
+        DRIFT["Data & Model Drift Monitoring"]
+        CADENCE["90-Day Executive Review Cadence"]
+    end
+
+    RAW --> SCD2 --> DBT --> SEM
+    SEM --> AGENT
+    GATEWAY --> ROUTER --> AGENT
+    BAA -.-> GATEWAY
+    AGENT --> HITL --> OPS
+    CLIN -.-> ST
+    OPS --> DRIFT --> CADENCE
+```
+
+1. **Layer 1: Decision Interface & Clinical Guardrails**:
+   - Hard boundary enforcing Schmitt-Thompson triage protocols.
+   - Restricts non-clinical frontier LLMs strictly to operational, administrative, and analytical tasks. Clinical advice or diagnostic recommendations without medical-device clearance are structurally prohibited.
+2. **Layer 2: Governed Data Foundation (Bitemporality & dbt Integrity)**:
+   - Claims processing lag (48h clearinghouse to multi-week payer cycles) mandates Slowly Changing Dimensions (SCD) Type 2 bitemporality. Queries track both Event Time (`date_of_service`) and System Knowledge Time (`received_date`, `paid_date`).
+   - Integrates the open-source `refhealth-dbt-healthcare-checks` package (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) enforcing 7 generic tests: surrogate key uniqueness, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, bitemporal enrollment consistency, and referential integrity.
+3. **Layer 3: Enterprise BAA & Model Gateway**:
+   - Capitalizes on existing enterprise cloud commitments (AWS Bedrock, Azure OpenAI, GCP Vertex AI) under executed Business Associate Agreements (BAAs).
+   - Treats frontier models (Claude, OpenAI, Gemini) as interchangeable commodities routed dynamically based on token economics and latency rather than vendor lock-in.
+4. **Layer 4: Agent & Workflow Orchestration**:
+   - Grounds autonomous agent tool-calling strictly through governed semantic metrics rather than unconstrained raw SQL generation over raw tables.
+   - Enforces mandatory human-in-the-loop (HITL) review gates on high-risk workflows (claims appeals, payment adjustments, provider disputes).
+5. **Layer 5: Continuous Operational Cadence**:
+   - Automated monitoring of upstream claims lag shifts, EHR format drift, and model output stability.
+   - Structured 90-day executive operating cadence reviewing data quality pass rates, token utilization, and workflow automation ROI.
+
+

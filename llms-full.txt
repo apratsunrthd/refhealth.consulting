@@ -79,7 +79,15 @@ Most healthcare AI initiatives stall not because frontier models lack capability
 
 ---
 
-## 4. Technical Architecture Insights & Point of View
+## 4. Technical Architecture Specifications & Insights
+
+### Formal Specification: Healthcare Data AI Operating System (HDAIOS) v1.0.0
+* **Status**: Stable Reference Specification (Canonical: https://refhealth.consulting/hdaios.html | Raw: https://refhealth.consulting/hdaios.md)
+* **Layer 1: Decision Interface (DI)**: Connects each initiative to a designated decision owner, pre-implementation baseline, and strict clinical triage boundaries (Schmitt-Thompson clinical protocol compliance; uncertified LLMs barred from diagnosis/triage).
+* **Layer 2: Governed Data Foundation (GDF)**: Implements Slowly Changing Dimensions (SCD Type 2) bitemporal operations (Event vs. Transaction vs. Knowledge time), the 7 non-negotiable dbt tests via `refhealth-dbt-healthcare-checks`, and pre-flight zero-PHI stream verification via `refhealth-feed-triage`.
+* **Layer 3: Enterprise BAA & Model Gateway (EBMG)**: Grounded in the Model Parity Principle; optimizes within existing cloud BAA commitments (AWS Bedrock, Azure OpenAI, GCP Vertex AI) with task-to-capability routing.
+* **Layer 4: Agent & Workflow Orchestration (AWO)**: Mediates context retrieval via governed dbt semantic layers and enforces hard Human-in-the-Loop (HITL) tripwires (confidence drops, bitemporal anomalies, financial dollar limits, clinical symptom triggers).
+* **Layer 5: Continuous Operational Cadence (COC)**: Ongoing lineage monitoring, drift alerting, and structured 90-day review cycles evaluating commercial ROI and decision velocity.
 
 ### Technical Article 1: Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap
 * **Core Thesis**: Claims are not real-time event streams. Clearinghouse and payer batching introduces 48-hour to multi-week latency. Plugging an LLM agent directly into claims tables without bitemporal modeling causes severe retrospective hallucinations and anachronisms.
