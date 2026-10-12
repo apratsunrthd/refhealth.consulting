@@ -2,6 +2,10 @@
 
 ## Recently completed
 
+- Syndicated Healthcare Feed Triage across Open MCP Registries (Smithery, Cursor, Claude CLI):
+  - Added `smithery.yaml` configuration to `apratsunrthd/refhealth-feed-triage` enabling one-click installation via `npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`.
+  - Added Node shebang to `mcp/server.mjs` for direct CLI process execution and rebuilt `refhealth-feed-triage.mcpb`.
+  - Updated `feed-triage.html` with multi-client install options (Claude Desktop `.mcpb` and Smithery CLI for Cursor/Windsurf).
 - Built and deployed Interactive HDAIOS Self-Assessment Tool:
   - Deployed client-side, zero-PHI 10-question evaluation widget on `hdaios.html` (`#assessment`) covering all 5 HDAIOS layers.
   - Implemented dynamic scoring (0–100%), architectural risk tiering (Production Ready, Emerging Foundation, High-Risk Pilot), and automated remediation gap analysis.
