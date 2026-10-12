@@ -2,6 +2,15 @@
 
 ## Recently completed
 
+- Published Flagship Technical Guide on EDI 837 vs 835 Claims Modeling in dbt:
+  - Authored deep architectural guide `blog-edi-837-835-claims-modeling-dbt.html` ("EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates Without Row Multiplication").
+  - Dissected the 4 primary operational failure modes: claim frequency codes (1 vs 7 vs 8), Claim Adjustment Segment (CAS) normalization into a 2-table dimensional bridge to avoid 3x–5x row multiplication, overpayment takebacks/recoupments (PLB), and true net denial rates vs first-pass clerical rejections.
+  - Cross-linked across `blog.html`, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
+- Upgraded Cloneable Healthcare dbt Starter Repository (`apratsunrthd/refhealth-starter-dbt-project` v1.1.0):
+  - Added synthetic, zero-PHI earned plan premiums seed (`raw_plan_premiums.csv`) and staging model (`stg_plan_premiums.sql`).
+  - Implemented production-grade monthly actuarial & financial metrics mart (`fct_plan_monthly_metrics.sql`): statutory ACA Medical Loss Ratio (MLR), Allowed/Net PMPM costs, Member Cost-Share Ratio, and Median/P90 claims adjudication turnaround lag percentiles.
+  - Expanded test suite from 51 to 78 passing automated tests on DuckDB including `accepted_range` and surrogate key grain checks.
+  - Tagged and released `v1.1.0` on GitHub.
 - Built and deployed Interactive Diagnostic Scope & Statement of Work (SOW) Generator:
   - Deployed client-side, zero-PHI SOW Generator at `ai-readiness-assessment.html#scope-generator`.
   - Dynamically synthesizes client warehouse (Snowflake, BigQuery, Databricks, PostgreSQL, DuckDB), ingestion feeds (claims, eligibility, clinical, provider), and priority pipeline friction points into an executive budget memo.

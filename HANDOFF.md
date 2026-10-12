@@ -19,7 +19,7 @@ Important files:
 - `mcp/test/` - feed rules and MCP client integration tests
 - Public extension source: `https://github.com/apratsunrthd/refhealth-feed-triage`; supports Claude Desktop (`.mcpb`) and Smithery CLI (`npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`).
 - Public dbt test package: `https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`; open-source dbt package with 7 healthcare integrity tests.
-- Public starter repository: `https://github.com/apratsunrthd/refhealth-starter-dbt-project`; cloneable DuckDB healthcare dbt starter project with synthetic claims and 51 passing tests.
+- Public starter repository: `https://github.com/apratsunrthd/refhealth-starter-dbt-project`; cloneable DuckDB healthcare dbt starter project (v1.1.0) with synthetic claims, monthly actuarial metrics, and 78 passing tests.
 - `hdaios.html` / `hdaios.md` - Healthcare Data AI Operating System (HDAIOS) v1.0 canonical architectural specification and interactive, zero-PHI self-assessment audit tool (`#assessment`)
 - Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Version 0.1.2 adds an optional guide link, but the submitted 0.1.1 package does not contain it. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
@@ -37,6 +37,7 @@ Important files:
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
+- `blog-edi-837-835-claims-modeling-dbt.html` - technical guide on EDI 837 claim submission vs 835 remittance reconciliation, CAS normalization, takebacks, and net denial rates
 - `blog-healthcare-dbt-audit-playbook.html` - 48-hour healthcare dbt audit playbook covering grain collapse, bitemporal desync, midnight timestamps, and code drift
 - `blog-bitemporal-healthcare-data-ai.html` - bitemporal claims modeling, healthcare dbt tests, and clinical triage boundaries
 - `blog-data-ai-operating-system.html` - original AI operating-system explainer
