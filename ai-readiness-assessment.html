@@ -152,7 +152,7 @@
         <p class="price-line"><strong>From $2,500</strong><span>Focused scope. Clear decision. Larger assessments scoped separately.</span></p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="intake.html">Start a $2,500 diagnostic</a>
-          <a class="btn btn--secondary" href="hdaios.html#assessment">Run free 5-layer self-assessment</a>
+          <a class="btn btn--secondary" href="#scope-generator">Generate 2-week SOW (.md)</a>
         </div>
       </div>
     </section>
@@ -202,6 +202,149 @@
           <li><strong>Clinical &amp; governance boundaries</strong><span>Escalation tripwires—including Schmitt-Thompson clinical protocol compliance—and enterprise BAA alignment.</span></li>
           <li><strong>90-day execution roadmap</strong><span>A sequenced build sprint, dbt accelerator, or operating-system workstream.</span></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section" id="scope-generator" aria-labelledby="scope-gen-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="page-kicker">Interactive scoping tool &middot; Zero-PHI</p>
+            <h2 id="scope-gen-title">Generate Your 2-Week Diagnostic Statement of Work</h2>
+          </div>
+          <p>Select your warehouse environment, upstream feeds, and pipeline friction. Instantly generate an executive-ready Statement of Work (SOW) memo to share with your VP of Data or CFO for budget authorization.</p>
+        </div>
+
+        <div class="sow-generator" id="sow-builder">
+          <!-- Step 1: Warehouse -->
+          <div class="sow-step-card">
+            <div class="sow-step-header">
+              <span class="sow-step-num">Step 1</span>
+              <h3 class="sow-step-title">Primary Data Warehouse &amp; Transformation Engine</h3>
+            </div>
+            <div class="sow-grid">
+              <label class="sow-choice-label is-selected">
+                <input type="radio" name="sow_warehouse" value="Snowflake + dbt" checked />
+                <span>Snowflake + dbt</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="radio" name="sow_warehouse" value="Google BigQuery + dbt" />
+                <span>Google BigQuery + dbt</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="radio" name="sow_warehouse" value="Databricks + dbt" />
+                <span>Databricks + dbt</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="radio" name="sow_warehouse" value="PostgreSQL / AWS RDS" />
+                <span>PostgreSQL / AWS RDS</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="radio" name="sow_warehouse" value="DuckDB / Local Analytics Stack" />
+                <span>DuckDB / Local Analytics Stack</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="radio" name="sow_warehouse" value="Other / Hybrid Cloud Warehouse" />
+                <span>Other / Hybrid Cloud Warehouse</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Sources -->
+          <div class="sow-step-card">
+            <div class="sow-step-header">
+              <span class="sow-step-num">Step 2</span>
+              <h3 class="sow-step-title">Core Upstream Ingestion Feeds</h3>
+            </div>
+            <div class="sow-grid">
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_source" value="Medical Claims (EDI 837 / Clearinghouse 835)" checked />
+                <span>Medical Claims (EDI 837 / 835)</span>
+              </label>
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_source" value="Member Eligibility Rosters (EDI 834)" checked />
+                <span>Member Eligibility Rosters (EDI 834)</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_source" value="Pharmacy Claims (NCPDP D.0)" />
+                <span>Pharmacy Claims (NCPDP)</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_source" value="Clinical Feeds (FHIR Bundles / HL7 / EHR)" />
+                <span>Clinical Feeds (FHIR / EHR)</span>
+              </label>
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_source" value="Provider Directories (CMS NPPES / Taxonomy)" checked />
+                <span>Provider Directories (NPPES)</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_source" value="Prior Authorization &amp; Utilization Feeds" />
+                <span>Prior Auth &amp; Utilization Feeds</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Friction Points -->
+          <div class="sow-step-card">
+            <div class="sow-step-header">
+              <span class="sow-step-num">Step 3</span>
+              <h3 class="sow-step-title">Primary Pipeline Friction &amp; Audit Focus</h3>
+            </div>
+            <div class="sow-grid">
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_friction" value="Surrogate key grain collapse &amp; duplicate rows distorting MLR / financial spend" checked />
+                <span>Surrogate grain duplicate rows (distorting MLR)</span>
+              </label>
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_friction" value="Bitemporal eligibility desync (retro-enrollment &amp; coverage churn)" checked />
+                <span>Bitemporal eligibility desync (retro-enrollment)</span>
+              </label>
+              <label class="sow-choice-label is-selected">
+                <input type="checkbox" name="sow_friction" value="Clearinghouse latency &amp; claims lag distortion (event time vs transaction time)" checked />
+                <span>Claims lag &amp; clearinghouse batch latency</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_friction" value="Midnight (00:00:00) timestamp drops warping TAT calculations" />
+                <span>Dropped midnight (00:00:00) timestamps</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_friction" value="Code registry drift (invalid CMS NPI, ICD-10, or CPT codes)" />
+                <span>Code drift (invalid NPI, ICD-10, CPT)</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_friction" value="Lack of automated dbt test assertions &amp; CI/CD regression guardrails" />
+                <span>Missing dbt test suite &amp; CI/CD guardrails</span>
+              </label>
+              <label class="sow-choice-label">
+                <input type="checkbox" name="sow_friction" value="Actuarial metric discrepancies (Allowed PMPM, Medical Loss Ratio)" />
+                <span>Metric discrepancies (MLR, Allowed PMPM)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Preview -->
+          <div class="sow-output-panel">
+            <div class="sow-output-header">
+              <div>
+                <span class="assessment-pill">Scope Memo v1.0</span>
+                <span class="assessment-pill assessment-pill--privacy">100% Zero-PHI Guarantee</span>
+                <h3 style="margin: 0.35rem 0 0; font-size: 1.2rem;">Generated Statement of Work &amp; Budget Justification</h3>
+              </div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem; font-weight: 600; color: var(--ink);">
+                Fixed Fee: $2,500 USD &middot; 2 Weeks
+              </div>
+            </div>
+
+            <pre class="sow-output-pre" id="sow-memo-text" tabindex="0" aria-label="Generated Statement of Work text"></pre>
+
+            <div class="assessment-actions" style="margin-top: 1.5rem;">
+              <button type="button" class="btn btn--primary" id="sow-copy-btn">Copy SOW to Clipboard</button>
+              <button type="button" class="btn btn--secondary" id="sow-download-btn">Download SOW (.md)</button>
+              <a href="intake.html" class="btn btn--secondary" id="sow-submit-link">Request Diagnostic with This Scope &rarr;</a>
+              <span class="sow-toast" id="sow-toast" aria-live="polite">&check; Copied to clipboard!</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -272,5 +415,151 @@
     </div>
   </footer>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      const warehouseInputs = document.querySelectorAll('input[name="sow_warehouse"]');
+      const sourceInputs = document.querySelectorAll('input[name="sow_source"]');
+      const frictionInputs = document.querySelectorAll('input[name="sow_friction"]');
+      const memoPre = document.getElementById("sow-memo-text");
+      const copyBtn = document.getElementById("sow-copy-btn");
+      const downloadBtn = document.getElementById("sow-download-btn");
+      const submitLink = document.getElementById("sow-submit-link");
+      const toast = document.getElementById("sow-toast");
+
+      function updateSelectionsUI() {
+        document.querySelectorAll(".sow-choice-label").forEach((lbl) => {
+          const input = lbl.querySelector("input");
+          if (input && input.checked) {
+            lbl.classList.add("is-selected");
+          } else {
+            lbl.classList.remove("is-selected");
+          }
+        });
+      }
+
+      function generateMemo() {
+        let warehouse = "Snowflake + dbt";
+        warehouseInputs.forEach((i) => {
+          if (i.checked) warehouse = i.value;
+        });
+
+        const sources = [];
+        sourceInputs.forEach((i) => {
+          if (i.checked) sources.push(i.value);
+        });
+
+        const frictions = [];
+        frictionInputs.forEach((i) => {
+          if (i.checked) frictions.push(i.value);
+        });
+
+        const today = new Date().toISOString().split("T")[0];
+
+        const memo = `# STATEMENT OF WORK & SCOPE MEMORANDUM
+Engagement: 2-Week Healthcare Data & Pipeline Diagnostic
+Client Deliverables & Authorization Proposal
+Date Generated: ${today}
+Prepared By: ref(health) Consulting (https://refhealth.consulting)
+Primary Contact: contact@refhealth.consulting
+Fee Structure: $2,500 USD (Fixed Fee, No Hidden Surcharges)
+Duration: 2 Weeks (10 Business Days)
+Privacy Standard: 100% Zero-PHI Guarantee (Schema, Metadata, and Synthetic Seed Auditing)
+
+---
+
+### 1. Executive Summary & Objective
+ref(health) Consulting will perform an independent, 2-week architectural and pipeline diagnostic on the Client's healthcare analytics environment. The objective is to identify silent data defects, audit bitemporal coverage consistency, eliminate grain duplication risks, and deliver production-ready dbt test assertions.
+
+### 2. In-Scope Technical Landscape
+* Primary Warehouse / Engine: ${warehouse}
+* Upstream Ingestion Feeds:
+${sources.length > 0 ? sources.map((s) => `  - ${s}`).join("\n") : "  - (None specified)"}
+
+### 3. Priority Friction Points & Diagnostic Focus
+The 2-week diagnostic will rigorously audit the following identified failure modes:
+${frictions.length > 0 ? frictions.map((f) => `  - ${f}`).join("\n") : "  - General pipeline health, test coverage, and documentation audit"}
+
+### 4. Fixed Deliverables
+1. Executive Decision Memo (2-Page Briefing):
+   - Executive overview for the CTO, VP of Data, and CFO.
+   - Financial distortion impact analysis (evaluating potential MLR and Allowed PMPM corruption).
+   - Priority ranking of technical blockers.
+
+2. Pipeline Blocker Matrix:
+   - Granular inventory of identified surrogate grain duplicates, bitemporal coverage gaps, and timestamp truncation issues.
+   - Categorization by operational severity and fix complexity.
+
+3. Ready-to-Merge dbt Tests & Execution Scripts:
+   - Customized generic test assertions and SQL models leveraging the open-source refhealth-dbt-healthcare-checks suite.
+   - Production-tested assertions for immediate merging into Client pull requests.
+
+4. 90-Day Implementation Roadmap:
+   - Sequenced action plan for permanent CI/CD pipeline tests, metric governance, and data product ownership.
+
+### 5. Working Cadence & Milestones
+* Day 1 (Kickoff): Alignment on warehouse schemas, table grains, and priority financial/clinical metrics.
+* Day 5 (Mid-Point Readout): Early findings on surrogate grain, bitemporal date spans, and timestamp distributions.
+* Day 10 (Final Delivery): Delivery of Executive Decision Memo, Blocker Matrix, and merged dbt tests.
+
+### 6. Commercial Terms & Authorization
+* Total Investment: $2,500 USD fixed fee.
+* Zero-PHI Assurance: ref(health) Consulting strictly adheres to zero-PHI standards. No individual patient data, clinical notes, or identifiable records will be ingested.
+* To Initiate: Submit this scope via https://refhealth.consulting/intake.html or email contact@refhealth.consulting to confirm your start date.`;
+
+        memoPre.textContent = memo;
+
+        const encodedSummary = encodeURIComponent(
+          "Warehouse: " + warehouse + " | Sources: " + sources.join(", ") + " | Friction: " + frictions.join("; ")
+        );
+        submitLink.href = "intake.html?scope=" + encodedSummary;
+      }
+
+      function handleCopy() {
+        const text = memoPre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          toast.classList.add("is-visible");
+          setTimeout(() => toast.classList.remove("is-visible"), 2500);
+        }).catch(() => {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          toast.classList.add("is-visible");
+          setTimeout(() => toast.classList.remove("is-visible"), 2500);
+        });
+      }
+
+      function handleDownload() {
+        const text = memoPre.textContent;
+        const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "refhealth-2-week-diagnostic-sow.md";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      const allInputs = document.querySelectorAll(
+        'input[name="sow_warehouse"], input[name="sow_source"], input[name="sow_friction"]'
+      );
+      allInputs.forEach((i) => {
+        i.addEventListener("change", () => {
+          updateSelectionsUI();
+          generateMemo();
+        });
+      });
+
+      copyBtn.addEventListener("click", handleCopy);
+      downloadBtn.addEventListener("click", handleDownload);
+
+      updateSelectionsUI();
+      generateMemo();
+    })();
+  </script>
 </body>
 </html>

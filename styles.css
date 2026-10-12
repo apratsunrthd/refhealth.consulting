@@ -1777,3 +1777,139 @@ h4 {
   opacity: 1;
 }
 
+/* ==========================================================================
+   Diagnostic Scope & Statement of Work (SOW) Generator
+   ========================================================================== */
+.sow-generator {
+  background: var(--paper-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2.5rem 0;
+  box-shadow: 0 12px 36px rgba(17, 16, 14, 0.05);
+}
+
+.sow-step-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sow-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sow-step-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--ink);
+  color: var(--white);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.sow-step-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.sow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+}
+
+.sow-choice-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+  user-select: none;
+}
+
+.sow-choice-label:hover {
+  border-color: var(--line-strong);
+  background: #fff;
+}
+
+.sow-choice-label input[type="checkbox"],
+.sow-choice-label input[type="radio"] {
+  margin-top: 0.15rem;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
+.sow-choice-label.is-selected {
+  border-color: var(--ink);
+  background: #fff;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.sow-output-panel {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(17, 16, 14, 0.08);
+}
+
+.sow-output-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sow-output-pre {
+  background: var(--paper-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 480px;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+
+.sow-toast {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--green);
+  margin-left: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sow-toast.is-visible {
+  opacity: 1;
+}
+

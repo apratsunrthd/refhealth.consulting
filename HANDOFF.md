@@ -25,8 +25,8 @@ Important files:
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
 - `dbt-consulting.html` - dbt and analytics engineering offer
-- `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer
-- `intake.html` - paid diagnostic intake page with hosted Tally form and email fallback
+- `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer and interactive Statement of Work (SOW) Generator (`#scope-generator`)
+- `intake.html` - paid diagnostic intake page with hosted Tally form, email fallback, and SOW query-parameter banner
 - `analytics.js` - shared privacy-safe attribution and conversion events
 - `MEASUREMENT.md` - measurement architecture, event dictionary, and operating cadence
 - `ADVERTISING_PLAN.md` - paid acquisition strategy, unit economics, audience targeting, and $1,500 pilot sprint

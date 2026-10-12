@@ -124,6 +124,9 @@
           <p class="intake-note"><strong>Keep it high level.</strong> Please do not include PHI, customer records, credentials, or confidential material.</p>
           <p class="intake-note"><strong>Best fit.</strong> A specific business decision with an owner and a near-term date, not a broad AI tour.</p>
           <p class="intake-note">The diagnostic usually runs one to two weeks. Larger scopes are agreed before work begins.</p>
+          <p class="intake-note" style="border-left: 3px solid var(--ink); background: var(--paper-strong);">
+            <strong>Need a proposal for your team first?</strong> Use our interactive <a href="ai-readiness-assessment.html#scope-generator">Statement of Work (SOW) Generator</a> to download a custom 1-page budget memo in 60 seconds.
+          </p>
           <div class="intake-process">
             <h3>What happens next.</h3>
             <ol>
@@ -135,6 +138,10 @@
         </div>
 
         <div class="intake-form intake-form--hosted" aria-label="Healthcare AI diagnostic intake">
+          <div id="scope-banner" style="display:none; margin-bottom: 1rem; padding: 0.85rem 1rem; background: #fff; border: 2px solid var(--ink); border-radius: var(--radius); font-size: 0.88rem; line-height: 1.45;">
+            <strong style="display:block; margin-bottom:0.25rem;">Custom SOW Scope Attached:</strong>
+            <span id="scope-summary-text" style="color:var(--muted); font-family:var(--font-mono); font-size:0.8rem;"></span>
+          </div>
           <p class="form-fallback">Prefer email, or is the hosted form not loading? Send the same high-level details to <a href="mailto:contact@refhealth.consulting">contact@refhealth.consulting</a>.</p>
           <iframe data-tally-src="https://tally.so/embed/5BJOVN?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;formEventsForwarding=1" loading="lazy" width="100%" height="1146" frameborder="0" marginheight="0" marginwidth="0" title="Start a Healthcare AI Diagnostic"></iframe>
           <script>
@@ -191,6 +198,20 @@
       </nav>
     </div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var scope = params.get("scope");
+      if (scope) {
+        var banner = document.getElementById("scope-banner");
+        var text = document.getElementById("scope-summary-text");
+        if (banner && text) {
+          text.textContent = scope;
+          banner.style.display = "block";
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
