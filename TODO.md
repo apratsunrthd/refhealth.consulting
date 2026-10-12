@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Built and deployed Interactive Diagnostic Scope & Statement of Work (SOW) Generator:
+  - Deployed client-side, zero-PHI SOW Generator at `ai-readiness-assessment.html#scope-generator`.
+  - Dynamically synthesizes client warehouse (Snowflake, BigQuery, Databricks, PostgreSQL, DuckDB), ingestion feeds (claims, eligibility, clinical, provider), and priority pipeline friction points into an executive budget memo.
+  - Implemented one-click Markdown clipboard copy, `.md` file download, and pre-filled handoff to `intake.html`.
+  - Added custom scope parameter listener on `intake.html` rendering scope verification banner.
 - Built and released Cloneable Healthcare dbt Starter Repository (`apratsunrthd/refhealth-starter-dbt-project` v1.0.0):
   - Created open-source reference implementation featuring DuckDB zero-setup local execution and cross-warehouse ANSI SQL compatibility.
   - Implemented 100% synthetic, zero-PHI seeds (`raw_members.csv`, `raw_providers.csv`, `raw_claims.csv`), staging views (`stg_members`, `stg_providers`, `stg_claims`), and marts tables (`dim_members`, `dim_providers`, `fct_claims`).

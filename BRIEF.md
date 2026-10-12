@@ -64,6 +64,9 @@ company Data AI Operating System buildouts.
 - The open-source reference template `apratsunrthd/refhealth-starter-dbt-project` v1.0.0
   is published and integrated across `dbt-consulting.html`, `/llms.txt`, and `/llms-full.txt`,
   providing a cloneable DuckDB healthcare dbt repository with 51/51 automated tests passing out of the box.
+- An interactive, client-side Diagnostic Statement of Work (SOW) Generator is live at
+  `ai-readiness-assessment.html#scope-generator` and cross-linked in `intake.html`, enabling prospects
+  to select their warehouse and pipeline friction points to generate and download a custom 1-page SOW memo.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
