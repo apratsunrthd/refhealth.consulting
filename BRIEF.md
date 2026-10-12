@@ -68,6 +68,9 @@ company Data AI Operating System buildouts.
 - An interactive, client-side Diagnostic Statement of Work (SOW) Generator is live at
   `ai-readiness-assessment.html#scope-generator` and cross-linked in `intake.html`, enabling prospects
   to select their warehouse and pipeline friction points to generate and download a custom 1-page SOW memo.
+- An interactive, client-side Claims Lag & Capital Float Calculator is live at `dbt-consulting.html#calculator`,
+  enabling engineering and finance leaders to quantify unadjudicated capital float, annual clerical rework friction,
+  and MLR volatility margins with 1-click executive memo generation and direct pre-filled handoff to `intake.html`.
 - The flagship technical guide on EDI 837 vs 835 Claims Modeling in dbt is published at `/blog-edi-837-835-claims-modeling-dbt.html`,
   providing a senior analytics engineering teardown of claim frequency codes (1 vs 7 vs 8), Claim Adjustment Segment (CAS) normalization
   to prevent 3x–5x row multiplication, overpayment takebacks/recoupments (PLB), and true net denial rate modeling. Cross-linked across

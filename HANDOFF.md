@@ -24,7 +24,7 @@ Important files:
 - Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Version 0.1.2 adds an optional guide link, but the submitted 0.1.1 package does not contain it. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
 - `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
-- `dbt-consulting.html` - dbt and analytics engineering offer
+- `dbt-consulting.html` - dbt and analytics engineering offer, featuring interactive Claims Lag & Capital Float Calculator (`#calculator`)
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer and interactive Statement of Work (SOW) Generator (`#scope-generator`)
 - `intake.html` - paid diagnostic intake page with hosted Tally form, email fallback, and SOW query-parameter banner
 - `analytics.js` - shared privacy-safe attribution and conversion events

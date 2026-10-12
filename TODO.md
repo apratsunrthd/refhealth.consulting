@@ -2,6 +2,10 @@
 
 ## Recently completed
 
+- Built and deployed Interactive Claims Lag & Working Capital Float Calculator:
+  - Deployed client-side, zero-PHI financial calculator at `dbt-consulting.html#calculator`.
+  - Calculates unadjudicated capital float tied in clearinghouse transit, annual clerical rework drag, and monthly MLR volatility bands from monthly volume, lag days, and rejection rate.
+  - Generates instant 1-click executive Markdown briefing memo and dynamically pre-fills scope parameters on `intake.html`.
 - Published Flagship Technical Guide on EDI 837 vs 835 Claims Modeling in dbt:
   - Authored deep architectural guide `blog-edi-837-835-claims-modeling-dbt.html` ("EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates Without Row Multiplication").
   - Dissected the 4 primary operational failure modes: claim frequency codes (1 vs 7 vs 8), Claim Adjustment Segment (CAS) normalization into a 2-table dimensional bridge to avoid 3x–5x row multiplication, overpayment takebacks/recoupments (PLB), and true net denial rates vs first-pass clerical rejections.
