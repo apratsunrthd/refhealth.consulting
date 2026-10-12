@@ -58,6 +58,9 @@ company Data AI Operating System buildouts.
 - `apratsunrthd/refhealth-feed-triage` is syndicated via Smithery (`smithery.yaml`), allowing
   one-click CLI installation (`npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`)
   across Cursor, Windsurf, and Claude.
+- The 48-Hour Healthcare dbt Audit Playbook is published at `/blog-healthcare-dbt-audit-playbook.html`,
+  providing an actionable teardown of surrogate key grain collapse, bitemporal enrollment desync,
+  midnight timestamp drops, and code drift, with runnable tests from `refhealth-dbt-healthcare-checks`.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and

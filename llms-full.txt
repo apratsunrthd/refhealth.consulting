@@ -110,19 +110,28 @@ Most healthcare AI initiatives stall not because frontier models lack capability
 * **Model Parity & Cloud Commitments**:
   - Model capabilities across frontier labs (OpenAI, Anthropic, Google) have largely converged. The strategic focus is maximizing the client's existing enterprise cloud commitment, signed BAA, and token allocation (AWS Bedrock, Azure OpenAI, or Google Cloud Vertex AI) rather than unnecessary multi-vendor migrations.
 
-### Technical Article 2: What Is a Data AI Operating System for Healthcare?
+### Technical Article 2: The 48-Hour Healthcare dbt Audit Playbook
+* **Canonical URL**: https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html
+* **Core Thesis**: When health-tech companies scale past seed stage, their dbt repository degrades under clearinghouse revisions, EDI 837/835 feeds, and rapid feature velocity. Auditing a healthcare dbt stack in 48 hours requires targeted triage across four catastrophic failure modes before refactoring models:
+  1. *Surrogate Key Grain Collapse*: Primary keys in healthcare claims are compound (claim ID, line number, sub-line counter, adjudication run ID). Missing any sub-grain results in silent row multiplication that artificially inflates paid claims amounts and medical loss ratios (MLR).
+  2. *Bitemporal Desync in Member Enrollment*: Eligibility rosters (EDI 834) churn constantly. When models join event date (service date) directly to `dim_members` without anchoring against effective date spans (`coverage_effective_date` to `coverage_term_date`), claims get assigned to wrong risk pools or phantom terminated coverage.
+  3. *Midnight Timestamp Precision Drops (`00:00:00`)*: Source clearinghouses and older EHRs frequently truncate ISO 8601 timestamps to date-only values, defaulting times to `00:00:00`. Pipelines calculating turnaround time, prior authorization SLAs, or clinical velocity get skewed by 12–24 hours.
+  4. *Code Registry Drift & Referential Integrity*: Providers change NPIs, CMS retires ICD-10/CPT codes annually, and clearinghouses pass unmapped codes. Testing claims against CMS NPPES registries and ICD-10 release tables catches orphan records before they corrupt clinical reporting.
+* **The Deliverables**: A 2-page Executive Decision Memo for the CTO/VP Data, a Pipeline Blocker Matrix ranking issues by operational severity, and ready-to-merge dbt macro tests from the open-source `refhealth-dbt-healthcare-checks` repository.
+
+### Technical Article 3: What Is a Data AI Operating System for Healthcare?
 * **Core Thesis**: Healthcare AI requires an operating system, not disconnected chatbot demos. The system must start with an executive decision, anchor on governed data products, choose an intentional model strategy, integrate into human workflows, and maintain continuous operational cadence.
 
-### Technical Article 3: Single-Provider vs. Multi-Model Healthcare AI Strategy
+### Technical Article 4: Single-Provider vs. Multi-Model Healthcare AI Strategy
 * **Core Thesis**: Neither dogmatic multi-model complexity nor single-vendor lock-in is universally correct. 
 * **When to Orchestrate Multi-Model**: When tasks demand divergent capabilities (e.g., ultra-fast extraction vs. deep clinical reasoning), when redundancy is required, or when cost optimization at scale justifies intelligent model routing.
 * **When to Go Deep with One Provider**: When HIPAA BAA enterprise agreements, native cloud integrations (e.g., AWS Bedrock or Azure OpenAI), security audit constraints, or rapid delivery timelines make a consolidated ecosystem the lowest-risk path.
 
-### Technical Article 4: Why We Build Healthcare Data Stacks with dbt
+### Technical Article 5: Why We Build Healthcare Data Stacks with dbt
 * **Core Thesis**: In healthcare, an analytics bug is not a minor inconvenience—it impacts patient care, regulatory compliance, and revenue cycle integrity.
 * **The dbt Imperative**: dbt provides the version control, automated testing, documentation, and lineage graphs necessary to prove data reliability before autonomous agents or executives make decisions based on those metrics.
 
-### Technical Article 5: The $100k-per-Day Healthcare Data Mistake
+### Technical Article 6: The $100k-per-Day Healthcare Data Mistake
 * **Core Thesis**: Pure technical prowess without 20+ years of healthcare operational context creates massive financial failure modes. Healthcare data is riddled with domain-specific realities: claims lag, retroactive adjustments, provider credentialing churn, and complex benefit designs. Understanding the operational reality behind the database row is the difference between viable automation and catastrophic mistakes.
 
 ---

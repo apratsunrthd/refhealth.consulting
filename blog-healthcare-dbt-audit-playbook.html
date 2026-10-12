@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The 48-Hour Healthcare dbt Audit Playbook | ref(health)</title>
+  <meta
+    name="description"
+    content="How we audit a healthcare dbt project in 48 hours: triaging claims lag, bitemporal enrollment desync, midnight timestamp drops, and code registry drift."
+  />
+  <link rel="canonical" href="https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="The 48-Hour Healthcare dbt Audit Playbook | ref(health)" />
+  <meta property="og:description" content="A senior analytics engineer's playbook for auditing healthcare dbt models, claims pipelines, bitemporal data, and timestamp anomalies in 48 hours." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The 48-Hour Healthcare dbt Audit Playbook" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:image:alt" content="The 48-Hour Healthcare dbt Audit Playbook" />
+  <meta name="twitter:title" content="The 48-Hour Healthcare dbt Audit Playbook | ref(health)" />
+  <meta name="twitter:description" content="Triaging claims lag, bitemporal modeling, timestamp defects, and dbt integrity in healthcare." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html#article",
+          "headline": "The 48-Hour Healthcare dbt Audit Playbook: Triage Claims Lag, Code Drift, and Timestamp Anomalies",
+          "description": "How to audit a healthcare dbt repository in 48 hours: diagnosing surrogate key grain, bitemporal enrollment, timestamp precision, NPI/ICD validity, and referential integrity.",
+          "datePublished": "2026-10-12",
+          "dateModified": "2026-10-12",
+          "author": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "publisher": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html#page"
+          },
+          "about": [
+            "healthcare data strategy",
+            "dbt analytics engineering",
+            "claims data",
+            "bitemporal data",
+            "data quality auditing"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html#page",
+          "url": "https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html",
+          "name": "The 48-Hour Healthcare dbt Audit Playbook | ref(health)",
+          "isPartOf": {
+            "@id": "https://refhealth.consulting/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://refhealth.consulting/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Insights",
+              "item": "https://refhealth.consulting/blog.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Healthcare dbt Audit Playbook",
+              "item": "https://refhealth.consulting/blog-healthcare-dbt-audit-playbook.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05XLCL9N8S');
+  </script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a>
+        <a href="index.html#ai">AI work</a>
+        <a href="blog.html">Insights</a>
+        <a href="about.html">About</a>
+        <a href="intake.html" class="nav-cta">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post">
+      <header class="post__header">
+        <div class="container container--narrow">
+          <p class="post__meta">October 12, 2026 &middot; healthcare data engineering, dbt audits, claims pipelines, bitemporal modeling</p>
+          <h1 class="post__title">The 48-Hour Healthcare dbt Audit Playbook: Triage Claims Lag, Code Drift, and Timestamp Anomalies</h1>
+          <p class="post__lead">
+            When a health-tech engineering team inherits or prepares a dbt repository for clinical operations or AI agents, standard tests like <code>not_null</code> and <code>unique</code> are insufficient. Here is our 48-hour diagnostic protocol for surfacing hidden claims batch latency, dropped timestamp precision, and bitemporal coverage drift.
+          </p>
+        </div>
+      </header>
+
+      <div class="post__body">
+        <div class="container container--narrow">
+          <h2>The Anatomy of a Healthcare dbt Failure</h2>
+          <p>
+            In modern analytics engineering, standard SaaS practices teach teams to write modular SQL, test for uniqueness, and document tables. But when engineering teams apply standard e-commerce or product-analytics conventions to healthcare data—such as claims (EDI 837/835), clinical encounters (HL7/FHIR), and member eligibility—they inevitably face silent data corruption:
+          </p>
+          <ul>
+            <li><strong>The Claim Line Fan-Out:</strong> Composite keys on claims tables that omit line-level modifiers or claim adjustment sequence numbers, causing silent double-counting of paid amounts in executive dashboards.</li>
+            <li><strong>The Claims Latency Anachronism:</strong> Treating claims feeds as real-time event logs, completely ignoring the 48-hour clearinghouse and 3-to-6 week payer adjudication delay. Naive queries evaluate retrospective facts that no human operator could have known at the date of service.</li>
+            <li><strong>Dropped Timestamp Precision:</strong> Upstream ETL ingestion engines truncating timestamps to midnight (<code>00:00:00</code>), masking whether an adverse event occurred before or after an admission order.</li>
+            <li><strong>Retroactive Enrollment Drift:</strong> Member coverage records updated months after care delivery, breaking referential integrity between claims and active coverage spans.</li>
+          </ul>
+          <p>
+            When we conduct our 2-week <a href="ai-readiness-assessment.html">Healthcare AI Readiness Diagnostic</a>, the first 48 hours are dedicated to an intensive, deterministic pipeline audit. Below is the exact step-by-step framework and SQL test suite we deploy.
+          </p>
+
+          <hr />
+
+          <h2>Phase 1 (Hours 0–12): Grain &amp; Composite Key Validation</h2>
+          <p>
+            The single most common bug in healthcare warehouse models is an undefined or broken grain. In claims engineering, a "claim" is not a row. A claim header contains multiple claim lines, each of which can receive multiple adjustments, partial denials, and re-adjudications over time.
+          </p>
+          <p>
+            If a model's surrogate key is hashed across <code>claim_id</code> and <code>line_number</code> without including <code>claim_sequence_number</code> or <code>adjudication_timestamp</code>, incremental dbt runs will create duplicate rows or overwrite valid historical change records.
+          </p>
+          <h3>The Audit Test: Composite Grain Uniqueness</h3>
+          <p>
+            We run a strict surrogate key grain test verifying that the combination of natural keys produces zero duplicates:
+          </p>
+          <pre><code>-- models/marts/fct_claim_lines.yml
+version: 2
+
+models:
+  - name: fct_claim_lines
+    tests:
+      - refhealth_dbt_healthcare_checks.surrogate_key_grain:
+          key_columns:
+            - claim_id
+            - line_number
+            - claim_sequence_number
+            - adjudication_date</code></pre>
+          <p>
+            If this test returns rows, incremental merge strategies will fail, financial totals will diverge, and any downstream AI agent will generate inaccurate financial summaries.
+          </p>
+
+          <hr />
+
+          <h2>Phase 2 (Hours 12–24): Bitemporal Enrollment &amp; Latency Auditing</h2>
+          <p>
+            Healthcare data requires bitemporal modeling because <em>all times tell you something critical about operational reality</em>:
+          </p>
+          <ol>
+            <li><strong>Date of Service (Event Time):</strong> What the patient experienced clinically during the encounter.</li>
+            <li><strong>Submitted Date (Transaction Time):</strong> How efficiently the provider's billing office generates and submits bills.</li>
+            <li><strong>Received Date (Queue Latency):</strong> How long the claim sat in clearinghouse batches or payer intake queues.</li>
+            <li><strong>Paid / Adjudicated Date (Settlement Time):</strong> When financial liability was finalized.</li>
+          </ol>
+          <p>
+            If your data models use a single timestamp or overwrite dimensions without Slowly Changing Dimensions (SCD Type 2), historical state reconstruction becomes impossible.
+          </p>
+          <h3>The Audit Test: Bitemporal Enrollment Consistency</h3>
+          <p>
+            In member eligibility tables, coverage spans must respect chronological physics. We test that <code>effective_date</code>, <code>end_date</code>, and <code>updated_date</code> maintain logical integrity:
+          </p>
+          <pre><code>-- models/staging/stg_member_eligibility.yml
+version: 2
+
+models:
+  - name: stg_member_eligibility
+    tests:
+      - refhealth_dbt_healthcare_checks.bitemporal_enrollment_consistency:
+          effective_date: coverage_start_date
+          end_date: coverage_end_date
+          enrollment_date: submission_date
+          updated_date: system_loaded_at</code></pre>
+          <p>
+            Contradictions here reveal retro-enrollment churn, retroactive cancellations, and payer batch lags that distort cohort analysis and risk adjustment calculations.
+          </p>
+
+          <hr />
+
+          <h2>Phase 3 (Hours 24–36): Code System Validity &amp; Timestamp Auditing</h2>
+          <p>
+            Upstream hospital and clearinghouse feeds frequently mangle medical code standards or drop timestamp granularity during CSV conversion:
+          </p>
+          <ul>
+            <li><strong>CMS NPI Checks:</strong> Provider directories frequently contain malformed National Provider Identifiers (NPIs)—missing leading zeros, string truncation, or invalid prefixes. An invalid NPI breaks provider credentialing and network adequacy models.</li>
+            <li><strong>ICD-10 &amp; CPT Formatting:</strong> Diagnoses and procedure codes must conform to structural syntax (e.g. 3–7 alphanumeric characters for ICD-10-CM with proper decimal placement; 5-character CPT/HCPCS codes).</li>
+            <li><strong>The Midnight Default Trap:</strong> Legacy database extracts that lack time components frequently default timestamps to <code>00:00:00</code>. If an admission timestamp reads <code>2026-04-15 00:00:00</code>, clinical sequencing breaks.</li>
+          </ul>
+
+          <pre><code>-- models/staging/stg_inpatient_encounters.yml
+version: 2
+
+models:
+  - name: stg_inpatient_encounters
+    columns:
+      - name: billing_provider_npi
+        tests:
+          - refhealth_dbt_healthcare_checks.cms_npi_format
+
+      - name: primary_diagnosis_code
+        tests:
+          - refhealth_dbt_healthcare_checks.icd10_code_validity
+
+      - name: encounter_start_at
+        tests:
+          - refhealth_dbt_healthcare_checks.midnight_default_timestamp:
+              max_midnight_ratio: 0.02 # Flag if >2% of rows default to 00:00:00</code></pre>
+
+          <hr />
+
+          <h2>Phase 4 (Hours 36–48): Claims-to-Member Referential Integrity</h2>
+          <p>
+            The final phase verifies that financial claims connect cleanly to member enrollment records. In real-world payer data, claims frequently arrive for members whose enrollment records are missing, expired, or not yet synced:
+          </p>
+          <pre><code>-- models/marts/fct_medical_claims.yml
+version: 2
+
+models:
+  - name: fct_medical_claims
+    tests:
+      - refhealth_dbt_healthcare_checks.claim_member_referential_integrity:
+          member_model: ref('dim_members')
+          claim_member_id: member_id
+          service_date: date_of_service
+          effective_date: coverage_effective_date
+          end_date: coverage_term_date</code></pre>
+          <p>
+            Orphaned claims point to broken Master Patient Index (MPI) matching, clearinghouse mapping failures, or delayed eligibility roster updates.
+          </p>
+
+          <hr />
+
+          <h2>The Output: An Executive Decision Memo &amp; Ready-to-Merge Scripts</h2>
+          <p>
+            At the conclusion of the 48-hour audit, our clients do not receive a vague 60-page PDF report. They receive:
+          </p>
+          <ol>
+            <li><strong>Executive Decision Memo:</strong> A 2-page briefing for the CTO and VP of Data outlining the exact failure modes, regulatory exposure, and priority rank.</li>
+            <li><strong>The Pipeline Blocker Matrix:</strong> Every identified grain bug, bitemporal contradiction, and code drift item ranked by operational severity and fix complexity.</li>
+            <li><strong>Ready-to-Merge Execution Scripts:</strong> Production-tested dbt macros and SQL models from our open-source <a href="https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks">refhealth-dbt-healthcare-checks</a> package that client engineers can merge into their repository immediately.</li>
+          </ol>
+
+          <div style="background: var(--paper-strong); border: 2px solid var(--ink); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0;">
+            <h3 style="margin-top: 0;">Audit Your Architecture Online</h3>
+            <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 1rem;">
+              Want an instant preliminary check? Use our interactive, client-side <a href="hdaios.html#assessment">HDAIOS Self-Assessment Tool</a> to evaluate your pipeline against the 5-layer Healthcare Data AI Operating System standard in 3 minutes—with zero PHI collected.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="hdaios.html#assessment" class="btn btn--secondary" style="font-size: 0.875rem;">Run the free self-assessment</a>
+              <a href="intake.html" class="btn btn--primary" style="font-size: 0.875rem;">Book a 2-week diagnostic from $2,500</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <h2 id="contact-title">Need senior eyes on your healthcare dbt project?</h2>
+          <p>
+            Our focused 2-week diagnostic starts at $2,500. We audit pipeline blockers, evaluate bitemporal fitness, and leave your team with clean tests and ready-to-merge code.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="intake.html">Request a diagnostic</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="healthcare-ai-consulting.html">Healthcare AI</a>
+        <a href="healthcare-data-strategy.html">Data strategy</a>
+        <a href="dbt-consulting.html">dbt consulting</a>
+        <a href="about.html">About</a>
+        <a href="mailto:contact@refhealth.consulting">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
