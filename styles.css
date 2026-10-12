@@ -1913,3 +1913,128 @@ h4 {
   opacity: 1;
 }
 
+/* Claims Lag & Float Calculator */
+.calc-panel {
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  margin: 2.5rem 0;
+  box-shadow: 0 16px 40px rgba(17, 16, 14, 0.05);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 860px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calc-group {
+  margin-bottom: 1.35rem;
+}
+
+.calc-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.calc-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.calc-val-display {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--red);
+}
+
+.calc-range {
+  width: 100%;
+  accent-color: var(--red);
+  cursor: pointer;
+  height: 6px;
+}
+
+.calc-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.calc-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(17, 16, 14, 0.06);
+}
+
+.calc-metric-box {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.calc-metric-box:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.calc-metric-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  margin-bottom: 0.2rem;
+}
+
+.calc-metric-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.calc-metric-num--highlight {
+  color: var(--red);
+}
+
+.calc-metric-num--warning {
+  color: #c07800;
+}
+
+.calc-metric-sub {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.calc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+

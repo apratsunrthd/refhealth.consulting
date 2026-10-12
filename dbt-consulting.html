@@ -180,6 +180,78 @@
       </div>
     </section>
 
+    <section class="section" id="calculator" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="calc-title">Claims lag &amp; capital float calculator.</h2>
+          </div>
+          <p>
+            Clearinghouse batching and uncalibrated claims models lock millions in unadjudicated float while distorting monthly Medical Loss Ratios. Estimate your exposure in 15 seconds (100% client-side, zero data sent).
+          </p>
+        </div>
+
+        <div class="calc-panel">
+          <div class="calc-grid">
+            <div class="calc-controls">
+              <div class="calc-group">
+                <div class="calc-label-row">
+                  <label for="monthly-volume" class="calc-label">Monthly Billed Claims Volume</label>
+                  <span id="monthly-volume-val" class="calc-val-display">$2,500,000</span>
+                </div>
+                <input type="range" id="monthly-volume" class="calc-range" min="250000" max="15000000" step="250000" value="2500000" />
+                <div class="calc-hint">Gross monthly healthcare charges submitted via EDI 837</div>
+              </div>
+
+              <div class="calc-group">
+                <div class="calc-label-row">
+                  <label for="turnaround-days" class="calc-label">Adjudication Turnaround Lag</label>
+                  <span id="turnaround-days-val" class="calc-val-display">24 days</span>
+                </div>
+                <input type="range" id="turnaround-days" class="calc-range" min="5" max="60" step="1" value="24" />
+                <div class="calc-hint">Days elapsed from Date of Service to 835 Remittance settlement</div>
+              </div>
+
+              <div class="calc-group">
+                <div class="calc-label-row">
+                  <label for="rejection-rate" class="calc-label">First-Pass Clerical Rejection Rate</label>
+                  <span id="rejection-rate-val" class="calc-val-display">12%</span>
+                </div>
+                <input type="range" id="rejection-rate" class="calc-range" min="2" max="30" step="1" value="12" />
+                <div class="calc-hint">Claims rejected for clerical errors (invalid NPI, missing pre-auth, code mismatch)</div>
+              </div>
+            </div>
+
+            <div class="calc-results">
+              <div class="calc-metric-box">
+                <div class="calc-metric-title">Unadjudicated Capital Float</div>
+                <div id="metric-float" class="calc-metric-num calc-metric-num--highlight">$2,000,000</div>
+                <div class="calc-metric-sub">Working capital actively locked in clearinghouse &amp; payer adjudication transit at any point in time.</div>
+              </div>
+
+              <div class="calc-metric-box">
+                <div class="calc-metric-title">Annual Clerical Rework Friction</div>
+                <div id="metric-rework" class="calc-metric-num calc-metric-num--warning">$144,000 / yr</div>
+                <div class="calc-metric-sub">Direct operational RCM cost to correct, re-verify, and resubmit first-pass clerical denials.</div>
+              </div>
+
+              <div class="calc-metric-box">
+                <div class="calc-metric-title">MLR Reporting Volatility Margin</div>
+                <div id="metric-volatility" class="calc-metric-num">±6.8%</div>
+                <div class="calc-metric-sub">Artificial swing in monthly Medical Loss Ratio (MLR) without bitemporal dbt modeling.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button id="copy-memo-btn" class="btn btn--secondary" type="button">Copy executive memo (.md)</button>
+            <a id="calc-scope-cta" class="btn btn--primary" href="intake.html?scope=claims_lag_audit">Request 2-week diagnostic from $2,500</a>
+            <span id="memo-copied-toast" class="sow-toast">Copied to clipboard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--dark" aria-labelledby="dbt-method-title">
       <div class="container ai-grid">
         <div class="section-heading section-heading--dark">
@@ -244,6 +316,97 @@
       </nav>
     </div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function() {
+      const volInput = document.getElementById("monthly-volume");
+      const lagInput = document.getElementById("turnaround-days");
+      const rejInput = document.getElementById("rejection-rate");
+
+      const volVal = document.getElementById("monthly-volume-val");
+      const lagVal = document.getElementById("turnaround-days-val");
+      const rejVal = document.getElementById("rejection-rate-val");
+
+      const metricFloat = document.getElementById("metric-float");
+      const metricRework = document.getElementById("metric-rework");
+      const metricVolatility = document.getElementById("metric-volatility");
+      const scopeCta = document.getElementById("calc-scope-cta");
+      const copyBtn = document.getElementById("copy-memo-btn");
+      const toast = document.getElementById("memo-copied-toast");
+
+      function formatMoney(n) {
+        return "$" + Math.round(n).toLocaleString("en-US");
+      }
+
+      function updateCalc() {
+        const volume = parseFloat(volInput.value) || 2500000;
+        const lagDays = parseFloat(lagInput.value) || 24;
+        const rejRate = parseFloat(rejInput.value) || 12;
+
+        volVal.textContent = formatMoney(volume);
+        lagVal.textContent = lagDays + " days";
+        rejVal.textContent = rejRate + "%";
+
+        const unadjudicatedFloat = volume * (lagDays / 30);
+        const annualReworkFriction = volume * (rejRate / 100) * 0.04 * 12;
+        const mlrVolatility = ((lagDays / 30) * 8.5).toFixed(1);
+
+        metricFloat.textContent = formatMoney(unadjudicatedFloat);
+        metricRework.textContent = formatMoney(annualReworkFriction) + " / yr";
+        metricVolatility.textContent = "±" + mlrVolatility + "%";
+
+        const urlParams = new URLSearchParams({
+          scope: "claims_lag_audit",
+          volume: formatMoney(volume),
+          turnaround_lag: lagDays + "_days",
+          rejection_rate: rejRate + "_pct",
+          capital_float: formatMoney(unadjudicatedFloat)
+        });
+        scopeCta.href = "intake.html?" + urlParams.toString();
+      }
+
+      volInput.addEventListener("input", updateCalc);
+      lagInput.addEventListener("input", updateCalc);
+      rejInput.addEventListener("input", updateCalc);
+      updateCalc();
+
+      copyBtn.addEventListener("click", function() {
+        const volume = parseFloat(volInput.value) || 2500000;
+        const lagDays = parseFloat(lagInput.value) || 24;
+        const rejRate = parseFloat(rejInput.value) || 12;
+        const unadjudicatedFloat = volume * (lagDays / 30);
+        const annualReworkFriction = volume * (rejRate / 100) * 0.04 * 12;
+        const mlrVolatility = ((lagDays / 30) * 8.5).toFixed(1);
+
+        const memo = [
+          "# Executive Briefing: Healthcare Claims Lag & Working Capital Exposure",
+          "Generated via [ref(health) Consulting](https://refhealth.consulting/dbt-consulting.html#calculator)",
+          "",
+          "## Operating Parameters",
+          "- **Monthly Gross Billed Volume**: " + formatMoney(volume) + " / month",
+          "- **Adjudication Turnaround Lag**: " + lagDays + " days from service to 835 remittance",
+          "- **First-Pass Clerical Rejection Rate**: " + rejRate + "%",
+          "",
+          "## Quantified Pipeline Exposure",
+          "1. **Unadjudicated Capital Float**: **" + formatMoney(unadjudicatedFloat) + "** actively locked in clearinghouse pipelines.",
+          "2. **Annual Clerical Rework Friction**: **" + formatMoney(annualReworkFriction) + " / year** in manual appeals, resubmissions, and RCM rework.",
+          "3. **Monthly MLR Volatility Margin**: **±" + mlrVolatility + "%** artificial swing in reported Medical Loss Ratio without bitemporal dbt modeling.",
+          "",
+          "## Recommended Action",
+          "Engage ref(health) Consulting for a 2-week Claims & dbt Architecture Diagnostic ($2,500 fixed fee).",
+          "Audit clearinghouse timestamps, implement surrogate grain tests, and eliminate clerical row explosion.",
+          "Scope URL: https://refhealth.consulting/intake.html?scope=claims_lag_audit"
+        ].join("\n");
+
+        navigator.clipboard.writeText(memo).then(function() {
+          toast.classList.add("is-visible");
+          setTimeout(function() {
+            toast.classList.remove("is-visible");
+          }, 3000);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -207,7 +207,11 @@
         var banner = document.getElementById("scope-banner");
         var text = document.getElementById("scope-summary-text");
         if (banner && text) {
-          text.textContent = scope;
+          if (params.get("capital_float")) {
+            text.textContent = "Claims Lag Audit Scope: " + params.get("volume") + " Monthly Volume (" + params.get("turnaround_lag").replace(/_/g, " ") + ", " + params.get("capital_float") + " unadjudicated float)";
+          } else {
+            text.textContent = scope;
+          }
           banner.style.display = "block";
         }
       }
