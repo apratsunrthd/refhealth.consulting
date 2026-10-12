@@ -61,6 +61,9 @@ company Data AI Operating System buildouts.
 - The 48-Hour Healthcare dbt Audit Playbook is published at `/blog-healthcare-dbt-audit-playbook.html`,
   providing an actionable teardown of surrogate key grain collapse, bitemporal enrollment desync,
   midnight timestamp drops, and code drift, with runnable tests from `refhealth-dbt-healthcare-checks`.
+- The open-source reference template `apratsunrthd/refhealth-starter-dbt-project` v1.0.0
+  is published and integrated across `dbt-consulting.html`, `/llms.txt`, and `/llms-full.txt`,
+  providing a cloneable DuckDB healthcare dbt repository with 51/51 automated tests passing out of the box.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
