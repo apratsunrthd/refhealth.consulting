@@ -2,6 +2,12 @@
 
 ## Recently completed
 
+- Built and released Cloneable Healthcare dbt Starter Repository (`apratsunrthd/refhealth-starter-dbt-project` v1.0.0):
+  - Created open-source reference implementation featuring DuckDB zero-setup local execution and cross-warehouse ANSI SQL compatibility.
+  - Implemented 100% synthetic, zero-PHI seeds (`raw_members.csv`, `raw_providers.csv`, `raw_claims.csv`), staging views (`stg_members`, `stg_providers`, `stg_claims`), and marts tables (`dim_members`, `dim_providers`, `fct_claims`).
+  - Pre-configured and verified 51/51 passing tests using `refhealth-dbt-healthcare-checks` v1.0.3 (surrogate grain, bitemporal dates, CMS NPI format, ICD-10/CPT validity, midnight timestamp audits, referential integrity).
+  - Added GitHub Actions CI workflow, `README.md`, `ARCHITECTURE.md`, `BRIEF.md`, `HANDOFF.md`, and `TODO.md`.
+  - Integrated across `dbt-consulting.html`, `blog-healthcare-dbt-audit-playbook.html`, `/llms.txt`, and `/llms-full.txt`.
 - Published and indexed The 48-Hour Healthcare dbt Audit Playbook:
   - Authored flagship technical guide `blog-healthcare-dbt-audit-playbook.html` ("The 48-Hour Healthcare dbt Audit Playbook: Triage Claims Lag, Code Drift, and Timestamp Anomalies").
   - Detailed the four primary failure modes: surrogate key grain collapse, bitemporal member enrollment desynchronization, midnight (`00:00:00`) default timestamp precision drops, and code registry drift (CMS NPI, ICD-10, HCPCS/CPT).
