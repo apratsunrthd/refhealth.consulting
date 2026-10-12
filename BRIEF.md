@@ -52,6 +52,12 @@ company Data AI Operating System buildouts.
 - The open-source dbt package `apratsunrthd/refhealth-dbt-healthcare-checks` v1.0.0
   is published and integrated across the site and `/llms-full.txt`, codifying 7 generic
   dbt test macros for healthcare data integrity.
+- The interactive, client-side, zero-PHI HDAIOS Self-Assessment Tool is live on
+  `hdaios.html#assessment`, enabling engineering teams and autonomous agents to calculate
+  a readiness score (0–100%) and export a prioritized remediation gap checklist.
+- `apratsunrthd/refhealth-feed-triage` is syndicated via Smithery (`smithery.yaml`), allowing
+  one-click CLI installation (`npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`)
+  across Cursor, Windsurf, and Claude.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
