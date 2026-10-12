@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { readFile, stat } from "node:fs/promises";
 import { extname } from "node:path";
 import { fileURLToPath } from "node:url";
