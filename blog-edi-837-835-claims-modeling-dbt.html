@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates Without Row Multiplication | ref(health)</title>
+  <meta
+    name="description"
+    content="How to model healthcare claims in dbt across EDI 837 submissions and 835 remittances: solving line splitting, CAS adjustment row explosion, takebacks, and true net denial rates."
+  />
+  <link rel="canonical" href="https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#fbfcf6" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:title" content="EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates | ref(health)" />
+  <meta property="og:description" content="A senior analytics engineer's guide to reconciling EDI 837 claims with 835 remittances in dbt without row multiplication, phantom denials, or corrupted MLRs." />
+  <meta property="og:site_name" content="ref(health) Consulting" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html" />
+  <meta property="og:image" content="https://refhealth.consulting/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="EDI 837 vs 835 Claims Modeling in dbt" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://refhealth.consulting/og.png" />
+  <meta name="twitter:image:alt" content="EDI 837 vs 835 Claims Modeling in dbt" />
+  <meta name="twitter:title" content="EDI 837 vs 835 Claims Modeling in dbt | ref(health)" />
+  <meta name="twitter:description" content="How to model EDI 837 claims and 835 remittances in dbt without row multiplication, phantom denials, or broken financial ratios." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html#article",
+          "headline": "EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates Without Row Multiplication",
+          "description": "A technical guide for healthcare analytics engineers modeling EDI 837 claims submissions against EDI 835 remittances in dbt: managing line splitting, CAS adjustments, takebacks, and true denial rates.",
+          "datePublished": "2026-10-12",
+          "dateModified": "2026-10-12",
+          "author": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "publisher": {
+            "@id": "https://refhealth.consulting/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html#page"
+          },
+          "about": [
+            "EDI 837 claims",
+            "EDI 835 remittance advice",
+            "dbt analytics engineering",
+            "healthcare data modeling",
+            "denial rate analytics",
+            "revenue cycle management"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html#page",
+          "url": "https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html",
+          "name": "EDI 837 vs 835 Claims Modeling in dbt | ref(health)",
+          "isPartOf": {
+            "@id": "https://refhealth.consulting/#website"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://refhealth.consulting/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Insights",
+              "item": "https://refhealth.consulting/blog.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "EDI 837 vs 835 Claims Modeling in dbt",
+              "item": "https://refhealth.consulting/blog-edi-837-835-claims-modeling-dbt.html"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05XLCL9N8S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05XLCL9N8S');
+  </script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#offers">Offers</a>
+        <a href="index.html#ai">AI work</a>
+        <a href="about.html">About</a>
+        <a href="intake.html" class="nav-cta">Request a diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post">
+      <header class="post-header">
+        <div class="container container--narrow">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb__sep">/</span>
+            <a href="blog.html">Insights</a>
+            <span class="breadcrumb__sep">/</span>
+            <span aria-current="page">EDI 837 vs 835 Claims Modeling</span>
+          </nav>
+          <div class="post-kicker">Healthcare Data Architecture &bull; Analytics Engineering &bull; RCM</div>
+          <h1 class="post-title">EDI 837 vs 835 Claims Modeling in dbt: Reconciliation, Reversals, and Denial Rates Without Row Multiplication</h1>
+          <p class="post-meta">
+            By <a href="about.html">ref(health) Consulting</a> &bull; October 12, 2026 &bull; 11 min read
+          </p>
+        </div>
+      </header>
+
+      <div class="post-content">
+        <div class="container container--narrow">
+          <p class="lead">
+            When analytics engineers transition into healthcare from tech or e-commerce, the first instinct is to treat a medical claim like an invoice and its payment like a Stripe transaction receipt. They see an upstream table of billing submissions (EDI 837) and a table of remittance advices (EDI 835), and they write the obvious query: <code>select * from 837 inner join 835 on claim_id</code>.
+          </p>
+          <p class="lead">
+            Within two weeks, finance is in a panic. Total charged revenue has doubled, the reported Medical Loss Ratio (MLR) has swung wildly by 18 points, and the executive dashboard reports an alarming 42% denial rate for a health system whose real net denial rate is under 6%.
+          </p>
+          <p>
+            In healthcare, an 837 is not an invoice and an 835 is not a receipt. They are asynchronous, multi-party negotiation messages spanning months, clearinghouses, adjudication engines, and contractual write-offs. If your dbt models do not account for claim frequency codes, adjustment segment cardinality, and overpayment recoupments, your downstream reporting is guaranteed to corrupt.
+          </p>
+          <p>
+            Here is how senior healthcare data teams model the relationship between EDI 837 and 835 in dbt without row explosion, phantom denials, or broken financial ratios.
+          </p>
+
+          <hr />
+
+          <h2>1. The Core Asymmetry: What 837 and 835 Actually Represent</h2>
+          <p>
+            Before writing a single line of SQL, you have to understand who generated the data and what operational objective they were trying to accomplish:
+          </p>
+          <ul>
+            <li>
+              <strong>EDI 837 (Health Care Claim):</strong> The provider or billing vendor&rsquo;s assertion of work performed. It records the Date of Service, clinical diagnosis codes (ICD-10-CM), procedure codes (HCPCS/CPT), billed charges, and rendering/billing National Provider Identifiers (NPI). Crucially, <em>billed charges in an 837 are aspirational</em>—providers bill their gross chargemaster rates, knowing the contracted rate is significantly lower.
+            </li>
+            <li>
+              <strong>EDI 835 (Health Care Claim Payment/Advice):</strong> The payer&rsquo;s adjudicated response. It details what the payer agreed to pay, what the member owes (deductible, copay, coinsurance), contractual write-offs, and which claim adjustment reason codes (CARCs) explain the variance. It also carries bulk Electronic Funds Transfer (EFT) settlement trace numbers and batch provider adjustments.
+            </li>
+          </ul>
+          <p>
+            The two streams do not arrive together, they do not update atomically, and their relationship is almost never 1:1.
+          </p>
+
+          <div style="background: var(--paper-strong); border: 2px solid var(--ink); border-radius: var(--radius); padding: 1.5rem; margin: 2rem 0;">
+            <h4 style="margin-top: 0; font-family: var(--font-mono); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em;">The Four Architectural Trapdoors in Claims Joins</h4>
+            <ol style="margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
+              <li><strong>Line-Item Desynchronization:</strong> One 837 claim line can be adjudicated across three separate 835 remittance lines (e.g., partial payment on service line, split adjudication for separate procedure components).</li>
+              <li><strong>The Claim Frequency Loop:</strong> Claims are resubmitted with frequency codes (1 = original, 7 = replacement, 8 = void). Joining naively causes duplicate charge amounts and phantom volume.</li>
+              <li><strong>CAS Adjustment Multiplication:</strong> Claim Adjustment Segments (CAS) contain multiple adjustment reason codes per line item. Joining CAS data directly onto claim lines multiplies rows by 3x–5x.</li>
+              <li><strong>Takebacks &amp; PLB Recoupments:</strong> Payers frequently recoup historical overpayments by issuing negative payments on completely unrelated current patient remittance files.</li>
+            </ol>
+          </div>
+
+          <hr />
+
+          <h2>2. Trapdoor #1: Claim Resubmissions &amp; Frequency Code Bitemporality</h2>
+          <p>
+            When a provider submits a claim with missing documentation, the payer rejects or denies it. The revenue cycle team corrects the error and resubmits it as a replacement claim.
+          </p>
+          <p>
+            In the 837 <code>CLM05-3</code> element, the standard mandates a <strong>Claim Frequency Code</strong>:
+          </p>
+          <ul>
+            <li><code>1</code> = Original Claim</li>
+            <li><code>7</code> = Replacement of Prior Claim</li>
+            <li><code>8</code> = Void / Cancel of Prior Claim</li>
+          </ul>
+          <p>
+            If your staging models simply aggregate all rows by <code>patient_control_number</code> or <code>claim_id</code>, you will count the $450 charge on the original claim, the $450 charge on the replacement claim, and perhaps a void transaction—instantly tripling your billed volume.
+          </p>
+          <p>
+            In dbt, you must separate the <strong>transactional audit ledger</strong> from the <strong>current net financial state</strong>. In your marts layer, use a deterministic window function to isolate the current valid version:
+          </p>
+
+          <pre><code>-- models/marts/fct_medical_claims_current.sql
+with all_claim_versions as (
+    select
+        claim_id,
+        claim_line_number,
+        claim_frequency_code,
+        submission_date,
+        adjudication_date,
+        date_of_service,
+        billed_charge_amount,
+        paid_amount,
+        claim_status,
+        -- Rank newest adjudication cycle first; break ties with frequency code hierarchy (8 > 7 > 1)
+        row_number() over (
+            partition by claim_id, claim_line_number
+            order by 
+                adjudication_date desc,
+                submission_date desc,
+                case claim_frequency_code
+                    when '8' then 3
+                    when '7' then 2
+                    when '1' then 1
+                    else 0
+                end desc
+        ) as version_rank
+    from {{ ref('stg_claims_adjudicated') }}
+)
+
+select
+    claim_id,
+    claim_line_number,
+    claim_frequency_code,
+    date_of_service,
+    -- If the latest transaction was a void (8), net financial value is zero
+    case when claim_frequency_code = '8' then 0.0 else billed_charge_amount end as net_billed_charge_amount,
+    case when claim_frequency_code = '8' then 0.0 else paid_amount end as net_paid_amount,
+    claim_status
+from all_claim_versions
+where version_rank = 1</code></pre>
+
+          <hr />
+
+          <h2>3. Trapdoor #2: The CAS Segment Multiplication Trap</h2>
+          <p>
+            This is the single most common mistake in healthcare data warehouses.
+          </p>
+          <p>
+            In an EDI 835 remittance, every difference between the billed charge and the paid amount is articulated in <strong>Claim Adjustment Segments (CAS)</strong>. Each CAS segment pairs a <strong>Claim Adjustment Group Code</strong> with one or more <strong>Claim Adjustment Reason Codes (CARC)</strong> and amounts:
+          </p>
+          <ul>
+            <li><code>CO</code> (Contractual Obligation): Contracted fee schedule write-offs (e.g., CARC 45 = charges exceed fee schedule limit).</li>
+            <li><code>PR</code> (Patient Responsibility): What the patient owes (CARC 1 = deductible, CARC 2 = coinsurance, CARC 3 = copay).</li>
+            <li><code>OA</code> (Other Adjustments): Coordination of benefits, secondary payer adjustments.</li>
+            <li><code>PI</code> (Payer Initiated Reductions): Medical necessity reductions, administrative penalties.</li>
+            <li><code>CR</code> (Correction and Reversals): Overpayment reversals.</li>
+          </ul>
+          <p>
+            A single claim line item often carries three distinct CAS adjustments: a $120 contractual write-off (<code>CO-45</code>), a $30 patient copay (<code>PR-3</code>), and a $15 secondary coordination adjustment (<code>OA-23</code>).
+          </p>
+          <p>
+            <strong>The disaster:</strong> If an analytics engineer flattens these CAS segments directly into the primary claim fact table, that single claim line multiplies into three rows. If another downstream analyst runs <code>sum(paid_amount)</code> or <code>count(distinct claim_id)</code> without knowing the table is grouped at the <code>(claim_line, cas_group, carc_code)</code> grain, every financial summary is instantly corrupted.
+          </p>
+
+          <h3>The Solution: Two-Table Normalized Dimensional Bridge</h3>
+          <p>
+            Never flatten CAS segments into your primary claim fact table. Instead, model two clean tables:
+          </p>
+          <ol>
+            <li>
+              <strong><code>fct_claims</code> (Grain: 1 row per claim line):</strong> Store the collapsed, balanced financial summary columns directly on the line:
+              <code>billed_charge_amount = paid_amount + patient_due_amount + contractual_adjustment_amount + other_adjustment_amount</code>.
+            </li>
+            <li>
+              <strong><code>fct_claim_adjustments</code> (Grain: 1 row per claim line adjustment reason):</strong> A child bridge table containing the granular breakdown of every CAS group, CARC, and Remittance Advice Remark Code (RARC).
+            </li>
+          </ol>
+
+          <pre><code>-- models/staging/stg_835_cas_adjustments.sql
+with raw_cas as (
+    select * from {{ ref('raw_edi_835_cas') }}
+),
+
+aggregated_to_claim_line as (
+    select
+        claim_id,
+        claim_line_number,
+        remittance_trace_number,
+        sum(case when adjustment_group_code = 'CO' then adjustment_amount else 0.0 end) as total_contractual_adjustment_amount,
+        sum(case when adjustment_group_code = 'PR' then adjustment_amount else 0.0 end) as total_patient_responsibility_amount,
+        sum(case when adjustment_group_code in ('OA', 'PI') then adjustment_amount else 0.0 end) as total_other_adjustment_amount,
+        sum(case when adjustment_group_code = 'CR' then adjustment_amount else 0.0 end) as total_reversal_adjustment_amount
+    from raw_cas
+    group by 1, 2, 3
+)
+
+select * from aggregated_to_claim_line</code></pre>
+
+          <p>
+            This preserves exact reconciliation on the parent fact table while allowing revenue cycle analysts to drill into the child table whenever they need to analyze specific denial reasons.
+          </p>
+
+          <hr />
+
+          <h2>4. Trapdoor #3: Takebacks, Negative Paid Lines, and PLB Segments</h2>
+          <p>
+            In standard accounting, a vendor payment is positive. In healthcare remittances, negative payments are routine.
+          </p>
+          <p>
+            When a payer audits historical claims and determines that a provider was overpaid for an encounter six months ago, they rarely send an invoice requesting a refund check. Instead, they execute an automatic <strong>recoupment or takeback</strong> on the provider&rsquo;s next electronic funds transfer.
+          </p>
+          <p>
+            This manifests in two ways in EDI 835 feeds:
+          </p>
+          <ol>
+            <li>
+              <strong>Claim-Level Reversals:</strong> The 835 issues a claim payment line with a negative <code>paid_amount</code> (e.g., -$250.00) referencing the original historical claim ID.
+            </li>
+            <li>
+              <strong>Provider-Level Adjustments (PLB Segments):</strong> The payer deducts money from the batch check at the provider tax ID level rather than tying it to a specific claim line. A PLB segment might deduct $5,000 for &ldquo;Overpayment Recovery&rdquo; (PLB reason code <code>WO</code> or <code>FB</code>) from a $40,000 EFT check covering 200 different patient claims.
+            </li>
+          </ol>
+          <p>
+            If your data models drop negative payment amounts or assume <code>paid_amount &gt;= 0</code>, you will overstate your net collections and cause reconciliation mismatches between your data warehouse and your bank account ledger.
+          </p>
+          <p>
+            In dbt, your tests must explicitly accommodate legitimate negative claims adjustments while asserting that the parent financial balance equation remains closed:
+          </p>
+
+          <pre><code>-- models/marts/_marts_models.yml
+version: 2
+
+models:
+  - name: fct_claims
+    tests:
+      - dbt_utils.expression_is_true:
+          name: assert_claims_balance_equation
+          expression: >
+            abs(billed_charge_amount - (
+              paid_amount + 
+              patient_due_amount + 
+              contractual_adjustment_amount + 
+              other_adjustment_amount
+            )) < 0.02
+      - refhealth_dbt_healthcare_checks.surrogate_key_grain:
+          grain_columns:
+            - claim_id
+            - claim_line_number</code></pre>
+
+          <hr />
+
+          <h2>5. Trapdoor #4: The &ldquo;Denial Rate&rdquo; Illusion</h2>
+          <p>
+            Ask three executives at a health system or health-tech startup what their denial rate is, and you will get three wildly different numbers: 5%, 18%, and 45%.
+          </p>
+          <p>
+            Why? Because in naive claims modeling, any claim that arrives with an adjustment or a zero payment is marked as &ldquo;denied.&rdquo; But in actual revenue cycle operations, there are three distinct categories:
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+            <div style="background: var(--paper-subtle); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+              <h4 style="margin-top: 0; color: var(--ink);">1. First-Pass Denial Rate</h4>
+              <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">
+                Claims denied on initial submission (often due to missing modifier, invalid pre-auth number, or clerical typo). Measures billing cycle efficiency.
+              </p>
+            </div>
+            <div style="background: var(--paper-subtle); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+              <h4 style="margin-top: 0; color: var(--ink);">2. Net / Final Denial Rate</h4>
+              <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">
+                Claims that remain completely unpaid after all replacement, appeal, and resubmission cycles have exhausted. Measures true lost revenue.
+              </p>
+            </div>
+            <div style="background: var(--paper-subtle); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+              <h4 style="margin-top: 0; color: var(--ink);">3. Contractual Write-Offs</h4>
+              <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">
+                Dollar differences between chargemaster charges and negotiated payer fee schedules (<code>CO-45</code>). <strong>These are not denials</strong>, yet naive models frequently count them as lost money.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            To compute a true net denial rate that executive leadership can trust, you must aggregate across the full lifecycle of the encounter:
+          </p>
+
+          <pre><code>-- models/marts/fct_encounter_denial_metrics.sql
+with claim_lifecycle as (
+    select
+        encounter_id,
+        count(distinct claim_id) as total_submission_cycles,
+        max(case when submission_cycle = 1 and paid_amount = 0.0 and denial_reason_code is not null then 1 else 0 end) as was_denied_first_pass,
+        sum(billed_charge_amount) as total_gross_billed,
+        sum(paid_amount) as final_adjudicated_paid_amount,
+        sum(contractual_adjustment_amount) as total_contractual_allowance,
+        sum(patient_due_amount) as total_patient_due
+    from {{ ref('fct_medical_claims_lifecycle') }}
+    group by 1
+)
+
+select
+    count(case when was_denied_first_pass = 1 then 1 end)::float / nullif(count(*), 0) as first_pass_denial_rate,
+    count(case when final_adjudicated_paid_amount = 0.0 and total_patient_due = 0.0 and total_contractual_allowance < total_gross_billed then 1 end)::float / nullif(count(*), 0) as final_unresolved_denial_rate
+from claim_lifecycle</code></pre>
+
+          <hr />
+
+          <h2>6. How This Fits the Governed Data Foundation (Layer 2)</h2>
+          <p>
+            In the <a href="hdaios.html">Healthcare Data AI Operating System (HDAIOS) v1.0</a>, claims and remittances reside inside the <strong>Governed Data Foundation (Layer 2)</strong>.
+          </p>
+          <p>
+            If your Layer 2 claims models carry compound grain defects or uncalibrated denial rates, any downstream initiative is doomed:
+          </p>
+          <ul>
+            <li><strong>Actuarial Metrics (Layer 1):</strong> Medical Loss Ratios (MLR) and Allowed Per Member Per Month (PMPM) costs will be overstated due to duplicated line items. (Inspect our open-source implementation in <a href="https://github.com/apratsunrthd/refhealth-starter-dbt-project">refhealth-starter-dbt-project</a> v1.1.0 to see how monthly plan metrics are cleanly isolated).</li>
+            <li><strong>Clinical &amp; Operational AI (Layer 4):</strong> Automated care coordination agents or prior authorization workflows reading corrupted claims history will hallucinate prior denial reasons or trigger erroneous patient outreach.</li>
+          </ul>
+
+          <div style="background: var(--paper-strong); border: 2px solid var(--ink); border-radius: var(--radius); padding: 1.5rem; margin: 2.5rem 0;">
+            <h3 style="margin-top: 0;">Clone the Reference Implementation</h3>
+            <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 1rem;">
+              We published a complete, working reference implementation of these claims models, bitemporal eligibility structures, and actuarial metrics in our open-source starter repository. It runs locally on DuckDB in 30 seconds with zero cloud setup and <strong>78/78 automated data tests passing</strong>.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="https://github.com/apratsunrthd/refhealth-starter-dbt-project" class="btn btn--secondary" style="font-size: 0.875rem;">View Starter Project on GitHub</a>
+              <a href="ai-readiness-assessment.html#scope-generator" class="btn btn--secondary" style="font-size: 0.875rem;">Generate a 1-Page Audit SOW</a>
+              <a href="intake.html" class="btn btn--primary" style="font-size: 0.875rem;">Book a 2-Week Diagnostic ($2,500)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <section class="section section--contact" aria-labelledby="contact-title">
+      <div class="container contact-panel">
+        <div>
+          <h2 id="contact-title">Struggling with claims lag or reconciliation in your dbt models?</h2>
+          <p>
+            Our fixed-fee 2-week diagnostic ($2,500) audits your claims pipelines, isolates surrogate grain defects, and leaves your team with verified tests and ready-to-merge dbt models. Zero PHI collected.
+          </p>
+        </div>
+        <a class="btn btn--primary" href="intake.html">Request a diagnostic</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__content">
+      <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="healthcare-ai-consulting.html">Healthcare AI</a>
+        <a href="healthcare-data-strategy.html">Data strategy</a>
+        <a href="dbt-consulting.html">dbt consulting</a>
+        <a href="about.html">About</a>
+        <a href="mailto:contact@refhealth.consulting">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
