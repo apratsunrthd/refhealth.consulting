@@ -2,6 +2,11 @@
 
 ## Recently completed
 
+- Published and indexed The 48-Hour Healthcare dbt Audit Playbook:
+  - Authored flagship technical guide `blog-healthcare-dbt-audit-playbook.html` ("The 48-Hour Healthcare dbt Audit Playbook: Triage Claims Lag, Code Drift, and Timestamp Anomalies").
+  - Detailed the four primary failure modes: surrogate key grain collapse, bitemporal member enrollment desynchronization, midnight (`00:00:00`) default timestamp precision drops, and code registry drift (CMS NPI, ICD-10, HCPCS/CPT).
+  - Provided copy-paste dbt YAML and SQL tests from open-source `refhealth-dbt-healthcare-checks` package (`claim_member_referential_integrity`, `column_not_midnight_default`, `valid_npi_format`, `valid_icd10_format`).
+  - Added article to `blog.html`, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
 - Syndicated Healthcare Feed Triage across Open MCP Registries (Smithery, Cursor, Claude CLI):
   - Added `smithery.yaml` configuration to `apratsunrthd/refhealth-feed-triage` enabling one-click installation via `npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`.
   - Added Node shebang to `mcp/server.mjs` for direct CLI process execution and rebuilt `refhealth-feed-triage.mcpb`.
