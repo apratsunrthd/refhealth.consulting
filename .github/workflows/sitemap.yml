@@ -3,6 +3,7 @@ name: Generate sitemap.xml
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -46,6 +47,7 @@ jobs:
             exit 0
           fi
           git commit -m "Update sitemap and GA [skip ci]"
+          git pull --rebase origin main || true
           git push
 
       - name: Notify IndexNow
