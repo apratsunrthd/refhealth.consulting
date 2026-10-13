@@ -61,10 +61,11 @@ company Data AI Operating System buildouts.
 - The 48-Hour Healthcare dbt Audit Playbook is published at `/blog-healthcare-dbt-audit-playbook.html`,
   providing an actionable teardown of surrogate key grain collapse, bitemporal enrollment desync,
   midnight timestamp drops, and code drift, with runnable tests from `refhealth-dbt-healthcare-checks`.
-- The open-source reference template `apratsunrthd/refhealth-starter-dbt-project` v1.1.0
+- The open-source reference template `apratsunrthd/refhealth-starter-dbt-project` v1.2.0
   is published and integrated across `dbt-consulting.html`, `/llms.txt`, and `/llms-full.txt`,
-  providing a cloneable DuckDB healthcare dbt repository with 78/78 automated tests passing out of the box,
-  including monthly actuarial and financial metrics (Medical Loss Ratio, Allowed/Net PMPM, Cost-Share, and Adjudication Lag percentiles).
+  providing a cloneable DuckDB healthcare dbt repository with 106/106 automated tests passing out of the box,
+  including monthly actuarial and financial metrics (Medical Loss Ratio, Allowed/Net PMPM, Cost-Share, and Adjudication Lag percentiles)
+  and a clinical-to-financial FHIR encounter crosswalk (`int_encounter_claims_crosswalk.sql`) linking EHR care events to billing claim lines.
 - An interactive, client-side Diagnostic Statement of Work (SOW) Generator is live at
   `ai-readiness-assessment.html#scope-generator` and cross-linked in `intake.html`, enabling prospects
   to select their warehouse and pipeline friction points to generate and download a custom 1-page SOW memo.
@@ -75,6 +76,8 @@ company Data AI Operating System buildouts.
   providing a senior analytics engineering teardown of claim frequency codes (1 vs 7 vs 8), Claim Adjustment Segment (CAS) normalization
   to prevent 3x–5x row multiplication, overpayment takebacks/recoupments (PLB), and true net denial rate modeling. Cross-linked across
   `blog.html`, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
+- A 3-part founder-voice LinkedIn thought leadership sequence is codified and ready for executive syndication,
+  breaking down the CAS segment row multiplication bug, the denial rate calculation illusion, and the open-source DuckDB starter repo release.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
