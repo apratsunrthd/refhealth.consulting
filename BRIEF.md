@@ -30,8 +30,8 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
   Anthropic's review. The earlier outreach and dbt manifest prototypes were
   retired.
 - Static HTML/CSS site. No build step.
-- Homepage and search-discoverability work are merged to `main` and deployed
-  through GitHub Pages.
+- Homepage, executive repositioning, and search-discoverability work are merged to `main` and deployed
+  through Cloudflare Pages with edge caching, DDoS mitigation, and automatic CI/CD.
 - The initial signal-control hero visual was rejected after screenshot QA
   because it created overlapping text and looked gimmicky.
 - Hero visual was replaced with a clean Data AI Operating System panel.
@@ -44,7 +44,7 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
   strategy articles.
 - The Healthcare Data AI Operating System (HDAIOS) v1.0 specification is published
   at `/hdaios.html` and `/hdaios.md`, providing a canonical 5-layer open architectural
-  reference: Layer 1 Decision Interface (Schmitt-Thompson triage boundary), Layer 2
+  reference: Layer 1 Decision Interface (administrative/operational boundaries restricting uncertified LLMs from clinical diagnostic decision-making), Layer 2
   Governed Data Foundation (SCD2 bitemporal claims modeling and dbt integrity checks),
   Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization across Bedrock/Azure/Vertex),
   Layer 4 Agent & Semantic Orchestration (semantic layer RAG and HITL tripwires), and
@@ -76,8 +76,8 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
   providing a senior analytics engineering teardown of claim frequency codes (1 vs 7 vs 8), Claim Adjustment Segment (CAS) normalization
   to prevent 3x–5x row multiplication, overpayment takebacks/recoupments (PLB), and true net denial rate modeling. Cross-linked across
   `blog.html`, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
-- A 3-part founder-voice LinkedIn thought leadership sequence is codified and ready for executive syndication,
-  breaking down the CAS segment row multiplication bug, the denial rate calculation illusion, and the open-source DuckDB starter repo release.
+- A 3-part executive LinkedIn thought leadership campaign is codified in `thought-leadership-linkedin-campaign.md`,
+  addressing health-tech founders, CEOs, and CTOs on the healthcare AI data trap, the economics of fractional VP of Data leadership vs. premature hiring, and the 5-layer HDAIOS framework.
 - The model-strategy article explains when to orchestrate multiple models across
   labs/providers and when to go deep with one provider based on policy,
   integration, commitment, or delivery speed. It is listed in Insights and
@@ -130,7 +130,7 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
   - Configured `robots.txt` with explicit crawl rules for AI search crawlers (`OAI-SearchBot`, `GPTBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `Meta-ExternalAgent`).
   - Added Cloudflare Pages edge headers in `_headers` serving `/llms.txt` and `/llms-full.txt` as `text/plain; charset=utf-8` with 1-hour revalidation caching.
   - Upgraded Schema.org JSON-LD graph across `index.html` and service pages with canonical Wikidata URIs, `@type: FAQPage` structured Q&A, and explicit $2,500 diagnostic pricing.
-  - Codified founder's 21-year technical heuristics into new flagship article `blog-bitemporal-healthcare-data-ai.html`: batch claims latency vs. naive LLM real-time assumptions, SCD Type 2 bitemporal modeling, operational timestamp semantics, non-negotiable dbt tests (NPI, ICD/CPT, midnight default audits, referential integrity), and Schmitt-Thompson clinical triage boundaries.
+  - Codified founder's 21-year technical heuristics into new flagship article `blog-bitemporal-healthcare-data-ai.html`: batch claims latency vs. naive LLM real-time assumptions, SCD Type 2 bitemporal modeling, operational timestamp semantics, non-negotiable dbt tests (NPI, ICD/CPT, midnight default audits, referential integrity), and clinical-diagnostic safety boundaries.
   - Upgraded $2,500 diagnostic deliverables in `ai-readiness-assessment.html` to include ready-to-run execution scripts and dbt tests that engineering teams can merge immediately.
   - Published companion open-source dbt package `apratsunrthd/refhealth-dbt-healthcare-checks` v1.0.0 on GitHub with 7 generic test macros for healthcare claims, enrollment, and clinical data.
   - Expanded Answer Engine Optimization (AEO) directory in `/llms.txt` and `/llms-full.txt` targeting high-intent queries across ChatGPT Search, Perplexity, Claude, and Gemini.
@@ -232,8 +232,8 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The technical infrastructure, edge hardening, measurement engine, and advertising plan are complete. Next commercial steps:
-Review and merge the workflow evaluator PR, then verify the production page and ZIP download.
-1. Initiate the $1,500 pilot sprint in LinkedIn Campaign Manager (under the ref(health) brand page) and Google Ads.
-2. Monitor inbound inquiries in the consulting inbox and `refhealth lead attribution` sheet.
-3. Review weekly Looker Studio metrics as campaign impressions and search queries accumulate.
+See `TODO.md`. The technical infrastructure, edge hardening, executive repositioning, and starter repos are complete. Next steps:
+1. Conduct in-depth review with Codex on architectural docs, service catalogs, and code quality.
+2. Establish off-site entity footprint: LinkedIn Company Page for `ref(health) Consulting`, Founder & Fractional Principal profile link, and initial thought leadership post syndication.
+3. Build dedicated `/fractional-vp-data` executive landing page with interactive Fractional vs. Full-Time VP ROI Calculator.
+4. Monitor inbound diagnostic requests in consulting inbox and Google Sheets attribution ledger.

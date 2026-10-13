@@ -1,19 +1,8 @@
 # refhealth.consulting
 
-Static marketing site for ref(health) Consulting, a healthcare data, analytics,
-and practical AI consulting firm.
+Static marketing site for ref(health) Consulting, an executive healthcare data leadership and AI advisory firm.
 
-The homepage positions the firm around paid healthcare data and AI work:
-AI-readiness diagnostics, company Data AI Operating Systems, data landscape
-assessments, dbt analytics engineering, model orchestration, agentic workflow
-prototypes, payer/provider modernization support, and fractional data
-leadership. The primary buyer is a health-tech startup; provider and other
-healthcare teams remain secondary audiences. The focused AI-readiness diagnostic
-starts at $2,500. Dedicated service pages, a short diagnostic intake, and
-original articles make the offers easier for search engines, answer engines, and
-buyers to find and understand. Free [Healthcare Feed Triage](feed-triage.html)
-is a downloadable Claude Desktop extension that inspects local CSV event feeds
-and FHIR Bundles for concrete timing and data-quality problems.
+The firm specializes in **Fractional VP of Data** leadership, **Company Data AI Operating Systems (HDAIOS)**, and 2-week AI-readiness diagnostics ($2,500). dbt analytics engineering and open-source packages serve as our Layer 2 Governed Data Foundation proof-of-work ("we know the plumbing down to the metal") rather than an hourly contractor offering. The primary buyer is a health-tech founder, CEO, or CTO; provider and health plan data teams remain secondary audiences. Dedicated service pages, an interactive intake, and original technical playbooks make the offers clear for search engines, LLM answer engines, and prospective clients. Free [Healthcare Feed Triage](feed-triage.html) is a downloadable Claude Desktop extension that inspects local CSV event feeds and FHIR Bundles for concrete timing and data-quality defects.
 
 ## Development
 
@@ -43,15 +32,18 @@ extension files, rebuild the download with:
 - `refhealth-feed-triage.mcpb`, `mcp/` - Claude Desktop extension and local feed inspector
 - `intake.html` - diagnostic intake and starting-price conversion path
 - `about.html` - healthcare experience and engagement model
-- `hdaios.html` / `hdaios.md` - Healthcare Data AI Operating System (HDAIOS) v1.0 canonical architectural specification and interactive reference
-- `blog.html` - insights and specifications listing
-- `blog-*.html` - static article pages (including `blog-bitemporal-healthcare-data-ai.html`)
+- `hdaios.html` / `hdaios.md` - Healthcare Data AI Operating System (HDAIOS) v1.0 canonical architectural specification and interactive self-assessment (`#assessment`)
+- `dbt-consulting.html` - dbt analytics engineering offer, featuring interactive Claims Lag & Capital Float Calculator (`#calculator`)
+- `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer and interactive Statement of Work (SOW) Generator (`#scope-generator`)
+- `blog.html` - insights, playbooks, and specifications listing
+- `blog-*.html` - static technical teardowns (`blog-edi-837-835-claims-modeling-dbt.html`, `blog-healthcare-dbt-audit-playbook.html`, `blog-bitemporal-healthcare-data-ai.html`)
 - `llms.txt` and `llms-full.txt` - machine-readable manifests and token-dense knowledge corpus for AI answer engines and autonomous agents
 - `styles.css` - shared visual system
 - `og.png` and `og-card.svg` - social preview asset and editable source
 - `FORM_SETUP.md` - hosted diagnostic form setup checklist
 - `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
 - Open-Source Repositories:
+  - [`apratsunrthd/refhealth-starter-dbt-project`](https://github.com/apratsunrthd/refhealth-starter-dbt-project) - cloneable DuckDB healthcare dbt starter repo (v1.2.0) with synthetic FHIR encounter crosswalk, actuarial metrics, and 106 passing tests
   - [`apratsunrthd/refhealth-dbt-healthcare-checks`](https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks) - 7 generic dbt test macros for healthcare data integrity
   - [`apratsunrthd/refhealth-feed-triage`](https://github.com/apratsunrthd/refhealth-feed-triage) - local Claude Desktop MCP extension for feed quality
 - `PRODUCT.md` - durable product facts for Impeccable and future agents

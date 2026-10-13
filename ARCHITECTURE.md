@@ -2,7 +2,7 @@
 
 ## System Overview
 
-`refhealth.consulting` is a high-performance, privacy-compliant static web application and commercial conversion engine for healthcare data, analytics engineering (dbt), and practical AI consulting.
+`refhealth.consulting` is a high-performance, privacy-compliant static web application and commercial conversion engine for executive healthcare data leadership (Fractional VP of Data), Company Data AI Operating Systems (HDAIOS), and healthcare analytics engineering.
 
 The system is designed for zero runtime maintenance, maximum edge speed (<50ms TTFB globally), resilient security boundaries, and automated attribution without third-party tracking cookies or client-side bloat.
 
@@ -212,10 +212,10 @@ The site publishes and serves the canonical open specification for HDAIOS v1.0 a
 
 ```mermaid
 flowchart TD
-    subgraph Layer 1: Decision Interface
-        ST["Schmitt-Thompson Protocol Engine"]
-        CLIN["Certified Clinical Systems"]
-        OPS["Operational/Administrative Workflows"]
+    subgraph Layer 1: Decision Interface & Operational Guardrails
+        ADMIN["Administrative & Operational Automation"]
+        COORD["Payer & Provider Coordination"]
+        GOV["Executive Board Metric Governance"]
     end
 
     subgraph Layer 2: Governed Data Foundation
@@ -245,14 +245,13 @@ flowchart TD
     SEM --> AGENT
     GATEWAY --> ROUTER --> AGENT
     BAA -.-> GATEWAY
-    AGENT --> HITL --> OPS
-    CLIN -.-> ST
-    OPS --> DRIFT --> CADENCE
+    AGENT --> HITL --> ADMIN
+    ADMIN --> DRIFT --> CADENCE
 ```
 
-1. **Layer 1: Decision Interface & Clinical Guardrails**:
-   - Hard boundary enforcing Schmitt-Thompson triage protocols.
-   - Restricts non-clinical frontier LLMs strictly to operational, administrative, and analytical tasks. Clinical advice or diagnostic recommendations without medical-device clearance are structurally prohibited.
+1. **Layer 1: Decision Interface & Operational Guardrails**:
+   - Hard boundary restricting uncertified frontier LLMs strictly to administrative, operational, financial, and analytical workflows.
+   - Absolute prohibition on unmonitored clinical diagnostic advice or autonomous medical decision-making without FDA medical-device clearance.
 2. **Layer 2: Governed Data Foundation (Bitemporality & dbt Integrity)**:
    - Claims processing lag (48h clearinghouse to multi-week payer cycles) mandates Slowly Changing Dimensions (SCD) Type 2 bitemporality. Queries track both Event Time (`date_of_service`) and System Knowledge Time (`received_date`, `paid_date`).
    - Integrates the open-source `refhealth-dbt-healthcare-checks` package (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) enforcing 7 generic tests: surrogate key uniqueness, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, bitemporal enrollment consistency, and referential integrity.
@@ -265,5 +264,24 @@ flowchart TD
 5. **Layer 5: Continuous Operational Cadence**:
    - Automated monitoring of upstream claims lag shifts, EHR format drift, and model output stability.
    - Structured 90-day executive operating cadence reviewing data quality pass rates, token utilization, and workflow automation ROI.
+
+---
+
+### 8. Interactive Client-Side Calculators & Open-Source Artifacts
+
+To demonstrate engineering authority and provide zero-friction conversion tools for prospects without collecting sensitive PHI, `refhealth.consulting` deploys three native client-side calculators:
+
+1. **Claims Lag & Capital Float Calculator (`dbt-consulting.html#calculator`)**:
+   - Computes unadjudicated capital float tied up in clearinghouse transit, annual clerical rework drag, and monthly MLR volatility bands based on monthly volume, turnaround lag days, and first-pass denial rates.
+   - Synthesizes 1-click executive Markdown briefing memos and pre-fills scope parameters dynamically into `intake.html`.
+2. **Diagnostic Statement of Work (SOW) Generator (`ai-readiness-assessment.html#scope-generator`)**:
+   - Synthesizes prospective stack parameters (Snowflake, BigQuery, Databricks, PostgreSQL, DuckDB), ingestion feeds, and friction points into an executive budget memo.
+   - Enables 1-click clipboard copy, `.md` download, and pre-populated routing to the diagnostic intake.
+3. **HDAIOS Self-Assessment Tool (`hdaios.html#assessment`)**:
+   - Zero-PHI 10-question evaluation widget assessing technical posture across all 5 HDAIOS layers.
+   - Yields architecture risk tiering (Production Ready, Emerging Foundation, High-Risk Pilot) and prioritized remediation gap checklists.
+4. **Open-Source Healthcare dbt Starter Repo (`apratsunrthd/refhealth-starter-dbt-project` v1.2.0)**:
+   - Zero-dependency local DuckDB test suite with 106/106 automated tests passing out of the box.
+   - Features synthetic FHIR Encounter-to-Claims Transformation Bridge (`int_encounter_claims_crosswalk.sql`), statutory ACA MLR calculation standards, and bitemporal enrollment models.
 
 
