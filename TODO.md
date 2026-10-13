@@ -2,16 +2,13 @@
 
 ## Recently completed
 
-- Upgraded Cloneable Healthcare dbt Starter Repository (`apratsunrthd/refhealth-starter-dbt-project` v1.2.0):
-  - Built synthetic FHIR Encounter-to-Claims Transformation Bridge (`raw_fhir_encounters.csv`, `stg_fhir_encounters.sql`, `int_encounter_claims_crosswalk.sql`) linking clinical EHR events to billing claim lines.
-  - Audits primary procedure code alignment, measures encounter-to-paid adjudication lag days, and catches unbilled clinical care leakage.
-  - Expanded test suite to 106/106 passing tests on DuckDB across CMS NPI format, CPT validity, surrogate grain, and referential integrity.
-  - Tagged and published `v1.2.0` release on GitHub.
-- Authored Founder-Voice LinkedIn Thought Leadership Campaign:
-  - Created 3 plug-and-play thought leadership posts in `thought-leadership-linkedin-campaign.md`:
-    1. The $120k Row Multiplication Bug (EDI 837 vs 835 CAS Segments and dimensional bridge modeling).
-    2. Why Your Analytics Pipeline Is Lying About Your Denial Rate (Frequency code 7/8 resubmissions vs terminal write-offs) linking to the Interactive Claims Lag Calculator.
-    3. Open-sourcing `refhealth-starter-dbt-project` v1.2.0 (DuckDB local execution in 30s, 106 tests, zero-PHI).
+- Strategically Repositioned ref(health) for Fractional Data Leadership & HDAIOS:
+  - Shifted primary core offering from tactical dbt consulting to Executive Healthcare Data Leadership (Fractional VP of Data) and Company Data AI Operating Systems (HDAIOS).
+  - Repositioned dbt analytics engineering and open-source packages as Layer 2 Governed Data Foundation proof-of-work rather than an hourly service.
+  - Rewrote 3-part LinkedIn thought leadership campaign in `thought-leadership-linkedin-campaign.md` to address health-tech CEOs and CTOs on the healthcare AI data trap, when to hire a fractional VP of Data, and the 5-layer HDAIOS architecture.
+  - Updated `index.html` hero signals, offer catalog, and schema with Fractional Data Leadership.
+  - Added dedicated `#fractional-leadership` executive advisory section to `healthcare-data-strategy.html`.
+  - Updated `llms.txt` and `llms-full.txt` discovery manifests with executive leadership and HDAIOS positioning.
 - Hardened Deployment Workflow & Verified Live Production Calculator:
   - Verified live Cloudflare Pages deployment of Claims Lag & Working Capital Float Calculator on `https://refhealth.consulting/dbt-consulting#calculator`.
   - Added `workflow_dispatch` and rebase protection to `.github/workflows/sitemap.yml`.
