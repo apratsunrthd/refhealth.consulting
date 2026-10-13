@@ -56,7 +56,7 @@
 - Built and deployed Phase 2 Substantive Authority Moat:
   - Published flagship technical teardown `blog-bitemporal-healthcare-data-ai.html` ("Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap"), addressing clearinghouse/payer batch cycles, SCD Type 2 bitemporality, timestamp semantics, and clinical triage boundaries.
   - Codified non-negotiable healthcare dbt testing standards in `dbt-consulting.html` and `FAQPage` schema: surrogate key uniqueness, CMS NPI registry checks, ICD-10 and HCPCS/CPT validity, midnight (`00:00:00`) default timestamp audits, bitemporal enrollment desync detection, and referential integrity.
-  - Articulated the Schmitt-Thompson clinical triage protocol boundary in `healthcare-ai-consulting.html`: uncertified LLMs must never attempt clinical diagnosis or triage, focusing autonomous agents on administrative toil, operational coordination, and structured data pipelines.
+  - Articulated the clinical safety boundary in `healthcare-ai-consulting.html`: uncertified LLMs must never attempt clinical diagnosis or triage, focusing autonomous agents on administrative toil, operational coordination, and structured data pipelines.
   - Expanded the $2,500 diagnostic deliverable in `ai-readiness-assessment.html`: added ready-to-run execution scripts and dbt tests that client engineers can merge immediately during the 2-week engagement.
   - Updated `/llms.txt` and `/llms-full.txt` with these domain heuristics for direct citation by AI answer engines.
 - Built and deployed LLM Agent & Answer Engine Discovery Architecture:
@@ -176,7 +176,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 - Cloudflare Edge Analytics tracks all raw network requests (including scrapers and bots),
   while GA4 tracks JavaScript-executed browser sessions. High-volume traffic spikes without
   referrers from cloud datacenter regions (e.g. Brazil/AWS) represent automated scanner sweeps.
-- Deploy verification smoke checks: `https://refhealth.consulting/`,
+- Deploy verification smoke checks: `https://refhealth.consulting/`, `https://refhealth.consulting/intake.html`, and `https://refhealth.consulting/sitemap.xml`.
+
 ## Next up (for Claude Code, Codex, and other models)
 
 - [ ] Support Codex in-depth review: Verify all documentation contracts (`BRIEF.md`, `HANDOFF.md`, `ARCHITECTURE.md`, `README.md`, `TODO.md`), code standards, and security boundaries.

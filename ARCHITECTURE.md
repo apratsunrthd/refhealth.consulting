@@ -212,46 +212,48 @@ The site publishes and serves the canonical open specification for HDAIOS v1.0 a
 
 ```mermaid
 flowchart TD
-    subgraph Layer 1: Decision Interface & Operational Guardrails
-        ADMIN["Administrative & Operational Automation"]
-        COORD["Payer & Provider Coordination"]
-        GOV["Executive Board Metric Governance"]
+    subgraph Layer 1: Decision Interface (DI)
+        DEC["Decision Owner & Metric Baseline"]
+        RISK["Risk Tiering & Clinical Safety Boundary"]
     end
 
-    subgraph Layer 2: Governed Data Foundation
+    subgraph Layer 2: Governed Data Foundation (GDF)
         RAW["Raw Ingestion (EHR, Claims, EDI 837/835)"]
         SCD2["SCD Type 2 Bitemporal Warehouse Models"]
         DBT["refhealth-dbt-healthcare-checks (7 Integrity Tests)"]
     end
 
-    subgraph Layer 3: Enterprise BAA & Model Gateway
+    subgraph Layer 3: Enterprise BAA & Model Gateway (EBMG)
         GATEWAY["Model Gateway (Bedrock, Azure OpenAI, Vertex AI)"]
         BAA["Signed Enterprise BAAs & Cloud Commitments"]
         ROUTER["Intent & Latency Router (Claude, GPT, Gemini)"]
     end
 
-    subgraph Layer 4: Agent & Semantic Orchestration
+    subgraph Layer 4: Agent & Semantic Orchestration (AWO)
         SEM["Governed Metric Layer (Semantic Layer RAG)"]
         HITL["Human-in-the-Loop Tripwires"]
         AGENT["Specialized Operational Agents"]
     end
 
-    subgraph Layer 5: Continuous Operational Cadence
+    subgraph Layer 5: Continuous Operational Cadence (COC)
         DRIFT["Data & Model Drift Monitoring"]
         CADENCE["90-Day Executive Review Cadence"]
     end
 
+    DEC --> RAW
     RAW --> SCD2 --> DBT --> SEM
     SEM --> AGENT
     GATEWAY --> ROUTER --> AGENT
     BAA -.-> GATEWAY
-    AGENT --> HITL --> ADMIN
-    ADMIN --> DRIFT --> CADENCE
+    AGENT --> HITL
+    DRIFT --> CADENCE
+    CADENCE -.->|Feedback Loop| DEC
 ```
 
-1. **Layer 1: Decision Interface & Operational Guardrails**:
-   - Hard boundary restricting uncertified frontier LLMs strictly to administrative, operational, financial, and analytical workflows.
-   - Absolute prohibition on unmonitored clinical diagnostic advice or autonomous medical decision-making without FDA medical-device clearance.
+1. **Layer 1: Decision Interface & Clinical Safety Boundary**:
+   - Establishes identifiable executive decision ownership, baseline metrics (turnaround, error rates, human toil), and operational risk tiering.
+   - Enforces a hard clinical safety boundary: uncertified frontier LLMs are strictly prohibited from performing autonomous clinical diagnoses, patient triage, or prescription recommendations without formal regulatory clearance.
+   - Restricts AI agent execution to administrative efficiency, operational coordination, payer/provider data transformation, and analytics engineering pipelines, preserving licensed clinician judgment.
 2. **Layer 2: Governed Data Foundation (Bitemporality & dbt Integrity)**:
    - Claims processing lag (48h clearinghouse to multi-week payer cycles) mandates Slowly Changing Dimensions (SCD) Type 2 bitemporality. Queries track both Event Time (`date_of_service`) and System Knowledge Time (`received_date`, `paid_date`).
    - Integrates the open-source `refhealth-dbt-healthcare-checks` package (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) enforcing 7 generic tests: surrogate key uniqueness, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, bitemporal enrollment consistency, and referential integrity.

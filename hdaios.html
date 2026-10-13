@@ -53,7 +53,7 @@
             "Data AI Operating System",
             "bitemporal data",
             "dbt",
-            "Schmitt-Thompson protocols"
+            "Clinical Safety Boundaries"
           ]
         },
         {
@@ -160,7 +160,7 @@
             </p>
             <ul>
               <li><strong>Decision Ownership:</strong> Every model output must trace directly to a measurable operational metric and owner.</li>
-              <li><strong>The Clinical Boundary (Schmitt-Thompson Protocol Standard):</strong> Clinical telephone triage and decision support standards (Schmitt-Thompson protocols) are unequivocal. Unless an organization operates a certified, clinical-grade platform, uncertified language models must <em>never</em> perform clinical diagnoses or triage recommendations. AI agents are bounded to administrative, operational, care navigation, and data transformation workflows, preserving licensed clinician judgment.</li>
+              <li><strong>The Clinical Safety Boundary:</strong> Clinical judgment, diagnosis, and patient care evaluation are governed by medical licensure and regulated standards. Unless an organization operates a certified, clinical-grade platform with formal regulatory clearance, uncertified language models must <em>never</em> perform clinical diagnoses or patient triage recommendations. AI agents are strictly bounded to administrative, operational, payer/provider coordination, and data transformation workflows, preserving licensed clinician judgment.</li>
             </ul>
 
             <h3>Layer 2: The Governed Data Foundation (GDF)</h3>
@@ -227,7 +227,7 @@
 
                 <div class="assessment-question">
                   <div class="assessment-question-text">1. Clinical Triage &amp; Diagnostic Guardrails</div>
-                  <div class="assessment-question-hint">Does your system structurally prohibit autonomous clinical diagnosis, triage, or prescription recommendations through hard code-level tripwires (e.g. Schmitt-Thompson protocols)?</div>
+                  <div class="assessment-question-hint">Does your system structurally prohibit autonomous clinical diagnosis, patient triage, or prescription recommendations through hard code-level tripwires?</div>
                   <div class="assessment-options">
                     <label class="assessment-opt-label is-selected">
                       <input type="radio" name="q1" value="2" data-layer="1" checked />
@@ -495,7 +495,7 @@
     <script>
       (function() {
         const remediations = {
-          q1: { layer: "Layer 1: Decision Interface", remedy: "Enforce hard code-level Schmitt-Thompson protocol tripwires to prohibit uncertified clinical triage or diagnostic hallucinations." },
+          q1: { layer: "Layer 1: Decision Interface", remedy: "Enforce hard code-level programmatic tripwires to prohibit uncertified clinical triage or diagnostic hallucinations." },
           q2: { layer: "Layer 1: Decision Interface", remedy: "Assign a named business decision owner and measure a pre-AI error/cost baseline before deploying models." },
           q3: { layer: "Layer 2: Governed Data Foundation", remedy: "Implement SCD Type 2 bitemporal modeling to separate Event Time (date of service) from Knowledge Time (paid date) across claims batch lag." },
           q4: { layer: "Layer 2: Governed Data Foundation", remedy: "Install refhealth-dbt-healthcare-checks (https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks) to enforce CMS NPI, ICD-10/CPT, and midnight timestamp tests." },

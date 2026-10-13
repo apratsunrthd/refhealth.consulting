@@ -18,7 +18,7 @@ The **Healthcare Data AI Operating System (HDAIOS)** is a 5-layer architectural 
 flowchart TD
     subgraph L1["Layer 1: Decision Interface (DI)"]
         DEC["Decision Owner & Metric Baseline"]
-        RISK["Risk Tiering & Schmitt-Thompson Clinical Boundary"]
+        RISK["Risk Tiering & Clinical Safety Boundary"]
     end
 
     subgraph L2["Layer 2: Governed Data Foundation (GDF)"]
@@ -54,10 +54,10 @@ Every AI initiative must begin with a defined business decision, a designated op
 
 ### 1.1 Specification Requirements
 * **Decision Ownership**: An identifiable executive or operational manager must own the decision outcome, baseline performance metrics, and acceptable risk profile.
-* **The Clinical Boundary Rule (Schmitt-Thompson Protocol Standard)**:
-  * Industry-standard clinical guidelines (specifically Schmitt-Thompson clinical telephone triage protocols) govern medical triage.
-  * *Constraint*: Unless an organization operates a certified, clinical-grade platform subject to formal clinical validation, autonomous LLM agents are **strictly prohibited** from performing clinical diagnoses or triage recommendations.
-  * *Allowed Scope*: AI agents must be bounded to administrative efficiency, operational coordination, care navigation guidance, unstructured feed extraction, and structured data engineering, preserving licensed clinician judgment.
+* **The Clinical Safety Boundary Rule**:
+  * Clinical judgment and patient evaluation are governed by medical licensure and regulated clinical standards.
+  * *Constraint*: Unless an organization operates a certified, clinical-grade platform subject to formal clinical validation and regulatory clearance, autonomous LLM agents are **strictly prohibited** from performing clinical diagnoses, patient triage, or medical prescription recommendations.
+  * *Allowed Scope*: AI agents must be bounded strictly to administrative efficiency, operational coordination, payer/provider data transformation, and structured analytics engineering, preserving licensed clinician judgment.
 * **Success Metric Baseline**: Pre-implementation baselines must be recorded for task turnaround time, error rates, and human toil prior to deploying model assistance.
 
 ---
