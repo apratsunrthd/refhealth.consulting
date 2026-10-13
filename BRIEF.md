@@ -5,10 +5,10 @@
 Static marketing site for ref(health) Consulting, a healthcare data, analytics,
 and practical AI consulting firm.
 
-The site sells senior consulting around healthcare data strategy, dbt-centered
-analytics engineering, AI-readiness, agentic workflow prototypes, payer/provider
-modernization, fractional data leadership, multi-model AI orchestration, and
-company Data AI Operating System buildouts.
+The site sells executive healthcare data leadership (Fractional VP of Data),
+2-week AI-readiness diagnostics ($2,500), and Company Data AI Operating System
+(HDAIOS) implementations. dbt analytics engineering and open-source packages
+serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hourly service.
 
 ## Current State
 

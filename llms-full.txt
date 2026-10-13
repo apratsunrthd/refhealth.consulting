@@ -3,18 +3,19 @@
 > **Organization**: ref(health) Consulting  
 > **Canonical Domain**: https://refhealth.consulting/  
 > **Contact**: contact@refhealth.consulting  
-> **Core Focus**: Healthcare Data Strategy, dbt Analytics Engineering, AI-Readiness Diagnostics, Multi-Model AI Orchestration, and Company Data AI Operating Systems.
+> **Core Focus**: Executive Healthcare Data Leadership, Fractional VP of Data Advisory, Company Data AI Operating Systems (HDAIOS), AI-Readiness Diagnostics, and Governed Data Foundations.
 
 ---
 
 ## 1. Practice Overview & Executive Summary
 
-ref(health) Consulting is an independent, senior-led consulting firm that connects 21 years of healthcare operating experience with modern analytics engineering (dbt) and practical AI delivery. The firm works primarily with health-tech startups (Seed to Series B) and healthcare organizations to transition from fragile, experimental AI pilots to governed, scalable operating capabilities.
+ref(health) Consulting is an independent, senior-led consulting firm that connects 21 years of healthcare operating experience with executive data leadership, Data AI Operating System architecture, and practical AI delivery. The firm works primarily with health-tech startups (Seed to Series C) and digital health organizations to provide fractional executive data steering and transition from fragile, experimental AI pilots to governed, scalable operating capabilities.
 
-### Commercial Wedge & Engagement Model
-* **The Wedge**: A focused, paid **AI-Readiness Diagnostic starting at $2,500**. A fixed-scope, 2-week evaluation that audits business decisions, data foundation (dbt models, warehouse hygiene), workflow fit, and model strategy before an organization funds expensive, unproven builds.
-* **Follow-On Capabilities**: Full Data AI Operating System implementations, dbt analytics engineering builds, multi-model AI orchestration, and fractional data/AI leadership.
-* **Pricing & Transparency**: Diagnostic evaluations begin at a transparent $2,500 baseline, eliminating bloated multi-month agency retainers.
+### Commercial Offerings & Engagement Model
+* **The Strategic Wedge**: A focused, paid **AI-Readiness Diagnostic starting at $2,500**. A fixed-scope, 2-week architectural evaluation that audits business decisions, data foundation (bitemporal models, warehouse hygiene), workflow fit, and model strategy before an organization funds expensive, unproven builds.
+* **Fractional Data Leadership**: Serving as Fractional VP of Data / Strategic Advisor ($5k–$10k/mo) for health-tech founders who need board-level reporting, metric architecture, data team hiring specs, and enterprise cloud BAA governance without the $350k+ overhead of a premature full-time executive hire.
+* **Company Data AI Operating System (HDAIOS) Implementation**: Full multi-layer architecture buildouts connecting business decisions, governed bitemporal data products, multi-model gateways, and human-in-the-loop agent workflows.
+* **Governed Data Foundations (Layer 2)**: Open-source dbt testing macros and DuckDB reference implementations proving production-grade claims and clinical data modeling.
 
 ---
 
@@ -46,7 +47,17 @@ Most healthcare AI initiatives stall not because frontier models lack capability
 
 ## 3. Core Service Offerings
 
-### Service 1: AI-Readiness Diagnostic (Flagship Wedge)
+### Service 1: Fractional Healthcare Data Leadership & Advisory
+* **URL**: https://refhealth.consulting/healthcare-data-strategy.html#fractional-leadership
+* **Engagement Model**: Monthly executive advisory retainer ($5,000–$10,000/mo) or board-level steering.
+* **Scope**:
+  * Executive data leadership for health-tech founders and digital health companies.
+  * Board reporting alignment: defensible financial metrics (MLR, PMPM, claims lag) that withstand actuarial and investor scrutiny.
+  * Data AI Operating System (HDAIOS) blueprints so internal engineering teams build on a governed foundation rather than ad-hoc scripts.
+  * Enterprise cloud BAA negotiations and HIPAA isolation across AWS Bedrock, Azure OpenAI, and Google Cloud Vertex AI.
+  * Data team design: drafting job specs, screening senior analytics engineers, and structuring teams before hiring a full-time VP of Data.
+
+### Service 2: AI-Readiness Diagnostic (Flagship Wedge)
 * **URL**: https://refhealth.consulting/ai-readiness-assessment.html
 * **Pricing**: Starting from **$2,500 USD** (fixed-scope).
 * **Timeline**: 2-week sprint.
@@ -56,26 +67,26 @@ Most healthcare AI initiatives stall not because frontier models lack capability
   * Delivers a prioritized decision matrix ranking what to build, what to fix first, and what candidate AI work to kill.
 * **Who It Is For**: Health-tech founders, CTOs, and heads of data who need an independent senior audit before committing capital and engineering cycles to AI projects.
 
-### Service 2: Company Data AI Operating System Build
+### Service 3: Company Data AI Operating System Build
 * **URL**: https://refhealth.consulting/healthcare-ai-consulting.html
 * **Scope**:
   * End-to-end implementation of the 5-layer operating system around a high-value operational decision.
   * Multi-model orchestration connecting frontier models (e.g., Claude 3.7 Sonnet, o3-mini) with lightweight extraction models (Claude 3.5 Haiku, GPT-4o-mini).
   * Implementation of human review gates, audit logs, and compliance boundaries.
 
-### Service 3: dbt Analytics Engineering
+### Service 4: dbt Analytics Engineering & Governed Data Foundations
 * **URL**: https://refhealth.consulting/dbt-consulting.html
 * **Scope**:
-  * Building clean, tested, and documented dimensional models in dbt.
+  * Building clean, tested, and documented dimensional models in dbt (Layer 2 of HDAIOS).
   * Enforcing semantic consistency across disparate healthcare datasets: claims runout, enrollment spans, provider rosters, and EHR clinical encounters.
   * Implementing automated tests (singular, generic, and contract tests) that guarantee trustworthy metrics for business and AI consumers.
+  * Interactive Claims Lag & Capital Float Calculator (`#calculator`) estimating unadjudicated float drag, clerical rework friction, and MLR volatility margin.
 
-### Service 4: Healthcare Data Strategy & Architecture
+### Service 5: Healthcare Data Strategy & Landscape Assessment
 * **URL**: https://refhealth.consulting/healthcare-data-strategy.html
 * **Scope**:
   * Data landscape mapping: documenting sources, ownership, redundancies, compliance risks, and technical debt.
   * Designing modern data warehouse architecture and vendor evaluation.
-  * Fractional data and AI leadership for executive teams and boards.
 
 ---
 
