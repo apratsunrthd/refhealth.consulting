@@ -118,9 +118,12 @@ If your organization is building AI on healthcare data, which layer is currently
 
 Draft fields for the owner to enter when creating the company page. Confirm the page handle and any required organization details in LinkedIn before publishing.
 
-**Name:** ref(health) Consulting  
-**Website:** https://refhealth.consulting  
-**Proposed page handle:** refhealth-consulting (availability not checked)  
+**Name:** ref(health) Consulting
+
+**Website:** https://refhealth.consulting
+
+**Proposed page handle:** refhealth-consulting (availability not checked)
+
 **Tagline:** Executive healthcare data leadership. Governed data foundations. Practical AI operating systems.
 
 **About:**
