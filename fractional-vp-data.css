@@ -1,0 +1,43 @@
+/* Page-specific calculator layout; the rest uses the shared design system. */
+.service-hero .hero__content { display: grid; gap: 1rem; }
+#calculator { scroll-margin-top: 88px; }
+.executive-note { margin-top: 1rem; }
+.executive-calculator {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.executive-calculator[hidden], .executive-calculator [hidden] { display: none; }
+.executive-calculator fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  min-width: 0;
+}
+.executive-calculator legend { font-weight: 700; margin-bottom: 1rem; }
+.executive-calculator label { display: grid; gap: 0.35rem; margin-bottom: 1rem; }
+.executive-calculator input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper-strong);
+}
+.executive-calculator input[aria-invalid="true"] { border: 2px solid var(--red-deep); }
+.executive-calculator input:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.executive-calculator small, .executive-note { font-size: 0.88rem; color: var(--ink-soft); }
+.executive-calculator details { margin-bottom: 1.5rem; border-top: 1px solid var(--line); }
+.executive-calculator summary { cursor: pointer; min-height: 48px; padding: 0.75rem 0; font-weight: 600; }
+.executive-results { padding: 1.5rem; border: 1px solid var(--ink); background: var(--paper-strong); }
+.executive-metrics { margin: 0 0 1.5rem; }
+.executive-metrics div { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.executive-metrics dt { font-weight: 600; }
+.executive-metrics dd { margin: 0.35rem 0 0; font-size: clamp(1.5rem, 3vw, 2.15rem); font-weight: 700; overflow-wrap: anywhere; }
+.executive-results p { margin-bottom: 1rem; }
+.executive-results .hero__actions { flex-direction: column; align-items: stretch; }
+.executive-calculator button:disabled { opacity: 0.55; cursor: not-allowed; }
+@media (max-width: 980px) { .executive-calculator { grid-template-columns: 1fr; } }
