@@ -11,7 +11,7 @@ server lives in `mcp/`; run `npm ci --prefix mcp`, `npm test --prefix mcp`, and
 Important files:
 
 - `fractional-vp-data.html` / `fractional-vp-data.css` / `fractional-vp-data.js` - executive offering and client-side cash/runway/capacity comparison (`#calculator`), local Markdown scope memo, and advisory intake handoff; implemented on the feature branch, not deployed yet
-- `test/executive-calculator.test.cjs` - six arithmetic/memo tests; run `node --test test/executive-calculator.test.cjs` (also in PR CI)
+- `test/executive-calculator.test.cjs` - seven arithmetic/memo tests; run `node --test test/executive-calculator.test.cjs` (also in PR CI)
 
 - `index.html` - main marketing page and revenue CTA
 - `feed-triage.html` - free extension page and install instructions
@@ -89,7 +89,7 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 - Land handoff PR #65, then retarget/review/merge the stacked executive offering PR. No production deployment has been performed for this build.
 - Verify production `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and the sitemap after merge.
 - Validate advisory scope, hours, and pricing before publishing a rate card. The only published starting price remains the $2,500 diagnostic; calculator values are editable illustrative budgets.
-- Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Six calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.
+- Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Seven calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.
 
 ### 2. For the Site Owner (Human Actions)
 - **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.

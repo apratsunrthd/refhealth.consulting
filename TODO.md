@@ -2,10 +2,11 @@
 
 ## Recently completed
 
+- Fixed zero-burn runway reporting when upfront costs exceed available cash, with a regression test that failed before the fix.
 - Implemented Fractional VP of Data landing page and executive calculator on `feat/fractional-vp-data` (awaiting PR merge/deployment):
   - Editable Year 1 cash, runway, leadership capacity, and assumed first-metric timing; equity excluded from cash calculations.
   - Local Markdown memo export, no financial parameters in the intake URL, and a dedicated advisory scope banner.
-  - Six calculator/memo tests added to PR CI. Existing six MCP tests also pass; static links/fragments/JSON-LD checked across all 21 public HTML pages.
+  - Seven calculator/memo tests added to PR CI. Existing six MCP tests also pass; static links/fragments/JSON-LD checked across all 21 public HTML pages.
 
 - Executed and Passed In-Depth Codex Architectural & Documentation Review (PR #64):
   - Addressed all automated Codex review items: restored truncated deploy verification URLs in `TODO.md`, scrubbed clinical triage / Schmitt-Thompson references across `hdaios.md`, `hdaios.html`, `ARCHITECTURE.md`, `llms.txt`, and blog posts in favor of explicit clinical safety boundaries and non-compete guardrails, and restored operational feedback loops in `ARCHITECTURE.md` (linking Layer 4 human-in-the-loop triage to Layer 5 drift monitoring).

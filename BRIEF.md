@@ -12,7 +12,7 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
 
 ## Current State
 
-- `feat/fractional-vp-data` implements the dedicated executive leadership landing page, cost/runway/capacity calculator, local Markdown memo, advisory intake banner, and site-wide discovery links. It is based on open handoff PR #65 and is not deployed yet. Calculator defaults are illustrative, not market benchmarks or published advisory prices; cash and equity are separate, and capacity/timing are user assumptions. Six calculator tests are included in CI.
+- `feat/fractional-vp-data` implements the dedicated executive leadership landing page, cost/runway/capacity calculator, local Markdown memo, advisory intake banner, and site-wide discovery links. It is based on open handoff PR #65 and is not deployed yet. Calculator defaults are illustrative, not market benchmarks or published advisory prices; cash and equity are separate, and capacity/timing are user assumptions. Seven calculator tests are included in CI.
 
 - Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
   extension with a public landing page and a visual one-page overview labeled

@@ -10,7 +10,10 @@
     const fullRecurring = input.salary * (1 + input.bonus / 100) + input.benefits;
     const fullCost = fullRecurring + input.recruiting;
     const fractionalCost = input.retainer * 12 + input.sprints;
-    const runway = (upfront, monthly) => monthly === 0 ? null : Math.max(0, input.cash - upfront) / monthly;
+    const runway = (upfront, monthly) => {
+      if (input.cash < upfront) return 0;
+      return monthly === 0 ? null : (input.cash - upfront) / monthly;
+    };
     const fullRunway = runway(input.recruiting, input.burn + fullRecurring / 12);
     const fractionalRunway = runway(input.sprints, input.burn + input.retainer);
     return {

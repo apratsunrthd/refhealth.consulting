@@ -48,3 +48,15 @@ test('memo records assumptions, boundaries, and an intake URL with no financial 
   const url = new URL(memo.trim().split('\n').at(-1));
   assert.deepEqual([...url.searchParams], [['scope', 'fractional-vp-data']]);
 });
+test('unfunded upfront costs yield zero runway even when monthly burn is zero', () => {
+  const input = { ...defaults, cash: 100, burn: 0, salary: 0, bonus: 0, benefits: 0, retainer: 0, recruiting: 200, sprints: 300 };
+  const result = calculate(input);
+  assert.equal(result.fullRunway, 0);
+  assert.equal(result.fractionalRunway, 0);
+  assert.equal(result.runwayDelta, 0);
+  const memo = createMemo(input, result);
+  assert.ok(memo.includes('Full-time runway: 0.0 months; fractional runway: 0.0 months.'));
+  const funded = calculate({ ...input, cash: 300 });
+  assert.equal(funded.fullRunway, null);
+  assert.equal(funded.fractionalRunway, null);
+});
