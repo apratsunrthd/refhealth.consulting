@@ -5,7 +5,7 @@
 
 ---
 
-## Post 1: The Healthcare AI Trap (Why 90% of Health-Tech AI Pilots Die in the Data Layer)
+## Post 1: The Healthcare AI Trap (Why Health-Tech AI Pilots Stall in the Data Layer)
 
 **Hook / Problem Statement:**
 The dirty secret of healthcare AI in 2026: Boards are demanding "agentic workflows" and "autonomous operations," but when you look under the hood of most Series A–C health-tech companies, the underlying data stack is a toxic swamp of technical debt.
@@ -26,7 +26,7 @@ If you want autonomous agents to handle administrative workflows, payer coordina
 - Automated data integrity tripwires that block corrupted feeds before they enter an agent's context window.
 - Strict enterprise BAA isolation separating sensitive workloads from model training.
 
-We published an open-source framework and an interactive self-assessment evaluating where health-tech architectures break down across these layers:  
+We published the public framework and an interactive self-assessment evaluating where health-tech architectures break down across these layers:  
 👉 https://refhealth.consulting/hdaios.html#assessment
 
 Before you build your next AI feature, audit what you're feeding it.
@@ -45,7 +45,7 @@ A Series A startup raises $12M. The board says: *"We need AI and advanced analyt
 The founder spends $350k base + equity on a full-time VP of Data, who immediately hires two data scientists. 
 
 Six months later:
-- The data scientists are frustrated because 90% of their time is spent manually cleaning broken clearinghouse CSVs and hunting down why Looker doesn't match the billing system.
+- The data scientists are frustrated because most of their time is spent manually cleaning broken clearinghouse CSVs and hunting down why Looker doesn't match the billing system.
 - The CEO is embarrassed in board meetings because the executive dashboard and the actuarial reports report different numbers.
 - The company burned $600k in payroll with zero AI features in production.
 
@@ -107,7 +107,7 @@ Agents should never execute raw SQL against database tables. They must query gov
 **5. Layer 5: Continuous Operational Cadence**
 AI is not "deploy and forget." Implement automated weekly drift checks, prompt versioning, and monthly actuarial reconciliations to ensure agent outputs remain within acceptable variance.
 
-The full specification is open-sourced and published here:  
+The full specification is publicly available here:  
 👉 https://refhealth.consulting/hdaios
 
 If your organization is building AI on healthcare data, which layer is currently your biggest bottleneck?

@@ -95,7 +95,7 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 ### 2. For the Site Owner (Human Actions)
 - **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.
 - **Personal Profile Link**: Add "Founder & Fractional Principal" under Experience on your personal LinkedIn profile, linked directly to the new company page.
-- **Publish Post 1**: Syndicate Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Healthcare AI Pilots Die in the Data Layer").
+- **Publish Post 1**: Syndicate Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Health-Tech AI Pilots Stall in the Data Layer").
 - **Knowledge Graph Entity Anchors**: Register free basic company profiles on **Crunchbase** and **Wellfound** (formerly AngelList) for `ref(health) Consulting` (URL: `https://refhealth.consulting`). This gives LLM web-search crawlers (ChatGPT Search / OAI-SearchBot, ClaudeBot, PerplexityBot) verifiable external entity resolution nodes.
 - **Paid Acquisition Sprint**: Review and initiate the $1,500 30-day pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager and Google Search.
 

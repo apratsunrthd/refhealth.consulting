@@ -211,7 +211,7 @@ The site infrastructure, measurement system, and branding are fully modernized:
   - Add role: "Founder & Fractional Principal" at `ref(health) Consulting`.
   - Describe scope: Fractional VP of Data advisory, Healthcare Data AI Operating Systems (HDAIOS), and board-level data governance for health-tech startups.
 - [ ] **Syndicate Post 1 from Executive Sequence**:
-  - Publish Post 1 from [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md) ("Why Healthcare AI Pilots Die in the Data Layer").
+  - Publish Post 1 from [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md) ("Why Health-Tech AI Pilots Stall in the Data Layer").
   - Post natively from personal profile; tag company page in comments.
 - [ ] **Anchor Knowledge Graph Entity Profiles**:
   - Claim basic free company profile on **Crunchbase** for `ref(health) Consulting` (pointing to `https://refhealth.consulting`).
