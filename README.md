@@ -48,7 +48,7 @@ extension files, rebuild the download with:
   - [`apratsunrthd/refhealth-feed-triage`](https://github.com/apratsunrthd/refhealth-feed-triage) - local Claude Desktop MCP extension for feed quality
 - `PRODUCT.md` - durable product facts for Impeccable and future agents
 - `DESIGN.md` - durable design system and visual direction
-- `BRIEF.md`, `HANDOFF.md`, `TODO.md`, `ADVERTISING_PLAN.md` - project state, documentation, and growth plans
+- `BRIEF.md`, `HANDOFF.md`, `TODO.md`, `ADVERTISING_PLAN.md`, `thought-leadership-linkedin-campaign.md` - project state, documentation, and growth plans
 
 ## Deployment
 
