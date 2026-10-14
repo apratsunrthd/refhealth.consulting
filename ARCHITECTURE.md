@@ -271,7 +271,7 @@ flowchart TD
 
 ### 8. Interactive Client-Side Calculators & Open-Source Artifacts
 
-To demonstrate engineering authority and provide zero-friction conversion tools for prospects without collecting sensitive PHI, `refhealth.consulting` deploys three native client-side calculators:
+To demonstrate engineering authority and provide zero-friction conversion tools for prospects without collecting sensitive PHI, `refhealth.consulting` deploys four native client-side planning tools:
 
 1. **Claims Lag & Capital Float Calculator (`dbt-consulting.html#calculator`)**:
    - Computes unadjudicated capital float tied up in clearinghouse transit, annual clerical rework drag, and monthly MLR volatility bands based on monthly volume, turnaround lag days, and first-pass denial rates.
@@ -282,7 +282,13 @@ To demonstrate engineering authority and provide zero-friction conversion tools 
 3. **HDAIOS Self-Assessment Tool (`hdaios.html#assessment`)**:
    - Zero-PHI 10-question evaluation widget assessing technical posture across all 5 HDAIOS layers.
    - Yields architecture risk tiering (Production Ready, Emerging Foundation, High-Risk Pilot) and prioritized remediation gap checklists.
-4. **Open-Source Healthcare dbt Starter Repo (`apratsunrthd/refhealth-starter-dbt-project` v1.2.0)**:
+4. **Executive Cost & Capacity Calculator (`fractional-vp-data.html#calculator`)**:
+   - Page-specific `fractional-vp-data.css` and dependency-free `fractional-vp-data.js` reuse the shared design system. Inputs live only in browser memory; there is no API, persistence, or calculator-value analytics.
+   - Full-time Year 1 cash = base + cash bonus + benefits/payroll taxes + recruiting. Fractional cash = 12 × advisory budget + engineering sprint budget. Equity is displayed separately and excluded from cash/runway.
+   - Cash runway = max(0, cash minus upfront costs) / monthly burn. Recruiting and sprints are upfront; recurring leadership costs are spread monthly. Zero monthly burn has no finite runway. Recurring costs start immediately; timing inputs do not shift costs. Capacity and first-metric timing are independent editable assumptions, not equivalent service or outcome promises.
+   - A local Blob download produces a Markdown scope memo with all assumptions. Intake receives only `scope=fractional-vp-data` and displays an executive scope banner; it does not prefill financial inputs into Tally.
+   - `node --test test/executive-calculator.test.cjs` verifies cost, cash runway, equity exclusion, signed differences, zero inputs, capacity/timing, and memo boundaries in PR CI.
+5. **Open-Source Healthcare dbt Starter Repo (`apratsunrthd/refhealth-starter-dbt-project` v1.2.0)**:
    - Zero-dependency local DuckDB test suite with 106/106 automated tests passing out of the box.
    - Features synthetic FHIR Encounter-to-Claims Transformation Bridge (`int_encounter_claims_crosswalk.sql`), statutory ACA MLR calculation standards, and bitemporal enrollment models.
 

@@ -10,6 +10,9 @@ server lives in `mcp/`; run `npm ci --prefix mcp`, `npm test --prefix mcp`, and
 
 Important files:
 
+- `fractional-vp-data.html` / `fractional-vp-data.css` / `fractional-vp-data.js` - executive offering and client-side cash/runway/capacity comparison (`#calculator`), local Markdown scope memo, and advisory intake handoff; implemented on the feature branch, not deployed yet
+- `test/executive-calculator.test.cjs` - six arithmetic/memo tests; run `node --test test/executive-calculator.test.cjs` (also in PR CI)
+
 - `index.html` - main marketing page and revenue CTA
 - `feed-triage.html` - free extension page and install instructions
 - `feed-triage.html#investigate` - public investigation guide linked from version 0.1.2 tool results when findings exist
@@ -58,6 +61,10 @@ Important files:
 
 ## Current Branch
 
+Active implementation branch: `feat/fractional-vp-data`, based on the open handoff branch `docs/update-handoff-todo-recommendations` (PR #65). New page and integration are verified locally and await merge/deployment. Land #65 first, then retarget the feature PR to `main`; preserve the campaign corrections already on the handoff branch.
+
+Calculator inputs stay in browser memory. The downloaded memo includes all assumptions; the intake URL contains only `scope=fractional-vp-data`. Do not add financial values to URLs, Tally, storage, or analytics. Equity is excluded from cash/runway, recruiting and sprints are treated as upfront, and timing/capacity inputs do not promise equivalent scope or delivery speed.
+
 The strategic repositioning for **Executive Healthcare Data Leadership (Fractional VP of Data)** and **Company Data AI Operating Systems (HDAIOS)** is merged to `main` and verified live on Cloudflare Pages.
 Tactical dbt engineering and open-source packages now serve as our Layer 2 Governed Data Foundation proof-of-work.
 
@@ -79,18 +86,10 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 ## Strategic Recommendations & Open Threads
 
 ### 1. For Claude Code, Codex, and Next Engineering Sessions
-- **Dedicated Fractional VP of Data Landing Page (`fractional-vp-data.html`)**:
-  - Build out the full executive offering addressing health-tech founders, CEOs, and CTOs (Series Seed through Series B).
-  - Four pillars: Board & Metric Governance (MLR, net revenue retention, CAC/LTV), Architecture & HDAIOS Roadmap, Data Team Hiring & Technical Diligence, and Cloud/Vendor Negotiation.
-  - Two engagement tiers: Strategic Advisory Retainer (bi-weekly board cadence, architectural oversight) and Embedded Fractional Leadership (hands-on roadmap direction, team management, HDAIOS rollout).
-- **Interactive Executive ROI & Capacity Calculator**:
-  - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
-  - Compare full-time VP overhead ($300k base + bonus + equity + benefits + recruiting ~ $465k Year 1 burn) vs. fractional advisory ($6k-$12k/mo retainer + targeted engineering sprints).
-  - Calculate annual cash burn reduction ($250k–$350k capital preserved), runway extension (in months), and time-to-first-board-metric.
-  - Export 1-click Markdown scope memo and dynamically pre-fill `intake.html?scope=fractional-vp-data`.
-- **Discovery Manifests & Navigation**:
-  - Wire `/fractional-vp-data` into header nav, footer, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
-  - Add query-parameter listener on `intake.html` rendering a dedicated executive advisory verification banner.
+- Land handoff PR #65, then retarget/review/merge the stacked executive offering PR. No production deployment has been performed for this build.
+- Verify production `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and the sitemap after merge.
+- Validate advisory scope, hours, and pricing before publishing a rate card. The only published starting price remains the $2,500 diagnostic; calculator values are editable illustrative budgets.
+- Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Six calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.
 
 ### 2. For the Site Owner (Human Actions)
 - **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.

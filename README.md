@@ -9,7 +9,9 @@ The firm specializes in **Fractional VP of Data** leadership, **Company Data AI 
 No build tooling is required for the site. Open `index.html` in a browser to preview
 the homepage. Serve the directory locally (for example,
 `python3 -m http.server 8000`) to preview `/feed-triage.html` and its extension
-download. Visit `blog.html` to view the insights index.
+download. Visit `blog.html` to view the insights index. Preview the executive calculator at
+`/fractional-vp-data.html#calculator`; budgets are illustrative inputs, not advisory quotes.
+Run its dependency-free tests with `node --test test/executive-calculator.test.cjs`.
 
 The extension package bundles its Node dependencies; Claude Desktop supplies the
 runtime. For development, run `npm ci --prefix mcp` and `npm test --prefix mcp`.
@@ -25,6 +27,7 @@ extension files, rebuild the download with:
 - `index.html` - homepage and primary conversion path
 - `healthcare-ai-consulting.html` - healthcare AI and Data AI Operating System
 - `healthcare-data-strategy.html` - healthcare data strategy and landscape work
+- `fractional-vp-data.html`, `fractional-vp-data.css`, `fractional-vp-data.js` - executive leadership offering and editable cash/runway/capacity calculator with local Markdown memo export
 - `dbt-consulting.html` - dbt consulting and analytics engineering
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic
 - `feed-triage.html` - extension landing page, example results, investigation guide, and install steps
@@ -56,4 +59,4 @@ The site is hosted natively on Cloudflare Pages (`refhealth.consulting` and `www
 with automated deployments on push to `main` via `.github/workflows/sitemap.yml`.
 DNS and domain registration are managed via Cloudflare Registrar and Anycast DNS.
 `.github/workflows/checks.yml` tests the feed evaluator, MCP protocol, and download
-contents on pull requests.
+contents, plus the executive calculator on pull requests.

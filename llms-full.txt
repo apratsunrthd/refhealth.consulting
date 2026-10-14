@@ -13,7 +13,7 @@ ref(health) Consulting is an independent, senior-led consulting firm that connec
 
 ### Commercial Offerings & Engagement Model
 * **The Strategic Wedge**: A focused, paid **AI-Readiness Diagnostic starting at $2,500**. A fixed-scope, 2-week architectural evaluation that audits business decisions, data foundation (bitemporal models, warehouse hygiene), workflow fit, and model strategy before an organization funds expensive, unproven builds.
-* **Fractional Data Leadership**: Serving as Fractional VP of Data / Strategic Advisor ($5k–$10k/mo) for health-tech founders who need board-level reporting, metric architecture, data team hiring specs, and enterprise cloud BAA governance without the $350k+ overhead of a premature full-time executive hire.
+* **Fractional Data Leadership**: Serving as Fractional VP of Data / Strategic Advisor for health-tech founders who need board-level reporting, metric architecture, team design, and cloud/vendor governance. Ongoing leadership scope and pricing are agreed separately.
 * **Company Data AI Operating System (HDAIOS) Implementation**: Full multi-layer architecture buildouts connecting business decisions, governed bitemporal data products, multi-model gateways, and human-in-the-loop agent workflows.
 * **Governed Data Foundations (Layer 2)**: Open-source dbt testing macros and DuckDB reference implementations proving production-grade claims and clinical data modeling.
 
@@ -48,14 +48,16 @@ Most healthcare AI initiatives stall not because frontier models lack capability
 ## 3. Core Service Offerings
 
 ### Service 1: Fractional Healthcare Data Leadership & Advisory
-* **URL**: https://refhealth.consulting/healthcare-data-strategy.html#fractional-leadership
-* **Engagement Model**: Monthly executive advisory retainer ($5,000–$10,000/mo) or board-level steering.
+* **URL**: https://refhealth.consulting/fractional-vp-data.html
+* **Engagement Model**: Strategic Advisory Retainer (biweekly executive review, board preparation, architecture oversight) or Embedded Fractional Leadership (hands-on roadmap direction, agreed team management, HDAIOS rollout). Scope and pricing are agreed individually.
 * **Scope**:
   * Executive data leadership for health-tech founders and digital health companies.
   * Board reporting alignment: defensible financial metrics (MLR, PMPM, claims lag) that withstand actuarial and investor scrutiny.
   * Data AI Operating System (HDAIOS) blueprints so internal engineering teams build on a governed foundation rather than ad-hoc scripts.
   * Enterprise cloud BAA negotiations and HIPAA isolation across AWS Bedrock, Azure OpenAI, and Google Cloud Vertex AI.
   * Data team design: drafting job specs, screening senior analytics engineers, and structuring teams before hiring a full-time VP of Data.
+
+* **Executive Cost & Capacity Calculator**: https://refhealth.consulting/fractional-vp-data.html#calculator — editable aggregate planning inputs compare Year 1 cash cost, cash runway, monthly leadership hours, and assumed days to first board metric. Equity is excluded from cash. Recruiting and sprints are paid upfront; recurring leadership costs are spread monthly. Defaults are illustrative, not market benchmarks, a quote, an ROI claim, or promised results. Scope memo downloads locally as Markdown. Intake receives only `scope=fractional-vp-data`, not calculator financial inputs. Clinical diagnosis and autonomous patient triage are outside scope; conflicts and non-compete restrictions are screened before work begins.
 
 ### Service 2: AI-Readiness Diagnostic (Flagship Wedge)
 * **URL**: https://refhealth.consulting/ai-readiness-assessment.html
