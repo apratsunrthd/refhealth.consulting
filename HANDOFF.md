@@ -61,7 +61,7 @@ Important files:
 
 ## Current Branch
 
-Active implementation branch: `feat/fractional-vp-data`, based on the open handoff branch `docs/update-handoff-todo-recommendations` (PR #65). New page and integration are verified locally and await merge/deployment. Land #65 first, then retarget the feature PR to `main`; preserve the campaign corrections already on the handoff branch.
+Active implementation branch: `feat/fractional-vp-data` (PR #66). Handoff PR #65 is merged to `main`, and its reviewed campaign/Company Page copy is incorporated. New page and integration are verified locally and await merge/deployment.
 
 Calculator inputs stay in browser memory. The downloaded memo includes all assumptions; the intake URL contains only `scope=fractional-vp-data`. Do not add financial values to URLs, Tally, storage, or analytics. Equity is excluded from cash/runway, recruiting and sprints are treated as upfront, and timing/capacity inputs do not promise equivalent scope or delivery speed.
 
@@ -86,7 +86,7 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 ## Strategic Recommendations & Open Threads
 
 ### 1. For Claude Code, Codex, and Next Engineering Sessions
-- Land handoff PR #65, then retarget/review/merge the stacked executive offering PR. No production deployment has been performed for this build.
+- Review and merge PR #66 to `main`. No production deployment has been performed for this build.
 - Verify production `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and the sitemap after merge.
 - Validate advisory scope, hours, and pricing before publishing a rate card. The only published starting price remains the $2,500 diagnostic; calculator values are editable illustrative budgets.
 - Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Seven calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.

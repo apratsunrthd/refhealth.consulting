@@ -2,6 +2,8 @@
 
 ## Recently completed
 
+- Merged handoff PR #65 after resolving campaign review findings: hypothetical hiring example, no implied client deployments, scoped bitemporal controls, conditional provider strategy, explicit clinical boundary, and referenced LinkedIn Company Page copy.
+
 - Fixed zero-burn runway reporting when upfront costs exceed available cash, with a regression test that failed before the fix.
 - Implemented Fractional VP of Data landing page and executive calculator on `feat/fractional-vp-data` (awaiting PR merge/deployment):
   - Editable Year 1 cash, runway, leadership capacity, and assumed first-metric timing; equity excluded from cash calculations.
@@ -193,7 +195,7 @@ The site infrastructure, measurement system, and branding are fully modernized:
 - [x] Implement dedicated `fractional-vp-data.html` executive landing page: four pillars, Strategic Advisory Retainer and Embedded Fractional Leadership, clinical safety boundaries, and conflict/non-compete screening.
 - [x] Implement client-side executive cost and capacity calculator (`#calculator`): separate cash from equity, show editable capacity/timing assumptions and cash-based runway, validate inputs, and download a Markdown scope memo.
 - [x] Integrate page into every public header/footer, homepage offer, strategy page, sitemap, and LLM discovery manifests. Advisory intake banner receives only `scope=fractional-vp-data`; financial inputs stay local.
-- [ ] Land handoff PR #65, then retarget the stacked `feat/fractional-vp-data` PR to `main`, review and merge it. Implementation is verified locally; it is not deployed yet.
+- [ ] Review and merge PR #66 from `feat/fractional-vp-data` to `main`. Implementation is verified locally; it is not deployed yet.
 - [ ] After merge, verify `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and `/sitemap.xml` on Cloudflare Pages.
 - [ ] Validate advisory scope, hours, and pricing with prospective buyers before publishing a rate card; calculator budgets are illustrative planning inputs.
 
