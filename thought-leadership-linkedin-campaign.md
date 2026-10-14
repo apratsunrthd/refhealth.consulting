@@ -85,7 +85,7 @@ Here is the **5-Layer Healthcare Data AI Operating System (HDAIOS)** architectur
 ```
 [ Layer 1: Decision Interface ]       -> Hard tripwires: administrative focus, zero clinical diagnosis
 [ Layer 2: Governed Data Foundation ] -> Bitemporal eligibility, claims lag accounting, tested warehouse marts
-[ Layer 3: Enterprise BAA Gateway ]   -> Zero-retention cloud BAAs, multi-model parity, cost optimization
+[ Layer 3: Enterprise BAA Gateway ]   -> Zero-training BAAs, provider-verified retention controls, multi-model parity
 [ Layer 4: Semantic Agent Layer ]     -> Guardrailed tool-calling, semantic metric RAG, HITL escalation
 [ Layer 5: Operational Cadence ]      -> Continuous drift monitoring, 90-day review cycles, actuarial reconciliation
 ```
@@ -99,7 +99,7 @@ Draws explicit boundaries around what AI is allowed to do. Uncertified LLMs must
 AI models should never touch raw production feeds directly. Every input must pass through an immutable, bitemporal warehouse layer (modeled in tools like dbt) with automated tests enforcing CMS NPI formatting, ICD-10/CPT validity, and compound primary key grains. (We open-sourced our reference DuckDB test suite with 106 passing tests on GitHub).
 
 **3. Layer 3: Enterprise BAA & Model Gateway**
-Never lock into a single proprietary LLM provider. Architect an abstraction gateway that routes prompts across Bedrock, Azure OpenAI, and Google Cloud under signed enterprise BAAs with zero customer data retention.
+Never lock into a single proprietary LLM provider. Architect an abstraction gateway that routes prompts across Bedrock, Azure OpenAI, and Google Cloud Vertex AI under signed enterprise BAAs—explicitly verifying and configuring provider-specific retention controls (such as Azure modified abuse monitoring approval and Vertex zero-data retention policies) alongside zero customer-data model training guarantees.
 
 **4. Layer 4: Semantic Agent Layer**
 Agents should never execute raw SQL against database tables. They must query governed metrics through a semantic layer where business logic (Allowed PMPM, Medical Loss Ratio) is locked down, with human-in-the-loop (HITL) tripwires when confidence scores drop.
