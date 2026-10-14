@@ -12,6 +12,8 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
 
 ## Current State
 
+- LinkedIn campaign review findings are resolved on PR #65: hypothetical scenario, no implied client HDAIOS deployments, domain-appropriate bitemporal controls, conditional provider strategy, explicit clinical boundary, and ready-to-use Company Page copy. Calculator roadmap budgets remain illustrative pending advisory pricing validation.
+
 - Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
   extension with a public landing page and a visual one-page overview labeled
   with the current 0.1.2 download version. Its local
@@ -30,8 +32,7 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
   Anthropic's review. The earlier outreach and dbt manifest prototypes were
   retired.
 - Static HTML/CSS site. No build step.
-- Homepage, executive repositioning, and search-discoverability work are merged to `main` and deployed
-  through Cloudflare Pages with edge caching, DDoS mitigation, and automatic CI/CD.
+- Executive repositioning for Fractional VP of Data and HDAIOS, documentation synchronization, and non-compete clinical safety scrub completed in-depth review by Codex (`chatgpt-codex-connector`) with 0 findings ("Chef's kiss"), merged to `main` via PR #64, and deployed through Cloudflare Pages with edge caching, DDoS mitigation, and automatic CI/CD.
 - The initial signal-control hero visual was rejected after screenshot QA
   because it created overlapping text and looked gimmicky.
 - Hero visual was replaced with a clean Data AI Operating System panel.
@@ -232,8 +233,9 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. The technical infrastructure, edge hardening, executive repositioning, and starter repos are complete. Next steps:
-1. Conduct in-depth review with Codex on architectural docs, service catalogs, and code quality.
-2. Establish off-site entity footprint: LinkedIn Company Page for `ref(health) Consulting`, Founder & Fractional Principal profile link, and initial thought leadership post syndication.
-3. Build dedicated `/fractional-vp-data` executive landing page with interactive Fractional vs. Full-Time VP ROI Calculator.
-4. Monitor inbound diagnostic requests in consulting inbox and Google Sheets attribution ledger.
+See `TODO.md`. The technical infrastructure, edge hardening, executive repositioning, documentation synchronization, and starter repos are complete. Next steps:
+1. Build dedicated `/fractional-vp-data` executive landing page (`fractional-vp-data.html`) detailing the Fractional VP of Data advisory offering, board metric alignment, team sizing, and HDAIOS roadmap.
+2. Build Interactive Executive ROI & Capacity Calculator (`fractional-vp-data.html#calculator`) comparing editable full-time cash assumptions with illustrative fractional budgets and engineering sprints, with equity shown separately, with 1-click Markdown scope memo export and pre-filled handoff to `intake.html`.
+3. Integrate fractional advisory across site discovery: navigation, footer, `sitemap.xml`, `/llms.txt`, `/llms-full.txt`, and custom scope query banner on `intake.html`.
+4. Establish off-site authority footprint (Human): create LinkedIn Company Page for `ref(health) Consulting`, add Founder experience on personal profile, syndicate Post 1 from `thought-leadership-linkedin-campaign.md`, and claim free entity profiles on Crunchbase and Wellfound.
+5. Monitor inbound diagnostic and advisory requests in consulting inbox and Google Sheets attribution ledger.
