@@ -5,7 +5,7 @@
 - Merged handoff PR #65 after resolving campaign review findings: hypothetical hiring example, no implied client deployments, scoped bitemporal controls, conditional provider strategy, explicit clinical boundary, and referenced LinkedIn Company Page copy.
 
 - Fixed zero-burn runway reporting when upfront costs exceed available cash, with a regression test that failed before the fix.
-- Implemented Fractional VP of Data landing page and executive calculator on `feat/fractional-vp-data` (awaiting PR merge/deployment):
+- Deployed and verified Fractional VP of Data landing page and executive calculator via PR #66 on 2026-10-14:
   - Editable Year 1 cash, runway, leadership capacity, and assumed first-metric timing; equity excluded from cash calculations.
   - Local Markdown memo export, no financial parameters in the intake URL, and a dedicated advisory scope banner.
   - Seven calculator/memo tests added to PR CI. Existing six MCP tests also pass; static links/fragments/JSON-LD checked across all 21 public HTML pages.
@@ -195,8 +195,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 - [x] Implement dedicated `fractional-vp-data.html` executive landing page: four pillars, Strategic Advisory Retainer and Embedded Fractional Leadership, clinical safety boundaries, and conflict/non-compete screening.
 - [x] Implement client-side executive cost and capacity calculator (`#calculator`): separate cash from equity, show editable capacity/timing assumptions and cash-based runway, validate inputs, and download a Markdown scope memo.
 - [x] Integrate page into every public header/footer, homepage offer, strategy page, sitemap, and LLM discovery manifests. Advisory intake banner receives only `scope=fractional-vp-data`; financial inputs stay local.
-- [ ] Review and merge PR #66 from `feat/fractional-vp-data` to `main`. Implementation is verified locally; it is not deployed yet.
-- [ ] After merge, verify `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and `/sitemap.xml` on Cloudflare Pages.
+- [x] Squash-merge PRs #65 and #66 to `main`, incorporating the reviewed campaign and upfront-cost runway fix.
+- [x] Verify production page/assets, intake, sitemap, and discovery manifests (nine HTTP/content checks); live desktop/mobile checks confirm calculator defaults, zero-burn regression, memo download, reset, and scope-only intake routing with no console errors or horizontal overflow.
 - [ ] Validate advisory scope, hours, and pricing with prospective buyers before publishing a rate card; calculator budgets are illustrative planning inputs.
 
 ## For the site owner (human)
@@ -204,8 +204,7 @@ The site infrastructure, measurement system, and branding are fully modernized:
 ### 1. Off-Site Citation Footprint & Entity Resolution (AI Answer Engine Authority)
 - [ ] **Create LinkedIn Company Page (`ref(health) Consulting`)**:
   - Follow copy and profile metadata specified in [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md).
-  - Set Tagline: "Executive Healthcare Data Leadership & AI Operating Systems (HDAIOS)."
-  - Set Industry: IT Services and IT Consulting / Hospitals and Healthcare.
+  - Use the Company Page tagline and About copy in the campaign file; select the closest available consulting industry category and supply the actual organization details.
   - Set Website: `https://refhealth.consulting`.
 - [ ] **Link Founder Experience on Personal LinkedIn**:
   - Add role: "Founder & Fractional Principal" at `ref(health) Consulting`.
