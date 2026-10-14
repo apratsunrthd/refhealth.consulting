@@ -15,8 +15,8 @@ Founders pour substantial budget and engineering cycles into LLM tokens, vector 
 Why? Because **AI is not a model problem. It is a Data Operating System problem.**
 
 Here is what happens when you point an AI agent at raw healthcare data:
-1. **The Bitemporal Desync:** Upstream EDI 834 member eligibility rosters churn continuously with retroactive enrollments and terminations. If your AI queries a raw roster table without bitemporal valid-from/valid-to logic, it triggers actions for patients who lost coverage three weeks ago.
-2. **The Adjudication Lag Illusion:** Clearinghouse claims feeds (EDI 837/835) take 15 to 45 days to adjudicate. If an AI agent summarizes patient financial responsibility or plan costs using unadjusted claims, it's making predictions on numbers that will change radically once remittance adjustments arrive.
+1. **The Bitemporal Desync:** Upstream EDI 834 member eligibility rosters churn continuously with retroactive enrollments and terminations. If your AI queries a raw roster table without bitemporal valid-from/valid-to logic, it triggers actions for patients whose coverage was terminated retroactively.
+2. **The Adjudication Lag Illusion:** Submitted claims (EDI 837) require significant adjudication turnaround before remittance advice (EDI 835) settles. If an AI agent summarizes patient financial responsibility or plan costs using unadjusted submitted claims, it makes decisions on numbers that will change radically once payer adjudication adjustments arrive.
 3. **The Uncalibrated Metric Drift:** If your clinical and billing pipelines haven't agreed on what constitutes an "active episode" or an "incurred cost," the AI will confidently synthesize conflicting numbers for your clinical team and your CFO.
 
 You cannot prompt-engineer your way out of upstream data debt. 
@@ -52,8 +52,8 @@ Six months later:
 Here is the truth about when you actually need a full-time data executive:
 
 You do **NOT** need a full-time VP of Data if:
-- Your core data models are still changing every two weeks based on new customer onboarding.
-- You have fewer than 3 full-time data/analytics engineers.
+- Your core data models are still changing rapidly with each new customer onboarding.
+- You have a lean team with only one or two analytics engineers.
 - Your primary challenge is foundational data plumbing: clearinghouse ingestion, bitemporal eligibility, and basic financial metric consistency.
 
 What you actually need at this stage is **Fractional Data Leadership**:
@@ -62,7 +62,7 @@ What you actually need at this stage is **Fractional Data Leadership**:
 3. **Vendor & Security Steering:** Structuring enterprise cloud BAAs across AWS, Azure, and Google Cloud to optimize committed-use discounts while enforcing provider-verified zero-retention and zero-training configurations.
 4. **Hiring Discipline:** Writing the exact job specs for mid-level analytics engineers who can execute the architecture, saving the full-time VP hire for Series B/C scale.
 
-Fractional data leadership gives you executive horsepower for 15–20 hours a month at a fraction of the cost of a full-time hire, while keeping your team focused on shipping.
+Fractional data leadership gives you senior executive horsepower on a dedicated advisory cadence at a fraction of the cost of a full-time hire, while keeping your team focused on shipping.
 
 If your team is preparing for board season or planning an AI initiative and wants an objective third-party audit of your data architecture, we run a focused 2-week Diagnostic:  
 👉 https://refhealth.consulting/ai-readiness-assessment.html
@@ -87,7 +87,7 @@ Here is the **5-Layer Healthcare Data AI Operating System (HDAIOS)** architectur
 [ Layer 2: Governed Data Foundation ] -> Bitemporal eligibility, claims lag accounting, tested warehouse marts
 [ Layer 3: Enterprise BAA Gateway ]   -> Zero-training BAAs, provider-verified retention controls, multi-model parity
 [ Layer 4: Semantic Agent Layer ]     -> Guardrailed tool-calling, semantic metric RAG, HITL escalation
-[ Layer 5: Operational Cadence ]      -> Continuous drift monitoring, 90-day review cycles, actuarial reconciliation
+[ Layer 5: Operational Cadence ]      -> Continuous drift monitoring, scheduled review cycles, actuarial reconciliation
 ```
 
 Here is how each layer protects the organization:
@@ -105,7 +105,7 @@ Never lock into a single proprietary LLM provider. Architect an abstraction gate
 Agents should never execute raw SQL against database tables. They must query governed metrics through a semantic layer where business logic (Allowed PMPM, Medical Loss Ratio) is locked down, with human-in-the-loop (HITL) tripwires when confidence scores drop.
 
 **5. Layer 5: Continuous Operational Cadence**
-AI is not "deploy and forget." Implement automated weekly drift checks, prompt versioning, and monthly actuarial reconciliations to ensure agent outputs remain within acceptable variance.
+AI is not "deploy and forget." Implement automated drift checks, prompt versioning, and periodic actuarial reconciliations to ensure agent outputs remain within acceptable variance.
 
 The full specification is publicly available here:  
 👉 https://refhealth.consulting/hdaios
