@@ -2,6 +2,10 @@
 
 ## Recently completed
 
+- Executed and Passed In-Depth Codex Architectural & Documentation Review (PR #64):
+  - Addressed all automated Codex review items: restored truncated deploy verification URLs in `TODO.md`, scrubbed clinical triage / Schmitt-Thompson references across `hdaios.md`, `hdaios.html`, `ARCHITECTURE.md`, `llms.txt`, and blog posts in favor of explicit clinical safety boundaries and non-compete guardrails, and restored operational feedback loops in `ARCHITECTURE.md` (linking Layer 4 human-in-the-loop triage to Layer 5 drift monitoring).
+  - Codex approved commit `89a8c06` with 0 findings ("Chef's kiss").
+  - Squashed and merged PR #64 to `main`, verified clean edge deployment on Cloudflare Pages (`https://refhealth.consulting/`, `/intake.html`, and `/sitemap.xml` all returning `HTTP 200`).
 - Strategically Repositioned ref(health) for Fractional Data Leadership & HDAIOS:
   - Shifted primary core offering from tactical dbt consulting to Executive Healthcare Data Leadership (Fractional VP of Data) and Company Data AI Operating Systems (HDAIOS).
   - Repositioned dbt analytics engineering and open-source packages as Layer 2 Governed Data Foundation proof-of-work rather than an hourly service.
@@ -180,20 +184,42 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## Next up (for Claude Code, Codex, and other models)
 
-- [ ] Support Codex in-depth review: Verify all documentation contracts (`BRIEF.md`, `HANDOFF.md`, `ARCHITECTURE.md`, `README.md`, `TODO.md`), code standards, and security boundaries.
-- [ ] Build dedicated `/fractional-vp-data` executive landing page (`fractional-vp-data.html`) detailing the Fractional VP of Data advisory offering, board metric alignment, team sizing, and HDAIOS roadmap.
-- [ ] Build Interactive Executive ROI & Capacity Calculator (client-side widget comparing $350k+ full-time VP overhead vs. fractional advisory + execution bandwidth).
-- [ ] Cross-link new fractional landing page and ROI calculator into navigation, footer, `/llms.txt`, and `/llms-full.txt`.
-- [ ] Ensure `intake.html` listeners cleanly capture fractional executive advisory scopes alongside the existing diagnostic and claims lag scopes.
+- [ ] Build dedicated `/fractional-vp-data` executive landing page (`fractional-vp-data.html`):
+  - Articulate executive value proposition for health-tech founders, CEOs, and CTOs (Series Seed through Series B).
+  - Detail 4 core executive pillars: Board & Metric Governance (MLR, CAC/LTV, net retention), Architecture & HDAIOS Roadmap, Data Team Hiring & Technical Diligence, and Vendor/Cloud Contract Negotiation.
+  - Detail advisory tiers: Strategic Advisory Retainer (bi-weekly board cadence, architectural oversight) vs. Embedded Fractional Leadership (hands-on roadmap direction, team management, HDAIOS rollout).
+  - Include zero-PHI clinical safety boundaries and non-compete guardrails.
+- [ ] Build Interactive Executive ROI & Capacity Calculator:
+  - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
+  - Model real executive economics: Full-Time VP of Data ($300k base + 25% bonus + $80k equity/benefits + $60k recruiter fee = ~$465k Year 1 cash/equity burn) vs. Fractional VP of Data ($6k–$12k/month retainer + targeted analytics engineering sprints).
+  - Calculate annual burn reduction ($250k–$350k capital preserved), runway extension (months of additional cash runway), and time-to-first-board-metric (days vs 6-month executive search).
+  - Implement 1-click Markdown scope memo generation and seamless query parameter pre-fill to `intake.html?scope=fractional-vp-data`.
+- [ ] Integrate Fractional Advisory Across Discovery & Site Architecture:
+  - Add `/fractional-vp-data` to site header navigation and footer across all public pages.
+  - Add dedicated scope parameter listener on `intake.html` to render custom executive scope banner when receiving `?scope=fractional-vp-data`.
+  - Update `sitemap.xml`, `/llms.txt`, and `/llms-full.txt` with structured executive offering definitions for AI answer engine citation.
 
 ## For the site owner (human)
 
-- [ ] Create LinkedIn Company Page for `ref(health) Consulting` (using copy provided in `thought-leadership-linkedin-campaign.md`).
-- [ ] Add "Founder & Fractional Principal" experience entry on personal LinkedIn profile, linking to the new company page.
-- [ ] Publish Post 1 from `thought-leadership-linkedin-campaign.md` to initiate the executive thought leadership sequence.
-- [ ] Register free company entity profiles on Crunchbase and Wellfound to establish permanent entity resolution nodes for OpenAI / Anthropic web crawlers.
-- [ ] The `.mcpb` is installed in Claude Desktop and worked on its bundled synthetic CSV at version 0.1.1. Share it with health-tech data leaders, ask whether it helped answer a live feed question, and record objections.
-- [ ] Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
-- [ ] Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions, distinguishing them from raw Cloudflare edge request volume.
-- [ ] Review the published $2,500 starting price after the first qualified inquiries.
-- [ ] Confirm the first real notification arrives in the consulting inbox, then review the first qualified inquiries for fit and response time.
+### 1. Off-Site Citation Footprint & Entity Resolution (AI Answer Engine Authority)
+- [ ] **Create LinkedIn Company Page (`ref(health) Consulting`)**:
+  - Follow copy and profile metadata specified in [`thought-leadership-linkedin-campaign.md`](file:///Users/apratsunrthd/.gemini/antigravity/brain/68283daf-443d-479f-ac5b-ceed2e5b5bcf/thought-leadership-linkedin-campaign.md).
+  - Set Tagline: "Executive Healthcare Data Leadership & AI Operating Systems (HDAIOS)."
+  - Set Industry: IT Services and IT Consulting / Hospitals and Healthcare.
+  - Set Website: `https://refhealth.consulting`.
+- [ ] **Link Founder Experience on Personal LinkedIn**:
+  - Add role: "Founder & Fractional Principal" at `ref(health) Consulting`.
+  - Describe scope: Fractional VP of Data advisory, Healthcare Data AI Operating Systems (HDAIOS), and board-level data governance for health-tech startups.
+- [ ] **Syndicate Post 1 from Executive Sequence**:
+  - Publish Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Healthcare AI Pilots Die in the Data Layer").
+  - Post natively from personal profile; tag company page in comments.
+- [ ] **Anchor Knowledge Graph Entity Profiles**:
+  - Claim basic free company profile on **Crunchbase** for `ref(health) Consulting` (pointing to `https://refhealth.consulting`).
+  - Claim basic free company profile on **Wellfound** (formerly AngelList) for `ref(health) Consulting`.
+  - *Rationale*: Establishes authoritative, permanent entity resolution nodes that OpenAI (SearchGPT), Anthropic (Claude), Perplexity, and Google cross-reference when evaluating company legitimacy and author citations.
+
+### 2. Paid Growth & Commercial Verification
+- [ ] Review and launch the $1,500 pilot sprint detailed in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager and Google Search Ads.
+- [ ] Monitor incoming leads in `refhealth.consulting@gmail.com` and the connected Google Sheet `refhealth lead attribution`.
+- [ ] Monitor real browser engagement in Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio, filtering out raw Cloudflare edge crawler spikes.
+- [ ] Review the published $2,500 starting price after initial qualified conversations.

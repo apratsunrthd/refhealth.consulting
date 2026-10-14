@@ -61,6 +61,9 @@ Important files:
 The strategic repositioning for **Executive Healthcare Data Leadership (Fractional VP of Data)** and **Company Data AI Operating Systems (HDAIOS)** is merged to `main` and verified live on Cloudflare Pages.
 Tactical dbt engineering and open-source packages now serve as our Layer 2 Governed Data Foundation proof-of-work.
 
+PR #64 underwent in-depth automated review by Codex (`chatgpt-codex-connector`) and was approved with 0 findings ("Chef's kiss") before being squashed and merged to `main`.
+All clinical triage / Schmitt-Thompson references were replaced across the codebase with explicit non-compete guardrails and clinical safety boundaries.
+
 The site is hosted natively on Cloudflare Pages (`refhealth-consulting` project) with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
 Automated CI/CD deployments trigger on push to `main` via `cloudflare/wrangler-action@v3`.
 The measurement system is active with dedicated GA4 web stream `G-05XLCL9N8S`, shared `analytics.js` attribution tracking, and Google Looker Studio dashboard:
@@ -72,6 +75,29 @@ Self email notifications are configured for the consulting inbox, and a syntheti
 Tally is connected to Google Sheet `refhealth lead attribution` forwarding seven hidden attribution fields.
 `AGENTS.md` contains the deployment configuration for Cloudflare Pages, including root health checks and post-merge smoke checks.
 Preserve the layout rule placing descriptions in their content columns so mobile views remain responsive.
+
+## Strategic Recommendations & Open Threads
+
+### 1. For Claude Code, Codex, and Next Engineering Sessions
+- **Dedicated Fractional VP of Data Landing Page (`fractional-vp-data.html`)**:
+  - Build out the full executive offering addressing health-tech founders, CEOs, and CTOs (Series Seed through Series B).
+  - Four pillars: Board & Metric Governance (MLR, net revenue retention, CAC/LTV), Architecture & HDAIOS Roadmap, Data Team Hiring & Technical Diligence, and Cloud/Vendor Negotiation.
+  - Two engagement tiers: Strategic Advisory Retainer (bi-weekly board cadence, architectural oversight) and Embedded Fractional Leadership (hands-on roadmap direction, team management, HDAIOS rollout).
+- **Interactive Executive ROI & Capacity Calculator**:
+  - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
+  - Compare full-time VP overhead ($300k base + bonus + equity + benefits + recruiting ~ $465k Year 1 burn) vs. fractional advisory ($6k-$12k/mo retainer + targeted engineering sprints).
+  - Calculate annual cash burn reduction ($250k–$350k capital preserved), runway extension (in months), and time-to-first-board-metric.
+  - Export 1-click Markdown scope memo and dynamically pre-fill `intake.html?scope=fractional-vp-data`.
+- **Discovery Manifests & Navigation**:
+  - Wire `/fractional-vp-data` into header nav, footer, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
+  - Add query-parameter listener on `intake.html` rendering a dedicated executive advisory verification banner.
+
+### 2. For the Site Owner (Human Actions)
+- **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.
+- **Personal Profile Link**: Add "Founder & Fractional Principal" under Experience on your personal LinkedIn profile, linked directly to the new company page.
+- **Publish Post 1**: Syndicate Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Healthcare AI Pilots Die in the Data Layer").
+- **Knowledge Graph Entity Anchors**: Register free basic company profiles on **Crunchbase** and **Wellfound** (formerly AngelList) for `ref(health) Consulting` (URL: `https://refhealth.consulting`). This gives LLM web-search crawlers (ChatGPT Search / OAI-SearchBot, ClaudeBot, PerplexityBot) verifiable external entity resolution nodes.
+- **Paid Acquisition Sprint**: Review and initiate the $1,500 30-day pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager and Google Search.
 
 ## Design Context
 
