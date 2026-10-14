@@ -14,7 +14,7 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
 
 - Handoff PR #65 is merged. Its campaign now includes the Company Page draft, explicit hypothetical hiring scenario, domain-appropriate bitemporal controls, conditional provider strategy, and clinical boundaries.
 
-- `feat/fractional-vp-data` implements the dedicated executive leadership landing page, cost/runway/capacity calculator, local Markdown memo, advisory intake banner, and site-wide discovery links. Handoff PR #65 is merged and its campaign corrections are included. The implementation is not deployed yet. Calculator defaults are illustrative, not market benchmarks or published advisory prices; cash and equity are separate, and capacity/timing are user assumptions. Seven calculator tests are included in CI.
+- The dedicated executive leadership landing page, cost/runway/capacity calculator, local Markdown memo, advisory intake banner, and site-wide discovery links are live at `/fractional-vp-data`. PRs #65 and #66 are squash-merged to `main`; Cloudflare deployment and production checks passed on 2026-10-14. The reviewed campaign corrections and Company Page copy are included. Calculator defaults are illustrative, not market benchmarks or published advisory prices; cash and equity are separate, and capacity/timing are user assumptions. Seven calculator tests are included in CI.
 
 - Healthcare Feed Triage is implemented as a downloadable Claude Desktop `.mcpb`
   extension with a public landing page and a visual one-page overview labeled
@@ -235,6 +235,6 @@ or inclusion.
 
 ## Next
 
-See `TODO.md`. Review/merge PR #66 from `feat/fractional-vp-data` to `main` and verify the page, calculator, advisory intake, and sitemap on Cloudflare Pages. Validate advisory scope/hours/pricing before publishing a rate card.
+See `TODO.md`. Executive offering implementation and production verification are complete. Validate advisory scope/hours/pricing with prospects before publishing a rate card, and monitor qualified diagnostic/advisory inquiries.
 
 Human growth tasks remain: create the LinkedIn Company Page, add Founder experience, publish Post 1 from `thought-leadership-linkedin-campaign.md`, and establish external entity profiles. Monitor inbound diagnostic and advisory requests in the consulting inbox and attribution ledger.
