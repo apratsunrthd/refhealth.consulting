@@ -59,7 +59,7 @@ You do **NOT** need a full-time VP of Data if:
 What you actually need at this stage is **Fractional Data Leadership**:
 1. **Strategic Architecture:** Establishing a standardized **Data AI Operating System (HDAIOS)** so internal engineers build on a governed foundation rather than inventing ad-hoc pipelines.
 2. **Executive Alignment:** Sitting with the CEO, CFO, and clinical leaders to lock down non-negotiable metric definitions (MLR, PMPM, turnaround lag) so board reporting is unassailable.
-3. **Vendor & Security Steering:** Structuring enterprise cloud BAAs across AWS, Azure, and Google Cloud to optimize committed-use discounts while maintaining strict zero-retention boundaries.
+3. **Vendor & Security Steering:** Structuring enterprise cloud BAAs across AWS, Azure, and Google Cloud to optimize committed-use discounts while enforcing provider-verified zero-retention and zero-training configurations.
 4. **Hiring Discipline:** Writing the exact job specs for mid-level analytics engineers who can execute the architecture, saving the full-time VP hire for Series B/C scale.
 
 Fractional data leadership gives you executive horsepower for 15–20 hours a month at 20% of the cost, while keeping your team focused on shipping.
