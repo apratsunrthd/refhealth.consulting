@@ -245,7 +245,7 @@ flowchart TD
     SEM --> AGENT
     GATEWAY --> ROUTER --> AGENT
     BAA -.-> GATEWAY
-    AGENT --> HITL
+    AGENT --> HITL --> DRIFT
     DRIFT --> CADENCE
     CADENCE -.->|Feedback Loop| DEC
 ```
