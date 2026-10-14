@@ -10,7 +10,7 @@
 **Hook / Problem Statement:**
 The dirty secret of healthcare AI in 2026: Boards are demanding "agentic workflows" and "autonomous operations," but when you look under the hood of most Series A–C health-tech companies, the underlying data stack is a toxic swamp of technical debt.
 
-Founders are spending six figures on LLM tokens, vector databases, and agent frameworks. Then the pilot stalls in security review, or worse, hallucinates in front of an enterprise health plan customer.
+Founders pour substantial budget and engineering cycles into LLM tokens, vector databases, and agent frameworks. Then the pilot stalls in security review, or worse, hallucinates in front of an enterprise health plan customer.
 
 Why? Because **AI is not a model problem. It is a Data Operating System problem.**
 
@@ -35,19 +35,19 @@ Before you build your next AI feature, audit what you're feeding it.
 
 ---
 
-## Post 2: When Does a Health-Tech Startup Actually Need a VP of Data? (And When Do They Waste $350k?)
+## Post 2: When Does a Health-Tech Startup Actually Need a VP of Data? (And When Is It Premature?)
 
 **Hook / Problem Statement:**
 One of the most expensive mistakes an early-stage health-tech CEO can make is hiring a full-time VP of Data or a team of machine learning engineers too early.
 
 I see this playbook all the time:
-A Series A startup raises $12M. The board says: *"We need AI and advanced analytics."*
-The founder spends $350k base + equity on a full-time VP of Data, who immediately hires two data scientists. 
+A Series A startup raises fresh funding. The board says: *"We need AI and advanced analytics."*
+The founder commits executive compensation and equity to a full-time VP of Data, who immediately recruits data scientists. 
 
 Six months later:
 - The data scientists are frustrated because most of their time is spent manually cleaning broken clearinghouse CSVs and hunting down why Looker doesn't match the billing system.
 - The CEO is embarrassed in board meetings because the executive dashboard and the actuarial reports report different numbers.
-- The company burned $600k in payroll with zero AI features in production.
+- The company burned significant executive runway with zero AI features in production.
 
 Here is the truth about when you actually need a full-time data executive:
 
@@ -62,7 +62,7 @@ What you actually need at this stage is **Fractional Data Leadership**:
 3. **Vendor & Security Steering:** Structuring enterprise cloud BAAs across AWS, Azure, and Google Cloud to optimize committed-use discounts while enforcing provider-verified zero-retention and zero-training configurations.
 4. **Hiring Discipline:** Writing the exact job specs for mid-level analytics engineers who can execute the architecture, saving the full-time VP hire for Series B/C scale.
 
-Fractional data leadership gives you executive horsepower for 15–20 hours a month at 20% of the cost, while keeping your team focused on shipping.
+Fractional data leadership gives you executive horsepower for 15–20 hours a month at a fraction of the cost of a full-time hire, while keeping your team focused on shipping.
 
 If your team is preparing for board season or planning an AI initiative and wants an objective third-party audit of your data architecture, we run a focused 2-week Diagnostic:  
 👉 https://refhealth.consulting/ai-readiness-assessment.html
