@@ -2,6 +2,8 @@
 
 ## Recently completed
 
+- Resolved campaign review findings before landing PR #65: removed implied client deployment claims, scoped bitemporal rules to applicable data, preserved conditional provider strategy and the clinical boundary, made the scenario hypothetical, and added the referenced LinkedIn Company Page copy. Calculator roadmap now separates cash/equity and uses illustrative editable budgets.
+
 - Executed and Passed In-Depth Codex Architectural & Documentation Review (PR #64):
   - Addressed all automated Codex review items: restored truncated deploy verification URLs in `TODO.md`, scrubbed clinical triage / Schmitt-Thompson references across `hdaios.md`, `hdaios.html`, `ARCHITECTURE.md`, `llms.txt`, and blog posts in favor of explicit clinical safety boundaries and non-compete guardrails, and restored operational feedback loops in `ARCHITECTURE.md` (linking Layer 4 human-in-the-loop triage to Layer 5 drift monitoring).
   - Codex approved commit `89a8c06` with 0 findings ("Chef's kiss").
@@ -191,8 +193,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
   - Include zero-PHI clinical safety boundaries and non-compete guardrails.
 - [ ] Build Interactive Executive ROI & Capacity Calculator:
   - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
-  - Model real executive economics: Full-Time VP of Data ($300k base + 25% bonus + $80k equity/benefits + $60k recruiter fee = ~$465k Year 1 cash/equity burn) vs. Fractional VP of Data ($6k–$12k/month retainer + targeted analytics engineering sprints).
-  - Calculate annual burn reduction ($250k–$350k capital preserved), runway extension (months of additional cash runway), and time-to-first-board-metric (days vs 6-month executive search).
+  - Model editable full-time cash costs (base, cash bonus, benefits/payroll taxes, recruiting) vs. an illustrative fractional budget plus engineering sprints. Exclude equity from cash and runway; defaults are not market benchmarks or published advisory prices.
+  - Calculate signed cash-cost and cash-runway differences. Show leadership hours and first-board-metric timing as editable assumptions, not equivalent capacity or promised delivery dates.
   - Implement 1-click Markdown scope memo generation and seamless query parameter pre-fill to `intake.html?scope=fractional-vp-data`.
 - [ ] Integrate Fractional Advisory Across Discovery & Site Architecture:
   - Add `/fractional-vp-data` to site header navigation and footer across all public pages.

@@ -85,8 +85,8 @@ Preserve the layout rule placing descriptions in their content columns so mobile
   - Two engagement tiers: Strategic Advisory Retainer (bi-weekly board cadence, architectural oversight) and Embedded Fractional Leadership (hands-on roadmap direction, team management, HDAIOS rollout).
 - **Interactive Executive ROI & Capacity Calculator**:
   - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
-  - Compare full-time VP overhead ($300k base + bonus + equity + benefits + recruiting ~ $465k Year 1 burn) vs. fractional advisory ($6k-$12k/mo retainer + targeted engineering sprints).
-  - Calculate annual cash burn reduction ($250k–$350k capital preserved), runway extension (in months), and time-to-first-board-metric.
+  - Compare editable full-time cash costs (base, cash bonus, benefits/payroll taxes, and recruiting) with an illustrative fractional budget plus engineering sprints. Show equity separately; inputs are not market benchmarks or advisory quotes.
+  - Calculate the signed Year 1 cash difference and cash-based runway; show leadership capacity and first-metric timing as editable planning assumptions, without promising equivalent scope or savings.
   - Export 1-click Markdown scope memo and dynamically pre-fill `intake.html?scope=fractional-vp-data`.
 - **Discovery Manifests & Navigation**:
   - Wire `/fractional-vp-data` into header nav, footer, `sitemap.xml`, `/llms.txt`, and `/llms-full.txt`.
