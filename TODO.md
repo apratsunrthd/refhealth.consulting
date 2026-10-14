@@ -47,7 +47,7 @@
   - Cross-linked self-assessment on `ai-readiness-assessment.html` and indexed in `/llms.txt` and `/llms-full.txt`.
 - Released Healthcare Data AI Operating System (HDAIOS) Specification v1.0:
   - Formulated and published canonical 5-layer architectural specification in `hdaios.md` and interactive reference page in `hdaios.html`.
-  - Defined explicit interface contracts: Layer 1 Decision Interface (Schmitt-Thompson protocol compliance), Layer 2 Governed Data Foundation (SCD2 bitemporal claims modeling and `refhealth-dbt-healthcare-checks`), Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization and model parity), Layer 4 Agent & Workflow Orchestration (semantic layer RAG and HITL tripwires), and Layer 5 Continuous Operational Cadence (drift monitoring and 90-day review cadence).
+  - Defined explicit interface contracts: Layer 1 Decision Interface (operational and administrative guardrails restricting uncertified LLMs from clinical diagnostic decision-making), Layer 2 Governed Data Foundation (SCD2 bitemporal claims modeling and `refhealth-dbt-healthcare-checks`), Layer 3 Enterprise BAA & Model Gateway (cloud commitment optimization and model parity), Layer 4 Agent & Workflow Orchestration (semantic layer RAG and HITL tripwires), and Layer 5 Continuous Operational Cadence (drift monitoring and 90-day review cadence).
   - Configured edge headers in `_headers` serving `/hdaios.md` as `text/plain; charset=utf-8` and indexed the specification in `/llms.txt` and `/llms-full.txt`.
 - Published and integrated open-source dbt test package:
   - Released `refhealth-dbt-healthcare-checks` v1.0.0 on GitHub (`https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`) with 7 generic test macros (bitemporal enrollment consistency, surrogate key grain, CMS NPI formatting, ICD-10 validity, HCPCS/CPT validity, midnight timestamp audits, referential integrity).
@@ -56,7 +56,7 @@
 - Built and deployed Phase 2 Substantive Authority Moat:
   - Published flagship technical teardown `blog-bitemporal-healthcare-data-ai.html` ("Bitemporal Healthcare Data, dbt Testing Standards, and the LLM Trap"), addressing clearinghouse/payer batch cycles, SCD Type 2 bitemporality, timestamp semantics, and clinical triage boundaries.
   - Codified non-negotiable healthcare dbt testing standards in `dbt-consulting.html` and `FAQPage` schema: surrogate key uniqueness, CMS NPI registry checks, ICD-10 and HCPCS/CPT validity, midnight (`00:00:00`) default timestamp audits, bitemporal enrollment desync detection, and referential integrity.
-  - Articulated the Schmitt-Thompson clinical triage protocol boundary in `healthcare-ai-consulting.html`: uncertified LLMs must never attempt clinical diagnosis or triage, focusing autonomous agents on administrative toil, operational coordination, and structured data pipelines.
+  - Articulated the clinical safety boundary in `healthcare-ai-consulting.html`: uncertified LLMs must never attempt clinical diagnosis or triage, focusing autonomous agents on administrative toil, operational coordination, and structured data pipelines.
   - Expanded the $2,500 diagnostic deliverable in `ai-readiness-assessment.html`: added ready-to-run execution scripts and dbt tests that client engineers can merge immediately during the 2-week engagement.
   - Updated `/llms.txt` and `/llms-full.txt` with these domain heuristics for direct citation by AI answer engines.
 - Built and deployed LLM Agent & Answer Engine Discovery Architecture:
@@ -176,31 +176,24 @@ The site infrastructure, measurement system, and branding are fully modernized:
 - Cloudflare Edge Analytics tracks all raw network requests (including scrapers and bots),
   while GA4 tracks JavaScript-executed browser sessions. High-volume traffic spikes without
   referrers from cloud datacenter regions (e.g. Brazil/AWS) represent automated scanner sweeps.
-- Deploy verification smoke checks: `https://refhealth.consulting/`,
-  `https://refhealth.consulting/intake`, and `https://refhealth.consulting/sitemap.xml`.
+- Deploy verification smoke checks: `https://refhealth.consulting/`, `https://refhealth.consulting/intake.html`, and `https://refhealth.consulting/sitemap.xml`.
 
-## For the site owner
+## Next up (for Claude Code, Codex, and other models)
 
-- The `.mcpb` is installed in Claude Desktop and worked on its bundled synthetic
-  CSV at version 0.1.1. Install version 0.1.2 to see the guide link on results
-  with findings, and try it on the bundled FHIR sample too. Share it
-  with a few health-tech data leaders, ask whether it helped answer a live feed
-  question, and record objections and qualified diagnostic conversations.
-- Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn
-  Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
-- Bot Fight Mode is now active in Cloudflare (`Security -> Bots -> Bot Fight Mode`),
-  challenging automated scrapers and cloud IP probes at the edge before they reach the site.
-- Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions,
-  distinguishing them from raw Cloudflare edge request volume.
-- Review the published $2,500 starting price after the first qualified inquiries.
-- Confirm the first real notification arrives in the consulting inbox, then
-  review the first qualified inquiries for fit and response time.
-- Provide any measurable, client-safe proof points or anonymized case stories
-  that can be used without customer or confidentiality risk.
-- Provide a calendar URL if email should not be the primary conversion path.
-- Review Bing Webmaster Tools after sitemap processing completes and inspect
-  its AI Performance report once enough data accumulates.
-- Review the new service-page wording for offer scope, timing, and claims before
-  publishing it as the permanent commercial language.
-- Recheck Search Console after qualified impressions or clicks accumulate, then
-  update the measurement note with buyer-language and page-level evidence.
+- [ ] Support Codex in-depth review: Verify all documentation contracts (`BRIEF.md`, `HANDOFF.md`, `ARCHITECTURE.md`, `README.md`, `TODO.md`), code standards, and security boundaries.
+- [ ] Build dedicated `/fractional-vp-data` executive landing page (`fractional-vp-data.html`) detailing the Fractional VP of Data advisory offering, board metric alignment, team sizing, and HDAIOS roadmap.
+- [ ] Build Interactive Executive ROI & Capacity Calculator (client-side widget comparing $350k+ full-time VP overhead vs. fractional advisory + execution bandwidth).
+- [ ] Cross-link new fractional landing page and ROI calculator into navigation, footer, `/llms.txt`, and `/llms-full.txt`.
+- [ ] Ensure `intake.html` listeners cleanly capture fractional executive advisory scopes alongside the existing diagnostic and claims lag scopes.
+
+## For the site owner (human)
+
+- [ ] Create LinkedIn Company Page for `ref(health) Consulting` (using copy provided in `thought-leadership-linkedin-campaign.md`).
+- [ ] Add "Founder & Fractional Principal" experience entry on personal LinkedIn profile, linking to the new company page.
+- [ ] Publish Post 1 from `thought-leadership-linkedin-campaign.md` to initiate the executive thought leadership sequence.
+- [ ] Register free company entity profiles on Crunchbase and Wellfound to establish permanent entity resolution nodes for OpenAI / Anthropic web crawlers.
+- [ ] The `.mcpb` is installed in Claude Desktop and worked on its bundled synthetic CSV at version 0.1.1. Share it with health-tech data leaders, ask whether it helped answer a live feed question, and record objections.
+- [ ] Review and initiate the $1,500 pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager (under the ref(health) company page) and Google Ads high-intent phrase search.
+- [ ] Monitor Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio for real engaged browser sessions, distinguishing them from raw Cloudflare edge request volume.
+- [ ] Review the published $2,500 starting price after the first qualified inquiries.
+- [ ] Confirm the first real notification arrives in the consulting inbox, then review the first qualified inquiries for fit and response time.

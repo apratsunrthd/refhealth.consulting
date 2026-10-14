@@ -19,11 +19,12 @@ Important files:
 - `mcp/test/` - feed rules and MCP client integration tests
 - Public extension source: `https://github.com/apratsunrthd/refhealth-feed-triage`; supports Claude Desktop (`.mcpb`) and Smithery CLI (`npx -y @smithery/cli install @apratsunrthd/refhealth-feed-triage`).
 - Public dbt test package: `https://github.com/apratsunrthd/refhealth-dbt-healthcare-checks`; open-source dbt package with 7 healthcare integrity tests.
-- Public starter repository: `https://github.com/apratsunrthd/refhealth-starter-dbt-project`; cloneable DuckDB healthcare dbt starter project (v1.1.0) with synthetic claims, monthly actuarial metrics, and 78 passing tests.
+- Public starter repository: `https://github.com/apratsunrthd/refhealth-starter-dbt-project`; cloneable DuckDB healthcare dbt starter project (v1.2.0) with synthetic claims, monthly actuarial metrics, FHIR encounter crosswalk, and 106 passing tests.
 - `hdaios.html` / `hdaios.md` - Healthcare Data AI Operating System (HDAIOS) v1.0 canonical architectural specification and interactive, zero-PHI self-assessment audit tool (`#assessment`)
+- `thought-leadership-linkedin-campaign.md` - 3-part executive LinkedIn sequence targeting health-tech CEOs/CTOs on data debt, fractional data leadership, and HDAIOS
 - Anthropic desktop extension directory submission for version 0.1.1 was recorded on 2026-10-11. Version 0.1.2 adds an optional guide link, but the submitted 0.1.1 package does not contain it. Monitor `contact@refhealth.consulting` for a review response; submission does not guarantee listing.
 - `healthcare-ai-consulting.html` - flagship Data AI Operating System offer
-- `healthcare-data-strategy.html` - healthcare data landscape and strategy offer
+- `healthcare-data-strategy.html` - healthcare data landscape and strategy offer, including `#fractional-leadership` executive advisory
 - `dbt-consulting.html` - dbt and analytics engineering offer, featuring interactive Claims Lag & Capital Float Calculator (`#calculator`)
 - `ai-readiness-assessment.html` - paid AI-readiness diagnostic offer and interactive Statement of Work (SOW) Generator (`#scope-generator`)
 - `intake.html` - paid diagnostic intake page with hosted Tally form, email fallback, and SOW query-parameter banner
@@ -33,13 +34,13 @@ Important files:
 - `og.png` - brand-safe 1200x630 social preview image
 - `og-card.svg` - editable source for the social preview image
 - `FORM_SETUP.md` - hosted-form field map and activation checklist
-- `AGENTS.md` - persisted GitHub Pages deployment configuration
+- `AGENTS.md` - Cloudflare Pages deployment configuration and health check rules
 - `about.html` - experience, translation layer, and engagement model
 - `styles.css` - shared CSS for all pages
 - `blog.html` - article index
 - `blog-edi-837-835-claims-modeling-dbt.html` - technical guide on EDI 837 claim submission vs 835 remittance reconciliation, CAS normalization, takebacks, and net denial rates
 - `blog-healthcare-dbt-audit-playbook.html` - 48-hour healthcare dbt audit playbook covering grain collapse, bitemporal desync, midnight timestamps, and code drift
-- `blog-bitemporal-healthcare-data-ai.html` - bitemporal claims modeling, healthcare dbt tests, and clinical triage boundaries
+- `blog-bitemporal-healthcare-data-ai.html` - bitemporal claims modeling, healthcare dbt tests, and clinical-diagnostic safety boundaries
 - `blog-data-ai-operating-system.html` - original AI operating-system explainer
 - `blog-healthcare-ai-model-strategy.html` - single-provider versus multi-model
   healthcare AI strategy article
@@ -57,33 +58,20 @@ Important files:
 
 ## Current Branch
 
-The measurement system is merged to `main` and deployed. It points every
-public page at the dedicated `refhealth.consulting` GA4 stream, adds shared
-attribution/conversion tracking, and records the operating system in
-`MEASUREMENT.md`. The free Data Studio report is available at
-`https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
-The startup positioning, $2,500 diagnostic path, privacy-safe
-intake measurement, best-fit guidance, and anonymized outcome proof are already
-on `main`.
+The strategic repositioning for **Executive Healthcare Data Leadership (Fractional VP of Data)** and **Company Data AI Operating Systems (HDAIOS)** is merged to `main` and verified live on Cloudflare Pages.
+Tactical dbt engineering and open-source packages now serve as our Layer 2 Governed Data Foundation proof-of-work.
 
-The diagnostic form is hosted by Tally at `https://tally.so/r/5BJOVN` and
-embedded in `intake.html`. Self email notifications are configured for the
-consulting inbox, and a synthetic non-sensitive test submission reached the
-custom confirmation page. `FORM_SETUP.md` contains the field map and setup
-record. Keep the plain-email fallback and no-sensitive-data guidance intact.
-Tally is connected to the Google Sheet `refhealth lead attribution`. The site
-passes only allow-listed UTM values, the first landing path, and the referring
-host to the seven matching hidden Tally fields. Those fields are present and
-published in the form editor; new submissions can now carry source context into
-the sheet.
-`AGENTS.md` contains the deployment settings for GitHub Pages, including the
-production URL and post-merge smoke checks.
-The email fallback appears before the hosted iframe so it remains reachable if
-Tally fails to load. Keep the surrounding intake copy aligned with the hosted
-submission flow.
-The three-step process list explicitly places each description in its content
-column; preserve that rule when changing the intake layout so mobile text stays
-readable.
+The site is hosted natively on Cloudflare Pages (`refhealth-consulting` project) with custom domains `refhealth.consulting` and `www.refhealth.consulting`.
+Automated CI/CD deployments trigger on push to `main` via `cloudflare/wrangler-action@v3`.
+The measurement system is active with dedicated GA4 web stream `G-05XLCL9N8S`, shared `analytics.js` attribution tracking, and Google Looker Studio dashboard:
+`https://datastudio.google.com/u/0/reporting/5f7d5706-71b8-4121-ba2b-73b29a223af7/page/QHz8F`.
+
+The diagnostic intake form is hosted by Tally at `https://tally.so/r/5BJOVN` and embedded in `intake.html` with query-parameter listeners for dynamic SOW generation and Claims Lag calculator handoffs.
+Self email notifications are configured for the consulting inbox, and a synthetic non-sensitive test submission reached the custom confirmation page.
+`FORM_SETUP.md` contains the field map and setup record. Keep the plain-email fallback and no-sensitive-data guidance intact.
+Tally is connected to Google Sheet `refhealth lead attribution` forwarding seven hidden attribution fields.
+`AGENTS.md` contains the deployment configuration for Cloudflare Pages, including root health checks and post-merge smoke checks.
+Preserve the layout rule placing descriptions in their content columns so mobile views remain responsive.
 
 ## Design Context
 
