@@ -2,7 +2,13 @@
 
 ## Recently completed
 
-- Resolved campaign review findings before landing PR #65: removed implied client deployment claims, scoped bitemporal rules to applicable data, preserved conditional provider strategy and the clinical boundary, made the scenario hypothetical, and added the referenced LinkedIn Company Page copy. Calculator roadmap now separates cash/equity and uses illustrative editable budgets.
+- Merged handoff PR #65 after resolving campaign review findings: hypothetical hiring example, no implied client deployments, scoped bitemporal controls, conditional provider strategy, explicit clinical boundary, and referenced LinkedIn Company Page copy.
+
+- Fixed zero-burn runway reporting when upfront costs exceed available cash, with a regression test that failed before the fix.
+- Implemented Fractional VP of Data landing page and executive calculator on `feat/fractional-vp-data` (awaiting PR merge/deployment):
+  - Editable Year 1 cash, runway, leadership capacity, and assumed first-metric timing; equity excluded from cash calculations.
+  - Local Markdown memo export, no financial parameters in the intake URL, and a dedicated advisory scope banner.
+  - Seven calculator/memo tests added to PR CI. Existing six MCP tests also pass; static links/fragments/JSON-LD checked across all 21 public HTML pages.
 
 - Executed and Passed In-Depth Codex Architectural & Documentation Review (PR #64):
   - Addressed all automated Codex review items: restored truncated deploy verification URLs in `TODO.md`, scrubbed clinical triage / Schmitt-Thompson references across `hdaios.md`, `hdaios.html`, `ARCHITECTURE.md`, `llms.txt`, and blog posts in favor of explicit clinical safety boundaries and non-compete guardrails, and restored operational feedback loops in `ARCHITECTURE.md` (linking Layer 4 human-in-the-loop triage to Layer 5 drift monitoring).
@@ -186,20 +192,12 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## Next up (for Claude Code, Codex, and other models)
 
-- [ ] Build dedicated `/fractional-vp-data` executive landing page (`fractional-vp-data.html`):
-  - Articulate executive value proposition for health-tech founders, CEOs, and CTOs (Series Seed through Series B).
-  - Detail 4 core executive pillars: Board & Metric Governance (MLR, CAC/LTV, net retention), Architecture & HDAIOS Roadmap, Data Team Hiring & Technical Diligence, and Vendor/Cloud Contract Negotiation.
-  - Detail advisory tiers: Strategic Advisory Retainer (bi-weekly board cadence, architectural oversight) vs. Embedded Fractional Leadership (hands-on roadmap direction, team management, HDAIOS rollout).
-  - Include zero-PHI clinical safety boundaries and non-compete guardrails.
-- [ ] Build Interactive Executive ROI & Capacity Calculator:
-  - Deploy zero-PHI, client-side calculator on `fractional-vp-data.html` (`#calculator`).
-  - Model editable full-time cash costs (base, cash bonus, benefits/payroll taxes, recruiting) vs. an illustrative fractional budget plus engineering sprints. Exclude equity from cash and runway; defaults are not market benchmarks or published advisory prices.
-  - Calculate signed cash-cost and cash-runway differences. Show leadership hours and first-board-metric timing as editable assumptions, not equivalent capacity or promised delivery dates.
-  - Implement 1-click Markdown scope memo generation and seamless query parameter pre-fill to `intake.html?scope=fractional-vp-data`.
-- [ ] Integrate Fractional Advisory Across Discovery & Site Architecture:
-  - Add `/fractional-vp-data` to site header navigation and footer across all public pages.
-  - Add dedicated scope parameter listener on `intake.html` to render custom executive scope banner when receiving `?scope=fractional-vp-data`.
-  - Update `sitemap.xml`, `/llms.txt`, and `/llms-full.txt` with structured executive offering definitions for AI answer engine citation.
+- [x] Implement dedicated `fractional-vp-data.html` executive landing page: four pillars, Strategic Advisory Retainer and Embedded Fractional Leadership, clinical safety boundaries, and conflict/non-compete screening.
+- [x] Implement client-side executive cost and capacity calculator (`#calculator`): separate cash from equity, show editable capacity/timing assumptions and cash-based runway, validate inputs, and download a Markdown scope memo.
+- [x] Integrate page into every public header/footer, homepage offer, strategy page, sitemap, and LLM discovery manifests. Advisory intake banner receives only `scope=fractional-vp-data`; financial inputs stay local.
+- [ ] Review and merge PR #66 from `feat/fractional-vp-data` to `main`. Implementation is verified locally; it is not deployed yet.
+- [ ] After merge, verify `/fractional-vp-data`, `/fractional-vp-data.html#calculator`, `/intake.html?scope=fractional-vp-data`, and `/sitemap.xml` on Cloudflare Pages.
+- [ ] Validate advisory scope, hours, and pricing with prospective buyers before publishing a rate card; calculator budgets are illustrative planning inputs.
 
 ## For the site owner (human)
 

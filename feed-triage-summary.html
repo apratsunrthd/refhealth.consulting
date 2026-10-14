@@ -31,6 +31,7 @@
   <style>
     .summary-main { overflow: hidden; }
     .summary-header .site-header__inner { flex-direction: row; align-items: center; justify-content: space-between; min-height: 72px; padding: 0; }
+    .summary-header nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; justify-content: flex-end; }
     .summary-header__details { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; text-decoration: none; }
     .summary-intro { padding: clamp(3.4rem, 7vw, 6rem) 0 clamp(2.6rem, 5vw, 4.2rem); }
     .summary-intro__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, .82fr); gap: clamp(2rem, 6vw, 5rem); align-items: end; }
@@ -128,7 +129,7 @@
   <script defer src="analytics.js"></script>
 </head>
 <body>
-  <header class="site-header summary-header"><div class="container site-header__inner"><a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a><nav aria-label="Overview navigation"><a class="summary-header__details" href="feed-triage.html">Extension details →</a></nav></div></header>
+  <header class="site-header summary-header"><div class="container site-header__inner"><a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a><nav aria-label="Overview navigation"><a class="summary-header__details" href="fractional-vp-data.html">Fractional VP of Data</a> <a class="summary-header__details" href="feed-triage.html">Extension details →</a></nav></div></header>
   <main class="summary-main">
     <section class="summary-intro"><div class="container summary-intro__grid"><div><h1>See what your feed can tell you.</h1><p class="summary-intro__lead">Healthcare Feed Triage turns one local file into measured findings Claude can explain.</p><div class="summary-intro__actions"><a class="btn btn--primary" href="refhealth-feed-triage.mcpb" download onclick="if(window.gtag)gtag('event','feed_extension_download_click')">Download the extension</a><a class="btn btn--secondary" href="#sample">See the sample result</a></div><p class="summary-intro__note">Free Claude Desktop extension · CSV or FHIR Bundle · No separate account</p></div><div class="summary-stamp" aria-label="Extension summary"><div><span class="summary-stamp__label">The job</span><strong>Find the evidence before you build the trigger.</strong></div><span class="summary-stamp__meta">.mcpb · v0.1.2</span></div></div></section>
 
@@ -140,7 +141,8 @@
 
     <section class="summary-next" aria-labelledby="next-title"><div class="container summary-next__grid"><div><h2 id="next-title">Try it on the bundled sample.</h2><p>Install the .mcpb in Claude Desktop, then ask: “Could this feed support a 24-hour follow-up trigger?”</p><div class="summary-links"><a href="feed-triage.html">Install steps and input details</a><a href="feed-triage-privacy.html">Privacy and data handling</a></div></div><a class="btn" href="refhealth-feed-triage.mcpb" download onclick="if(window.gtag)gtag('event','feed_extension_download_click')">Download .mcpb</a></div></section>
   </main>
-  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation"><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
+  <footer class="footer"><div class="container footer__content"><span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span><nav class="footer__links" aria-label="Footer navigation">
+        <a href="fractional-vp-data.html">Fractional VP of Data</a><a href="healthcare-ai-consulting.html">Healthcare AI</a><a href="healthcare-data-strategy.html">Data strategy</a><a href="about.html">About</a><a href="mailto:contact@refhealth.consulting">Contact</a></nav></div></footer>
   <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>

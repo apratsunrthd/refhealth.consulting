@@ -96,6 +96,7 @@
     <div class="container site-header__inner">
       <a class="site-logo" href="index.html" aria-label="ref(health) Consulting home"><span class="site-logo__mark">ref</span><span>(health)</span></a>
       <nav class="site-nav" aria-label="Primary navigation">
+        <a href="fractional-vp-data.html">Fractional VP of Data</a>
         <a href="index.html#offers">Offers</a>
         <a href="index.html#ai">AI work</a>
         <a href="about.html">About</a>
@@ -190,6 +191,7 @@
     <div class="container footer__content">
       <span>&copy; <span id="year"></span> ref(health) Consulting. Healthcare data, analytics, and AI operating systems.</span>
       <nav class="footer__links" aria-label="Footer navigation">
+        <a href="fractional-vp-data.html">Fractional VP of Data</a>
         <a href="healthcare-ai-consulting.html">Healthcare AI</a>
         <a href="healthcare-data-strategy.html">Data strategy</a>
         <a href="dbt-consulting.html">dbt consulting</a>
@@ -207,7 +209,10 @@
         var banner = document.getElementById("scope-banner");
         var text = document.getElementById("scope-summary-text");
         if (banner && text) {
-          if (params.get("capital_float")) {
+          if (scope === "fractional-vp-data") {
+            banner.querySelector("strong").textContent = "Fractional VP of Data advisory scope";
+            text.textContent = "Scope a focused executive advisory diagnostic: board metric governance, HDAIOS roadmap, team design, and cloud/vendor review. The diagnostic starts at $2,500; ongoing leadership scope and pricing are agreed separately. Calculator inputs are not attached. Mention your engagement preference, decision, owner, and deadline in the form below.";
+          } else if (params.get("capital_float")) {
             text.textContent = "Claims Lag Audit Scope: " + params.get("volume") + " Monthly Volume (" + params.get("turnaround_lag").replace(/_/g, " ") + ", " + params.get("capital_float") + " unadjudicated float)";
           } else {
             text.textContent = scope;
