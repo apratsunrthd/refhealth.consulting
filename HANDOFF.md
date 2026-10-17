@@ -2,6 +2,8 @@
 
 ## Fast Orientation
 
+**Next objective (owner-confirmed 2026-10-17):** Review, edit, and potentially rewrite Post 1 in `thought-leadership-linkedin-campaign.md` in the owner’s own voice. Post 1 is unpublished. Resume this writing work when the owner is ready; preserve the current draft until then.
+
 This is a static marketing site. Open `index.html` directly to preview the
 homepage. Serve the directory over HTTP to preview `/feed-triage.html` and
 download its `.mcpb` extension: `python3 -m http.server 8000`. The local MCP
@@ -9,6 +11,8 @@ server lives in `mcp/`; run `npm ci --prefix mcp`, `npm test --prefix mcp`, and
 `./scripts/build-feed-bundle.sh` after changing it.
 
 Important files:
+
+- `assets/brand/refhealth-linkedin-logo.png` / `.svg` - 400×400 LinkedIn Company Page logo and vector source, adapted from the existing favicon; ready to upload
 
 - `fractional-vp-data.html` / `fractional-vp-data.css` / `fractional-vp-data.js` - executive offering and client-side cash/runway/capacity comparison (`#calculator`), local Markdown scope memo, and advisory intake handoff; live at `/fractional-vp-data` after PR #66
 - `test/executive-calculator.test.cjs` - seven arithmetic/memo tests; run `node --test test/executive-calculator.test.cjs` (also in PR CI)
@@ -61,7 +65,7 @@ Important files:
 
 ## Current Branch
 
-PRs #65 and #66 are squash-merged to `main`. The reviewed campaign/Company Page copy and executive offering are deployed on Cloudflare Pages and verified on 2026-10-14. Release verification is recorded in `docs/deployments/2026-10-14-pr66.md`; there is no outstanding implementation branch to land.
+PRs #65 and #66 are squash-merged to `main`. The reviewed campaign/Company Page copy and executive offering are deployed on Cloudflare Pages and verified on 2026-10-14. Release verification is recorded in `docs/deployments/2026-10-14-pr66.md`; LinkedIn logo and Company Page setup records are included in PR #68.
 
 Calculator inputs stay in browser memory. The downloaded memo includes all assumptions; the intake URL contains only `scope=fractional-vp-data`. Do not add financial values to URLs, Tally, storage, or analytics. Equity is excluded from cash/runway, recruiting and sprints are treated as upfront, and timing/capacity inputs do not promise equivalent scope or delivery speed.
 
@@ -92,11 +96,11 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 - Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Seven calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.
 
 ### 2. For the Site Owner (Human Actions)
-- **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.
+- **LinkedIn Company Page**: Created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Reference copy and logo are in `thought-leadership-linkedin-campaign.md`.
 - **Personal Profile Link**: Add "Founder & Fractional Principal" under Experience on your personal LinkedIn profile, linked directly to the new company page.
-- **Publish Post 1**: Syndicate Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Health-Tech AI Pilots Stall in the Data Layer").
+- **Post 1 — next objective**: Unpublished. The owner wants to review, edit, and potentially rewrite it in their own voice before publishing. Preserve the draft in `thought-leadership-linkedin-campaign.md` until that writing session.
 - **Knowledge Graph Entity Anchors**: Register free basic company profiles on **Crunchbase** and **Wellfound** (formerly AngelList) for `ref(health) Consulting` (URL: `https://refhealth.consulting`). This gives LLM web-search crawlers (ChatGPT Search / OAI-SearchBot, ClaudeBot, PerplexityBot) verifiable external entity resolution nodes.
-- **Paid Acquisition Sprint**: Review and initiate the $1,500 30-day pilot sprint outlined in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager and Google Search.
+- **Paid Acquisition Sprint**: `ADVERTISING_PLAN.md` is a planning reference; its dates need rebaselining if the owner chooses to launch. The immediate next objective is the Post 1 voice review.
 
 ## Design Context
 

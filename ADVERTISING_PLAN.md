@@ -1,6 +1,8 @@
 # ref(health) Consulting — Paid Acquisition & Advertising Plan
 
-**Objective**: Acquire qualified commercial inquiries for the **$2,500 AI-Readiness Diagnostic** from Seed-to-Series B health-tech startups, creating an inbound pipeline for full Data AI Operating System buildouts ($15k–$50k+).
+**Planning status (2026-10-17):** The owner’s immediate next objective is to review/edit/rewrite the unpublished organic Post 1 in their own voice. The pilot dates below are illustrative; rebaseline them when the owner chooses to launch.
+
+**Objective**: Acquire qualified commercial inquiries for the **$2,500 AI-Readiness Diagnostic** from Seed-to-Series B health-tech startups, creating an inbound pipeline for Data AI Operating System implementations (scope and pricing agreed separately).
 
 **Brand & Privacy Policy**:
 All advertising is conducted strictly under the **ref(health) Consulting** brand and company page. No campaigns or sponsored content will run through the founder's personal LinkedIn profile, ensuring complete separation from personal accounts and day-job activities.

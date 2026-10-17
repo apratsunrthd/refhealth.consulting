@@ -1,7 +1,9 @@
 # Healthcare Data Leadership & AI Operating System Thought Leadership Sequence
+
+**Status (2026-10-17):** Post 1 has not been published. The owner’s next objective is to review, edit, and potentially rewrite it in their own voice. Existing post text remains a working draft; publication follows the owner’s approval of the final copy.
 **Target Audience:** Health-Tech Founders, CEOs, CTOs, Chief Product Officers, Health-Tech VCs  
 **Voice & Tone:** Senior Healthcare Data Executive & Fractional VP of Data (authoritative, battle-tested, pragmatic, zero hype)  
-**Distribution Cadence:** Post 1 (Tuesday morning), Post 2 (Thursday morning), Post 3 (Following Tuesday morning)
+**Proposed Distribution Cadence (after draft approval):** Post 1 (Tuesday morning), Post 2 (Thursday morning), Post 3 (Following Tuesday morning)
 
 ---
 
@@ -116,13 +118,17 @@ If your organization is building AI on healthcare data, which layer is currently
 
 ## LinkedIn Company Page Copy
 
-Draft fields for the owner to enter when creating the company page. Confirm the page handle and any required organization details in LinkedIn before publishing.
+Company Page creation confirmed by the owner on 2026-10-17. Reference copy and branding assets are below.
 
 **Name:** ref(health) Consulting
 
 **Website:** https://refhealth.consulting
 
-**Proposed page handle:** refhealth-consulting (availability not checked)
+**Company Page:** https://www.linkedin.com/company/refhealthconsulting
+
+**Page handle:** refhealthconsulting
+
+**Logo:** Upload [refhealth-linkedin-logo.png](assets/brand/refhealth-linkedin-logo.png), a 400×400 PNG. Editable source: [refhealth-linkedin-logo.svg](assets/brand/refhealth-linkedin-logo.svg).
 
 **Tagline:** Executive healthcare data leadership. Governed data foundations. Practical AI operating systems.
 

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="title desc">
+  <title id="title">ref(health) Consulting</title>
+  <desc id="desc">Red ref wordmark with a green signal dot on an ink background.</desc>
+  <rect width="400" height="400" fill="#11100e"/>
+  <g transform="translate(32 32) scale(10.5)">
+    <text x="3.5" y="21" font-family="'IBM Plex Mono', Menlo, monospace" font-size="14" font-weight="700" letter-spacing="-0.5" fill="#d1392d">ref</text>
+    <circle cx="26.5" cy="18.5" r="2.5" fill="#19795b"/>
+  </g>
+</svg>
