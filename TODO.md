@@ -2,9 +2,9 @@
 
 ## Recently completed
 
-- LinkedIn Company Page created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Founder Experience linkage and publishing Post 1 remain next actions.
+- LinkedIn Company Page created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Post 1 is unpublished and awaits the owner’s voice review/rewrite; Founder Experience linkage has not been confirmed.
 
-- Prepared a 400×400 LinkedIn logo PNG and SVG source in `assets/brand/`, reusing the current favicon mark and palette. PNG dimensions and rendered appearance verified; upload is pending owner action.
+- Prepared a 400×400 LinkedIn logo PNG and SVG source in `assets/brand/`, reusing the current favicon mark and palette. PNG dimensions and rendered appearance verified; upload status has not been confirmed.
 
 - Merged handoff PR #65 after resolving campaign review findings: hypothetical hiring example, no implied client deployments, scoped bitemporal controls, conditional provider strategy, explicit clinical boundary, and referenced LinkedIn Company Page copy.
 
@@ -196,6 +196,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 
 ## Next up (for Claude Code, Codex, and other models)
 
+- [ ] **Next objective: help the owner review, edit, and potentially rewrite Post 1 in their own voice** when they resume the writing session. Preserve the current draft until then; it has not been published.
+
 - [x] Implement dedicated `fractional-vp-data.html` executive landing page: four pillars, Strategic Advisory Retainer and Embedded Fractional Leadership, clinical safety boundaries, and conflict/non-compete screening.
 - [x] Implement client-side executive cost and capacity calculator (`#calculator`): separate cash from equity, show editable capacity/timing assumptions and cash-based runway, validate inputs, and download a Markdown scope memo.
 - [x] Integrate page into every public header/footer, homepage offer, strategy page, sitemap, and LLM discovery manifests. Advisory intake banner receives only `scope=fractional-vp-data`; financial inputs stay local.
@@ -208,15 +210,16 @@ The site infrastructure, measurement system, and branding are fully modernized:
 ### 1. Off-Site Citation Footprint & Entity Resolution (AI Answer Engine Authority)
 - [x] **Create LinkedIn Company Page (`ref(health) Consulting`)**: [https://www.linkedin.com/company/refhealthconsulting](https://www.linkedin.com/company/refhealthconsulting) — owner-confirmed 2026-10-17.
 - [ ] **Review Company Page branding and profile details**:
-  - Upload [`assets/brand/refhealth-linkedin-logo.png`](assets/brand/refhealth-linkedin-logo.png) as the logo (400×400 PNG).
+  - Confirm or upload [`assets/brand/refhealth-linkedin-logo.png`](assets/brand/refhealth-linkedin-logo.png) as the logo (400×400 PNG); upload status is unconfirmed.
   - Follow copy and profile metadata specified in [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md).
   - Use the Company Page tagline and About copy in the campaign file; select the closest available consulting industry category and supply the actual organization details.
   - Set Website: `https://refhealth.consulting`.
 - [ ] **Link Founder Experience on Personal LinkedIn**:
   - Add role: "Founder & Fractional Principal" at `ref(health) Consulting`.
   - Describe scope: Fractional VP of Data advisory, Healthcare Data AI Operating Systems (HDAIOS), and board-level data governance for health-tech startups.
-- [ ] **Syndicate Post 1 from Executive Sequence**:
-  - Publish Post 1 from [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md) ("Why Health-Tech AI Pilots Stall in the Data Layer").
+- [ ] **Review/edit/rewrite Post 1 in the owner’s voice — immediate next objective**:
+  - Current draft: [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md). The owner confirmed on 2026-10-17 that it has not been published.
+- [ ] **Publish Post 1 after the owner approves the final copy**:
   - Post natively from personal profile; tag company page in comments.
 - [ ] **Anchor Knowledge Graph Entity Profiles**:
   - Claim basic free company profile on **Crunchbase** for `ref(health) Consulting` (pointing to `https://refhealth.consulting`).
@@ -224,7 +227,7 @@ The site infrastructure, measurement system, and branding are fully modernized:
   - *Rationale*: Establishes authoritative, permanent entity resolution nodes that OpenAI (SearchGPT), Anthropic (Claude), Perplexity, and Google cross-reference when evaluating company legitimacy and author citations.
 
 ### 2. Paid Growth & Commercial Verification
-- [ ] Review and launch the $1,500 pilot sprint detailed in `ADVERTISING_PLAN.md` via LinkedIn Campaign Manager and Google Search Ads.
+- [ ] Revisit the proposed $1,500 pilot sprint in `ADVERTISING_PLAN.md` when the owner chooses to launch; rebaseline its illustrative dates.
 - [ ] Monitor incoming leads in `refhealth.consulting@gmail.com` and the connected Google Sheet `refhealth lead attribution`.
 - [ ] Monitor real browser engagement in Google Analytics 4 (`G-05XLCL9N8S`) and Looker Studio, filtering out raw Cloudflare edge crawler spikes.
 - [ ] Review the published $2,500 starting price after initial qualified conversations.

@@ -112,7 +112,7 @@ points to that repository and the extension privacy page.
   * The **No Default Healthcare Blue** rule: avoids generic healthcare gradients in favor of operational, senior visual discipline.
   * Typography: `IBM Plex Sans` for executive argument; `IBM Plex Mono` for status markers, numbers, and system layers.
   * Radius: 6px control surfaces with tactile `:active` press states.
-* **Brand Assets**: Custom SVG favicon (`favicon.svg`), PWA webmanifest (`site.webmanifest`), and deterministic 1200x630 social preview card (`og.png` / `og-card.svg`).
+* **Brand Assets**: Custom SVG favicon (`favicon.svg`), PWA webmanifest (`site.webmanifest`), and deterministic 1200x630 social preview card (`og.png` / `og-card.svg`), plus the 400×400 LinkedIn Company Page avatar and SVG source in `assets/brand/`.
 
 ---
 

@@ -4,6 +4,8 @@ Static marketing site for ref(health) Consulting, an executive healthcare data l
 
 The firm specializes in **Fractional VP of Data** leadership, **Company Data AI Operating Systems (HDAIOS)**, and 2-week AI-readiness diagnostics ($2,500). dbt analytics engineering and open-source packages serve as our Layer 2 Governed Data Foundation proof-of-work ("we know the plumbing down to the metal") rather than an hourly contractor offering. The primary buyer is a health-tech founder, CEO, or CTO; provider and health plan data teams remain secondary audiences. Dedicated service pages, an interactive intake, and original technical playbooks make the offers clear for search engines, LLM answer engines, and prospective clients. Free [Healthcare Feed Triage](feed-triage.html) is a downloadable Claude Desktop extension that inspects local CSV event feeds and FHIR Bundles for concrete timing and data-quality defects.
 
+Company Page: [ref(health) Consulting on LinkedIn](https://www.linkedin.com/company/refhealthconsulting). Campaign drafts and setup copy are in [thought-leadership-linkedin-campaign.md](thought-leadership-linkedin-campaign.md).
+
 ## Development
 
 No build tooling is required for the site. Open `index.html` in a browser to preview
@@ -43,6 +45,8 @@ extension files, rebuild the download with:
 - `llms.txt` and `llms-full.txt` - machine-readable manifests and token-dense knowledge corpus for AI answer engines and autonomous agents
 - `styles.css` - shared visual system
 - `og.png` and `og-card.svg` - social preview asset and editable source
+- `assets/brand/refhealth-linkedin-logo.png` / `.svg` - 400×400 Company Page logo and editable source
+- `docs/deployments/2026-10-14-pr66.md` - executive offering deployment and verification record
 - `FORM_SETUP.md` - hosted diagnostic form setup checklist
 - `robots.txt` and `sitemap.xml` - crawl policy and public URL inventory
 - Open-Source Repositories:
