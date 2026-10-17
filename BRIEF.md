@@ -12,6 +12,8 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
 
 ## Current State
 
+- The LinkedIn Company Page is created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Linking Founder Experience and publishing Post 1 remain next actions.
+
 - A LinkedIn Company Page logo is prepared at `assets/brand/refhealth-linkedin-logo.png` (400×400 PNG, under 3 MB), with an editable SVG sibling. It adapts the existing favicon mark and palette; uploading it to LinkedIn remains an owner action.
 
 - Handoff PR #65 is merged. Its campaign now includes the Company Page draft, explicit hypothetical hiring scenario, domain-appropriate bitemporal controls, conditional provider strategy, and clinical boundaries.
@@ -239,4 +241,4 @@ or inclusion.
 
 See `TODO.md`. Executive offering implementation and production verification are complete. Validate advisory scope/hours/pricing with prospects before publishing a rate card, and monitor qualified diagnostic/advisory inquiries.
 
-Human growth tasks remain: create the LinkedIn Company Page, add Founder experience, publish Post 1 from `thought-leadership-linkedin-campaign.md`, and establish external entity profiles. Monitor inbound diagnostic and advisory requests in the consulting inbox and attribution ledger.
+Human growth tasks remain: review Company Page details, add Founder experience, publish Post 1 from `thought-leadership-linkedin-campaign.md`, and establish external entity profiles. Monitor inbound diagnostic and advisory requests in the consulting inbox and attribution ledger.

@@ -2,6 +2,8 @@
 
 ## Recently completed
 
+- LinkedIn Company Page created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Founder Experience linkage and publishing Post 1 remain next actions.
+
 - Prepared a 400×400 LinkedIn logo PNG and SVG source in `assets/brand/`, reusing the current favicon mark and palette. PNG dimensions and rendered appearance verified; upload is pending owner action.
 
 - Merged handoff PR #65 after resolving campaign review findings: hypothetical hiring example, no implied client deployments, scoped bitemporal controls, conditional provider strategy, explicit clinical boundary, and referenced LinkedIn Company Page copy.
@@ -204,7 +206,8 @@ The site infrastructure, measurement system, and branding are fully modernized:
 ## For the site owner (human)
 
 ### 1. Off-Site Citation Footprint & Entity Resolution (AI Answer Engine Authority)
-- [ ] **Create LinkedIn Company Page (`ref(health) Consulting`)**:
+- [x] **Create LinkedIn Company Page (`ref(health) Consulting`)**: [https://www.linkedin.com/company/refhealthconsulting](https://www.linkedin.com/company/refhealthconsulting) — owner-confirmed 2026-10-17.
+- [ ] **Review Company Page branding and profile details**:
   - Upload [`assets/brand/refhealth-linkedin-logo.png`](assets/brand/refhealth-linkedin-logo.png) as the logo (400×400 PNG).
   - Follow copy and profile metadata specified in [`thought-leadership-linkedin-campaign.md`](thought-leadership-linkedin-campaign.md).
   - Use the Company Page tagline and About copy in the campaign file; select the closest available consulting industry category and supply the actual organization details.

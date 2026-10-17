@@ -94,7 +94,7 @@ Preserve the layout rule placing descriptions in their content columns so mobile
 - Browser verification covered 1440px and 390px layouts, signed cost/runway differences, zero/invalid inputs, reset, memo export, and the advisory intake banner. Seven calculator tests and the existing six MCP tests pass; static link/fragment/JSON-LD checks covered 21 HTML pages.
 
 ### 2. For the Site Owner (Human Actions)
-- **LinkedIn Company Page**: Create `ref(health) Consulting` on LinkedIn using the pre-drafted copy in `thought-leadership-linkedin-campaign.md`.
+- **LinkedIn Company Page**: Created at https://www.linkedin.com/company/refhealthconsulting (owner-confirmed 2026-10-17). Reference copy and logo are in `thought-leadership-linkedin-campaign.md`.
 - **Personal Profile Link**: Add "Founder & Fractional Principal" under Experience on your personal LinkedIn profile, linked directly to the new company page.
 - **Publish Post 1**: Syndicate Post 1 from `thought-leadership-linkedin-campaign.md` ("Why Health-Tech AI Pilots Stall in the Data Layer").
 - **Knowledge Graph Entity Anchors**: Register free basic company profiles on **Crunchbase** and **Wellfound** (formerly AngelList) for `ref(health) Consulting` (URL: `https://refhealth.consulting`). This gives LLM web-search crawlers (ChatGPT Search / OAI-SearchBot, ClaudeBot, PerplexityBot) verifiable external entity resolution nodes.
