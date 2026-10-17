@@ -124,6 +124,8 @@ Draft fields for the owner to enter when creating the company page. Confirm the 
 
 **Proposed page handle:** refhealth-consulting (availability not checked)
 
+**Logo:** Upload [refhealth-linkedin-logo.png](assets/brand/refhealth-linkedin-logo.png), a 400×400 PNG. Editable source: [refhealth-linkedin-logo.svg](assets/brand/refhealth-linkedin-logo.svg).
+
 **Tagline:** Executive healthcare data leadership. Governed data foundations. Practical AI operating systems.
 
 **About:**

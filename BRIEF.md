@@ -12,6 +12,8 @@ serve as the Governed Data Foundation (Layer 2) proof-of-work rather than an hou
 
 ## Current State
 
+- A LinkedIn Company Page logo is prepared at `assets/brand/refhealth-linkedin-logo.png` (400×400 PNG, under 3 MB), with an editable SVG sibling. It adapts the existing favicon mark and palette; uploading it to LinkedIn remains an owner action.
+
 - Handoff PR #65 is merged. Its campaign now includes the Company Page draft, explicit hypothetical hiring scenario, domain-appropriate bitemporal controls, conditional provider strategy, and clinical boundaries.
 
 - The dedicated executive leadership landing page, cost/runway/capacity calculator, local Markdown memo, advisory intake banner, and site-wide discovery links are live at `/fractional-vp-data`. PRs #65 and #66 are squash-merged to `main`; Cloudflare deployment and production checks passed on 2026-10-14. The reviewed campaign corrections and Company Page copy are included. Calculator defaults are illustrative, not market benchmarks or published advisory prices; cash and equity are separate, and capacity/timing are user assumptions. Seven calculator tests are included in CI.

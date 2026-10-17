@@ -226,3 +226,8 @@ lines, or map-like clutter.
 - **Don't** use generic AI agency language, purple gradients, glassmorphism, or
   decorative icon cards.
 - **Don't** turn mono labels into long body copy.
+
+
+## Social profile logo
+
+`assets/brand/refhealth-linkedin-logo.svg` adapts the favicon's red `ref` wordmark and green signal dot to a square ink canvas with inset spacing. The 400×400 PNG sibling is the LinkedIn upload asset. The SVG uses IBM Plex Mono with Menlo/monospace fallbacks; the PNG freezes the rendered appearance. Preserve the existing favicon and website wordmark.

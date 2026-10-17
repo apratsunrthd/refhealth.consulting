@@ -10,6 +10,8 @@ server lives in `mcp/`; run `npm ci --prefix mcp`, `npm test --prefix mcp`, and
 
 Important files:
 
+- `assets/brand/refhealth-linkedin-logo.png` / `.svg` - 400×400 LinkedIn Company Page logo and vector source, adapted from the existing favicon; ready to upload
+
 - `fractional-vp-data.html` / `fractional-vp-data.css` / `fractional-vp-data.js` - executive offering and client-side cash/runway/capacity comparison (`#calculator`), local Markdown scope memo, and advisory intake handoff; live at `/fractional-vp-data` after PR #66
 - `test/executive-calculator.test.cjs` - seven arithmetic/memo tests; run `node --test test/executive-calculator.test.cjs` (also in PR CI)
 
